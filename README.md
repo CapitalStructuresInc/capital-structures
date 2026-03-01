@@ -2,13 +2,13 @@
 
 Delaware C-Corporation · Est. 2025
 
-An intellectual property company whose sole product is the design, execution, and disclosure of corporate and financial structures.
+An intellectual property company whose sole product is the creation, execution, and disclosure of corporate and financial structures.
 
 ---
 
 ## What This Is
 
-This repository is the disclosed operational infrastructure of Capital Structures Inc. The company's back office — its agents, templates, governance documents, and structure records — is public. There is no separation between internal and external. That is the work.
+This repository is the disclosed operational infrastructure of Capital Structures Inc. The company's back office — its agents, templates, governance documents, and structure records — is public. 
 
 ## Repository Structure
 
