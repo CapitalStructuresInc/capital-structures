@@ -57,12 +57,27 @@
         }
 
         /* —— Enron E palette (Rand's original: red, yellow, blue) —— */
-        /* Yellow is the primary hover — the one Rand intended */
-        .structure-row:hover { background: rgba(255,209,0,0.15); }
-        .doc-link:hover { background: rgba(255,209,0,0.20); }
-        .nav-links a:hover { border-bottom-color: #FFD100; }
+        /* Yellow #FFD100 — full opacity selection fill ("you're on this") */
+        /* Blue #003DA5 — all hover states ("you can interact with this") */
+        /* Red #CE1126 — rules on hover ("the lines are alive") */
+
+        /* Blue — all interactive hover text/underlines */
+        .nav-links a:hover { border-bottom-color: #003DA5; color: #003DA5; }
+        .nav-links a.active { border-bottom-color: #003DA5; }
+        .doc-link:hover { color: #003DA5; text-decoration-color: #003DA5; }
+        .nav-logo a:hover { color: #003DA5; }
+
+        /* Yellow — full opacity selection fills */
+        .structure-row:hover { background: #FFD100; }
         .svg-link:hover rect,
-        .svg-link:hover path { fill: rgba(255,209,0,0.12); }
+        .svg-link:hover path { fill: #FFD100; }
+
+        /* Red — rules light up on hover */
+        .rule-heavy:hover { border-top-color: #CE1126; }
+        .rule-footer:hover { border-top-color: #CE1126; }
+        .section-label:hover { border-top-color: #CE1126; }
+        nav { transition: border-color 0.15s; }
+        nav:hover { border-bottom-color: #CE1126; }
 
         /* —— Split layout —— */
         .split {
@@ -106,7 +121,7 @@
         }
         .preview-body[data-default="true"] {
             display: flex;
-            align-items: center;
+            align-items: flex-start;
             padding: 40px 36px;
         }
         .preview-body[data-default="true"] + .preview-header-hide { display: none; }
@@ -191,22 +206,11 @@
         }
 
         /* —— Left panel content —— */
-        h1.page-title {
-            font-size: 18px;
-            font-weight: bold;
-            letter-spacing: 0.02em;
-            margin-bottom: 4px;
-        }
-        .jurisdiction {
-            font-size: 13px;
-            color: #000;
-            letter-spacing: 0.04em;
-            margin-bottom: 32px;
-        }
         .rule-heavy {
             border: none;
             border-top: 6px solid #000;
             margin: 0 0 32px 0;
+            transition: border-color 0.15s;
         }
         p.intro {
             margin-bottom: 24px;
@@ -221,6 +225,7 @@
             margin-bottom: 12px;
             padding-top: 12px;
             border-top: 3px solid #000;
+            transition: border-color 0.15s;
         }
         table {
             width: 100%;
@@ -247,7 +252,6 @@
 
         /* Structure index rows */
         .structure-row { cursor: pointer; }
-        /* row hover set via Enron palette above */
         .structure-toggle {
             font-family: Arial, Helvetica, sans-serif;
             font-size: 14px;
@@ -255,6 +259,7 @@
             width: 20px;
             display: inline-block;
             text-align: center;
+            color: #003DA5;
         }
         .structure-detail { display: none; }
         .structure-detail td {
@@ -284,11 +289,72 @@
             border: none;
             border-top: 6px solid #000;
             margin: 48px 0 16px 0;
+            transition: border-color 0.15s;
         }
         .footer {
             font-size: 11px;
             color: #000;
             letter-spacing: 0.03em;
+        }
+
+        /* —— Tablet (≤1024px) —— */
+        @media (max-width: 1024px) {
+            .panel-left { width: 55%; padding: 32px 28px; }
+            .panel-right { width: 45%; }
+            .hero-statement { font-size: 36px; }
+            .preview-body { padding: 28px; }
+            .preview-body[data-default="true"] { padding: 32px 28px; }
+            nav { padding: 12px 24px; }
+            .nav-logo { margin-right: 24px; }
+            .nav-links { gap: 18px; }
+        }
+
+        /* —— Mobile (≤768px) — stack panels —— */
+        @media (max-width: 768px) {
+            body { display: block; height: auto; }
+            .split { flex-direction: column; overflow: visible; }
+            .panel-left {
+                width: 100%;
+                padding: 28px 20px;
+                overflow-y: visible;
+            }
+            .panel-right {
+                width: 100%;
+                border-left: none;
+                border-top: 6px solid #000;
+                min-height: 50vh;
+            }
+            .preview-body[data-default="true"] {
+                padding: 28px 20px;
+                min-height: 40vh;
+            }
+            .hero-statement { font-size: 28px; }
+            .preview-body { padding: 24px 20px; }
+            .preview-header { padding: 12px 20px; }
+            nav {
+                flex-wrap: wrap;
+                padding: 12px 20px;
+                gap: 8px;
+            }
+            .nav-logo {
+                width: 100%;
+                margin-right: 0;
+                margin-bottom: 6px;
+            }
+            .nav-links { gap: 16px; }
+            p.intro { line-height: 1.35; }
+            th, td { font-size: 12px; padding: 6px 8px 6px 0; }
+            .structure-detail-inner { padding: 12px 0; }
+        }
+
+        /* —— Small mobile (≤480px) —— */
+        @media (max-width: 480px) {
+            .hero-statement { font-size: 22px; }
+            .panel-left { padding: 20px 16px; }
+            .preview-body { padding: 20px 16px; }
+            .preview-body[data-default="true"] { padding: 20px 16px; }
+            nav { padding: 10px 16px; }
+            .nav-links a { font-size: 9px; }
         }
     </style>
 </head>
@@ -308,11 +374,6 @@
 
 <!-- ════════ LEFT PANEL ════════ -->
 <div class="panel-left" id="left-panel">
-
-<h1 class="page-title">Capital Structures, Inc.</h1>
-<div class="jurisdiction">Delaware C-Corporation · Est. 2025</div>
-
-<hr class="rule-heavy">
 
 <p class="intro">Capital Structures, Inc. is an intellectual property company whose sole product is the creation, execution, and disclosure of corporate and financial structures.</p>
 
