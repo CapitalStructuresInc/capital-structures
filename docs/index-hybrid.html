@@ -1,0 +1,542 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Capital Structures, Inc.</title>
+    <style>
+        @font-face {
+            font-family: '188 Sans';
+            src: url('fonts/188-Sans-Regular.otf') format('opentype');
+            font-weight: normal;
+            font-style: normal;
+        }
+        @font-face {
+            font-family: '188 Sans';
+            src: url('fonts/188-Sans-Bold.ttf') format('truetype');
+            font-weight: bold;
+            font-style: normal;
+        }
+        @font-face {
+            font-family: '188 Sans Mono';
+            src: url('fonts/188-Sans-Mono.otf') format('opentype');
+            font-weight: normal;
+            font-style: normal;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        body {
+            font-family: '188 Sans', Arial, Helvetica, sans-serif;
+            font-size: 15px;
+            line-height: 1.65;
+            color: #000;
+            background: #fff;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* —— Nav —— */
+        nav {
+            position: sticky;
+            top: 0;
+            background: #fff;
+            z-index: 10;
+            max-width: 960px;
+            margin: 0 auto;
+            padding: 28px 32px 20px 32px;
+            display: flex;
+            align-items: baseline;
+            justify-content: space-between;
+            border-bottom: 3px solid #000;
+        }
+        .nav-name {
+            font-size: 14px;
+            font-weight: bold;
+            letter-spacing: 0.02em;
+            color: #000;
+            text-decoration: none;
+        }
+        .nav-links {
+            display: flex;
+            gap: 28px;
+        }
+        .nav-links a {
+            font-size: 12px;
+            font-weight: bold;
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
+            color: #000;
+            text-decoration: none;
+            padding-bottom: 2px;
+            border-bottom: 1.5px solid transparent;
+        }
+        .nav-links a:hover {
+            border-bottom-color: #000;
+        }
+
+        /* —— Hero —— */
+        .hero {
+            max-width: 960px;
+            margin: 0 auto;
+            padding: 100px 32px 90px 32px;
+        }
+        .hero p {
+            font-size: 36px;
+            font-weight: normal;
+            line-height: 1.1;
+            letter-spacing: -0.01em;
+            max-width: 580px;
+        }
+
+        /* —— Sections —— */
+        section {
+            max-width: 960px;
+            margin: 0 auto;
+            padding: 0 32px 72px 32px;
+        }
+        .section-rule {
+            border: none;
+            border-top: 2px solid #000;
+            max-width: 960px;
+            margin: 0 auto 0 auto;
+            padding: 0 32px;
+        }
+        .section-rule hr {
+            border: none;
+            border-top: 2px solid #000;
+            margin-bottom: 16px;
+        }
+        section h2 {
+            font-size: 11px;
+            font-weight: bold;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            margin-bottom: 28px;
+            padding-top: 16px;
+            border-top: 2px solid #000;
+            scroll-margin-top: 68px;
+            transition: background 0.3s;
+        }
+        section h2:target {
+            background: #DFFF00;
+            padding-left: 8px;
+            margin-left: -8px;
+            padding-right: 8px;
+        }
+        section p {
+            font-size: 15px;
+            line-height: 1.7;
+            max-width: 640px;
+            margin-bottom: 14px;
+        }
+        section p:last-child { margin-bottom: 0; }
+
+        /* —— Links —— */
+        a { color: #000; }
+        a:hover { color: #000; }
+
+        /* —— Grid list —— */
+        .grid-list {
+            list-style: none;
+            max-width: 720px;
+        }
+        .grid-list li {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            padding: 8px 0;
+            border-bottom: 0.5px solid #000;
+            font-size: 15px;
+        }
+        .grid-list li:first-child {
+            border-top: 0.5px solid #000;
+        }
+        .grid-list .meta {
+            font-size: 12px;
+            letter-spacing: 0.04em;
+            text-align: right;
+            flex-shrink: 0;
+            margin-left: 24px;
+        }
+        .grid-list .category {
+            font-size: 10px;
+            font-weight: bold;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            border-top: 1.5px solid #000;
+            border-bottom: none;
+            padding: 18px 0 4px 0;
+            display: block;
+        }
+        .grid-list .category:first-child {
+            border-top: none;
+            padding-top: 0;
+        }
+        .grid-list li:hover {
+            background: #000;
+            color: #fff;
+            transition: background 0.12s;
+        }
+        .grid-list li:hover a { color: #fff; }
+        .grid-list li.category:hover {
+            background: none;
+            color: #000;
+        }
+        .status-pending { font-style: italic; }
+
+        /* —— Doc link —— */
+        .doc-link {
+            text-decoration: underline;
+            text-decoration-thickness: 0.5px;
+            text-underline-offset: 2px;
+            cursor: pointer;
+        }
+
+        /* —— Expandable —— */
+        details {
+            max-width: 720px;
+            margin-top: 8px;
+        }
+        details summary {
+            font-size: 15px;
+            cursor: pointer;
+            padding: 8px 0;
+            list-style: none;
+            display: flex;
+            align-items: baseline;
+            gap: 10px;
+            border-bottom: 0.5px solid #000;
+        }
+        details summary::-webkit-details-marker { display: none; }
+        details summary::before {
+            content: "+";
+            font-size: 24px;
+            font-weight: bold;
+            width: 24px;
+            text-align: center;
+            flex-shrink: 0;
+            line-height: 1;
+        }
+        details[open] summary::before {
+            content: "\2013";
+            font-size: 24px;
+        }
+        details[open] summary {
+            border-bottom: 1.5px solid #000;
+        }
+        .detail-body {
+            padding: 20px 0 36px 24px;
+            max-width: 620px;
+        }
+        .detail-body p {
+            font-size: 14px;
+            line-height: 1.7;
+            margin-bottom: 12px;
+        }
+        .detail-body h4 {
+            font-size: 10px;
+            font-weight: bold;
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
+            margin-top: 24px;
+            margin-bottom: 8px;
+            padding-top: 8px;
+            border-top: 1px solid #000;
+        }
+        .detail-body ul {
+            margin: 6px 0 12px 18px;
+            font-size: 14px;
+            line-height: 1.7;
+        }
+        .detail-body li { margin-bottom: 2px; }
+
+        /* —— Structure meta —— */
+        .structure-meta {
+            display: flex;
+            font-size: 12px;
+            margin-bottom: 20px;
+            border-top: 1px solid #000;
+            border-bottom: 1px solid #000;
+        }
+        .structure-meta span {
+            padding: 10px 18px;
+            border-right: 0.5px solid #000;
+            flex: 1;
+        }
+        .structure-meta span:first-child { padding-left: 0; }
+        .structure-meta span:last-child {
+            border-right: none;
+            flex: 2;
+        }
+        .structure-meta strong {
+            display: block;
+            font-size: 9px;
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
+            margin-bottom: 3px;
+        }
+
+        /* —— Footer —— */
+        footer {
+            max-width: 960px;
+            margin: 0 auto;
+            padding: 24px 32px 48px 32px;
+            border-top: 3px solid #000;
+        }
+        footer p {
+            font-size: 12px;
+            line-height: 1.8;
+            letter-spacing: 0.02em;
+        }
+        .footer-links {
+            display: flex;
+            gap: 24px;
+            margin-bottom: 12px;
+        }
+        .footer-links a {
+            font-size: 11px;
+            font-weight: bold;
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
+            text-decoration: none;
+            color: #000;
+        }
+
+        /* —— Responsive —— */
+        @media (max-width: 768px) {
+            nav {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 12px;
+                padding: 20px 20px 16px 20px;
+            }
+            .nav-links { gap: 18px; flex-wrap: wrap; }
+            .hero { padding: 60px 20px 50px 20px; }
+            .hero p { font-size: 26px; }
+            section { padding: 0 20px 56px 20px; }
+            footer { padding: 20px 20px 36px 20px; }
+            .structure-meta { flex-wrap: wrap; }
+            .structure-meta span { width: 50%; flex: none; }
+            .structure-meta span:last-child { width: 100%; flex: none; }
+        }
+        @media (max-width: 480px) {
+            .hero p { font-size: 22px; }
+            .nav-links a { font-size: 10px; }
+        }
+    </style>
+</head>
+<body>
+
+<nav>
+    <a href="#" class="nav-name">Capital Structures, Inc.</a>
+    <div class="nav-links">
+        <a href="#about">About</a>
+        <a href="#news">News</a>
+        <a href="#structures">Structures</a>
+        <a href="#governance">Governance</a>
+        <a href="#filings">Filings</a>
+        <a href="#ir">IR</a>
+    </div>
+</nav>
+
+<div class="hero">
+    <p>Capital Structures is a logistics company, moving standard financing vehicles and terms through existing market and legal infrastructure to clients at the lowest possible cost.</p>
+</div>
+
+<!-- About -->
+<section>
+    <h2 id="about">About</h2>
+    <p>Capital Structures, Inc. is an intellectual property company. Its sole product is the creation, execution, and disclosure of corporate and financial structures.</p>
+    <p>Every structure the Company builds &mdash; every series, every agreement, every instrument &mdash; is documented and published in full. The back office is open. The governance is public. The diagrams are the product.</p>
+    <p>All operational documents, agent configurations, and structure records are published at <a href="https://github.com/CapitalStructuresInc/capital-structures">github.com/CapitalStructuresInc/capital-structures</a>.</p>
+</section>
+
+<!-- News -->
+<section>
+    <h2 id="news">News</h2>
+
+    <details>
+        <summary>
+            <span>Capital Structures Inc. Announces Intent to Form</span>
+            <span class="meta">2025</span>
+        </summary>
+        <div class="detail-body">
+            <h4>Summary</h4>
+            <p>Capital Structures Inc., a Delaware C-Corporation, announces its formation as an intellectual property company whose sole product is the creation, execution, and disclosure of corporate and financial structures.</p>
+            <p>The Company intends to conduct a Regulation Crowdfunding (Reg CF) offering through a registered online portal. Through the offering, the Company expects to make up to 20 Class B Units available at an anticipated price of $500&ndash;$1,000 per unit, for a target raise of $100,000.</p>
+
+            <h4>What Participants Receive</h4>
+            <p>Each contribution creates a new Protected Series under Delaware law. Participants receive Class B Units &mdash; real securities, documented in the Company&rsquo;s public archive. Class B Units carry:</p>
+            <ul>
+                <li>No voting rights</li>
+                <li>No dividends</li>
+                <li>No liquidation preference</li>
+                <li>Position inside a fully disclosed corporate system</li>
+            </ul>
+
+            <h4>How to Participate</h4>
+            <p>The offering will be conducted through a Reg CF portal (expected: Wefunder or Republic). The Company will announce the portal listing and open date when Form C has been filed with the SEC.</p>
+            <p>Interested parties may follow the Company&rsquo;s progress at <a href="https://github.com/CapitalStructuresInc/capital-structures">github.com/CapitalStructuresInc/capital-structures</a>.</p>
+
+            <h4>Risk Factors</h4>
+            <p>The Company may never generate revenue. The Company may intentionally dissolve at any time. Management is not incentivized to increase the value of any securities. Class B Units may have no resale market. Participants should expect total loss of their contribution.</p>
+
+            <h4>Important Notice</h4>
+            <p>No securities are currently being offered. This announcement does not constitute an offer to sell or a solicitation of an offer to buy any security. Any offering will be made only through a Reg CF portal in compliance with applicable securities laws, and only after a Form C has been filed with the Securities and Exchange Commission.</p>
+
+            <p><em>Prepared by the Global Finance Department of Capital Structures Inc.</em></p>
+        </div>
+    </details>
+</section>
+
+<!-- Structures -->
+<section>
+    <h2 id="structures">Structure Index</h2>
+
+    <details>
+        <summary>
+            <span>001 &mdash; Self-Dealing Architecture</span>
+            <span class="meta">Protected Series &middot; <em>Pending</em></span>
+        </summary>
+        <div class="detail-body">
+            <div class="structure-meta">
+                <span><strong>Status</strong> Pending</span>
+                <span><strong>Type</strong> Protected Series</span>
+                <span><strong>Date</strong> &mdash;</span>
+                <span><strong>Counterparties</strong> Capital Structures Inc. &middot; Martin Grasser</span>
+            </div>
+            <p>The Company&rsquo;s first structure. CEO Martin Grasser authorizes the creation of Protected Series 001 and personally acquires Class B Units, existing on both sides of the transaction. The parent company guarantees Series 001 performance. Self-dealing is disclosed on the face of all documentation.</p>
+
+            <h4>Components</h4>
+            <ul>
+                <li>Delaware Protected Series 001 (under Capital Structures Inc. Series LLC)</li>
+                <li>Class B Units issued to Martin Grasser (personally)</li>
+                <li>Parent guarantee of Series performance</li>
+                <li>Full consolidation</li>
+            </ul>
+
+            <h4>Counterparties</h4>
+            <p>Capital Structures Inc. &mdash; Parent / Guarantor<br>
+            Martin Grasser (personally) &mdash; Unit Holder (affiliated: CEO of parent)</p>
+
+            <h4>Self-Dealing Disclosure</h4>
+            <p>Martin Grasser serves simultaneously as Chief Executive Officer authorizing the creation of the Series, sole director approving the transaction, and personal acquirer of Class B Units. This arrangement is intentional, disclosed, and documented.</p>
+
+            <h4>Proposed Documents</h4>
+            <ul>
+                <li>Board Resolution (RES-2025-004)</li>
+                <li>Press Release</li>
+                <li>Structure Brief</li>
+                <li>Class B Unit Certificate</li>
+                <li>Guarantee Agreement</li>
+            </ul>
+        </div>
+    </details>
+
+    <details>
+        <summary>
+            <span>002 &mdash; verse.works Advisory Agreement</span>
+            <span class="meta">Advisory / Counterparty &middot; <em>Pending</em></span>
+        </summary>
+        <div class="detail-body">
+            <div class="structure-meta">
+                <span><strong>Status</strong> Pending</span>
+                <span><strong>Type</strong> Advisory / Counterparty</span>
+                <span><strong>Date</strong> &mdash;</span>
+                <span><strong>Counterparties</strong> Capital Structures Inc. &middot; verse.works</span>
+            </div>
+            <p>The Company&rsquo;s first external relationship. verse.works is engaged as Independent Strategic Advisor, providing promotional reach, collector access, and strategic counsel. The arrangement is documented as a corporate structure &mdash; a balance sheet transaction and business relationship treated with the same disclosure rigor as all Company operations.</p>
+
+            <h4>Components</h4>
+            <ul>
+                <li>Advisory agreement between Capital Structures Inc. and verse.works</li>
+                <li>Terms: TBD &mdash; to be negotiated</li>
+                <li>Scope: marketing, promotion, collector relations, strategic advice</li>
+                <li>No governance authority, no voting rights, no equity position</li>
+            </ul>
+
+            <h4>Consolidation</h4>
+            <p>Not consolidated. verse.works is an independent third party. Advisory fees, if any, are operating expenses of the Company.</p>
+
+            <h4>Proposed Documents</h4>
+            <ul>
+                <li>Board Resolution (RES-2025-005)</li>
+                <li>Advisory Agreement (terms TBD)</li>
+                <li>Press Release</li>
+                <li>Structure Brief</li>
+            </ul>
+        </div>
+    </details>
+</section>
+
+<!-- Governance -->
+<section>
+    <h2 id="governance">Governance</h2>
+    <ul class="grid-list">
+        <li class="doc-link"><a href="https://github.com/CapitalStructuresInc/capital-structures/blob/main/back-office/governance/handbook.md">Company Handbook</a><span class="meta">Active</span></li>
+        <li>Organizational Chart<span class="meta">Active</span></li>
+        <li>Board Meeting Agenda (BOD-2025-001)<span class="meta status-pending">Pending</span></li>
+    </ul>
+</section>
+
+<!-- Personnel -->
+<section>
+    <h2>Personnel</h2>
+    <ul class="grid-list">
+        <li class="category">Officers</li>
+        <li>Martin Grasser<span class="meta">Chief Executive Officer</span></li>
+        <li>Audrey Chen<span class="meta">Head of Operations</span></li>
+        <li class="category">External</li>
+        <li>verse.works<span class="meta">Independent Strategic Advisor</span></li>
+        <li>K.L.<span class="meta">Accountant</span></li>
+        <li class="category">Back Office (Agents)</li>
+        <li>Global Finance Department<span class="meta">Press releases, board resolutions, structure briefs</span></li>
+        <li>Corporate Secretary<span class="meta">Governance, filings, cap table, structure index</span></li>
+        <li>Investor Relations<span class="meta">Shareholder communications, NAV reports</span></li>
+    </ul>
+</section>
+
+<!-- Filings -->
+<section>
+    <h2 id="filings">Filings</h2>
+    <ul class="grid-list">
+        <li class="category">Delaware</li>
+        <li>Certificate of Incorporation<span class="meta status-pending">Pending</span></li>
+        <li>Annual Report<span class="meta status-pending">Pending</span></li>
+        <li>Franchise Tax<span class="meta status-pending">Pending</span></li>
+        <li>Registered Agent Designation<span class="meta status-pending">Pending</span></li>
+    </ul>
+</section>
+
+<!-- IR -->
+<section>
+    <h2 id="ir">Investor Relations</h2>
+    <ul class="grid-list">
+        <li class="category">Press Releases</li>
+        <li>Formation<span class="meta">Published</span></li>
+        <li>Structure 001<span class="meta status-pending">Pending</span></li>
+        <li class="category">Reports</li>
+        <li>NAV Update &mdash; Q1 2025<span class="meta status-pending">Pending</span></li>
+    </ul>
+</section>
+
+<!-- How to Participate -->
+<section>
+    <h2>Forward-Looking Statements</h2>
+    <p>The Company&rsquo;s stated purpose is the creation and disclosure of corporate structures as intellectual property. The Company may never generate profit and may intentionally dissolve. Past structures are not indicative of future structures. All materials are provided for informational and educational purposes only.</p>
+    <p>No securities are currently being offered. Nothing on this site constitutes an offer to sell or a solicitation of an offer to buy any security.</p>
+</section>
+
+<footer>
+    <div class="footer-links">
+        <a href="#about">About</a>
+        <a href="#news">News</a>
+        <a href="#structures">Structures</a>
+        <a href="https://github.com/CapitalStructuresInc/capital-structures">GitHub</a>
+    </div>
+    <p>Capital Structures, Inc. &middot; Wilmington, Delaware</p>
+    <p>The Company may never generate profit and may intentionally dissolve.</p>
+</footer>
+
+</body>
+</html>
