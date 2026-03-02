@@ -39,9 +39,9 @@ The advisory arrangement is disclosed in full. verse.works receives no preferent
 
 ### What verse.works Provides
 
-1. Institutional credibility (established gallery, Vera Molnár track record)
-2. Promotional reach (17K+ Twitter following, collector network)
-3. Strategic counsel (framing, audience, messaging review)
+1. Institutional credibility 
+2. Marketing
+3. Strategic counsel
 
 ### What verse.works Does Not Provide
 
