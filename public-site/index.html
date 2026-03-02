@@ -445,6 +445,7 @@
     <div class="nav-logo"><a href="#" onclick="resetView(); return false;">Capital Structures, Inc.</a></div>
     <div class="nav-links">
         <a href="#" onclick="loadPreview('about'); return false;">About</a>
+        <a href="#news">News</a>
         <a href="#structures" class="active">Structures</a>
         <a href="#governance">Governance</a>
         <a href="#filings">Filings</a>
@@ -456,6 +457,16 @@
 
 <!-- ════════ LEFT PANEL ════════ -->
 <div class="panel-left" id="left-panel">
+
+<!-- News -->
+<div class="section-label" id="news">News</div>
+
+<table class="grid-register">
+    <tr>
+        <td class="doc-link" onclick="loadPreview('news-formation')">Capital Structures Inc. Announces Intent to Form</td>
+        <td>2025</td>
+    </tr>
+</table>
 
 <!-- Structures -->
 <div class="section-label" id="structures">Structure Index</div>
@@ -724,8 +735,8 @@
         <td colspan="2">Press Releases</td>
     </tr>
     <tr>
-        <td>Formation</td>
-        <td class="status-pending">Pending</td>
+        <td class="doc-link" onclick="loadPreview('news-formation')">Formation</td>
+        <td>Published</td>
     </tr>
     <tr>
         <td>Structure 001</td>
@@ -861,6 +872,24 @@ var docs = {
               '<h3>Identity</h3><p>The governance engine. Maintains the corporate record, tracks filings, manages the structure index, prepares board materials, and ensures procedural integrity across all corporate actions. Modeled on the corporate secretaries of Fortune 500 companies \u2014 meticulous, procedural, invisible.</p>' +
               '<h3>Document Types</h3><ul><li>Board Meeting Agenda</li><li>Board Meeting Minutes</li><li>Structure Index Update</li><li>Filing Tracker</li><li>Cap Table Update</li><li>Organizational Memo</li><li>Governance Calendar</li></ul>' +
               '<h3>Constraints</h3><ul><li>Never generates press releases or structure briefs</li><li>Never advises on structure design or strategy</li><li>Never makes legal determinations</li><li>Always flags incomplete records</li><li>All governance documents must be dated and numbered</li></ul>'
+    },
+    'news-formation': {
+        title: 'Press Release — Formation',
+        html: '<h1>Capital Structures Inc.</h1><h2>Announces Intent to Form</h2>' +
+              '<h3>Summary</h3>' +
+              '<p>Capital Structures Inc., a Delaware C-Corporation, announces its formation as an intellectual property company whose sole product is the creation, execution, and disclosure of corporate and financial structures.</p>' +
+              '<p>The Company intends to conduct a Regulation Crowdfunding (Reg CF) offering through a registered online portal. Through the offering, the Company expects to make up to 20 Class B Units available at an anticipated price of $500\u2013$1,000 per unit, for a target raise of $100,000.</p>' +
+              '<h3>What Participants Receive</h3>' +
+              '<p>Each contribution creates a new Protected Series under Delaware law. Participants receive Class B Units \u2014 real securities, documented in the Company\u2019s public archive. Class B Units carry:</p>' +
+              '<ul><li>No voting rights</li><li>No dividends</li><li>No liquidation preference</li><li>Position inside a fully disclosed corporate system</li></ul>' +
+              '<h3>How to Participate</h3>' +
+              '<p>The offering will be conducted through a Reg CF portal (expected: Wefunder or Republic). The Company will announce the portal listing and open date when Form C has been filed with the SEC.</p>' +
+              '<p>Interested parties may follow the Company\u2019s progress at <a href="https://github.com/CapitalStructuresInc/capital-structures">github.com/CapitalStructuresInc/capital-structures</a>, where all operational documents, governance records, and structure diagrams are published.</p>' +
+              '<h3>Risk Factors</h3>' +
+              '<p>The Company may never generate revenue. The Company may intentionally dissolve at any time. Management is not incentivized to increase the value of any securities. Class B Units may have no resale market. Participants should expect total loss of their contribution.</p>' +
+              '<h3>Important Notice</h3>' +
+              '<p>No securities are currently being offered. This announcement does not constitute an offer to sell or a solicitation of an offer to buy any security. Any offering will be made only through a Reg CF portal in compliance with applicable securities laws, and only after a Form C has been filed with the Securities and Exchange Commission.</p>' +
+              '<hr><p><em>Prepared by the Global Finance Department of Capital Structures Inc.</em></p>'
     },
     'about': {
         title: 'About',
