@@ -43,7 +43,7 @@
             z-index: 10;
             max-width: 960px;
             margin: 0 auto;
-            padding: 28px 32px 20px 32px;
+            padding: 24px 32px 16px 32px;
             display: flex;
             align-items: baseline;
             justify-content: space-between;
@@ -78,7 +78,7 @@
         .hero {
             max-width: 960px;
             margin: 0 auto;
-            padding: 100px 32px 90px 32px;
+            padding: 48px 32px 48px 32px;
         }
         .hero p {
             font-size: 36px;
@@ -92,7 +92,7 @@
         section {
             max-width: 960px;
             margin: 0 auto;
-            padding: 0 32px 72px 32px;
+            padding: 0 32px 48px 32px;
         }
         .section-rule {
             border: none;
@@ -111,17 +111,10 @@
             font-weight: bold;
             letter-spacing: 0.08em;
             text-transform: uppercase;
-            margin-bottom: 28px;
+            margin-bottom: 24px;
             padding-top: 16px;
             border-top: 2px solid #000;
-            scroll-margin-top: 68px;
-            transition: background 0.3s;
-        }
-        section h2:target {
-            background: #DFFF00;
-            padding-left: 8px;
-            margin-left: -8px;
-            padding-right: 8px;
+            scroll-margin-top: 56px;
         }
         section p {
             font-size: 15px;
@@ -133,7 +126,7 @@
 
         /* —— Links —— */
         a { color: #000; }
-        a:hover { color: #000; }
+        a:hover { opacity: 0.5; }
 
         /* —— Grid list —— */
         .grid-list {
@@ -141,8 +134,8 @@
             max-width: 720px;
         }
         .grid-list li {
-            display: flex;
-            justify-content: space-between;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
             align-items: baseline;
             padding: 8px 0;
             border-bottom: 0.5px solid #000;
@@ -154,9 +147,9 @@
         .grid-list .meta {
             font-size: 12px;
             letter-spacing: 0.04em;
-            text-align: right;
-            flex-shrink: 0;
-            margin-left: 24px;
+            text-align: left;
+            padding-left: 24px;
+            border-left: 0.5px solid #000;
         }
         .grid-list .category {
             font-size: 10px;
@@ -172,16 +165,6 @@
             border-top: none;
             padding-top: 0;
         }
-        .grid-list li:hover {
-            background: #000;
-            color: #fff;
-            transition: background 0.12s;
-        }
-        .grid-list li:hover a { color: #fff; }
-        .grid-list li.category:hover {
-            background: none;
-            color: #000;
-        }
         .status-pending { font-style: italic; }
 
         /* —— Doc link —— */
@@ -195,7 +178,7 @@
         /* —— Expandable —— */
         details {
             max-width: 720px;
-            margin-top: 8px;
+            margin-top: 4px;
         }
         details summary {
             font-size: 15px;
@@ -204,8 +187,23 @@
             list-style: none;
             display: flex;
             align-items: baseline;
-            gap: 10px;
+            gap: 12px;
             border-bottom: 0.5px solid #000;
+            transition: opacity 0.12s;
+        }
+        details summary:hover {
+            opacity: 0.5;
+        }
+        details summary > span:first-of-type {
+            flex: 1;
+        }
+        details summary > .meta {
+            font-size: 12px;
+            letter-spacing: 0.04em;
+            text-align: left;
+            flex: 1;
+            padding-left: 24px;
+            border-left: 0.5px solid #000;
         }
         details summary::-webkit-details-marker { display: none; }
         details summary::before {
@@ -219,13 +217,12 @@
         }
         details[open] summary::before {
             content: "\2013";
-            font-size: 24px;
         }
         details[open] summary {
             border-bottom: 1.5px solid #000;
         }
         .detail-body {
-            padding: 20px 0 36px 24px;
+            padding: 16px 0 24px 24px;
             max-width: 620px;
         }
         .detail-body p {
@@ -238,7 +235,7 @@
             font-weight: bold;
             letter-spacing: 0.06em;
             text-transform: uppercase;
-            margin-top: 24px;
+            margin-top: 16px;
             margin-bottom: 8px;
             padding-top: 8px;
             border-top: 1px solid #000;
@@ -254,7 +251,7 @@
         .structure-meta {
             display: flex;
             font-size: 12px;
-            margin-bottom: 20px;
+            margin-bottom: 16px;
             border-top: 1px solid #000;
             border-bottom: 1px solid #000;
         }
@@ -276,11 +273,24 @@
             margin-bottom: 3px;
         }
 
+        /* —— Diagram —— */
+        .diagram-container {
+            width: 100%;
+            max-width: 720px;
+            margin-top: 16px;
+            border-top: 1px solid #000;
+            padding-top: 16px;
+        }
+        .diagram-container svg {
+            width: 100%;
+            height: auto;
+        }
+
         /* —— Footer —— */
         footer {
             max-width: 960px;
             margin: 0 auto;
-            padding: 24px 32px 48px 32px;
+            padding: 20px 32px 40px 32px;
             border-top: 3px solid #000;
         }
         footer p {
@@ -308,13 +318,13 @@
                 flex-direction: column;
                 align-items: flex-start;
                 gap: 12px;
-                padding: 20px 20px 16px 20px;
+                padding: 16px 20px 12px 20px;
             }
             .nav-links { gap: 18px; flex-wrap: wrap; }
-            .hero { padding: 60px 20px 50px 20px; }
+            .hero { padding: 32px 20px 32px 20px; }
             .hero p { font-size: 26px; }
-            section { padding: 0 20px 56px 20px; }
-            footer { padding: 20px 20px 36px 20px; }
+            section { padding: 0 20px 36px 20px; }
+            footer { padding: 16px 20px 32px 20px; }
             .structure-meta { flex-wrap: wrap; }
             .structure-meta span { width: 50%; flex: none; }
             .structure-meta span:last-child { width: 100%; flex: none; }
@@ -345,7 +355,7 @@
 
 <!-- About -->
 <section>
-    <h2 id="about">About</h2>
+    <h2 id="about"><span>About</span></h2>
     <p>Capital Structures, Inc. is an intellectual property company. Its sole product is the creation, execution, and disclosure of corporate and financial structures.</p>
     <p>Every structure the Company builds &mdash; every series, every agreement, every instrument &mdash; is documented and published in full. The back office is open. The governance is public. The diagrams are the product.</p>
     <p>All operational documents, agent configurations, and structure records are published at <a href="https://github.com/CapitalStructuresInc/capital-structures">github.com/CapitalStructuresInc/capital-structures</a>.</p>
@@ -353,7 +363,7 @@
 
 <!-- News -->
 <section>
-    <h2 id="news">News</h2>
+    <h2 id="news"><span>News</span></h2>
 
     <details>
         <summary>
@@ -391,7 +401,7 @@
 
 <!-- Structures -->
 <section>
-    <h2 id="structures">Structure Index</h2>
+    <h2 id="structures"><span>Structure Index</span></h2>
 
     <details>
         <summary>
@@ -430,6 +440,39 @@
                 <li>Class B Unit Certificate</li>
                 <li>Guarantee Agreement</li>
             </ul>
+            <div class="diagram-container">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 560">
+  <defs><style>
+    .s1-a,.s1-b,.s1-c,.s1-d,.s1-e{fill:none}.s1-b{stroke-dasharray:6 4}.s1-b,.s1-c,.s1-d,.s1-e{stroke:#000}.s1-f{font-family:'188 Sans Mono','Courier New',monospace;font-size:11px;font-weight:700;letter-spacing:.08em}.s1-f,.s1-g,.s1-h{isolation:isolate}.s1-c{stroke-width:1.5px}.s1-g{letter-spacing:.08em}.s1-g,.s1-h{font-family:'188 Sans Mono','Courier New',monospace;font-size:9px}.s1-h{letter-spacing:.06em}.s1-d{stroke-width:.5px}.s1-e{stroke-width:3px}
+  </style></defs>
+  <rect class="s1-e" x="250" y="30" width="220" height="40"/>
+  <text class="s1-f" transform="translate(303.73 55)"><tspan x="0" y="0">MARTIN GRASSER</tspan></text>
+  <rect class="s1-c" x="60" y="170" width="280" height="50"/>
+  <text class="s1-f" transform="translate(114.92 192)"><tspan x="0" y="0">CAPITAL STRUCTURES INC.</tspan></text>
+  <text class="s1-g" transform="translate(143.26 207)"><tspan x="0" y="0">PARENT / GUARANTOR</tspan></text>
+  <text class="s1-g" transform="translate(168.27 86.64)"><tspan x="0" y="0">AUTHORIZES</tspan></text>
+  <text class="s1-g" transform="translate(505.36 86.64)"><tspan x="0" y="0">PERSONALLY ACQUIRES</tspan></text>
+  <path class="s1-c" d="M455,170h170c13.81,0,25,11.19,25,25h0c0,13.81-11.19,25-25,25h-170c-13.81,0-25-11.19-25-25h0c0-13.81,11.19-25,25-25Z"/>
+  <text class="s1-f" transform="translate(492.11 200)"><tspan x="0" y="0">CLASS B UNITS</tspan></text>
+  <path d="M195.76,305.14l-6,12-6-12h12Z"/>
+  <text class="s1-g" transform="translate(215 275)"><tspan x="0" y="0">CREATES / CONTROLS</tspan></text>
+  <rect class="s1-c" x="60" y="330" width="280" height="50"/>
+  <text class="s1-f" transform="translate(124.88 360)"><tspan x="0" y="0">PROTECTED SERIES 001</tspan></text>
+  <line class="s1-b" x1="340" y1="210" x2="340" y2="330"/>
+  <text class="s1-g" transform="translate(411.51 275)"><tspan x="0" y="0">GUARANTEES PERFORMANCE</tspan></text>
+  <text class="s1-g" transform="translate(360 311.14)"><tspan x="0" y="0">ISSUES</tspan></text>
+  <line class="s1-d" x1="60" y1="460" x2="660" y2="460"/>
+  <text class="s1-h" transform="translate(234.86 490)"><tspan x="0" y="0">FULLY CONSOLIDATED / SELF-DEALING DISCLOSED</tspan></text>
+  <text class="s1-h" transform="translate(60 530)"><tspan x="0" y="0">STRUCTURE 001 — SELF-DEALING ARCHITECTURE</tspan></text>
+  <line class="s1-c" x1="189.76" y1="307.29" x2="189.76" y2="225.61"/>
+  <path d="M483.51,94.15l-4.24-12.73,12.73,4.24-8.49,8.49Z"/>
+  <line class="s1-c" x1="486.23" y1="88.38" x2="543.99" y2="146.14"/>
+  <path d="M195.37,142.58l-12.73,4.24,4.24-12.73,8.49,8.49Z"/>
+  <line class="s1-c" x1="189.6" y1="139.86" x2="247.36" y2="82.1"/>
+  <path d="M415.31,231.8l12.73-4.24-4.24,12.73-8.49-8.49Z"/>
+  <line class="s1-c" x1="421.08" y1="234.52" x2="363.32" y2="292.28"/>
+</svg>
+            </div>
         </div>
     </details>
 
@@ -465,13 +508,48 @@
                 <li>Press Release</li>
                 <li>Structure Brief</li>
             </ul>
+            <div class="diagram-container">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 400">
+  <defs><style>
+    .s2-a,.s2-b,.s2-c{fill:none}.s2-d{font-family:'188 Sans Mono','Courier New',monospace;font-size:11px;font-weight:700;letter-spacing:.08em}.s2-d,.s2-e,.s2-f,.s2-g,.s2-h{isolation:isolate}.s2-b{stroke-width:1.5px}.s2-b,.s2-c{stroke:#000}.s2-e{letter-spacing:.08em}.s2-e,.s2-f{font-size:9px}.s2-e,.s2-f,.s2-g,.s2-h{font-family:'188 Sans Mono','Courier New',monospace}.s2-f{letter-spacing:.06em}.s2-c{stroke-width:.5px}.s2-g{letter-spacing:.08em}.s2-g,.s2-h{font-size:8.5px}.s2-h{letter-spacing:.08em}
+  </style></defs>
+  <rect class="s2-b" x="40" y="100" width="220" height="50"/>
+  <text class="s2-d" text-anchor="middle" transform="translate(150 130)"><tspan x="0" y="0">Capital Structures, Inc.</tspan></text>
+  <rect class="s2-b" x="460" y="100" width="220" height="50"/>
+  <text class="s2-d" transform="translate(523.9 130)"><tspan x="0" y="0">VERSE.WORKS</tspan></text>
+  <path class="s2-b" d="M310.06,105h100c11.05,0,20,8.95,20,20h0c0,11.05-8.95,20-20,20h-100c-11.05,0-20-8.95-20-20h0c0-11.05,8.95-20,20-20Z"/>
+  <text class="s2-e" transform="translate(334.43 122)"><tspan x="0" y="0">ADVISORY</tspan></text>
+  <text class="s2-e" transform="translate(328.8 135)"><tspan x="0" y="0">AGREEMENT</tspan></text>
+  <line class="s2-b" x1="260" y1="125" x2="290" y2="125"/>
+  <line class="s2-b" x1="430" y1="125" x2="460" y2="125"/>
+  <line class="s2-c" x1="40" y1="340" x2="680" y2="340"/>
+  <text class="s2-f" transform="translate(197.86 365)"><tspan x="0" y="0">NO GOVERNANCE / NO VOTING / NO EQUITY / NOT CONSOLIDATED</tspan></text>
+  <text class="s2-f" transform="translate(40 392)"><tspan x="0" y="0">STRUCTURE 002 — VERSE.WORKS ADVISORY AGREEMENT</tspan></text>
+  <g>
+    <g>
+      <path d="M268.06,191l-8,4,8,4v-8Z"/>
+      <path d="M268.06,221l-8,4,8,4v-8Z"/>
+      <path d="M268.06,251l-8,4,8,4v-8Z"/>
+      <path d="M452.06,286l8,4-8,4v-8Z"/>
+      <line class="s2-b" x1="268.06" y1="195" x2="456.06" y2="195"/>
+      <line class="s2-b" x1="268.06" y1="225" x2="456.06" y2="225"/>
+      <line class="s2-b" x1="268.06" y1="255" x2="456.06" y2="255"/>
+      <line class="s2-b" x1="268.06" y1="290" x2="456.06" y2="290"/>
+    </g>
+    <text class="s2-g" transform="translate(307.31 188)"><tspan x="0" y="0">PROMOTIONAL REACH</tspan></text>
+    <text class="s2-h" transform="translate(285.81 218)"><tspan x="0" y="0">COLLECTOR COMMUNICATIONS</tspan></text>
+    <text class="s2-g" transform="translate(309.04 248)"><tspan x="0" y="0">STRATEGIC COUNSEL</tspan></text>
+    <text class="s2-h" transform="translate(347.94 283)"><tspan x="0" y="0">FEES</tspan></text>
+  </g>
+</svg>
+            </div>
         </div>
     </details>
 </section>
 
 <!-- Governance -->
 <section>
-    <h2 id="governance">Governance</h2>
+    <h2 id="governance"><span>Governance</span></h2>
     <ul class="grid-list">
         <li class="doc-link"><a href="https://github.com/CapitalStructuresInc/capital-structures/blob/main/back-office/governance/handbook.md">Company Handbook</a><span class="meta">Active</span></li>
         <li>Organizational Chart<span class="meta">Active</span></li>
@@ -481,7 +559,7 @@
 
 <!-- Personnel -->
 <section>
-    <h2>Personnel</h2>
+    <h2><span>Personnel</span></h2>
     <ul class="grid-list">
         <li class="category">Officers</li>
         <li>Martin Grasser<span class="meta">Chief Executive Officer</span></li>
@@ -498,7 +576,7 @@
 
 <!-- Filings -->
 <section>
-    <h2 id="filings">Filings</h2>
+    <h2 id="filings"><span>Filings</span></h2>
     <ul class="grid-list">
         <li class="category">Delaware</li>
         <li>Certificate of Incorporation<span class="meta status-pending">Pending</span></li>
@@ -510,7 +588,7 @@
 
 <!-- IR -->
 <section>
-    <h2 id="ir">Investor Relations</h2>
+    <h2 id="ir"><span>Investor Relations</span></h2>
     <ul class="grid-list">
         <li class="category">Press Releases</li>
         <li>Formation<span class="meta">Published</span></li>
@@ -522,7 +600,7 @@
 
 <!-- How to Participate -->
 <section>
-    <h2>Forward-Looking Statements</h2>
+    <h2><span>Forward-Looking Statements</span></h2>
     <p>The Company&rsquo;s stated purpose is the creation and disclosure of corporate structures as intellectual property. The Company may never generate profit and may intentionally dissolve. Past structures are not indicative of future structures. All materials are provided for informational and educational purposes only.</p>
     <p>No securities are currently being offered. Nothing on this site constitutes an offer to sell or a solicitation of an offer to buy any security.</p>
 </section>
