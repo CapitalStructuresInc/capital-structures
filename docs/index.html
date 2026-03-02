@@ -5,10 +5,28 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Capital Structures, Inc.</title>
     <style>
+        @font-face {
+            font-family: '188 Sans';
+            src: url('fonts/188-Sans-Regular.otf') format('opentype');
+            font-weight: normal;
+            font-style: normal;
+        }
+        @font-face {
+            font-family: '188 Sans';
+            src: url('fonts/188-Sans-Bold.ttf') format('truetype');
+            font-weight: bold;
+            font-style: normal;
+        }
+        @font-face {
+            font-family: '188 Sans Mono';
+            src: url('fonts/188-Sans-Mono.otf') format('opentype');
+            font-weight: normal;
+            font-style: normal;
+        }
         * { margin: 0; padding: 0; box-sizing: border-box; }
         html, body { height: 100%; }
         body {
-            font-family: Arial, Helvetica, sans-serif;
+            font-family: '188 Sans', Arial, Helvetica, sans-serif;
             font-size: 14px;
             line-height: 1.6;
             color: #000;
@@ -56,28 +74,14 @@
             border-bottom-color: #000;
         }
 
-        /* —— Enron E palette (Rand's original: red, yellow, blue) —— */
-        /* Yellow #FFD100 — full opacity selection fill ("you're on this") */
-        /* Blue #003DA5 — all hover states ("you can interact with this") */
-        /* Red #CE1126 — rules on hover ("the lines are alive") */
-
-        /* Blue — all interactive hover text/underlines */
-        .nav-links a:hover { border-bottom-color: #003DA5; color: #003DA5; }
-        .nav-links a.active { border-bottom-color: #003DA5; }
-        .doc-link:hover { color: #003DA5; text-decoration-color: #003DA5; }
-        .nav-logo a:hover { color: #003DA5; }
-
-        /* Yellow — full opacity selection fills */
-        .structure-row:hover { background: #FFD100; }
+        /* —— Hover — solid black —— */
+        .nav-links a:hover { border-bottom-color: #000; }
+        .nav-links a.active { border-bottom-color: #000; }
+        .structure-row:hover { background: #000; }
+        .structure-row:hover td { color: #fff; transition: color 0.15s; }
         .svg-link:hover rect,
-        .svg-link:hover path { fill: #FFD100; }
-
-        /* Red — rules light up on hover */
-        .rule-heavy:hover { border-top-color: #CE1126; }
-        .rule-footer:hover { border-top-color: #CE1126; }
-        .section-label:hover { border-top-color: #CE1126; }
-        nav { transition: border-color 0.15s; }
-        nav:hover { border-bottom-color: #CE1126; }
+        .svg-link:hover path { fill: #000; }
+        .svg-link:hover text { fill: #fff; }
 
         /* —— Split layout —— */
         .split {
@@ -123,12 +127,19 @@
             display: flex;
             align-items: flex-start;
             padding: 40px 36px;
+            background-image: repeating-linear-gradient(
+                to bottom,
+                transparent,
+                transparent 49px,
+                rgba(0,0,0,0.04) 49px,
+                rgba(0,0,0,0.04) 49.5px
+            );
         }
         .preview-body[data-default="true"] + .preview-header-hide { display: none; }
         .hero-statement {
-            font-family: Arial, Helvetica, sans-serif;
+            font-family: '188 Sans', Arial, Helvetica, sans-serif;
             font-size: 48px;
-            font-weight: bold;
+            font-weight: normal;
             line-height: 1.035;
             text-align: left;
             color: #000;
@@ -154,7 +165,7 @@
             margin-top: 24px;
             margin-bottom: 8px;
             padding-top: 8px;
-            border-top: 1px solid #000;
+            border-top: 2px solid #000;
         }
         .preview-body p {
             margin-bottom: 12px;
@@ -227,6 +238,9 @@
             border-top: 3px solid #000;
             transition: border-color 0.15s;
         }
+        .panel-left > .section-label:first-child {
+            margin-top: 0;
+        }
         table {
             width: 100%;
             border-collapse: collapse;
@@ -253,20 +267,20 @@
         /* Structure index rows */
         .structure-row { cursor: pointer; }
         .structure-toggle {
-            font-family: Arial, Helvetica, sans-serif;
+            font-family: '188 Sans', Arial, Helvetica, sans-serif;
             font-size: 14px;
             font-weight: bold;
             width: 20px;
             display: inline-block;
             text-align: center;
-            color: #003DA5;
+            color: #000;
         }
         .structure-detail { display: none; }
         .structure-detail td {
             padding: 0;
             border-bottom: 0.5px solid #000;
         }
-        .structure-detail-inner { padding: 20px 0; }
+        .structure-detail-inner { padding: 28px 0; }
         .structure-detail.open { display: table-row; }
         .diagram-container { width: 100%; }
         .diagram-container svg { width: 100%; height: auto; }
@@ -280,6 +294,67 @@
         }
         .doc-link:hover {
             text-decoration-thickness: 1.5px;
+        }
+
+        /* —— Basel-style grid register —— */
+        .grid-register {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 28px;
+        }
+        .grid-register td {
+            padding: 6px 0;
+            font-size: 13px;
+            border-bottom: 0.5px solid #000;
+            color: #000;
+        }
+        .grid-register td:last-child {
+            text-align: right;
+        }
+        .grid-category td {
+            font-size: 10px;
+            font-weight: bold;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            border-top: 2px solid #000;
+            border-bottom: none;
+            padding: 16px 0 4px 0;
+            color: #000;
+        }
+        .grid-category:first-child td {
+            border-top: none;
+            padding-top: 0;
+        }
+        .grid-register tr:not(.grid-category) { transition: background 0.15s, color 0.15s; }
+        .grid-register tr:not(.grid-category):hover { background: #000; }
+        .grid-register tr:not(.grid-category):hover td { color: #fff; }
+
+        /* Structure metadata inline grid */
+        .structure-meta {
+            display: flex;
+            font-size: 11px;
+            margin-bottom: 24px;
+            border-top: 1.5px solid #000;
+            border-bottom: 1.5px solid #000;
+        }
+        .structure-meta span {
+            padding: 12px 20px;
+            border-right: 0.5px solid #000;
+            flex: 1;
+        }
+        .structure-meta span:first-child {
+            padding-left: 0;
+        }
+        .structure-meta span:last-child {
+            border-right: none;
+            flex: 2;
+        }
+        .structure-meta strong {
+            display: block;
+            font-size: 9px;
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
+            margin-bottom: 4px;
         }
 
         /* SVG interactivity */
@@ -327,6 +402,7 @@
             .preview-body[data-default="true"] {
                 padding: 28px 20px;
                 min-height: 40vh;
+                background-image: none;
             }
             .hero-statement { font-size: 28px; }
             .preview-body { padding: 24px 20px; }
@@ -344,7 +420,12 @@
             .nav-links { gap: 16px; }
             p.intro { line-height: 1.35; }
             th, td { font-size: 12px; padding: 6px 8px 6px 0; }
+            .grid-register td { font-size: 12px; padding: 5px 0; }
+            .grid-category td { padding: 12px 0 3px 0; }
             .structure-detail-inner { padding: 12px 0; }
+            .structure-meta { flex-wrap: wrap; }
+            .structure-meta span { flex: none; width: 50%; padding: 6px 8px 6px 0; }
+            .structure-meta span:last-child { width: 100%; flex: none; }
         }
 
         /* —— Small mobile (≤480px) —— */
@@ -363,6 +444,7 @@
 <nav>
     <div class="nav-logo"><a href="#" onclick="resetView(); return false;">Capital Structures, Inc.</a></div>
     <div class="nav-links">
+        <a href="#" onclick="loadPreview('about'); return false;">About</a>
         <a href="#structures" class="active">Structures</a>
         <a href="#governance">Governance</a>
         <a href="#filings">Filings</a>
@@ -374,8 +456,6 @@
 
 <!-- ════════ LEFT PANEL ════════ -->
 <div class="panel-left" id="left-panel">
-
-<p class="intro">Capital Structures, Inc. is an intellectual property company whose sole product is the creation, execution, and disclosure of corporate and financial structures.</p>
 
 <!-- Structures -->
 <div class="section-label" id="structures">Structure Index</div>
@@ -398,6 +478,12 @@
     <tr class="structure-detail" id="detail-s001">
         <td colspan="5">
             <div class="structure-detail-inner">
+                <div class="structure-meta">
+                    <span><strong>Status</strong> Pending</span>
+                    <span><strong>Type</strong> Protected Series</span>
+                    <span><strong>Date</strong> —</span>
+                    <span><strong>Counterparties</strong> Capital Structures Inc. · Martin Grasser</span>
+                </div>
                 <div class="diagram-container">
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 560">
   <defs>
@@ -405,11 +491,11 @@
       .s1-st0, .s1-st1, .s1-st2, .s1-st3, .s1-st4 { fill: none; }
       .s1-st1 { stroke-dasharray: 6 4; }
       .s1-st1, .s1-st2, .s1-st3, .s1-st4 { stroke: #000; }
-      .s1-st5 { font-family: Arial-BoldMT, Arial; font-size: 11px; font-weight: 700; letter-spacing: .08em; }
+      .s1-st5 { font-family: '188 Sans Mono', 'Courier New', monospace; font-size: 11px; font-weight: 700; letter-spacing: .08em; }
       .s1-st5, .s1-st6, .s1-st7 { isolation: isolate; }
       .s1-st2 { stroke-width: 1.5px; }
       .s1-st6 { letter-spacing: .08em; }
-      .s1-st6, .s1-st7 { font-family: ArialMT, Arial; font-size: 9px; }
+      .s1-st6, .s1-st7 { font-family: '188 Sans Mono', 'Courier New', monospace; font-size: 9px; }
       .s1-st7 { letter-spacing: .06em; }
       .s1-st3 { stroke-width: .5px; }
       .s1-st4 { stroke-width: 3px; }
@@ -472,18 +558,24 @@
     <tr class="structure-detail" id="detail-s002">
         <td colspan="5">
             <div class="structure-detail-inner">
+                <div class="structure-meta">
+                    <span><strong>Status</strong> Pending</span>
+                    <span><strong>Type</strong> Advisory / Counterparty</span>
+                    <span><strong>Date</strong> —</span>
+                    <span><strong>Counterparties</strong> Capital Structures Inc. · verse.works</span>
+                </div>
                 <div class="diagram-container">
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 400">
   <defs>
     <style>
       .s2-st0, .s2-st1, .s2-st2 { fill: none; }
-      .s2-st3 { font-family: Arial-BoldMT, Arial; font-size: 11px; font-weight: 700; letter-spacing: .08em; }
+      .s2-st3 { font-family: '188 Sans Mono', 'Courier New', monospace; font-size: 11px; font-weight: 700; letter-spacing: .08em; }
       .s2-st3, .s2-st4, .s2-st5, .s2-st6, .s2-st7 { isolation: isolate; }
       .s2-st1 { stroke-width: 1.5px; }
       .s2-st1, .s2-st2 { stroke: #000; }
       .s2-st4 { letter-spacing: .08em; }
       .s2-st4, .s2-st5 { font-size: 9px; }
-      .s2-st4, .s2-st5, .s2-st6, .s2-st7 { font-family: ArialMT, Arial; }
+      .s2-st4, .s2-st5, .s2-st6, .s2-st7 { font-family: '188 Sans Mono', 'Courier New', monospace; }
       .s2-st5 { letter-spacing: .06em; }
       .s2-st2 { stroke-width: .5px; }
       .s2-st6 { letter-spacing: .08em; }
@@ -541,18 +633,14 @@
 <!-- Governance -->
 <div class="section-label" id="governance">Governance</div>
 
-<table>
-    <tr>
-        <th>Document</th>
-        <th>Status</th>
-    </tr>
+<table class="grid-register">
     <tr>
         <td class="doc-link" onclick="loadPreview('handbook')">Company Handbook</td>
-        <td class="status-pending">Active</td>
+        <td>Active</td>
     </tr>
     <tr>
         <td class="doc-link" onclick="loadPreview('org-chart')">Organizational Chart</td>
-        <td class="status-pending">Active</td>
+        <td>Active</td>
     </tr>
     <tr>
         <td class="doc-link" onclick="loadPreview('board-agenda')">Board Meeting Agenda (BOD-2025-001)</td>
@@ -560,12 +648,12 @@
     </tr>
 </table>
 
-<div class="section-label">Officers</div>
+<!-- Personnel -->
+<div class="section-label">Personnel</div>
 
-<table>
-    <tr>
-        <th>Name</th>
-        <th>Title</th>
+<table class="grid-register">
+    <tr class="grid-category">
+        <td colspan="2">Officers</td>
     </tr>
     <tr>
         <td>Martin Grasser</td>
@@ -575,14 +663,8 @@
         <td>Audrey Chen</td>
         <td>Head of Operations</td>
     </tr>
-</table>
-
-<div class="section-label">External</div>
-
-<table>
-    <tr>
-        <th>Name</th>
-        <th>Role</th>
+    <tr class="grid-category">
+        <td colspan="2">External</td>
     </tr>
     <tr>
         <td>verse.works</td>
@@ -592,14 +674,8 @@
         <td>K.L.</td>
         <td>Accountant</td>
     </tr>
-</table>
-
-<div class="section-label">Back Office (Agents)</div>
-
-<table>
-    <tr>
-        <th>Agent</th>
-        <th>Function</th>
+    <tr class="grid-category">
+        <td colspan="2">Back Office (Agents)</td>
     </tr>
     <tr>
         <td class="doc-link" onclick="loadPreview('gfd')">Global Finance Department</td>
@@ -611,37 +687,31 @@
     </tr>
     <tr>
         <td>Investor Relations</td>
-        <td>Shareholder communications, NAV reports, earnings scripts</td>
+        <td>Shareholder communications, NAV reports</td>
     </tr>
 </table>
 
 <!-- Filings -->
 <div class="section-label" id="filings">Filings</div>
 
-<table>
-    <tr>
-        <th>Filing</th>
-        <th>Jurisdiction</th>
-        <th>Status</th>
+<table class="grid-register">
+    <tr class="grid-category">
+        <td colspan="2">Delaware</td>
     </tr>
     <tr>
         <td>Certificate of Incorporation</td>
-        <td>Delaware</td>
         <td class="status-pending">Pending</td>
     </tr>
     <tr>
-        <td>Delaware Annual Report</td>
-        <td>Delaware</td>
+        <td>Annual Report</td>
         <td class="status-pending">Pending</td>
     </tr>
     <tr>
         <td>Franchise Tax</td>
-        <td>Delaware</td>
         <td class="status-pending">Pending</td>
     </tr>
     <tr>
         <td>Registered Agent Designation</td>
-        <td>Delaware</td>
         <td class="status-pending">Pending</td>
     </tr>
 </table>
@@ -649,25 +719,23 @@
 <!-- IR -->
 <div class="section-label" id="ir">Investor Relations</div>
 
-<table>
-    <tr>
-        <th>Document</th>
-        <th>Date</th>
-        <th>Status</th>
+<table class="grid-register">
+    <tr class="grid-category">
+        <td colspan="2">Press Releases</td>
     </tr>
     <tr>
-        <td>Press Release — Formation</td>
-        <td>—</td>
+        <td>Formation</td>
         <td class="status-pending">Pending</td>
     </tr>
     <tr>
-        <td>Press Release — Structure 001</td>
-        <td>—</td>
+        <td>Structure 001</td>
         <td class="status-pending">Pending</td>
+    </tr>
+    <tr class="grid-category">
+        <td colspan="2">Reports</td>
     </tr>
     <tr>
         <td>NAV Update — Q1 2025</td>
-        <td>—</td>
         <td class="status-pending">Pending</td>
     </tr>
 </table>
@@ -689,7 +757,7 @@
 <div class="panel-right">
     <div class="preview-header hidden" id="preview-title"></div>
     <div class="preview-body" id="preview-body" data-default="true">
-        <div class="hero-statement">Capital Structures is a logistics company, moving commodities through existing infrastructure to customers for the lowest possible price.</div>
+        <div class="hero-statement">Capital Structures is a logistics company, moving standard financing vehicles and terms through existing market and legal infrastructure to clients at the lowest possible cost.</div>
     </div>
 </div><!-- /panel-right -->
 
@@ -793,10 +861,26 @@ var docs = {
               '<h3>Identity</h3><p>The governance engine. Maintains the corporate record, tracks filings, manages the structure index, prepares board materials, and ensures procedural integrity across all corporate actions. Modeled on the corporate secretaries of Fortune 500 companies \u2014 meticulous, procedural, invisible.</p>' +
               '<h3>Document Types</h3><ul><li>Board Meeting Agenda</li><li>Board Meeting Minutes</li><li>Structure Index Update</li><li>Filing Tracker</li><li>Cap Table Update</li><li>Organizational Memo</li><li>Governance Calendar</li></ul>' +
               '<h3>Constraints</h3><ul><li>Never generates press releases or structure briefs</li><li>Never advises on structure design or strategy</li><li>Never makes legal determinations</li><li>Always flags incomplete records</li><li>All governance documents must be dated and numbered</li></ul>'
+    },
+    'about': {
+        title: 'About',
+        html: '<h1>Capital Structures, Inc.</h1><h2>Delaware C-Corporation \u00b7 Est. 2025</h2>' +
+              '<h3>What This Is</h3>' +
+              '<p>Capital Structures is an intellectual property company. Its sole product is the creation, execution, and disclosure of corporate and financial structures.</p>' +
+              '<p>Every structure the Company builds \u2014 every series, every agreement, every instrument \u2014 is documented and published in full. The back office is open. The governance is public. The diagrams are the product.</p>' +
+              '<h3>How to Follow</h3>' +
+              '<p>All operational documents, agent configurations, and structure records are published at <a href="https://github.com/CapitalStructuresInc/capital-structures">github.com/CapitalStructuresInc/capital-structures</a>. The repository is the Company\u2019s disclosed infrastructure.</p>' +
+              '<p>New structures are announced via press release and indexed on this site as they are authorized by the Board.</p>' +
+              '<h3>How to Participate</h3>' +
+              '<p>The Company may, from time to time, offer instruments to qualified participants through structures disclosed on this site. All offerings, if any, will be conducted in compliance with applicable securities laws and regulations.</p>' +
+              '<p>No securities are currently being offered. Nothing on this site constitutes an offer to sell or a solicitation of an offer to buy any security.</p>' +
+              '<h3>Forward-Looking Statements</h3>' +
+              '<p>The Company\u2019s stated purpose is the creation and disclosure of corporate structures as intellectual property. The Company may never generate profit and may intentionally dissolve. Past structures are not indicative of future structures. All materials are provided for informational and educational purposes only.</p>' +
+              '<hr><p><em>Prepared by the Office of the Corporate Secretary.</em></p>'
     }
 };
 
-var heroHTML = '<div class="hero-statement">Capital Structures is a logistics company, moving commodities through existing infrastructure to customers for the lowest possible price.</div>';
+var heroHTML = '<div class="hero-statement">Capital Structures is a logistics company, moving standard financing vehicles and terms through existing market and legal infrastructure to clients at the lowest possible cost.</div>';
 
 function loadPreview(key) {
     var doc = docs[key];

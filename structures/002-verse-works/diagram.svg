@@ -7,7 +7,7 @@
       }
 
       .st3 {
-        font-family: Arial-BoldMT, Arial;
+        font-family: '188 Sans Mono', 'Courier New', monospace;
         font-size: 11px;
         font-weight: 700;
         letter-spacing: .08em;
@@ -34,7 +34,7 @@
       }
 
       .st4, .st5, .st6, .st7 {
-        font-family: ArialMT, Arial;
+        font-family: '188 Sans Mono', 'Courier New', monospace;
       }
 
       .st5 {
