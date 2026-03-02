@@ -24,21 +24,30 @@
         }
         .jurisdiction {
             font-size: 11px;
-            color: #666;
+            color: #000;
             letter-spacing: 0.04em;
             margin-bottom: 40px;
+        }
+        /* Heavy rule — after header */
+        .rule-heavy {
+            border: none;
+            border-top: 4px solid #000;
+            margin: 0 0 40px 0;
         }
         p {
             margin-bottom: 16px;
         }
+        /* Medium rule — before each section label */
         .section-label {
             font-size: 10px;
             font-weight: bold;
             letter-spacing: 0.08em;
             text-transform: uppercase;
-            color: #999;
+            color: #000;
             margin-top: 40px;
             margin-bottom: 12px;
+            padding-top: 12px;
+            border-top: 2px solid #000;
         }
         table {
             width: 100%;
@@ -48,25 +57,39 @@
         th, td {
             text-align: left;
             padding: 6px 12px 6px 0;
-            border-bottom: 1px solid #eee;
+            border-bottom: 0.5px solid #000;
             font-size: 11px;
+            color: #000;
         }
         th {
             font-size: 10px;
             font-weight: bold;
             letter-spacing: 0.06em;
             text-transform: uppercase;
-            color: #999;
-            border-bottom: 1px solid #ccc;
+            color: #000;
+            border-bottom: 1px solid #000;
         }
-        .status-pending { color: #999; }
-        .status-active { color: #000; }
+        .status-pending { font-style: italic; }
+        .status-active { }
         a { color: #000; }
+        /* Heavy rule — before footer */
+        .rule-footer {
+            border: none;
+            border-top: 4px solid #000;
+            margin: 64px 0 16px 0;
+        }
         .footer {
-            margin-top: 64px;
             font-size: 10px;
-            color: #bbb;
+            color: #000;
             letter-spacing: 0.03em;
+        }
+        .diagram-container {
+            margin: 16px 0 32px 0;
+            width: 100%;
+        }
+        .diagram-container svg {
+            width: 100%;
+            height: auto;
         }
     </style>
 </head>
@@ -75,7 +98,11 @@
 <h1>Capital Structures Inc.</h1>
 <div class="jurisdiction">Delaware C-Corporation · Est. 2025</div>
 
-<p>Capital Structures Inc. is an intellectual property company whose sole product is the creation, execution, and disclosure of corporate and financial structures.</p>
+<hr class="rule-heavy">
+
+<p>Capital Structures Inc. is an intellectual property company whose sole product is the design, execution, and disclosure of corporate and financial structures.</p>
+
+<p>The company does not sell goods or services. It publishes structures.</p>
 
 <div class="section-label">Structure Index</div>
 
@@ -99,6 +126,169 @@
         <td class="status-pending">Pending</td>
     </tr>
 </table>
+
+<div class="section-label">Structure 001 — Self-Dealing Architecture</div>
+
+<div class="diagram-container">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 560">
+  <defs>
+    <marker id="s1-arrow" viewBox="0 0 10 10" refX="10" refY="5"
+            markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#000"/>
+    </marker>
+    <style>
+      text {
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 11px;
+        letter-spacing: 0.08em;
+        fill: #000;
+      }
+      .entity { font-size: 11px; font-weight: bold; }
+      .label { font-size: 9px; }
+      .notation { font-size: 9px; letter-spacing: 0.06em; }
+    </style>
+  </defs>
+
+  <!-- MARTIN GRASSER — top center, heavier stroke -->
+  <rect x="250" y="30" width="220" height="40" rx="0"
+        fill="none" stroke="#000" stroke-width="3"/>
+  <text x="360" y="55" text-anchor="middle" class="entity">MARTIN GRASSER</text>
+
+  <!-- Left arrow: AUTHORIZES -->
+  <line x1="310" y1="70" x2="200" y2="160"
+        stroke="#000" stroke-width="1.5" marker-end="url(#s1-arrow)"/>
+  <text x="225" y="115" text-anchor="middle" class="label"
+        transform="rotate(-30, 225, 115)">AUTHORIZES</text>
+
+  <!-- Right arrow: PERSONALLY ACQUIRES -->
+  <line x1="410" y1="70" x2="540" y2="160"
+        stroke="#000" stroke-width="1.5" marker-end="url(#s1-arrow)"/>
+  <text x="510" y="108" text-anchor="middle" class="label"
+        transform="rotate(30, 510, 108)">PERSONALLY ACQUIRES</text>
+
+  <!-- CAPITAL STRUCTURES INC. — left, standard stroke -->
+  <rect x="60" y="170" width="280" height="50" rx="0"
+        fill="none" stroke="#000" stroke-width="1.5"/>
+  <text x="200" y="192" text-anchor="middle" class="entity">CAPITAL STRUCTURES INC.</text>
+  <text x="200" y="207" text-anchor="middle" class="label">PARENT / GUARANTOR</text>
+
+  <!-- CLASS B UNITS — right, pill shape -->
+  <rect x="430" y="170" width="220" height="50" rx="25"
+        fill="none" stroke="#000" stroke-width="1.5"/>
+  <text x="540" y="200" text-anchor="middle" class="entity">CLASS B UNITS</text>
+
+  <!-- Down arrow: CREATES / CONTROLS -->
+  <line x1="200" y1="220" x2="200" y2="320"
+        stroke="#000" stroke-width="1.5" marker-end="url(#s1-arrow)"/>
+  <text x="215" y="275" text-anchor="start" class="label">CREATES / CONTROLS</text>
+
+  <!-- PROTECTED SERIES 001 — center-left -->
+  <rect x="60" y="330" width="280" height="50" rx="0"
+        fill="none" stroke="#000" stroke-width="1.5"/>
+  <text x="200" y="360" text-anchor="middle" class="entity">PROTECTED SERIES 001</text>
+
+  <!-- Right arrow: ISSUES -->
+  <line x1="340" y1="355" x2="430" y2="220"
+        stroke="#000" stroke-width="1.5" marker-end="url(#s1-arrow)"/>
+  <text x="405" y="285" text-anchor="middle" class="label"
+        transform="rotate(-55, 405, 285)">ISSUES</text>
+
+  <!-- Dashed line: GUARANTEES PERFORMANCE -->
+  <line x1="340" y1="210" x2="340" y2="330"
+        stroke="#000" stroke-width="1" stroke-dasharray="6,4"/>
+  <text x="355" y="275" text-anchor="start" class="label"
+        style="font-style: italic;">GUARANTEES PERFORMANCE</text>
+
+  <!-- Notation -->
+  <line x1="60" y1="460" x2="660" y2="460"
+        stroke="#000" stroke-width="0.5"/>
+  <text x="360" y="490" text-anchor="middle" class="notation">
+    FULLY CONSOLIDATED / SELF-DEALING DISCLOSED
+  </text>
+
+  <!-- Structure identifier -->
+  <text x="60" y="530" class="notation">STRUCTURE 001 — SELF-DEALING ARCHITECTURE</text>
+</svg>
+</div>
+
+<div class="section-label">Structure 002 — verse.works Advisory Agreement</div>
+
+<div class="diagram-container">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 400">
+  <defs>
+    <marker id="s2-arrow" viewBox="0 0 10 10" refX="10" refY="5"
+            markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#000"/>
+    </marker>
+    <marker id="s2-arrow-left" viewBox="0 0 10 10" refX="0" refY="5"
+            markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+      <path d="M 10 0 L 0 5 L 10 10 z" fill="#000"/>
+    </marker>
+    <style>
+      text {
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 11px;
+        letter-spacing: 0.08em;
+        fill: #000;
+      }
+      .entity { font-size: 11px; font-weight: bold; }
+      .label { font-size: 9px; }
+      .flow-label { font-size: 8.5px; }
+      .notation { font-size: 9px; letter-spacing: 0.06em; }
+    </style>
+  </defs>
+
+  <!-- CAPITAL STRUCTURES INC. — left -->
+  <rect x="40" y="100" width="220" height="50" rx="0"
+        fill="none" stroke="#000" stroke-width="1.5"/>
+  <text x="150" y="130" text-anchor="middle" class="entity">CAPITAL STRUCTURES INC.</text>
+
+  <!-- VERSE.WORKS — right -->
+  <rect x="460" y="100" width="220" height="50" rx="0"
+        fill="none" stroke="#000" stroke-width="1.5"/>
+  <text x="570" y="130" text-anchor="middle" class="entity">VERSE.WORKS</text>
+
+  <!-- ADVISORY AGREEMENT — center, rounded -->
+  <rect x="290" y="105" width="140" height="40" rx="20"
+        fill="none" stroke="#000" stroke-width="1.5"/>
+  <text x="360" y="122" text-anchor="middle" class="label">ADVISORY</text>
+  <text x="360" y="135" text-anchor="middle" class="label">AGREEMENT</text>
+
+  <!-- Connecting lines to agreement -->
+  <line x1="260" y1="125" x2="290" y2="125"
+        stroke="#000" stroke-width="1.5"/>
+  <line x1="430" y1="125" x2="460" y2="125"
+        stroke="#000" stroke-width="1.5"/>
+
+  <!-- Service flows: right to left (verse.works → Capital Structures) -->
+  <line x1="460" y1="195" x2="260" y2="195"
+        stroke="#000" stroke-width="1" marker-end="url(#s2-arrow-left)"/>
+  <text x="360" y="188" text-anchor="middle" class="flow-label">PROMOTIONAL REACH</text>
+
+  <line x1="460" y1="225" x2="260" y2="225"
+        stroke="#000" stroke-width="1" marker-end="url(#s2-arrow-left)"/>
+  <text x="360" y="218" text-anchor="middle" class="flow-label">COLLECTOR ACCESS</text>
+
+  <line x1="460" y1="255" x2="260" y2="255"
+        stroke="#000" stroke-width="1" marker-end="url(#s2-arrow-left)"/>
+  <text x="360" y="248" text-anchor="middle" class="flow-label">STRATEGIC COUNSEL</text>
+
+  <!-- Fee flow: left to right (Capital Structures → verse.works) -->
+  <line x1="260" y1="290" x2="460" y2="290"
+        stroke="#000" stroke-width="1" stroke-dasharray="6,4" marker-end="url(#s2-arrow)"/>
+  <text x="360" y="283" text-anchor="middle" class="flow-label">ADVISORY FEES (OPERATING EXPENSE)</text>
+
+  <!-- Notation -->
+  <line x1="40" y1="340" x2="680" y2="340"
+        stroke="#000" stroke-width="0.5"/>
+  <text x="360" y="365" text-anchor="middle" class="notation">
+    NO GOVERNANCE / NO VOTING / NO EQUITY / NOT CONSOLIDATED
+  </text>
+
+  <!-- Structure identifier -->
+  <text x="40" y="392" class="notation">STRUCTURE 002 — VERSE.WORKS ADVISORY AGREEMENT</text>
+</svg>
+</div>
 
 <div class="section-label">Officers</div>
 
@@ -154,6 +344,8 @@
 <div class="section-label">Infrastructure</div>
 
 <p>The Company's operational infrastructure — including agent configurations, governance documents, and structure records — is published at <a href="https://github.com/CapitalStructuresInc/capital-structures">github.com/CapitalStructuresInc/capital-structures</a>.</p>
+
+<hr class="rule-footer">
 
 <div class="footer">
     Capital Structures Inc. · Wilmington, DE<br>

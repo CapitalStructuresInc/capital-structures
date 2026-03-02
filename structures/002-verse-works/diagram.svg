@@ -1,0 +1,74 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 400">
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="10" refY="5"
+            markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#000"/>
+    </marker>
+    <marker id="arrow-left" viewBox="0 0 10 10" refX="0" refY="5"
+            markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+      <path d="M 10 0 L 0 5 L 10 10 z" fill="#000"/>
+    </marker>
+    <style>
+      text {
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 11px;
+        letter-spacing: 0.08em;
+        fill: #000;
+      }
+      .entity { font-size: 11px; font-weight: bold; }
+      .label { font-size: 9px; }
+      .flow-label { font-size: 8.5px; }
+      .notation { font-size: 9px; letter-spacing: 0.06em; }
+    </style>
+  </defs>
+
+  <!-- CAPITAL STRUCTURES INC. — left -->
+  <rect x="40" y="100" width="220" height="50" rx="0"
+        fill="none" stroke="#000" stroke-width="1.5"/>
+  <text x="150" y="130" text-anchor="middle" class="entity">CAPITAL STRUCTURES INC.</text>
+
+  <!-- VERSE.WORKS — right -->
+  <rect x="460" y="100" width="220" height="50" rx="0"
+        fill="none" stroke="#000" stroke-width="1.5"/>
+  <text x="570" y="130" text-anchor="middle" class="entity">VERSE.WORKS</text>
+
+  <!-- ADVISORY AGREEMENT — center, rounded -->
+  <rect x="290" y="105" width="140" height="40" rx="20"
+        fill="none" stroke="#000" stroke-width="1.5"/>
+  <text x="360" y="122" text-anchor="middle" class="label">ADVISORY</text>
+  <text x="360" y="135" text-anchor="middle" class="label">AGREEMENT</text>
+
+  <!-- Connecting lines to agreement -->
+  <line x1="260" y1="125" x2="290" y2="125"
+        stroke="#000" stroke-width="1.5"/>
+  <line x1="430" y1="125" x2="460" y2="125"
+        stroke="#000" stroke-width="1.5"/>
+
+  <!-- Service flows: right to left (verse.works → Capital Structures) -->
+  <line x1="460" y1="195" x2="260" y2="195"
+        stroke="#000" stroke-width="1" marker-end="url(#arrow-left)"/>
+  <text x="360" y="188" text-anchor="middle" class="flow-label">PROMOTIONAL REACH</text>
+
+  <line x1="460" y1="225" x2="260" y2="225"
+        stroke="#000" stroke-width="1" marker-end="url(#arrow-left)"/>
+  <text x="360" y="218" text-anchor="middle" class="flow-label">COLLECTOR ACCESS</text>
+
+  <line x1="460" y1="255" x2="260" y2="255"
+        stroke="#000" stroke-width="1" marker-end="url(#arrow-left)"/>
+  <text x="360" y="248" text-anchor="middle" class="flow-label">STRATEGIC COUNSEL</text>
+
+  <!-- Fee flow: left to right (Capital Structures → verse.works) -->
+  <line x1="260" y1="290" x2="460" y2="290"
+        stroke="#000" stroke-width="1" stroke-dasharray="6,4" marker-end="url(#arrow)"/>
+  <text x="360" y="283" text-anchor="middle" class="flow-label">ADVISORY FEES (OPERATING EXPENSE)</text>
+
+  <!-- Notation -->
+  <line x1="40" y1="340" x2="680" y2="340"
+        stroke="#000" stroke-width="0.5"/>
+  <text x="360" y="365" text-anchor="middle" class="notation">
+    NO GOVERNANCE / NO VOTING / NO EQUITY / NOT CONSOLIDATED
+  </text>
+
+  <!-- Structure identifier -->
+  <text x="40" y="392" class="notation">STRUCTURE 002 — VERSE.WORKS ADVISORY AGREEMENT</text>
+</svg>
