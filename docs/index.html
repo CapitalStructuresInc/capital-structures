@@ -182,6 +182,7 @@
         }
         details summary {
             font-size: 15px;
+            line-height: 1.1;
             cursor: pointer;
             padding: 8px 0;
             list-style: none;
@@ -227,7 +228,7 @@
         }
         .detail-body p {
             font-size: 14px;
-            line-height: 1.7;
+            line-height: 1.1;
             margin-bottom: 12px;
         }
         .detail-body h4 {
@@ -241,11 +242,15 @@
             border-top: 1px solid #000;
         }
         .detail-body ul {
-            margin: 6px 0 12px 18px;
+            margin: 6px 0 12px 0;
             font-size: 14px;
-            line-height: 1.7;
+            line-height: 1.1;
+            list-style: none;
         }
-        .detail-body li { margin-bottom: 2px; }
+        .detail-body li { margin-bottom: 6px; }
+        .detail-body li::before {
+            content: "\2014\00a0";
+        }
 
         /* —— Structure meta —— */
         .structure-meta {
@@ -486,7 +491,7 @@
                 <li>Advisory agreement between Capital Structures Inc. and verse.works</li>
                 <li>Terms: TBD &mdash; to be negotiated</li>
                 <li>Scope: marketing, promotion, collector relations, strategic advice</li>
-                <li>No governance authority, no voting rights, no equity position</li>
+                <li>No governance authority, no voting rights</li>
             </ul>
 
             <h4>Consolidation</h4>
@@ -585,7 +590,7 @@
         <li>Formation<span class="meta">Published</span></li>
         <li>Structure 001<span class="meta status-pending">Pending</span></li>
         <li class="category">Reports</li>
-        <li>NAV Update &mdash; Q1 2025<span class="meta status-pending">Pending</span></li>
+        <li>NAV Update &mdash; Q2 2026<span class="meta status-pending">Pending</span></li>
     </ul>
 </section>
 
