@@ -291,22 +291,47 @@
             height: auto;
         }
 
+        /* —— Hero Image —— */
+        .hero-image {
+            max-width: 960px;
+            margin: 0 auto;
+            padding: 0 32px;
+        }
+        .hero-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
         /* —— Footer —— */
         footer {
             max-width: 960px;
             margin: 0 auto;
-            padding: 20px 32px 40px 32px;
+            padding: 0 32px 48px 32px;
             border-top: 3px solid #000;
         }
-        footer p {
+        .footer-image {
+            margin: 0 -32px;
+            margin-bottom: 32px;
+        }
+        .footer-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+        }
+        .footer-left p {
             font-size: 12px;
-            line-height: 1.8;
+            line-height: 1.6;
             letter-spacing: 0.02em;
         }
         .footer-links {
             display: flex;
             gap: 24px;
-            margin-bottom: 12px;
         }
         .footer-links a {
             font-size: 11px;
@@ -329,7 +354,9 @@
             .hero { padding: 32px 20px 32px 20px; }
             .hero p { font-size: 26px; }
             section { padding: 0 20px 36px 20px; }
-            footer { padding: 16px 20px 32px 20px; }
+            .hero-image { padding: 0 20px; }
+            footer { padding: 0 20px 32px 20px; }
+            .footer-content { flex-direction: column; gap: 16px; }
             .structure-meta { flex-wrap: wrap; }
             .structure-meta span { width: 50%; flex: none; }
             .structure-meta span:last-child { width: 100%; flex: none; }
@@ -353,6 +380,10 @@
         <a href="#ir">IR</a>
     </div>
 </nav>
+
+<div class="hero-image">
+    <img src="lobby.jpg" alt="Corporate lobby interior">
+</div>
 
 <div class="hero">
     <p>Capital Structures, Inc. creates, executes, and publicly discloses corporate and financial structures as intellectual property, moving standard financing vehicles and terms through existing market and legal infrastructure with counterparties at the lowest practicable cost.</p>
@@ -675,13 +706,18 @@
 </section>
 
 <footer>
-    <div class="footer-links">
-        <a href="#news">News</a>
-        <a href="#structures">Structures</a>
-        <a href="https://github.com/CapitalStructuresInc/capital-structures">GitHub</a>
+    <div class="footer-content">
+        <div class="footer-left">
+            <p>Capital Structures, Inc.</p>
+            <p>Wilmington, Delaware</p>
+        </div>
+        <div class="footer-links">
+            <a href="#news">News</a>
+            <a href="#structures">Structures</a>
+            <a href="#process">Process</a>
+            <a href="https://github.com/CapitalStructuresInc/capital-structures">GitHub</a>
+        </div>
     </div>
-    <p>Capital Structures, Inc. &middot; Wilmington, Delaware</p>
-    <p>The Company may never generate profit and may intentionally dissolve.</p>
 </footer>
 
 </body>
