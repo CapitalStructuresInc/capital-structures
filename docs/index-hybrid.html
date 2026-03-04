@@ -47,6 +47,10 @@
             display: flex;
             align-items: baseline;
             justify-content: space-between;
+            transition: transform 0.25s ease;
+        }
+        nav.nav-hidden {
+            transform: translateY(-100%);
         }
         .nav-name {
             font-size: 14px;
@@ -295,12 +299,12 @@
             max-width: 960px;
             margin: 0 auto;
             padding: 0 32px;
-            border-top: 3px solid #000;
         }
         .hero-image img {
             width: 100%;
             height: auto;
             display: block;
+            border-top: 3px solid #000;
         }
 
         /* —— Footer —— */
@@ -382,7 +386,7 @@
 </nav>
 
 <div class="hero-image">
-    <img src="hero.jpg" alt="Midtown office tower facade">
+    <img src="hero.jpg" alt="Office towers at dusk">
 </div>
 
 <div class="hero">
@@ -719,6 +723,22 @@
         </div>
     </div>
 </footer>
+
+<script>
+(function() {
+    var nav = document.querySelector('nav');
+    var lastY = 0;
+    window.addEventListener('scroll', function() {
+        var y = window.scrollY;
+        if (y > lastY && y > 80) {
+            nav.classList.add('nav-hidden');
+        } else {
+            nav.classList.remove('nav-hidden');
+        }
+        lastY = y;
+    });
+})();
+</script>
 
 </body>
 </html>
