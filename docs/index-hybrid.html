@@ -294,33 +294,17 @@
             height: auto;
         }
 
-        /* —— Hero Image / Slideshow —— */
+        /* —— Hero Image —— */
         .hero-image {
             max-width: 960px;
             margin: 0 auto;
             padding: 0 32px;
         }
-        .slideshow {
-            position: relative;
-            width: 100%;
-            border-top: 3px solid #000;
-            overflow: hidden;
-        }
-        .slideshow img {
+        .hero-image img {
             width: 100%;
             height: auto;
             display: block;
-            opacity: 0;
-            transition: opacity 1.5s ease;
-            position: absolute;
-            top: 0;
-            left: 0;
-        }
-        .slideshow img:first-child {
-            position: relative;
-        }
-        .slideshow img.active {
-            opacity: 1;
+            border-top: 3px solid #000;
         }
 
         /* —— Footer —— */
@@ -402,16 +386,7 @@
 </nav>
 
 <div class="hero-image">
-    <div class="slideshow">
-        <img src="hero.jpg" alt="Office towers at dusk" class="active">
-        <img src="slide-bridge.jpg" alt="Highway bridge">
-        <img src="slide-facade.jpg" alt="Grid facade">
-        <img src="slide-hills.jpg" alt="Rolling hills">
-        <img src="slide-turbines.jpg" alt="Wind turbines">
-        <img src="slide-building.jpg" alt="Building">
-        <img src="slide-flowers.jpg" alt="Cherry blossoms">
-        <img src="slide-palm.jpg" alt="Palm tree">
-    </div>
+    <img src="hero.jpg" alt="Concrete overpass">
 </div>
 
 <div class="hero">
@@ -764,15 +739,6 @@
     });
 })();
 
-(function() {
-    var imgs = document.querySelectorAll('.slideshow img');
-    var current = 0;
-    setInterval(function() {
-        imgs[current].classList.remove('active');
-        current = (current + 1) % imgs.length;
-        imgs[current].classList.add('active');
-    }, 7000);
-})();
 </script>
 
 </body>
