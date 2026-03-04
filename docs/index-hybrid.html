@@ -489,77 +489,89 @@
                 <li>Structure Brief</li>
             </ul>
             <div class="diagram-container">
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 780">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 800">
   <defs><style>
-    .s1-b{fill:none;stroke:#000;stroke-width:1.5px}.s1-c{fill:none;stroke:#000;stroke-width:.5px}.s1-e{fill:none;stroke:#000;stroke-width:3px}.s1-f{font-family:'188 Sans Mono','Courier New',monospace;font-size:11px;font-weight:700;letter-spacing:.08em}.s1-g{font-family:'188 Sans Mono','Courier New',monospace;font-size:9px;letter-spacing:.08em}.s1-h{font-family:'188 Sans Mono','Courier New',monospace;font-size:9px;letter-spacing:.06em}
+    .s1{font-family:'188 Sans Mono','Courier New',monospace}
+    .s1-title{font-size:11px;font-weight:700;letter-spacing:.08em}
+    .s1-label{font-size:9px;letter-spacing:.08em}
+    .s1-detail{font-size:9px;letter-spacing:.06em}
   </style></defs>
 
-  <!-- ROW 1: Martin Grasser (y=30) -->
-  <rect class="s1-e" x="170" y="30" width="280" height="55"/>
-  <text class="s1-f" transform="translate(248 63)"><tspan x="0" y="0">MARTIN GRASSER</tspan></text>
+  <!-- ROW 1: Martin Grasser — 3px stroke (individual) -->
+  <!-- box: x=210 w=300 h=65, center=360 -->
+  <rect x="210" y="30" width="300" height="65" fill="none" stroke="#000" stroke-width="3"/>
+  <text class="s1 s1-title" text-anchor="middle" x="360" y="58">MARTIN GRASSER</text>
 
-  <!-- ARROW: Contributes IP down (left side, x=250) -->
-  <line class="s1-b" x1="250" y1="85" x2="250" y2="208"/>
-  <path d="M244,208l6,14,6-14h-12Z" style="fill:#000"/>
-  <text class="s1-g" transform="translate(80 145)"><tspan x="0" y="0">CONTRIBUTES IP</tspan></text>
-  <text class="s1-h" transform="translate(80 162)"><tspan x="0" y="0">($10,005,000)</tspan></text>
+  <!-- ARROW DOWN: Contributes IP (x=280, left of center) -->
+  <!-- starts at box bottom y=95, ends before next box y=225 -->
+  <line x1="280" y1="95" x2="280" y2="211" stroke="#000" stroke-width="1.5" fill="none"/>
+  <path d="M274,211l6,14,6-14h-12Z" fill="#000"/>
+  <text class="s1 s1-label" x="60" y="150">CONTRIBUTES IP</text>
+  <text class="s1 s1-detail" x="60" y="167">($10,005,000)</text>
 
-  <!-- ARROW: Receives Note up (right side, x=370) -->
-  <line class="s1-b" x1="370" y1="225" x2="370" y2="92"/>
-  <path d="M364,92l6-14,6,14h-12Z" style="fill:#000"/>
-  <text class="s1-g" transform="translate(385 135)"><tspan x="0" y="0">RECEIVES NOTE</tspan></text>
-  <text class="s1-h" transform="translate(385 152)"><tspan x="0" y="0">($10,000,000)</tspan></text>
-  <text class="s1-g" transform="translate(385 176)"><tspan x="0" y="0">+ CLASS B UNITS</tspan></text>
-  <text class="s1-h" transform="translate(385 193)"><tspan x="0" y="0">($5,000)</tspan></text>
+  <!-- ARROW UP: Receives Note (x=440, right of center) -->
+  <!-- starts at next box top y=225, ends before this box bottom y=95 -->
+  <line x1="440" y1="225" x2="440" y2="109" stroke="#000" stroke-width="1.5" fill="none"/>
+  <path d="M434,109l6-14,6,14h-12Z" fill="#000"/>
+  <text class="s1 s1-label" x="460" y="140">RECEIVES NOTE</text>
+  <text class="s1 s1-detail" x="460" y="157">($10,000,000)</text>
+  <text class="s1 s1-label" x="460" y="180">+ CLASS B UNITS</text>
+  <text class="s1 s1-detail" x="460" y="197">($5,000)</text>
 
-  <!-- ROW 2: Capital Structures Inc. (y=225) -->
-  <rect class="s1-b" x="40" y="225" width="300" height="65"/>
-  <text class="s1-f" transform="translate(88 260)"><tspan x="0" y="0">CAPITAL STRUCTURES INC.</tspan></text>
-  <text class="s1-g" transform="translate(148 275)"><tspan x="0" y="0">PARENT</tspan></text>
+  <!-- ROW 2: Capital Structures Inc. — 1.5px solid (consolidated) -->
+  <!-- box: x=40 w=300 h=65, center=190 -->
+  <rect x="40" y="225" width="300" height="65" fill="none" stroke="#000" stroke-width="1.5"/>
+  <text class="s1 s1-title" text-anchor="middle" x="190" y="255">CAPITAL STRUCTURES INC.</text>
+  <text class="s1 s1-label" text-anchor="middle" x="190" y="275">PARENT</text>
 
-  <!-- ARROW: Creates / Controls down (center = 190) -->
-  <line class="s1-b" x1="190" y1="290" x2="190" y2="398"/>
-  <path d="M184,398l6,14,6-14h-12Z" style="fill:#000"/>
-  <text class="s1-g" transform="translate(205 350)"><tspan x="0" y="0">CREATES / CONTROLS</tspan></text>
+  <!-- ARROW DOWN: Creates / Controls (center=190) -->
+  <line x1="190" y1="290" x2="190" y2="411" stroke="#000" stroke-width="1.5" fill="none"/>
+  <path d="M184,411l6,14,6-14h-12Z" fill="#000"/>
+  <text class="s1 s1-label" x="205" y="360">CREATES / CONTROLS</text>
 
-  <!-- ROW 3: Protected Series 001 + ICA-001 pill (y=415) -->
-  <rect class="s1-b" x="40" y="415" width="300" height="65"/>
-  <text class="s1-f" transform="translate(97 452)"><tspan x="0" y="0">PROTECTED SERIES 001</tspan></text>
+  <!-- ROW 3: Protected Series 001 — 1.5px solid (consolidated) -->
+  <!-- box: x=40 w=300 h=65, center=190 -->
+  <rect x="40" y="425" width="300" height="65" fill="none" stroke="#000" stroke-width="1.5"/>
+  <text class="s1 s1-title" text-anchor="middle" x="190" y="462">PROTECTED SERIES 001</text>
 
-  <path class="s1-b" d="M430,420h160c14,0,25,11,25,25v5c0,14-11,25-25,25h-160c-14,0-25-11-25-25v-5c0-14,11-25,25-25Z"/>
-  <text class="s1-f" transform="translate(487 445)"><tspan x="0" y="0">ICA-001</tspan></text>
-  <text class="s1-g" transform="translate(449 462)"><tspan x="0" y="0">IP CONTRIBUTION</tspan></text>
-  <line class="s1-b" x1="340" y1="447" x2="405" y2="447"/>
+  <!-- ICA-001 pill: x=420 w=240 h=55, center=540 -->
+  <rect x="420" y="430" width="240" height="55" rx="27" ry="27" fill="none" stroke="#000" stroke-width="1.5"/>
+  <text class="s1 s1-title" text-anchor="middle" x="540" y="455">ICA-001</text>
+  <text class="s1 s1-label" text-anchor="middle" x="540" y="472">IP CONTRIBUTION</text>
+  <!-- connector -->
+  <line x1="340" y1="457" x2="420" y2="457" stroke="#000" stroke-width="1.5" fill="none"/>
 
   <!-- CONNECTOR: Series 001 → Balance sheet -->
-  <line class="s1-b" x1="190" y1="480" x2="190" y2="520"/>
+  <line x1="190" y1="490" x2="190" y2="530" stroke="#000" stroke-width="1.5" fill="none"/>
 
-  <!-- ROW 4: Balance sheet (y=520) -->
-  <rect class="s1-c" x="40" y="520" width="300" height="130"/>
-  <text class="s1-g" transform="translate(60 543)"><tspan x="0" y="0">ASSETS</tspan></text>
-  <text class="s1-h" transform="translate(60 560)"><tspan x="0" y="0">CONTRIBUTED IP      $10,005,000</tspan></text>
-  <line class="s1-c" x1="60" y1="572" x2="320" y2="572"/>
-  <text class="s1-g" transform="translate(60 590)"><tspan x="0" y="0">LIABILITIES</tspan></text>
-  <text class="s1-h" transform="translate(60 607)"><tspan x="0" y="0">NOTE (PN-001)       $10,000,000</tspan></text>
-  <line class="s1-c" x1="60" y1="619" x2="320" y2="619"/>
-  <text class="s1-g" transform="translate(60 637)"><tspan x="0" y="0">EQUITY</tspan></text>
-  <text class="s1-h" transform="translate(60 654)" style="font-weight:700"><tspan x="0" y="0">CLASS B UNITS            $5,000</tspan></text>
+  <!-- ROW 4: Balance sheet — 0.5px solid (detail view) -->
+  <!-- box: x=40 w=300 h=145 -->
+  <rect x="40" y="530" width="300" height="145" fill="none" stroke="#000" stroke-width="0.5"/>
+  <text class="s1 s1-label" x="60" y="555">ASSETS</text>
+  <text class="s1 s1-detail" x="60" y="572">CONTRIBUTED IP      $10,005,000</text>
+  <line x1="60" y1="585" x2="320" y2="585" stroke="#000" stroke-width="0.5"/>
+  <text class="s1 s1-label" x="60" y="605">LIABILITIES</text>
+  <text class="s1 s1-detail" x="60" y="622">NOTE (PN-001)       $10,000,000</text>
+  <line x1="60" y1="635" x2="320" y2="635" stroke="#000" stroke-width="0.5"/>
+  <text class="s1 s1-label" x="60" y="655">EQUITY</text>
+  <text class="s1 s1-detail" x="60" y="672" style="font-weight:700">CLASS B UNITS            $5,000</text>
 
-  <!-- Instrument pills alongside balance sheet -->
-  <path class="s1-b" d="M430,530h160c14,0,25,11,25,25v5c0,14-11,25-25,25h-160c-14,0-25-11-25-25v-5c0-14,11-25,25-25Z"/>
-  <text class="s1-f" transform="translate(484 555)"><tspan x="0" y="0">PN-001</tspan></text>
-  <text class="s1-g" transform="translate(449 572)"><tspan x="0" y="0">$10,000,000 / 0%</tspan></text>
-  <line class="s1-b" x1="340" y1="555" x2="405" y2="555"/>
+  <!-- PN-001 pill: x=420 w=240 h=55, center=540 -->
+  <rect x="420" y="540" width="240" height="55" rx="27" ry="27" fill="none" stroke="#000" stroke-width="1.5"/>
+  <text class="s1 s1-title" text-anchor="middle" x="540" y="565">PN-001</text>
+  <text class="s1 s1-label" text-anchor="middle" x="540" y="582">$10,000,000 / 0%</text>
+  <line x1="340" y1="567" x2="420" y2="567" stroke="#000" stroke-width="1.5" fill="none"/>
 
-  <path class="s1-b" d="M430,605h160c14,0,25,11,25,25v5c0,14-11,25-25,25h-160c-14,0-25-11-25-25v-5c0-14,11-25,25-25Z"/>
-  <text class="s1-f" transform="translate(462 630)"><tspan x="0" y="0">CLASS B UNITS</tspan></text>
-  <text class="s1-g" transform="translate(487 647)"><tspan x="0" y="0">$5,000</tspan></text>
-  <line class="s1-b" x1="340" y1="630" x2="405" y2="630"/>
+  <!-- Class B Units pill: x=420 w=240 h=55, center=540 -->
+  <rect x="420" y="620" width="240" height="55" rx="27" ry="27" fill="none" stroke="#000" stroke-width="1.5"/>
+  <text class="s1 s1-title" text-anchor="middle" x="540" y="645">CLASS B UNITS</text>
+  <text class="s1 s1-label" text-anchor="middle" x="540" y="662">$5,000</text>
+  <line x1="340" y1="647" x2="420" y2="647" stroke="#000" stroke-width="1.5" fill="none"/>
 
   <!-- FOOTER -->
-  <line class="s1-c" x1="40" y1="690" x2="680" y2="690"/>
-  <text class="s1-h" transform="translate(110 715)"><tspan x="0" y="0">99.95% DEBT-FINANCED / MARK-TO-MODEL / SELF-DEALING DISCLOSED</tspan></text>
-  <text class="s1-h" transform="translate(40 755)"><tspan x="0" y="0">STRUCTURE 001 — IP CONTRIBUTION &amp; PRE-PAY ARCHITECTURE</tspan></text>
+  <line x1="40" y1="715" x2="680" y2="715" stroke="#000" stroke-width="0.5"/>
+  <text class="s1 s1-detail" x="120" y="740">99.95% DEBT-FINANCED / MARK-TO-MODEL / SELF-DEALING DISCLOSED</text>
+  <text class="s1 s1-detail" x="40" y="780">STRUCTURE 001 — IP CONTRIBUTION &amp; PRE-PAY ARCHITECTURE</text>
 </svg>
             </div>
         </div>
@@ -632,83 +644,96 @@
                 <li>Structure Brief</li>
             </ul>
             <div class="diagram-container">
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 780">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 830">
   <defs><style>
-    .s2-b{fill:none;stroke:#000;stroke-width:1.5px}.s2-c{fill:none;stroke:#000;stroke-width:.5px}.s2-d{font-family:'188 Sans Mono','Courier New',monospace;font-size:11px;font-weight:700;letter-spacing:.08em}.s2-e{font-family:'188 Sans Mono','Courier New',monospace;font-size:9px;letter-spacing:.08em}.s2-f{font-family:'188 Sans Mono','Courier New',monospace;font-size:9px;letter-spacing:.06em}
+    .s2{font-family:'188 Sans Mono','Courier New',monospace}
+    .s2-title{font-size:11px;font-weight:700;letter-spacing:.08em}
+    .s2-label{font-size:9px;letter-spacing:.08em}
+    .s2-detail{font-size:9px;letter-spacing:.06em}
   </style></defs>
 
-  <!-- ROW 1: Parent entities (y=30) -->
-  <rect class="s2-b" x="40" y="30" width="300" height="65"/>
-  <text class="s2-d" transform="translate(88 65)"><tspan x="0" y="0">CAPITAL STRUCTURES INC.</tspan></text>
-  <text class="s2-e" transform="translate(148 80)"><tspan x="0" y="0">PARENT</tspan></text>
+  <!-- ROW 1: Parent entities -->
+  <!-- CS Inc: x=40 w=300 h=65, center=190 — 1.5px solid (consolidated) -->
+  <rect x="40" y="30" width="300" height="65" fill="none" stroke="#000" stroke-width="1.5"/>
+  <text class="s2 s2-title" text-anchor="middle" x="190" y="58">CAPITAL STRUCTURES INC.</text>
+  <text class="s2 s2-label" text-anchor="middle" x="190" y="78">PARENT</text>
 
-  <rect class="s2-b" x="420" y="30" width="260" height="65" style="stroke-dasharray:6 4"/>
-  <text class="s2-d" transform="translate(498 65)"><tspan x="0" y="0">VERSE.WORKS</tspan></text>
-  <text class="s2-e" transform="translate(478 80)"><tspan x="0" y="0">INDEPENDENT PARTY</tspan></text>
+  <!-- verse.works: x=420 w=260 h=65, center=550 — 1.5px dashed (not consolidated) -->
+  <rect x="420" y="30" width="260" height="65" fill="none" stroke="#000" stroke-width="1.5" stroke-dasharray="6 4"/>
+  <text class="s2 s2-title" text-anchor="middle" x="550" y="58">VERSE.WORKS</text>
+  <text class="s2 s2-label" text-anchor="middle" x="550" y="78">INDEPENDENT PARTY</text>
 
-  <!-- ARROW: CS Inc → Series 002 (center of CS box = 190) -->
-  <line class="s2-b" x1="190" y1="95" x2="190" y2="248"/>
-  <path d="M184,248l6,14,6-14h-12Z" style="fill:#000"/>
-  <text class="s2-e" transform="translate(205 175)"><tspan x="0" y="0">CREATES / CONTROLS</tspan></text>
+  <!-- ARROW DOWN: CS Inc → Series 002 (center=190) -->
+  <!-- starts at CS Inc bottom y=95, ends at Series 002 top y=280 -->
+  <line x1="190" y1="95" x2="190" y2="266" stroke="#000" stroke-width="1.5" fill="none"/>
+  <path d="M184,266l6,14,6-14h-12Z" fill="#000"/>
+  <text class="s2 s2-label" x="205" y="190">CREATES / CONTROLS</text>
 
-  <!-- ARROW: Services down from verse.works (right side, x=610) -->
-  <line class="s2-b" x1="610" y1="95" x2="610" y2="248"/>
-  <path d="M604,248l6,14,6-14h-12Z" style="fill:#000"/>
-  <text class="s2-e" transform="translate(625 155)"><tspan x="0" y="0">PROMOTIONAL</tspan></text>
-  <text class="s2-e" transform="translate(625 169)"><tspan x="0" y="0">REACH</tspan></text>
-  <text class="s2-e" transform="translate(625 193)"><tspan x="0" y="0">COLLECTOR</tspan></text>
-  <text class="s2-e" transform="translate(625 207)"><tspan x="0" y="0">ACCESS</tspan></text>
-  <text class="s2-e" transform="translate(625 231)"><tspan x="0" y="0">STRATEGIC</tspan></text>
-  <text class="s2-e" transform="translate(625 245)"><tspan x="0" y="0">COUNSEL</tspan></text>
+  <!-- ARROW DOWN: Services from verse.works → DSA pill -->
+  <!-- x=610, starts OUTSIDE dashed box bottom y=95, ends at pill top y=285 -->
+  <line x1="610" y1="95" x2="610" y2="271" stroke="#000" stroke-width="1.5" fill="none"/>
+  <path d="M604,271l6,14,6-14h-12Z" fill="#000"/>
+  <text class="s2 s2-label" x="625" y="155">PROMOTIONAL</text>
+  <text class="s2 s2-label" x="625" y="170">REACH</text>
+  <text class="s2 s2-label" x="625" y="195">COLLECTOR</text>
+  <text class="s2 s2-label" x="625" y="210">ACCESS</text>
+  <text class="s2 s2-label" x="625" y="235">STRATEGIC</text>
+  <text class="s2 s2-label" x="625" y="250">COUNSEL</text>
 
-  <!-- ARROW: Revenue share up to verse.works (left side, x=480) -->
-  <line class="s2-b" x1="480" y1="262" x2="480" y2="100"/>
-  <path d="M474,100l6-14,6,14h-12Z" style="fill:#000"/>
-  <text class="s2-e" transform="translate(370 165)"><tspan x="0" y="0">REVENUE</tspan></text>
-  <text class="s2-e" transform="translate(370 179)"><tspan x="0" y="0">SHARE</tspan></text>
-  <text class="s2-f" transform="translate(370 199)"><tspan x="0" y="0">(CONTINGENT)</tspan></text>
+  <!-- ARROW UP: Revenue share from Series 002 → verse.works -->
+  <!-- x=480, starts OUTSIDE Series 002 top y=280, ends OUTSIDE dashed box bottom y=95 -->
+  <line x1="480" y1="280" x2="480" y2="109" stroke="#000" stroke-width="1.5" fill="none"/>
+  <path d="M474,109l6-14,6,14h-12Z" fill="#000"/>
+  <text class="s2 s2-label" x="380" y="175">REVENUE</text>
+  <text class="s2 s2-label" x="380" y="190">SHARE</text>
+  <text class="s2 s2-detail" x="380" y="210">(CONTINGENT)</text>
 
-  <!-- ROW 2: Series 002 + DSA pill (y=265) -->
-  <rect class="s2-b" x="40" y="265" width="300" height="65"/>
-  <text class="s2-d" transform="translate(97 302)"><tspan x="0" y="0">PROTECTED SERIES 002</tspan></text>
+  <!-- ROW 2: Series 002 + DSA pill -->
+  <!-- Series 002: x=40 w=300 h=65, center=190 — 1.5px solid (consolidated) -->
+  <rect x="40" y="280" width="300" height="65" fill="none" stroke="#000" stroke-width="1.5"/>
+  <text class="s2 s2-title" text-anchor="middle" x="190" y="317">PROTECTED SERIES 002</text>
 
-  <path class="s2-b" d="M430,270h180c14,0,25,11,25,25v5c0,14-11,25-25,25h-180c-14,0-25-11-25-25v-5c0-14,11-25,25-25Z"/>
-  <text class="s2-d" transform="translate(492 295)"><tspan x="0" y="0">DSA-002</tspan></text>
-  <text class="s2-e" transform="translate(446 312)"><tspan x="0" y="0">DISTRIBUTION AGREEMENT</tspan></text>
-  <line class="s2-b" x1="340" y1="297" x2="405" y2="297"/>
+  <!-- DSA-002 pill: x=420 w=260 h=55, center=550 — 1.5px solid (instrument) -->
+  <rect x="420" y="285" width="260" height="55" rx="27" ry="27" fill="none" stroke="#000" stroke-width="1.5"/>
+  <text class="s2 s2-title" text-anchor="middle" x="550" y="310">DSA-002</text>
+  <text class="s2 s2-label" text-anchor="middle" x="550" y="327">DISTRIBUTION AGREEMENT</text>
+  <line x1="340" y1="312" x2="420" y2="312" stroke="#000" stroke-width="1.5" fill="none"/>
 
-  <!-- CONNECTOR: Series 002 → Balance sheet -->
-  <line class="s2-b" x1="190" y1="330" x2="190" y2="370"/>
+  <!-- CONNECTOR: Series 002 → Balance sheet — 1.5px solid -->
+  <line x1="190" y1="345" x2="190" y2="390" stroke="#000" stroke-width="1.5" fill="none"/>
 
-  <!-- ROW 3: Balance sheet (y=370) -->
-  <rect class="s2-c" x="40" y="370" width="300" height="130"/>
-  <text class="s2-e" transform="translate(60 393)"><tspan x="0" y="0">ASSETS</tspan></text>
-  <text class="s2-f" transform="translate(60 410)"><tspan x="0" y="0">DSA-002 AGREEMENT       $500,000</tspan></text>
-  <line class="s2-c" x1="60" y1="422" x2="320" y2="422"/>
-  <text class="s2-e" transform="translate(60 440)"><tspan x="0" y="0">LIABILITIES</tspan></text>
-  <text class="s2-f" transform="translate(60 457)"><tspan x="0" y="0">REVENUE SHARE PAYABLE          $0</tspan></text>
-  <line class="s2-c" x1="60" y1="469" x2="320" y2="469"/>
-  <text class="s2-e" transform="translate(60 487)"><tspan x="0" y="0">EQUITY</tspan></text>
-  <text class="s2-f" transform="translate(60 504)" style="font-weight:700"><tspan x="0" y="0">UNCAPITALIZED                  $0</tspan></text>
+  <!-- ROW 3: Balance sheet — 0.5px solid (detail view) -->
+  <rect x="40" y="390" width="300" height="145" fill="none" stroke="#000" stroke-width="0.5"/>
+  <text class="s2 s2-label" x="60" y="415">ASSETS</text>
+  <text class="s2 s2-detail" x="60" y="432">DSA-002 AGREEMENT       $500,000</text>
+  <line x1="60" y1="445" x2="320" y2="445" stroke="#000" stroke-width="0.5"/>
+  <text class="s2 s2-label" x="60" y="465">LIABILITIES</text>
+  <text class="s2 s2-detail" x="60" y="482">REVENUE SHARE PAYABLE          $0</text>
+  <line x1="60" y1="495" x2="320" y2="495" stroke="#000" stroke-width="0.5"/>
+  <text class="s2 s2-label" x="60" y="515">EQUITY</text>
+  <text class="s2 s2-detail" x="60" y="532" style="font-weight:700">UNCAPITALIZED                  $0</text>
 
-  <!-- DASHED CONNECTOR: Balance sheet → Series 001 -->
-  <line class="s2-b" x1="190" y1="500" x2="190" y2="560" style="stroke-dasharray:6 4"/>
-  <text class="s2-f" transform="translate(205 540)"><tspan x="0" y="0">STRUCTURES ORIGINATE HERE</tspan></text>
+  <!-- DASHED CONNECTOR: Balance sheet → Series 001 — dashed (reference/indirect) -->
+  <line x1="190" y1="535" x2="190" y2="590" stroke="#000" stroke-width="1.5" stroke-dasharray="6 4" fill="none"/>
+  <text class="s2 s2-detail" x="205" y="575">STRUCTURES ORIGINATE HERE</text>
 
-  <!-- ROW 4: Series 001 + Collectors (y=560) -->
-  <rect class="s2-c" x="40" y="560" width="300" height="50"/>
-  <text class="s2-e" transform="translate(65 590)"><tspan x="0" y="0">SERIES 001 (IP / PN-001 / $10M NOTE)</tspan></text>
+  <!-- ROW 4: Series 001 reference + Collectors -->
+  <!-- Series 001: x=40 w=300 h=55, center=190 — 0.5px solid (reference) -->
+  <rect x="40" y="590" width="300" height="55" fill="none" stroke="#000" stroke-width="0.5"/>
+  <text class="s2 s2-label" text-anchor="middle" x="190" y="622">SERIES 001 (IP / PN-001 / $10M NOTE)</text>
 
-  <rect class="s2-b" x="460" y="560" width="200" height="50" style="stroke-width:3px"/>
-  <text class="s2-d" transform="translate(505 590)"><tspan x="0" y="0">COLLECTORS</tspan></text>
+  <!-- Collectors: x=420 w=260 h=55, center=550 — 1.5px dashed (external party) -->
+  <rect x="420" y="590" width="260" height="55" fill="none" stroke="#000" stroke-width="1.5" stroke-dasharray="6 4"/>
+  <text class="s2 s2-title" text-anchor="middle" x="550" y="622">COLLECTORS</text>
 
-  <line class="s2-b" x1="340" y1="585" x2="460" y2="585" style="stroke-dasharray:3 3"/>
-  <text class="s2-f" transform="translate(345 635)"><tspan x="0" y="0">SALE PROCEEDS (REG CF / LICENSING)</tspan></text>
+  <!-- Dotted connector: proceeds flow — dotted (contingent/future) -->
+  <line x1="340" y1="617" x2="420" y2="617" stroke="#000" stroke-width="1.5" stroke-dasharray="3 3" fill="none"/>
+  <text class="s2 s2-detail" text-anchor="middle" x="360" y="670">SALE PROCEEDS (REG CF / LICENSING)</text>
 
   <!-- FOOTER -->
-  <line class="s2-c" x1="40" y1="670" x2="680" y2="670"/>
-  <text class="s2-f" transform="translate(100 695)"><tspan x="0" y="0">UNCAPITALIZED / MARK-TO-MODEL / CONTINGENT REVENUE SHARE</tspan></text>
-  <text class="s2-f" transform="translate(40 740)"><tspan x="0" y="0">STRUCTURE 002 — VERSE.WORKS DISTRIBUTION AGREEMENT</tspan></text>
+  <line x1="40" y1="710" x2="680" y2="710" stroke="#000" stroke-width="0.5"/>
+  <text class="s2 s2-detail" x="105" y="735">UNCAPITALIZED / MARK-TO-MODEL / CONTINGENT REVENUE SHARE</text>
+  <text class="s2 s2-detail" x="40" y="775">STRUCTURE 002 — VERSE.WORKS DISTRIBUTION AGREEMENT</text>
 </svg>
             </div>
         </div>
