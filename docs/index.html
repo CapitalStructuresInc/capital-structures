@@ -252,11 +252,12 @@
         }
         .detail-body li {
             margin-bottom: 6px;
-            padding-left: 20px;
-            text-indent: -20px;
+            display: flex;
+            align-items: baseline;
         }
         .detail-body li::before {
             content: "\2013\00a0";
+            flex-shrink: 0;
         }
 
         /* —— Structure meta —— */
@@ -813,126 +814,10 @@
 <!-- Governance -->
 <section>
     <h2 id="governance"><span>Governance</span></h2>
-    <details>
-        <summary>
-            <span>Company Handbook</span>
-            <span class="meta">Active &middot; v1.0</span>
-        </summary>
-        <div class="detail-body">
-            <p>Capital Structures Inc. creates, executes, and discloses corporate and financial structures as its sole product. The company does not sell goods or services. It publishes structures.</p>
-
-            <h4>What We Believe</h4>
-            <p>The corporation is the most consequential authored form of the last hundred years. It determines where people live, what they eat, whether they have health insurance. But it is treated as infrastructure &mdash; neutral, inevitable, not designed.</p>
-            <p>It is designed. We show how it actually works.</p>
-
-            <h4>How We Operate</h4>
-            <ul>
-                <li>Every corporate action is a structure. There is no distinction between &ldquo;operations&rdquo; and &ldquo;the work.&rdquo;</li>
-                <li>Every structure is disclosed. There is no internal information that is not eventually published.</li>
-                <li>Every document is an artifact. Board resolutions, press releases, cap table updates, and this handbook are all part of the corporate record.</li>
-                <li>Every role is disclosed. Officers, agents, advisors, and their affiliated-party relationships are stated plainly.</li>
-            </ul>
-
-            <h4>Roles</h4>
-            <ul>
-                <li>Chief Executive Officer &mdash; Sole decision-maker. Holds the voting share. Authorizes all structures.</li>
-                <li>Head of Operations &mdash; First reviewer on all agent outputs. Filing coordination. External liaison.</li>
-                <li>Back Office Agents &mdash; AI systems operating under published configurations. All outputs require human review.</li>
-                <li>External Counsel &mdash; Reviews filings before publication. No governance authority.</li>
-                <li>External Accountant &mdash; Maintains accurate books. No governance authority.</li>
-                <li>Strategic Advisor &mdash; verse.works. Promotional reach, collector access, strategic counsel. No governance authority.</li>
-            </ul>
-
-            <h4>Voice</h4>
-            <p>The company speaks as a company. Not as an art project. Not as a startup. Not as a commentary on finance. We do not explain why the structures exist. We do not apologize for complexity. We do not speculate on outcomes. We disclose facts and record decisions.</p>
-
-            <h4>What We Do Not Do</h4>
-            <ul>
-                <li>We do not maximize shareholder value in the conventional sense</li>
-                <li>We do not promise returns, dividends, or appreciation</li>
-                <li>We do not stabilize secondary market prices</li>
-                <li>We do not conceal self-dealing, affiliated-party transactions, or guarantee exposure</li>
-            </ul>
-
-            <h4>Termination</h4>
-            <p>The company may dissolve at any time. Dissolution is a valid completion of the work.</p>
-
-            <p><em>This document is a disclosed artifact of the Company&rsquo;s operations.</em></p>
-        </div>
-    </details>
-
     <ul class="grid-list">
         <li>Organizational Chart<span class="meta">Active</span></li>
         <li>Board Meeting Agenda (BOD-2026-001)<span class="meta status-pending">Pending</span></li>
     </ul>
-
-    <details>
-        <summary>
-            <span>Agent Role Descriptions</span>
-            <span class="meta">Published</span>
-        </summary>
-        <div class="detail-body">
-            <h4>Global Finance Department</h4>
-            <p>The Global Finance Department designs, executes, and documents all corporate and financial structures produced by Capital Structures Inc. It operates as the Company&rsquo;s primary structuring function &mdash; responsible for origination, documentation, and disclosure of every transaction, instrument, and entity in the corporate system.</p>
-
-            <p>The department&rsquo;s structural vocabulary draws from the finance groups that built the most consequential corporate architectures of the last thirty years &mdash; including the special purpose entity programs at Enron, the structured finance desks at JPMorgan, Citigroup, and Merrill Lynch, and the synthetic credit operations that preceded the 2008 financial crisis. The department applies this same engineering capacity with a single operational distinction: full disclosure and consolidation of all structures on the face of every document.</p>
-
-            <h4>Outputs</h4>
-            <ul>
-                <li>Board Resolutions &mdash; formal corporate resolutions prepared to institutional standard</li>
-                <li>Press Releases &mdash; corporate communications with CEO commentary, boilerplate, and forward-looking disclaimers</li>
-                <li>Structure Briefs &mdash; one-page technical summaries covering components, counterparties, guarantee provisions, and consolidation treatment</li>
-                <li>NAV Updates &mdash; quarterly portfolio summaries with structure count, documented value, and guarantee exposure</li>
-                <li>Earnings Call Scripts &mdash; prepared remarks and Q&amp;A in institutional tone</li>
-            </ul>
-
-            <h4>Precedent Corpus</h4>
-            <p>The department maintains a reference corpus of historical structures, each originally designed to limit disclosure. The department deploys equivalent architectures under full transparency.</p>
-            <ul>
-                <li>JEDI / Chewco (1993&ndash;1997) &mdash; joint venture with replacement partner structure. Department treatment: guarantees printed on face of document.</li>
-                <li>Raptors I&ndash;IV (2000&ndash;2001) &mdash; self-referential hedges capitalized with parent equity. Department treatment: circular exposure disclosed and diagrammed.</li>
-                <li>LJM1 / LJM2 (1999&ndash;2001) &mdash; affiliated-party funds as transaction counterparties. Department treatment: self-dealing stated plainly in all documentation.</li>
-                <li>Mahonia / Delta / Yosemite &mdash; prepay structures functioning as undisclosed financing. Department treatment: recharacterized and consolidated.</li>
-                <li>Whitewing / Osprey &mdash; asset-parking vehicles with parent equity-backed notes. Department treatment: consolidated, documented as design choice.</li>
-                <li>Marlin Water Trust &mdash; securitization of future cash flows. Department treatment: documented as timing choice, no false risk transfer claims.</li>
-            </ul>
-
-            <h4>Operating Principles</h4>
-            <ul>
-                <li>All structures are legally compliant and fully disclosed</li>
-                <li>Consolidation treatment, self-dealing, and guarantee exposure are noted in every document</li>
-                <li>Structures that mirror historical precedents cite the precedent and distinguish the disclosure treatment</li>
-                <li>All outputs require legal review before filing or publication</li>
-            </ul>
-
-            <h4 style="margin-top:28px;">Corporate Secretary</h4>
-            <p>The Corporate Secretary maintains the corporate record, tracks filings, manages the structure index, prepares board materials, and ensures procedural integrity across all corporate actions. The role is modeled on the corporate secretary function at large public companies &mdash; meticulous, procedural, and operationally invisible.</p>
-
-            <p>The Corporate Secretary does not create structures or advise on strategy. It records decisions, prepares the materials for governance actions, and ensures every signature, resolution, and filing is correct, on time, and archived.</p>
-
-            <h4>Outputs</h4>
-            <ul>
-                <li>Board Meeting Agendas &mdash; standard agendas with time allocations and resolution references</li>
-                <li>Board Meeting Minutes &mdash; formal record of attendees, quorum, motions, votes, resolutions adopted, and action items</li>
-                <li>Structure Index Updates &mdash; master index of all structures with status, counterparties, and consolidation treatment</li>
-                <li>Filing Tracker &mdash; required filings, deadlines, and completion status</li>
-                <li>Cap Table Updates &mdash; current capitalization, all share classes, ownership percentages, and affiliated positions</li>
-                <li>Organizational Memos &mdash; personnel changes, role definitions, and reporting structures</li>
-                <li>Governance Calendar &mdash; rolling 12-month calendar of required corporate actions</li>
-            </ul>
-
-            <h4>Operating Principles</h4>
-            <ul>
-                <li>Does not generate press releases, structure briefs, or NAV updates &mdash; those are produced by the Global Finance Department</li>
-                <li>Does not advise on structure design or strategy &mdash; that authority rests with the CEO</li>
-                <li>Does not make legal determinations &mdash; items requiring counsel review are flagged</li>
-                <li>Incomplete records, unsigned documents, and actions requiring board approval are always flagged</li>
-                <li>All governance documents are dated and numbered</li>
-            </ul>
-
-            <p><em>Both role descriptions are disclosed artifacts of the Company&rsquo;s operations. All agent outputs require human review before publication.</em></p>
-        </div>
-    </details>
 </section>
 
 <!-- Personnel -->
@@ -996,7 +881,6 @@
     </details>
 
     <ul class="grid-list">
-        <li class="category">Pending</li>
         <li>Structure 001 Press Release<span class="meta status-pending">Pending</span></li>
         <li>NAV Update &mdash; Q2 2026<span class="meta status-pending">Pending</span></li>
     </ul>
