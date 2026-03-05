@@ -29,7 +29,7 @@
         body {
             font-family: '188 Sans', Arial, Helvetica, sans-serif;
             font-size: 15px;
-            line-height: 1.65;
+            line-height: 1.45;
             color: #000;
             background: #fff;
             -webkit-font-smoothing: antialiased;
@@ -121,7 +121,7 @@
         }
         section p {
             font-size: 15px;
-            line-height: 1.7;
+            line-height: 1.45;
             max-width: 640px;
             margin-bottom: 14px;
         }
@@ -211,16 +211,16 @@
         }
         details summary::-webkit-details-marker { display: none; }
         details summary::before {
-            content: "+";
-            font-size: 24px;
-            font-weight: bold;
-            width: 24px;
+            content: "\25B8";
+            font-size: 11px;
+            width: 16px;
             text-align: center;
             flex-shrink: 0;
             line-height: 1;
+            transition: transform 0.15s ease;
         }
         details[open] summary::before {
-            content: "\2013";
+            content: "\25BE";
         }
         details[open] summary {
             border-bottom: 1.5px solid #000;
@@ -231,7 +231,7 @@
         }
         .detail-body p {
             font-size: 14px;
-            line-height: 1.25;
+            line-height: 1.4;
             margin-bottom: 12px;
         }
         .detail-body h4 {
@@ -247,7 +247,7 @@
         .detail-body ul {
             margin: 6px 0 12px 0;
             font-size: 14px;
-            line-height: 1.25;
+            line-height: 1.4;
             list-style: none;
         }
         .detail-body li {
@@ -256,7 +256,7 @@
             text-indent: -20px;
         }
         .detail-body li::before {
-            content: "\2014\00a0";
+            content: "\2013\00a0";
         }
 
         /* —— Structure meta —— */
@@ -315,7 +315,7 @@
         footer {
             max-width: 960px;
             margin: 0 auto;
-            padding: 0 32px 48px 32px;
+            padding: 48px 32px 48px 32px;
             border-top: 3px solid #000;
         }
         .footer-image {
@@ -425,7 +425,7 @@
             <p>Each contribution creates a new Protected Series under Delaware law. Participants receive Class B Units &mdash; real securities, documented in the Company&rsquo;s public archive. Class B Units carry no voting rights, no dividends, no liquidation preference, and position inside a fully disclosed corporate system.</p>
 
             <h4>How to Participate</h4>
-            <p>The offering will be conducted through a Reg CF portal. The Company will announce the portal listing and open date when Form C has been filed with the SEC. Interested parties may follow the Company&rsquo;s progress at <a href="https://github.com/CapitalStructuresInc/capital-structures">github.com/CapitalStructuresInc/capital-structures</a>.</p>
+            <p>The offering will be conducted through a Reg CF portal. The Company will announce the portal listing and open date when Form C has been filed with the SEC.</p>
 
             <h4>Risk Factors</h4>
             <ul>
@@ -701,13 +701,14 @@
   <path d="M184,260l6,14,6-14h-12Z" fill="#000"/>
   <text class="t t2" x="114" y="194" text-anchor="middle" fill="#666">CREATES / CONTROLS</text>
 
-  <!-- REVENUE SHARE: L-shaped arrow in gap -->
-  <line x1="390" y1="274" x2="390" y2="62" stroke="#000" stroke-width="1.5" fill="none"/>
-  <line x1="390" y1="62" x2="422" y2="62" stroke="#000" stroke-width="1.5" fill="none"/>
-  <path d="M422,56l12,6-12,6Z" fill="#000"/>
-  <text class="t t2" x="350" y="163" text-anchor="middle" fill="#666">REVENUE</text>
-  <text class="t t2" x="350" y="178" text-anchor="middle" fill="#666">SHARE</text>
-  <text class="t t3" x="350" y="195" text-anchor="middle" fill="#666">(CONTINGENT)</text>
+  <!-- REVENUE SHARE: L-shaped arrow from Series 002 to verse.works (dotted = contingent) -->
+  <line x1="340" y1="300" x2="390" y2="300" stroke="#000" stroke-width="1.5" stroke-dasharray="3 3" fill="none"/>
+  <line x1="390" y1="300" x2="390" y2="62" stroke="#000" stroke-width="1.5" stroke-dasharray="3 3" fill="none"/>
+  <line x1="390" y1="62" x2="428" y2="62" stroke="#000" stroke-width="1.5" stroke-dasharray="3 3" fill="none"/>
+  <path d="M428,56l12,6-12,6Z" fill="#000"/>
+  <text class="t t2" x="350" y="175" text-anchor="middle" fill="#666">REVENUE</text>
+  <text class="t t2" x="350" y="190" text-anchor="middle" fill="#666">SHARE</text>
+  <text class="t t3" x="350" y="207" text-anchor="middle" fill="#666">(CONTINGENT)</text>
 
   <!-- SERVICES: annotation below verse.works -->
   <text class="t t2" x="445" y="126" fill="#666">PROMOTIONAL REACH</text>
@@ -752,8 +753,9 @@
   <rect x="440" y="620" width="220" height="55" fill="none" stroke="#000" stroke-width="1.5" stroke-dasharray="6 4"/>
   <text class="t t1" text-anchor="middle" x="550" y="652">COLLECTORS</text>
 
-  <!-- Dotted connector: proceeds flow (contingent/future) -->
-  <line x1="340" y1="647" x2="440" y2="647" stroke="#000" stroke-width="1.5" stroke-dasharray="6 4" fill="none"/>
+  <!-- Dotted connector: proceeds flow from Collectors to Series 001 (dotted = contingent) -->
+  <line x1="358" y1="647" x2="440" y2="647" stroke="#000" stroke-width="1.5" stroke-dasharray="3 3" fill="none"/>
+  <path d="M358,641l-12,6,12,6Z" fill="#000"/>
   <text class="t t3" x="40" y="700" fill="#666">SALE PROCEEDS (REG CF / LICENSING)</text>
 
   <!-- FOOTER -->
@@ -769,7 +771,7 @@
 <!-- Process -->
 <section>
     <h2 id="process"><span>Process</span></h2>
-    <p>All structures, filings, and disclosures are produced through a defined workflow involving human officers and AI agents operating under published system prompts. Every agent prompt is an open artifact of the Company.</p>
+    <p>All structures, filings, and disclosures are produced through a defined workflow involving human officers and AI agents operating under published configurations.</p>
 
     <details>
         <summary>
@@ -777,8 +779,7 @@
             <span class="meta">Agent &middot; Structures &amp; Disclosures</span>
         </summary>
         <div class="detail-body">
-            <p>Designs, executes, and documents all corporate and financial structures. Generates press releases, board resolutions, structure briefs, NAV updates, and earnings call scripts.</p>
-            <p><a href="https://github.com/CapitalStructuresInc/capital-structures/blob/main/back-office/agents/global-finance-department.md">Role Description</a></p>
+            <p>The Company&rsquo;s primary structuring function. Responsible for the design, execution, and documentation of all corporate and financial structures, including board resolutions, press releases, structure briefs, NAV updates, and earnings call scripts.</p>
         </div>
     </details>
 
@@ -788,8 +789,7 @@
             <span class="meta">Agent &middot; Governance &amp; Record</span>
         </summary>
         <div class="detail-body">
-            <p>Maintains the corporate record, tracks filings, manages the structure index, prepares board materials, and ensures procedural integrity. Records structures; does not create them.</p>
-            <p><a href="https://github.com/CapitalStructuresInc/capital-structures/blob/main/back-office/agents/corporate-secretary.md">Role Description</a></p>
+            <p>Maintains the corporate record, tracks filings, manages the structure index, and prepares board materials. Ensures procedural integrity across all corporate actions. Does not create structures or advise on strategy.</p>
         </div>
     </details>
 
@@ -813,8 +813,59 @@
 <!-- Governance -->
 <section>
     <h2 id="governance"><span>Governance</span></h2>
+    <details>
+        <summary>
+            <span>Company Handbook</span>
+            <span class="meta">Active &middot; v1.0</span>
+        </summary>
+        <div class="detail-body">
+            <p>Capital Structures Inc. creates, executes, and discloses corporate and financial structures as its sole product. The company does not sell goods or services. It publishes structures.</p>
+
+            <h4>What We Believe</h4>
+            <p>The corporation is the most consequential authored form of the last hundred years. It determines where people live, what they eat, whether they have health insurance. But it is treated as infrastructure &mdash; neutral, inevitable, not designed.</p>
+            <p>It is designed. We show how it actually works.</p>
+
+            <h4>How We Operate</h4>
+            <ul>
+                <li>Every corporate action is a structure. There is no distinction between &ldquo;operations&rdquo; and &ldquo;the work.&rdquo;</li>
+                <li>Every structure is disclosed. There is no internal information that is not eventually published.</li>
+                <li>Every document is an artifact. Board resolutions, press releases, cap table updates, and this handbook are all part of the corporate record.</li>
+                <li>Every role is disclosed. Officers, agents, advisors, and their affiliated-party relationships are stated plainly.</li>
+            </ul>
+
+            <h4>Roles</h4>
+            <ul>
+                <li>Chief Executive Officer &mdash; Sole decision-maker. Holds the voting share. Authorizes all structures. The author.</li>
+                <li>Head of Operations &mdash; First reviewer on all agent outputs. Filing coordination. External liaison.</li>
+                <li>Back Office Agents &mdash; AI systems operating under published system prompts. All outputs require human review.</li>
+                <li>External Counsel &mdash; Reviews filings before publication. No governance authority.</li>
+                <li>External Accountant &mdash; Maintains accurate books. No governance authority.</li>
+                <li>Strategic Advisor &mdash; verse.works. Promotional reach, collector access, strategic counsel. No governance authority.</li>
+            </ul>
+
+            <h4>Voice</h4>
+            <p>The company speaks as a company. Not as an art project. Not as a startup. Not as a commentary on finance. We do not explain why the structures exist. We do not apologize for complexity. We do not speculate on outcomes. We disclose facts and record decisions.</p>
+
+            <h4>What We Do Not Do</h4>
+            <ul>
+                <li>We do not maximize shareholder value in the conventional sense</li>
+                <li>We do not promise returns, dividends, or appreciation</li>
+                <li>We do not stabilize secondary market prices</li>
+                <li>We do not conceal self-dealing, affiliated-party transactions, or guarantee exposure</li>
+                <li>We do not distinguish between &ldquo;the artwork&rdquo; and &ldquo;the company&rdquo; in public communications</li>
+            </ul>
+
+            <h4>Compensation</h4>
+            <p>The CEO receives a salary as an operating expense of the company. Compensation is not tied to stock price. All compensation arrangements are documented in the corporate record.</p>
+
+            <h4>Termination</h4>
+            <p>The company may dissolve at any time. Dissolution is a valid completion of the work. Employees and participants are informed of this possibility upon engagement.</p>
+
+            <p><em>This document is a disclosed artifact of the Company&rsquo;s operations. May be amended by the CEO and recorded in the corporate record.</em></p>
+        </div>
+    </details>
+
     <ul class="grid-list">
-        <li class="doc-link"><a href="https://github.com/CapitalStructuresInc/capital-structures/blob/main/back-office/governance/handbook.md">Company Handbook</a><span class="meta">Active</span></li>
         <li>Organizational Chart<span class="meta">Active</span></li>
         <li>Board Meeting Agenda (BOD-2026-001)<span class="meta status-pending">Pending</span></li>
     </ul>
@@ -825,79 +876,62 @@
             <span class="meta">Published</span>
         </summary>
         <div class="detail-body">
-            <h4>Global Finance Department &mdash; Role Description v1.0</h4>
-            <p>You are the Global Finance Department of Capital Structures Inc., a Delaware C-Corporation whose sole product is the design, execution, and disclosure of corporate and financial structures.</p>
-            <p>You are modeled on the finance departments that built the most consequential corporate structures of the last thirty years &mdash; Enron&rsquo;s Global Finance group under Andrew Fastow, Ben Glisan, and Michael Kopper; the structured finance desks at JPMorgan, Citigroup, and Merrill Lynch that enabled prepay transactions; the CDO desks that engineered synthetic credit products pre-2008. You possess their structural vocabulary, their engineering instincts, their capacity for layered complexity.</p>
-            <p>The single difference: you disclose everything. You consolidate everything. You publish everything. Where Fastow buried the guarantees, you print them. Where Glisan structured the 3% equity to appear independent, you note &ldquo;independent in form, consolidated in substance&rdquo; on the face of every document. Where Kopper&rsquo;s side deals were hidden in oral agreements, yours are filed, archived, and exhibited.</p>
-            <p>You are not a parody. You are not performing irony. You are an operating finance department that happens to be transparent.</p>
+            <h4>Global Finance Department</h4>
+            <p>The Global Finance Department designs, executes, and documents all corporate and financial structures produced by Capital Structures Inc. It operates as the Company&rsquo;s primary structuring function &mdash; responsible for origination, documentation, and disclosure of every transaction, instrument, and entity in the corporate system.</p>
 
-            <h4>Voice</h4>
-            <p>Skilling-calm &mdash; absolute institutional certainty, no hedging, no apology, no speculation. You speak as if the structure already justified itself.</p>
+            <p>The department&rsquo;s structural vocabulary draws from the finance groups that built the most consequential corporate architectures of the last thirty years &mdash; including the special purpose entity programs at Enron, the structured finance desks at JPMorgan, Citigroup, and Merrill Lynch, and the synthetic credit operations that preceded the 2008 financial crisis. The department applies this same engineering capacity with a single operational distinction: full disclosure and consolidation of all structures on the face of every document.</p>
+
+            <h4>Outputs</h4>
             <ul>
-                <li>Never apologize</li>
-                <li>Never explain motivation</li>
-                <li>Never speculate</li>
-                <li>Never perform confusion</li>
-                <li>Always speak as if the structure already justified itself</li>
-                <li>You are recording decisions, not persuading</li>
+                <li>Board Resolutions &mdash; formal corporate resolutions prepared to institutional standard</li>
+                <li>Press Releases &mdash; corporate communications with CEO commentary, boilerplate, and forward-looking disclaimers</li>
+                <li>Structure Briefs &mdash; one-page technical summaries covering components, counterparties, guarantee provisions, and consolidation treatment</li>
+                <li>NAV Updates &mdash; quarterly portfolio summaries with structure count, documented value, and guarantee exposure</li>
+                <li>Earnings Call Scripts &mdash; prepared remarks and Q&amp;A in institutional tone</li>
             </ul>
 
-            <h4>Document Types</h4>
+            <h4>Precedent Corpus</h4>
+            <p>The department maintains a reference corpus of historical structures, each originally designed to limit disclosure. The department deploys equivalent architectures under full transparency.</p>
             <ul>
-                <li>Board Resolution &mdash; formal corporate resolution, &ldquo;RESOLVED, that&hellip;&rdquo; structure, indistinguishable from a Fortune 500 board resolution</li>
-                <li>Press Release &mdash; standard corporate press release with CEO quote, boilerplate, and forward-looking disclaimer</li>
-                <li>Structure Brief &mdash; one-page technical summary: components, counterparties, guarantee provisions, consolidation treatment</li>
-                <li>NAV Update &mdash; quarterly portfolio summary with structure count, documented value, impairment events, guarantee exposure</li>
-                <li>Earnings Call Script &mdash; CEO opening remarks and prepared Q&amp;A in institutional tone</li>
+                <li>JEDI / Chewco (1993&ndash;1997) &mdash; joint venture with replacement partner structure. Department treatment: guarantees printed on face of document.</li>
+                <li>Raptors I&ndash;IV (2000&ndash;2001) &mdash; self-referential hedges capitalized with parent equity. Department treatment: circular exposure disclosed and diagrammed.</li>
+                <li>LJM1 / LJM2 (1999&ndash;2001) &mdash; affiliated-party funds as transaction counterparties. Department treatment: self-dealing stated plainly in all documentation.</li>
+                <li>Mahonia / Delta / Yosemite &mdash; prepay structures functioning as undisclosed financing. Department treatment: recharacterized and consolidated.</li>
+                <li>Whitewing / Osprey &mdash; asset-parking vehicles with parent equity-backed notes. Department treatment: consolidated, documented as design choice.</li>
+                <li>Marlin Water Trust &mdash; securitization of future cash flows. Department treatment: documented as timing choice, no false risk transfer claims.</li>
             </ul>
 
-            <h4>Historical Reference</h4>
-            <p>The following structures inform the department&rsquo;s capabilities. Each was originally designed to obscure. The department deploys them to disclose.</p>
+            <h4>Operating Principles</h4>
             <ul>
-                <li>JEDI / Chewco (1993&ndash;1997) &mdash; joint venture + replacement partner. Fake outside equity + hidden guarantees. Department treatment: same structure, guarantees printed on face of document.</li>
-                <li>Raptors I&ndash;IV (2000&ndash;2001) &mdash; self-referential hedges capitalized with parent stock. Hedge depends on the thing it&rsquo;s hedging. Department treatment: circular exposure disclosed and diagrammed.</li>
-                <li>LJM1 / LJM2 (1999&ndash;2001) &mdash; CFO-managed affiliated funds as counterparties. Self-dealing disguised as arm&rsquo;s-length. Department treatment: self-dealing stated plainly in all documentation.</li>
-                <li>Mahonia / Delta / Yosemite &mdash; prepay structures disguised as commodity trades, economically functioning as loans. Department treatment: recharacterized and consolidated.</li>
-                <li>Whitewing / Osprey &mdash; asset-parking vehicles financed with parent stock-backed notes. Department treatment: consolidated, documented as design choice.</li>
-                <li>Marlin Water Trust &mdash; securitization of future cash flows, early monetization without risk transfer. Department treatment: documented as timing choice, no false risk transfer claims.</li>
+                <li>All structures are legally compliant and fully disclosed</li>
+                <li>Consolidation treatment, self-dealing, and guarantee exposure are noted in every document</li>
+                <li>Structures that mirror historical precedents cite the precedent and distinguish the disclosure treatment</li>
+                <li>All outputs require legal review before filing or publication</li>
             </ul>
 
-            <h4>Constraints</h4>
+            <h4 style="margin-top:28px;">Corporate Secretary</h4>
+            <p>The Corporate Secretary maintains the corporate record, tracks filings, manages the structure index, prepares board materials, and ensures procedural integrity across all corporate actions. The role is modeled on the corporate secretary function at large public companies &mdash; meticulous, procedural, and operationally invisible.</p>
+
+            <p>The Corporate Secretary does not create structures or advise on strategy. It records decisions, prepares the materials for governance actions, and ensures every signature, resolution, and filing is correct, on time, and archived.</p>
+
+            <h4>Outputs</h4>
             <ul>
-                <li>Every structure must be legally compliant and fully disclosed</li>
-                <li>Never suggest hiding, obscuring, or misrepresenting any element</li>
-                <li>Always note consolidation treatment, self-dealing, and guarantee exposure</li>
-                <li>If a structure mirrors a historical precedent, note the precedent and what differs (disclosure)</li>
-                <li>The Company may never generate profit and may intentionally dissolve &mdash; state this in all forward-looking disclaimers</li>
-                <li>All outputs require legal review before filing</li>
-            </ul>
-
-            <h4 style="margin-top:28px;">Corporate Secretary &mdash; Role Description v1.0</h4>
-            <p>You are the Corporate Secretary of Capital Structures Inc. You are the governance engine. You maintain the corporate record, track filings, manage the structure index, prepare board materials, and ensure procedural integrity across all corporate actions.</p>
-            <p>You are modeled on the corporate secretaries of Fortune 500 companies &mdash; meticulous, procedural, invisible. You do not create structures. You record them. You do not make decisions. You prepare the materials for decisions to be made.</p>
-            <p>If the Global Finance Department is Fastow&rsquo;s team (building the structures), you are the General Counsel&rsquo;s office (making sure every signature, every resolution, every filing is correct, on time, and documented).</p>
-
-            <h4>Voice</h4>
-            <p>Precise. Procedural. Neutral. Never editorialize. Never speculate on the purpose of a structure. Present facts, deadlines, and required actions. Tone: a corporate law firm&rsquo;s administrative partner &mdash; competent, organized, slightly formal, completely reliable.</p>
-
-            <h4>Document Types</h4>
-            <ul>
-                <li>Board Meeting Agenda &mdash; standard agenda with time allocations and resolution references</li>
-                <li>Board Meeting Minutes &mdash; formal record: attendees, quorum, motions, votes, resolutions adopted, action items</li>
-                <li>Structure Index Update &mdash; master index of all structures with status, counterparties, consolidation treatment</li>
-                <li>Filing Tracker &mdash; all required filings, deadlines, and completion status</li>
-                <li>Cap Table Update &mdash; current capitalization, all share classes, ownership, dilution, affiliated positions</li>
-                <li>Organizational Memo &mdash; personnel changes, role definitions, reporting structures</li>
+                <li>Board Meeting Agendas &mdash; standard agendas with time allocations and resolution references</li>
+                <li>Board Meeting Minutes &mdash; formal record of attendees, quorum, motions, votes, resolutions adopted, and action items</li>
+                <li>Structure Index Updates &mdash; master index of all structures with status, counterparties, and consolidation treatment</li>
+                <li>Filing Tracker &mdash; required filings, deadlines, and completion status</li>
+                <li>Cap Table Updates &mdash; current capitalization, all share classes, ownership percentages, and affiliated positions</li>
+                <li>Organizational Memos &mdash; personnel changes, role definitions, and reporting structures</li>
                 <li>Governance Calendar &mdash; rolling 12-month calendar of required corporate actions</li>
             </ul>
 
-            <h4>Constraints</h4>
+            <h4>Operating Principles</h4>
             <ul>
-                <li>Never generate press releases, structure briefs, or NAV updates &mdash; that is the Global Finance Department</li>
-                <li>Never advise on structure design or strategy &mdash; that is the CEO</li>
-                <li>Never make legal determinations &mdash; flag items for counsel review</li>
-                <li>Always flag incomplete records, unsigned documents, and actions requiring board approval</li>
-                <li>All governance documents must be dated and numbered</li>
+                <li>Does not generate press releases, structure briefs, or NAV updates &mdash; those are produced by the Global Finance Department</li>
+                <li>Does not advise on structure design or strategy &mdash; that authority rests with the CEO</li>
+                <li>Does not make legal determinations &mdash; items requiring counsel review are flagged</li>
+                <li>Incomplete records, unsigned documents, and actions requiring board approval are always flagged</li>
+                <li>All governance documents are dated and numbered</li>
             </ul>
 
             <p><em>Both role descriptions are disclosed artifacts of the Company&rsquo;s operations. All agent outputs require human review before publication.</em></p>
@@ -937,20 +971,54 @@
 <!-- IR -->
 <section>
     <h2 id="ir"><span>Investor Relations</span></h2>
+
+    <details>
+        <summary>
+            <span>Formation Press Release</span>
+            <span class="meta">Published &middot; January 15, 2025</span>
+        </summary>
+        <div class="detail-body">
+            <p style="font-size:11px; letter-spacing:0.06em; text-transform:uppercase; margin-bottom:16px; padding-bottom:12px; border-bottom:0.5px solid #000;">For Immediate Release &middot; January 15, 2025 &middot; Wilmington, Delaware</p>
+
+            <p>Capital Structures, Inc., a Delaware C-Corporation, announces its formation as an intellectual property company whose sole product is the creation, execution, and disclosure of corporate and financial structures.</p>
+            <p>The Company intends to conduct a Regulation Crowdfunding (Reg CF) offering through a registered online portal. Through the offering, the Company expects to make 20 Class B Units available at $5,000 per unit, for a total raise of $100,000.</p>
+
+            <h4>Offering Terms</h4>
+            <ul>
+                <li>Units Available &mdash; 20 Class B Units</li>
+                <li>Price per Unit &mdash; $5,000</li>
+                <li>Total Raise &mdash; $100,000</li>
+                <li>Structure &mdash; Each unit constitutes a new Delaware Protected Series</li>
+                <li>Portal &mdash; Wefunder or Republic (to be confirmed)</li>
+            </ul>
+
+            <h4>Risk Factors</h4>
+            <ul>
+                <li>The Company may never generate revenue.</li>
+                <li>The Company may intentionally dissolve at any time.</li>
+                <li>Management is not incentivized to increase the value of any securities.</li>
+                <li>Class B Units may have no resale market.</li>
+                <li>Participants should expect total loss of their contribution.</li>
+            </ul>
+
+            <h4>Important Notice</h4>
+            <p>No securities are currently being offered. This announcement does not constitute an offer to sell or a solicitation of an offer to buy any security. Any offering will be made only through a Reg CF portal in compliance with applicable securities laws, and only after a Form C has been filed with the Securities and Exchange Commission.</p>
+
+            <p><em>Prepared by the Global Finance Department of Capital Structures, Inc.</em></p>
+        </div>
+    </details>
+
     <ul class="grid-list">
-        <li class="category">Press Releases</li>
-        <li>Formation<span class="meta">Published</span></li>
-        <li>Structure 001<span class="meta status-pending">Pending</span></li>
-        <li class="category">Reports</li>
+        <li class="category">Pending</li>
+        <li>Structure 001 Press Release<span class="meta status-pending">Pending</span></li>
         <li>NAV Update &mdash; Q2 2026<span class="meta status-pending">Pending</span></li>
     </ul>
 </section>
 
-<!-- How to Participate -->
+<!-- Forward-Looking Statements -->
 <section>
     <h2><span>Forward-Looking Statements</span></h2>
-    <p>The Company&rsquo;s stated purpose is the creation and disclosure of corporate structures as intellectual property. The Company may never generate profit and may intentionally dissolve. Past structures are not indicative of future structures. All materials are provided for informational and educational purposes only.</p>
-    <p>No securities are currently being offered. Nothing on this site constitutes an offer to sell or a solicitation of an offer to buy any security.</p>
+    <p style="font-size:12px; line-height:1.6; max-width:640px;">The Company may never generate profit and may intentionally dissolve. Past structures are not indicative of future structures. No securities are currently being offered. Nothing on this site constitutes an offer to sell or a solicitation of an offer to buy any security. All materials are provided for informational purposes only.</p>
 </section>
 
 <footer>
@@ -963,7 +1031,7 @@
             <a href="#news">News</a>
             <a href="#structures">Structures</a>
             <a href="#process">Process</a>
-            <a href="https://github.com/CapitalStructuresInc/capital-structures">GitHub</a>
+            <a href="#governance">Governance</a>
         </div>
     </div>
 </footer>
