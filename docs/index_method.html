@@ -414,6 +414,91 @@
             font-style: italic;
         }
 
+        /* —— Diagram Controls —— */
+        .diagram-controls {
+            display: flex;
+            gap: 2px;
+            margin-bottom: 16px;
+            max-width: 720px;
+        }
+        .diagram-control-group {
+            display: flex;
+            gap: 1px;
+            background: #000;
+            flex: 1;
+        }
+        .diagram-control-group:first-child {
+            margin-right: 16px;
+        }
+        .diagram-btn {
+            flex: 1;
+            padding: 10px 12px;
+            background: #f5f5f5;
+            border: none;
+            cursor: pointer;
+            text-align: left;
+            font-family: '188 Sans', Arial, Helvetica, sans-serif;
+            transition: background 0.15s ease, color 0.15s ease;
+        }
+        .diagram-btn.active {
+            background: #000;
+            color: #fff;
+        }
+        .diagram-btn-label {
+            font-size: 10px;
+            font-weight: bold;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            display: block;
+            margin-bottom: 2px;
+        }
+        .diagram-btn-desc {
+            font-size: 10px;
+            letter-spacing: 0.02em;
+            opacity: 0.6;
+            display: block;
+        }
+        .diagram-btn.active .diagram-btn-desc {
+            opacity: 0.5;
+        }
+
+        /* —— Diagram Layers —— */
+        .layer-co,
+        .layer-ts {
+            opacity: 0;
+            transition: opacity 0.4s ease;
+        }
+        .diagram-view-co .layer-co {
+            opacity: 1;
+        }
+        .diagram-view-ts .layer-ts {
+            opacity: 1;
+        }
+        .layer-co-hide {
+            transition: opacity 0.4s ease;
+        }
+        .diagram-view-co .layer-co-hide {
+            opacity: 0.15;
+        }
+        .layer-ts-label {
+            opacity: 0;
+            transition: opacity 0.4s ease;
+        }
+        .diagram-view-ts .layer-ts-label {
+            opacity: 1;
+        }
+        .layer-uc-label {
+            transition: opacity 0.4s ease;
+        }
+        .diagram-view-co .layer-uc-label {
+            opacity: 0;
+        }
+        .diagram-state-label {
+            font-family: '188 Sans Mono', 'Courier New', monospace;
+            font-size: 9px;
+            letter-spacing: 0.06em;
+        }
+
         /* —— Footer —— */
         footer {
             max-width: 960px;
@@ -626,14 +711,41 @@
                 <li>Press Release</li>
                 <li>Structure Brief</li>
             </ul>
-            <div class="diagram-container">
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 800">
+            <div class="diagram-container" id="diagram-001">
+                <div class="diagram-controls">
+                    <div class="diagram-control-group">
+                        <button class="diagram-btn active" data-view="uc" data-diagram="001" onclick="setView('001','uc')">
+                            <span class="diagram-btn-label">Unconsolidated</span>
+                            <span class="diagram-btn-desc">Legal boundaries</span>
+                        </button>
+                        <button class="diagram-btn" data-view="co" data-diagram="001" onclick="setView('001','co')">
+                            <span class="diagram-btn-label">Consolidated</span>
+                            <span class="diagram-btn-desc">Aggregate exposure</span>
+                        </button>
+                    </div>
+                    <div class="diagram-control-group">
+                        <button class="diagram-btn active" data-state="bc" data-diagram="001" onclick="setState('001','bc')">
+                            <span class="diagram-btn-label">Base Case</span>
+                            <span class="diagram-btn-desc">Triggers dormant</span>
+                        </button>
+                        <button class="diagram-btn" data-state="ts" data-diagram="001" onclick="setState('001','ts')">
+                            <span class="diagram-btn-label">Trigger State</span>
+                            <span class="diagram-btn-desc">Diagram in motion</span>
+                        </button>
+                    </div>
+                </div>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 880" id="svg-001">
   <defs><style>
     .t{font-family:'188 Sans Mono','Courier New',monospace}
     .t1{font-size:11px;font-weight:700;letter-spacing:.08em}
     .t2{font-size:9px;letter-spacing:.08em}
     .t3{font-size:9px;letter-spacing:.06em}
+    .t4{font-size:8px;letter-spacing:.06em}
   </style></defs>
+
+  <!-- ============================================ -->
+  <!-- BASE LAYER — always visible                  -->
+  <!-- ============================================ -->
 
   <!-- ROW 1: Martin Grasser -->
   <rect x="40" y="30" width="300" height="60" fill="none" stroke="#000" stroke-width="3"/>
@@ -684,15 +796,15 @@
   <text class="t t3" x="60" y="554">CONTRIBUTED IP      $10,001,000</text>
   <line x1="60" y1="572" x2="320" y2="572" stroke="#000" stroke-width="0.5"/>
   <text class="t t2" x="60" y="590">LIABILITIES</text>
-  <text class="t t3" x="60" y="607">NOTE (PN-001)       $10,000,000</text>
+  <text class="t t3 layer-uc-label" x="60" y="607">NOTE (PN-001)       $10,000,000</text>
   <line x1="60" y1="625" x2="320" y2="625" stroke="#000" stroke-width="0.5"/>
   <text class="t t2" x="60" y="643">EQUITY</text>
   <text class="t t3" x="60" y="660" style="font-weight:700">CLASS B UNITS            $1,000</text>
 
-  <!-- PN-001 pill -->
+  <!-- PN-001 pill — base label -->
   <rect x="420" y="525" width="240" height="55" rx="27" ry="27" fill="none" stroke="#000" stroke-width="1.5"/>
-  <text class="t t1" text-anchor="middle" x="540" y="550">PN-001</text>
-  <text class="t t2" text-anchor="middle" x="540" y="567">$10,000,000 / 0%</text>
+  <text class="t t1 layer-uc-label" text-anchor="middle" x="540" y="550">PN-001</text>
+  <text class="t t2 layer-uc-label" text-anchor="middle" x="540" y="567">$10,000,000 / 0%</text>
   <line x1="340" y1="552" x2="420" y2="552" stroke="#000" stroke-width="1.5" fill="none"/>
 
   <!-- Class B Units pill -->
@@ -701,10 +813,77 @@
   <text class="t t2" text-anchor="middle" x="540" y="652">$1,000</text>
   <line x1="340" y1="637" x2="420" y2="637" stroke="#000" stroke-width="1.5" fill="none"/>
 
-  <!-- FOOTER -->
-  <line x1="40" y1="710" x2="680" y2="710" stroke="#000" stroke-width="0.5"/>
-  <text class="t t3" x="40" y="735" fill="#666">99.99% DEBT-FINANCED / MARK-TO-MODEL / SELF-DEALING DISCLOSED</text>
-  <text class="t t3" x="40" y="775">STRUCTURE 001 — IP CONTRIBUTION &amp; PRE-PAY ARCHITECTURE</text>
+  <!-- FOOTER — base -->
+  <line x1="40" y1="730" x2="680" y2="730" stroke="#000" stroke-width="0.5"/>
+  <text class="t t3 layer-uc-label" x="40" y="755" fill="#666">99.99% DEBT-FINANCED / MARK-TO-MODEL / SELF-DEALING DISCLOSED</text>
+  <text class="t t3" x="40" y="795">STRUCTURE 001 — IP CONTRIBUTION &amp; PRE-PAY ARCHITECTURE</text>
+
+  <!-- ============================================ -->
+  <!-- CONSOLIDATED LAYER                           -->
+  <!-- Exposure boundary overlay                    -->
+  <!-- ============================================ -->
+
+  <!-- Exposure perimeter — dashed rectangle encompassing all three entities -->
+  <rect class="layer-co" x="20" y="15" width="340" height="685" rx="4" fill="none" stroke="#000" stroke-width="2.5" stroke-dasharray="8 4"/>
+  <text class="t t2 layer-co" x="28" y="715" fill="#000">AGGREGATE EXPOSURE BOUNDARY</text>
+
+  <!-- Role overlap connector — dotted line from Martin Grasser down the right side -->
+  <line class="layer-co" x1="355" y1="60" x2="355" y2="227" stroke="#000" stroke-width="1.5" stroke-dasharray="3 3"/>
+  <line class="layer-co" x1="340" y1="60" x2="355" y2="60" stroke="#000" stroke-width="1.5" stroke-dasharray="3 3"/>
+  <line class="layer-co" x1="340" y1="227" x2="355" y2="227" stroke="#000" stroke-width="1.5" stroke-dasharray="3 3"/>
+  <text class="t t4 layer-co" x="362" y="130">ROLE OVERLAP</text>
+  <text class="t t4 layer-co" x="362" y="142">CEO + DIRECTOR</text>
+  <text class="t t4 layer-co" x="362" y="154">+ CONTRIBUTOR</text>
+
+  <!-- Parent guarantee — double line from CS Inc down to Series 001 -->
+  <line class="layer-co" x1="100" y1="260" x2="100" y2="405" stroke="#000" stroke-width="3"/>
+  <line class="layer-co" x1="100" y1="260" x2="100" y2="405" stroke="#fff" stroke-width="1"/>
+  <text class="t t4 layer-co" x="50" y="350">PARENT</text>
+  <text class="t t4 layer-co" x="50" y="362">GUARANTEE</text>
+
+  <!-- Valuation risk bridge — dotted arc from balance sheet back up to Martin Grasser -->
+  <line class="layer-co" x1="25" y1="600" x2="25" y2="60" stroke="#000" stroke-width="1" stroke-dasharray="4 3"/>
+  <line class="layer-co" x1="25" y1="60" x2="40" y2="60" stroke="#000" stroke-width="1" stroke-dasharray="4 3"/>
+  <text class="t t4 layer-co" x="6" y="300" transform="rotate(-90,6,300)">VALUATION RISK — MARK-TO-MODEL — NO INDEPENDENT APPRAISAL</text>
+
+  <!-- Consolidated footer annotation -->
+  <text class="t t3 layer-co" x="40" y="755" fill="#000">LEGAL BOUNDARY INTACT / EXPOSURE BOUNDARY DOES NOT HOLD</text>
+
+  <!-- ============================================ -->
+  <!-- TRIGGER STATE LAYER                          -->
+  <!-- Consequence paths activate                   -->
+  <!-- ============================================ -->
+
+  <!-- PN-001 — PAYABLE label replaces dormant -->
+  <text class="t t1 layer-ts" text-anchor="middle" x="540" y="550" fill="#000">PN-001 — PAYABLE</text>
+  <text class="t t2 layer-ts" text-anchor="middle" x="540" y="567" fill="#000">$10,000,000 DUE</text>
+
+  <!-- Note payable — triggered label on balance sheet -->
+  <text class="t t3 layer-ts" x="60" y="607" fill="#000" style="font-weight:700">NOTE (PN-001)       $10,000,000 ▸ PAYABLE</text>
+
+  <!-- Consequence path: Series 001 → Martin Grasser (payment obligation) -->
+  <line class="layer-ts" x1="280" y1="405" x2="280" y2="90" stroke="#000" stroke-width="3" fill="none"/>
+  <path class="layer-ts" d="M274,96l6-14,6,14h-12Z" fill="#000"/>
+  <text class="t t2 layer-ts" x="288" y="250">PAYMENT</text>
+  <text class="t t2 layer-ts" x="288" y="264">OBLIGATION</text>
+  <text class="t t2 layer-ts" x="288" y="278">ACTIVATED</text>
+
+  <!-- Support migration: arrow from Series 001 to CS Inc (parent support expected) -->
+  <line class="layer-ts" x1="80" y1="405" x2="80" y2="270" stroke="#000" stroke-width="2.5" stroke-dasharray="6 3" fill="none"/>
+  <path class="layer-ts" d="M74,276l6-14,6,14h-12Z" fill="#000"/>
+  <text class="t t4 layer-ts" x="42" y="380">SUPPORT</text>
+  <text class="t t4 layer-ts" x="42" y="392">EXPECTED</text>
+
+  <!-- Trigger event annotations -->
+  <rect class="layer-ts" x="420" y="410" width="240" height="55" rx="27" ry="27" fill="#000" stroke="#000" stroke-width="1.5"/>
+  <text class="t t1 layer-ts" text-anchor="middle" x="540" y="435" fill="#fff">TRIGGER EVENT</text>
+  <text class="t t2 layer-ts" text-anchor="middle" x="540" y="452" fill="#fff">MATURITY / LIQUIDITY / DISSOLUTION</text>
+
+  <!-- Trigger footer -->
+  <text class="t t3 layer-ts" x="40" y="770" fill="#000">CONTINGENT STRUCTURE CONVERTED TO PAYABLE CONSEQUENCE</text>
+
+  <!-- Active state indicator -->
+  <text class="t t2 layer-ts" x="40" y="850" fill="#000">▸ DIAGRAM IN MOTION</text>
 </svg>
             </div>
         </div>
@@ -1155,6 +1334,36 @@
             links.classList.remove('open');
         }
     });
+    // Diagram view/state toggles
+    window.setView = function(diagramId, view) {
+        var container = document.getElementById('diagram-' + diagramId);
+        var svg = document.getElementById('svg-' + diagramId);
+        if (!container || !svg) return;
+        var btns = container.querySelectorAll('[data-view]');
+        btns.forEach(function(b) {
+            b.classList.toggle('active', b.getAttribute('data-view') === view);
+        });
+        if (view === 'co') {
+            svg.classList.add('diagram-view-co');
+        } else {
+            svg.classList.remove('diagram-view-co');
+        }
+    };
+    window.setState = function(diagramId, state) {
+        var container = document.getElementById('diagram-' + diagramId);
+        var svg = document.getElementById('svg-' + diagramId);
+        if (!container || !svg) return;
+        var btns = container.querySelectorAll('[data-state]');
+        btns.forEach(function(b) {
+            b.classList.toggle('active', b.getAttribute('data-state') === state);
+        });
+        if (state === 'ts') {
+            svg.classList.add('diagram-view-ts');
+        } else {
+            svg.classList.remove('diagram-view-ts');
+        }
+    };
+
     window.addEventListener('scroll', function() {
         var y = window.scrollY;
         if (y > lastY && y > 80) {
