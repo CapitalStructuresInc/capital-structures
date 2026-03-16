@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Client Portal &mdash; Capital Structures, Inc.</title>
+    <style>
+        @font-face {
+            font-family: '188 Sans';
+            src: url('fonts/188-Sans-Regular.otf') format('opentype');
+            font-weight: normal;
+            font-style: normal;
+        }
+        @font-face {
+            font-family: '188 Sans';
+            src: url('fonts/188-Sans-Bold.ttf') format('truetype');
+            font-weight: bold;
+            font-style: normal;
+        }
+        @font-face {
+            font-family: '188 Sans Mono';
+            src: url('fonts/188-Sans-Mono.otf') format('opentype');
+            font-weight: normal;
+            font-style: normal;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: '188 Sans', Arial, Helvetica, sans-serif;
+            font-size: 15px;
+            line-height: 1.4;
+            color: #000;
+            background: #fff;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* —— Header —— */
+        header {
+            max-width: 720px;
+            margin: 0 auto;
+            padding: 48px 32px 0 32px;
+        }
+        .portal-badge {
+            font-size: 9px;
+            font-weight: bold;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            border: 1.5px solid #000;
+            display: inline-block;
+            padding: 4px 10px;
+            margin-bottom: 24px;
+        }
+        header h1 {
+            font-size: 14px;
+            font-weight: bold;
+            letter-spacing: 0.02em;
+            margin-bottom: 4px;
+        }
+        header p {
+            font-size: 12px;
+            letter-spacing: 0.02em;
+            color: #666;
+            margin-bottom: 0;
+        }
+        .back-link {
+            font-size: 11px;
+            font-weight: bold;
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
+            color: #000;
+            text-decoration: none;
+            display: inline-block;
+            margin-bottom: 32px;
+        }
+        .back-link:hover { opacity: 0.5; }
+
+        /* —— Sections —— */
+        section {
+            max-width: 720px;
+            margin: 0 auto;
+            padding: 0 32px 48px 32px;
+        }
+        section h2 {
+            font-size: 11px;
+            font-weight: bold;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            margin-bottom: 20px;
+            padding-top: 16px;
+            border-top: 2px solid #000;
+        }
+        section h3 {
+            font-size: 11px;
+            font-weight: bold;
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
+            margin-top: 24px;
+            margin-bottom: 8px;
+            padding-top: 8px;
+            border-top: 1px solid #000;
+        }
+        section p {
+            font-size: 14px;
+            line-height: 1.4;
+            max-width: 620px;
+            margin-bottom: 10px;
+        }
+
+        /* —— Position Summary —— */
+        .position {
+            display: flex;
+            font-size: 12px;
+            margin-bottom: 24px;
+            border-top: 1px solid #000;
+            border-bottom: 1px solid #000;
+        }
+        .position span {
+            padding: 10px 18px;
+            border-right: 0.5px solid #000;
+            flex: 1;
+        }
+        .position span:first-child { padding-left: 0; }
+        .position span:last-child { border-right: none; }
+        .position strong {
+            display: block;
+            font-size: 9px;
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
+            margin-bottom: 3px;
+        }
+
+        /* —— Document List —— */
+        .doc-list {
+            list-style: none;
+            margin: 8px 0 16px 0;
+        }
+        .doc-list li {
+            font-size: 14px;
+            line-height: 1.4;
+            padding: 6px 0;
+            border-bottom: 0.5px solid #000;
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+        }
+        .doc-list li:first-child { border-top: 0.5px solid #000; }
+        .doc-status {
+            font-size: 10px;
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
+            flex-shrink: 0;
+            margin-left: 16px;
+        }
+        .doc-status.included { color: #000; }
+        .doc-status.pending { font-style: italic; color: #666; }
+
+        /* —— Expandable —— */
+        details {
+            margin-top: 4px;
+        }
+        details summary {
+            font-size: 14px;
+            line-height: 1.4;
+            cursor: pointer;
+            padding: 6px 0;
+            list-style: none;
+            display: flex;
+            align-items: baseline;
+            gap: 10px;
+            border-bottom: 0.5px solid #000;
+            transition: opacity 0.12s;
+        }
+        details summary:hover { opacity: 0.5; }
+        details summary > span:first-of-type { flex: 1; }
+        details summary > .doc-status { flex-shrink: 0; }
+        details summary::-webkit-details-marker { display: none; }
+        details summary::before {
+            content: "\25B8";
+            font-size: 9px;
+            width: 14px;
+            text-align: center;
+            flex-shrink: 0;
+            line-height: 1;
+        }
+        details[open] summary::before {
+            content: "\25BE";
+        }
+        details[open] summary {
+            border-bottom: 1.5px solid #000;
+        }
+        .doc-body {
+            padding: 12px 0 20px 24px;
+            max-width: 580px;
+        }
+        .doc-body p {
+            font-size: 13px;
+            line-height: 1.4;
+            margin-bottom: 8px;
+        }
+
+        /* —— Certificate —— */
+        .certificate {
+            border: 3px solid #000;
+            padding: 32px;
+            margin: 16px 0 24px 0;
+            max-width: 580px;
+        }
+        .certificate .cert-header {
+            font-size: 9px;
+            font-weight: bold;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            text-align: center;
+            margin-bottom: 24px;
+            padding-bottom: 16px;
+            border-bottom: 1.5px solid #000;
+        }
+        .certificate .cert-title {
+            font-size: 14px;
+            font-weight: bold;
+            letter-spacing: 0.04em;
+            text-align: center;
+            margin-bottom: 4px;
+        }
+        .certificate .cert-subtitle {
+            font-size: 11px;
+            letter-spacing: 0.04em;
+            text-align: center;
+            margin-bottom: 24px;
+            color: #666;
+        }
+        .certificate .cert-field {
+            font-size: 12px;
+            line-height: 1.5;
+            margin-bottom: 8px;
+        }
+        .certificate .cert-field strong {
+            font-size: 9px;
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
+            display: block;
+            margin-bottom: 2px;
+        }
+        .certificate .cert-footer {
+            font-size: 10px;
+            letter-spacing: 0.04em;
+            margin-top: 24px;
+            padding-top: 16px;
+            border-top: 0.5px solid #000;
+            color: #666;
+        }
+        .cert-sig {
+            margin-top: 32px;
+            display: flex;
+            justify-content: space-between;
+        }
+        .cert-sig div {
+            font-size: 11px;
+            width: 45%;
+        }
+        .cert-sig .sig-line {
+            border-top: 1px solid #000;
+            padding-top: 4px;
+            margin-top: 24px;
+            font-size: 10px;
+            letter-spacing: 0.04em;
+        }
+
+        /* —— Mono —— */
+        .mono {
+            font-family: '188 Sans Mono', 'Courier New', monospace;
+            font-size: 11px;
+            letter-spacing: 0.06em;
+        }
+
+        /* —— Footer —— */
+        footer {
+            max-width: 720px;
+            margin: 0 auto;
+            padding: 32px 32px 48px 32px;
+            border-top: 3px solid #000;
+        }
+        footer p {
+            font-size: 11px;
+            line-height: 1.5;
+            color: #666;
+        }
+
+        /* —— Responsive —— */
+        @media (max-width: 768px) {
+            header { padding: 32px 20px 0 20px; }
+            section { padding: 0 20px 36px 20px; }
+            footer { padding: 24px 20px 32px 20px; }
+            .position { flex-wrap: wrap; }
+            .position span { width: 50%; flex: none; }
+            .certificate { padding: 20px; }
+            .cert-sig { flex-direction: column; gap: 24px; }
+            .cert-sig div { width: 100%; }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <a href="index.html" class="back-link">&larr; Capital Structures, Inc.</a>
+    <div class="portal-badge">Client Portal</div>
+    <h1>Martin Grasser</h1>
+    <p>Holder &middot; Class B Units &middot; Protected Series 001</p>
+</header>
+
+<!-- Position Summary -->
+<section>
+    <h2>Position Summary</h2>
+    <div class="position">
+        <span><strong>Entity</strong> Protected Series 001</span>
+        <span><strong>Instrument</strong> Class B Units</span>
+        <span><strong>Par Value</strong> $1,000</span>
+        <span><strong>Status</strong> Execution</span>
+    </div>
+    <p>Class B Units carry no voting rights, no dividends, and no liquidation preference. The unit constitutes a documented position inside a fully disclosed corporate system. The Company may never generate profit and may intentionally dissolve.</p>
+</section>
+
+<!-- Certificate -->
+<section>
+    <h2>Certificate</h2>
+    <div class="certificate">
+        <div class="cert-header">Capital Structures Inc. &middot; Delaware C-Corporation</div>
+        <div class="cert-title">Certificate of Class B Units</div>
+        <div class="cert-subtitle">Protected Series 001</div>
+
+        <div class="cert-field"><strong>Holder</strong> Martin Grasser</div>
+        <div class="cert-field"><strong>Units</strong> Class B Units &mdash; Protected Series 001</div>
+        <div class="cert-field"><strong>Par Value</strong> $1,000.00</div>
+        <div class="cert-field"><strong>Series Designation</strong> Protected Series 001, a protected series of Capital Structures Inc. established under the Delaware Limited Liability Company Act</div>
+        <div class="cert-field"><strong>Rights</strong> No voting rights. No dividends. No liquidation preference. Position in a fully disclosed corporate system.</div>
+        <div class="cert-field"><strong>Transferability</strong> Subject to Company transfer restrictions. No public market exists or is expected to exist.</div>
+        <div class="cert-field"><strong>Consolidation</strong> Fully consolidated into Capital Structures Inc. financial statements.</div>
+
+        <div class="cert-sig">
+            <div>
+                <div class="sig-line">Martin Grasser, CEO</div>
+            </div>
+            <div>
+                <div class="sig-line">Date</div>
+            </div>
+        </div>
+
+        <div class="cert-footer">This certificate is a disclosed artifact of the Company&rsquo;s operations. Certificate number and issuance date to be assigned upon execution. This instrument has not been registered under the Securities Act of 1933, as amended, and may not be sold or transferred absent registration or an applicable exemption.</div>
+    </div>
+</section>
+
+<!-- Document Package -->
+<section>
+    <h2>Document Package</h2>
+
+    <details>
+        <summary>
+            <span>IP Contribution Agreement (ICA-001-2026)</span>
+            <span class="doc-status included">Included</span>
+        </summary>
+        <div class="doc-body">
+            <p>Agreement by which Martin Grasser contributes all intellectual property &mdash; the conceptual framework, structural vocabulary, methodology, precedent corpus, agent architecture, and brand &mdash; to Protected Series 001. In return, Series 001 issues a $10,000,000 Promissory Note (PN-001) and $1,000 in Class B Units.</p>
+            <p>The Contributed IP is valued at $10,001,000 under the Company&rsquo;s mark-to-model methodology. No independent appraisal has been obtained.</p>
+        </div>
+    </details>
+
+    <details>
+        <summary>
+            <span>Promissory Note (PN-001-2026)</span>
+            <span class="doc-status included">Included</span>
+        </summary>
+        <div class="doc-body">
+            <p>Principal: $10,000,000 at 0% interest. Maturity: contingent &mdash; earliest of liquidity event ($10M+), public listing, dissolution, or mutual agreement; 10-year backstop. Senior creditor claim in dissolution. Non-recourse: obligation of Series 001 only.</p>
+            <p>The Note constitutes advance consideration for the Ongoing Development Obligation &mdash; Contributor&rsquo;s commitment to design and document all future Company structures.</p>
+        </div>
+    </details>
+
+    <details>
+        <summary>
+            <span>Board Resolution (RES-2026-005)</span>
+            <span class="doc-status included">Included</span>
+        </summary>
+        <div class="doc-body">
+            <p>Resolution authorizing the creation of Protected Series 001 and the acquisition of Class B Units by Martin Grasser in his personal capacity, notwithstanding his position as CEO and sole director. The self-dealing nature of the transaction is acknowledged, disclosed, and recorded.</p>
+        </div>
+    </details>
+
+    <details>
+        <summary>
+            <span>Protected Series 001 Designation</span>
+            <span class="doc-status included">Included</span>
+        </summary>
+        <div class="doc-body">
+            <p>Formal designation of Protected Series 001 under the Company&rsquo;s Delaware Series LLC architecture. Establishes the series as a separate protected series with its own assets, liabilities, and members, shielded from the obligations of the parent and other series under Delaware law.</p>
+        </div>
+    </details>
+
+    <details>
+        <summary>
+            <span>Schedule A &mdash; Description of Contributed IP</span>
+            <span class="doc-status included">Included</span>
+        </summary>
+        <div class="doc-body">
+            <p>Comprehensive description of the intellectual property contributed to Series 001, including the conceptual framework, structural vocabulary and methodology, precedent corpus (Powers Report, Batson Report, Hagley Museum archives), agent architecture and system prompts, and the Capital Structures brand.</p>
+        </div>
+    </details>
+
+    <details>
+        <summary>
+            <span>Structure Brief &mdash; 001</span>
+            <span class="doc-status included">Included</span>
+        </summary>
+        <div class="doc-body">
+            <p>One-page technical summary of Structure 001: components, counterparties, guarantee provisions, consolidation treatment, and structure diagram. 99.99% debt-financed. Mark-to-model. Self-dealing disclosed.</p>
+        </div>
+    </details>
+
+    <details>
+        <summary>
+            <span>Structural Fiduciary</span>
+            <span class="doc-status included">Included</span>
+        </summary>
+        <div class="doc-body">
+            <p>Foundational governance document establishing that the Board&rsquo;s fiduciary obligations include truthful disclosure, procedural integrity, and structural good faith. Management decisions may include forming entities with no revenue-generating purpose, entering economically neutral transactions, maintaining excess complexity, and dissolving the Company at a moment determined to be structurally complete.</p>
+            <p>Disclosed to all participants as a material term of participation.</p>
+        </div>
+    </details>
+
+    <details>
+        <summary>
+            <span>Risk Factors</span>
+            <span class="doc-status included">Included</span>
+        </summary>
+        <div class="doc-body">
+            <p>The Company may never generate revenue. The Company may intentionally dissolve at any time. Management is not incentivized to increase the value of any securities. Class B Units may have no resale market. Participants should expect total loss of their contribution.</p>
+        </div>
+    </details>
+
+    <ul class="doc-list">
+        <li>Press Release &mdash; Structure 001<span class="doc-status pending">Pending</span></li>
+        <li>Cap Table (showing holder position)<span class="doc-status pending">Pending</span></li>
+    </ul>
+</section>
+
+<!-- Disclosures -->
+<section>
+    <h2>Disclosures</h2>
+    <p>Martin Grasser acts simultaneously as (i) sole director approving this transaction, (ii) CEO executing the agreement on behalf of the Company, and (iii) Contributor delivering the IP and receiving the Note and Units in his individual capacity. This arrangement is intentional, fully disclosed, and documented on the face of all instruments.</p>
+    <p style="font-size:12px; color:#666; margin-top:16px;">All documents require officer signature and, where applicable, counsel review before becoming effective. This portal and its contents are disclosed artifacts of the Company&rsquo;s operations.</p>
+</section>
+
+<footer>
+    <p>Capital Structures, Inc. &middot; Wilmington, Delaware</p>
+    <p>Client Portal &middot; Confidential &middot; Not for distribution</p>
+</footer>
+
+</body>
+</html>

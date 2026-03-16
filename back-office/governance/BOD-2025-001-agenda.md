@@ -21,7 +21,7 @@
 **RES-2025-001 — Corporate Formation**
 - Ratification of Certificate of Incorporation (Delaware)
 - Adoption of Bylaws
-- Adoption of Artistic Fiduciary Doctrine (Charter Amendment)
+- Adoption of Structural Fiduciary (Charter Amendment)
 - Authorization of Class A Shares (voting) and Class B Units (non-voting, no dividends, no liquidation preference)
 - Appointment of Martin Grasser as Chief Executive Officer
 - Designation of fiscal year (calendar year)

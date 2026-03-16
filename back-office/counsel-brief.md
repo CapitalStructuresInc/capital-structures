@@ -20,7 +20,7 @@ The structures are modeled on historical financial engineering (SPEs, hedging ve
 ### What We Need
 
 1. **Charter review and drafting**
-   - Certificate of Incorporation includes an "Artistic Fiduciary Doctrine" — a modification of fiduciary duty stating that management prioritizes cultural production and conceptual coherence over profit maximization
+   - Certificate of Incorporation includes an "Structural Fiduciary" — a modification of fiduciary duty stating that management prioritizes cultural production and conceptual coherence over profit maximization
    - This must be legally sound under Delaware law
    - We understand B-Corp and PBC structures exist but believe a standard C-Corp with modified charter language is more appropriate — we welcome counsel's view
 

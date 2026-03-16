@@ -1,0 +1,935 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document Package — Protected Series 001 — Capital Structures, Inc.</title>
+    <style>
+        @font-face {
+            font-family: '188 Sans';
+            src: url('fonts/188-Sans-Regular.otf') format('opentype');
+            font-weight: normal;
+            font-style: normal;
+        }
+        @font-face {
+            font-family: '188 Sans';
+            src: url('fonts/188-Sans-Bold.ttf') format('truetype');
+            font-weight: bold;
+            font-style: normal;
+        }
+        @font-face {
+            font-family: '188 Sans Mono';
+            src: url('fonts/188-Sans-Mono.otf') format('opentype');
+            font-weight: normal;
+            font-style: normal;
+        }
+
+        @page {
+            size: letter;
+            margin: 1in;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: '188 Sans', Arial, Helvetica, sans-serif;
+            font-size: 12px;
+            line-height: 1.5;
+            color: #000;
+            background: #fff;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* —— Print —— */
+        @media print {
+            body { background: none; }
+            .screen-only { display: none !important; }
+            .document { page-break-before: always; }
+            .document:first-child { page-break-before: avoid; }
+            .signature-block { page-break-inside: avoid; }
+            .no-break { page-break-inside: avoid; }
+        }
+
+        /* —— Screen —— */
+        @media screen {
+            body { max-width: 8.5in; margin: 0 auto; padding: 0.5in; }
+            .document { border-top: 3px solid #000; margin-top: 48px; padding-top: 48px; }
+            .document:first-child { border-top: none; margin-top: 0; padding-top: 0; }
+        }
+
+        /* —— Document Headers —— */
+        .doc-header {
+            font-size: 9px;
+            font-weight: bold;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            margin-bottom: 32px;
+            padding-bottom: 16px;
+            border-bottom: 1.5px solid #000;
+        }
+
+        /* —— Typography —— */
+        h1 {
+            font-size: 16px;
+            font-weight: bold;
+            letter-spacing: 0.02em;
+            margin-bottom: 8px;
+        }
+        h2 {
+            font-size: 9px;
+            font-weight: bold;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            margin-top: 28px;
+            margin-bottom: 12px;
+            padding-top: 12px;
+            border-top: 1.5px solid #000;
+        }
+        h3 {
+            font-size: 9px;
+            font-weight: bold;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            margin-top: 20px;
+            margin-bottom: 8px;
+            padding-top: 8px;
+            border-top: 0.5px solid #000;
+        }
+        h4 {
+            font-size: 12px;
+            font-weight: bold;
+            margin-top: 16px;
+            margin-bottom: 6px;
+        }
+        p {
+            margin-bottom: 10px;
+            max-width: 6.5in;
+        }
+        ul, ol {
+            margin: 8px 0 12px 20px;
+            max-width: 6.5in;
+        }
+        li {
+            margin-bottom: 4px;
+        }
+
+        /* —— Mono —— */
+        .mono {
+            font-family: '188 Sans Mono', 'Courier New', monospace;
+            font-size: 11px;
+            letter-spacing: 0.06em;
+        }
+
+        /* —— Letterhead —— */
+        .letterhead {
+            margin-bottom: 48px;
+        }
+        .letterhead .company-name {
+            font-size: 14px;
+            font-weight: bold;
+            letter-spacing: 0.04em;
+            margin-bottom: 2px;
+        }
+        .letterhead .company-detail {
+            font-size: 11px;
+            letter-spacing: 0.04em;
+            color: #666;
+        }
+        .letter-date {
+            font-size: 12px;
+            margin-top: 32px;
+            margin-bottom: 32px;
+        }
+        .letter-salutation {
+            margin-bottom: 16px;
+        }
+        .letter-body p {
+            margin-bottom: 12px;
+        }
+        .enclosure-list {
+            margin: 16px 0 16px 20px;
+        }
+        .enclosure-list li {
+            font-size: 12px;
+            margin-bottom: 3px;
+        }
+
+        /* —— Certificate —— */
+        .certificate {
+            border: 3px solid #000;
+            padding: 32px;
+            margin: 16px 0 24px 0;
+        }
+        .cert-header {
+            font-size: 9px;
+            font-weight: bold;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            text-align: center;
+            margin-bottom: 24px;
+            padding-bottom: 16px;
+            border-bottom: 1.5px solid #000;
+        }
+        .cert-title {
+            font-size: 14px;
+            font-weight: bold;
+            letter-spacing: 0.04em;
+            text-align: center;
+            margin-bottom: 4px;
+        }
+        .cert-subtitle {
+            font-size: 11px;
+            letter-spacing: 0.04em;
+            text-align: center;
+            margin-bottom: 24px;
+            color: #666;
+        }
+        .cert-field {
+            font-size: 12px;
+            line-height: 1.5;
+            margin-bottom: 8px;
+        }
+        .cert-field strong {
+            font-size: 9px;
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
+            display: block;
+            margin-bottom: 2px;
+        }
+        .cert-footer {
+            font-size: 10px;
+            letter-spacing: 0.04em;
+            margin-top: 24px;
+            padding-top: 16px;
+            border-top: 0.5px solid #000;
+            color: #666;
+        }
+
+        /* —— Signature Blocks —— */
+        .signature-block {
+            margin-top: 48px;
+            display: flex;
+            justify-content: space-between;
+        }
+        .signature-block .sig-col {
+            width: 45%;
+        }
+        .sig-line {
+            border-top: 1px solid #000;
+            padding-top: 6px;
+            margin-top: 48px;
+            font-size: 11px;
+            letter-spacing: 0.04em;
+        }
+        .sig-role {
+            font-size: 10px;
+            color: #666;
+            margin-top: 2px;
+        }
+
+        /* —— Agreement Formatting —— */
+        .parties {
+            margin-bottom: 20px;
+        }
+        .parties p {
+            margin-bottom: 6px;
+        }
+        .recitals {
+            margin-top: 20px;
+            margin-bottom: 20px;
+            padding: 16px 0;
+            border-top: 0.5px solid #000;
+            border-bottom: 0.5px solid #000;
+        }
+        .recitals p {
+            margin-bottom: 8px;
+        }
+        .section-num {
+            font-weight: bold;
+            margin-right: 4px;
+        }
+
+        /* —— Balance Sheet Table —— */
+        .balance-sheet {
+            margin: 16px 0;
+            border-collapse: collapse;
+            width: 100%;
+            max-width: 5in;
+            font-size: 12px;
+        }
+        .balance-sheet th {
+            font-size: 9px;
+            font-weight: bold;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            text-align: left;
+            padding: 8px 12px 6px 0;
+            border-bottom: 1.5px solid #000;
+        }
+        .balance-sheet td {
+            padding: 6px 12px 6px 0;
+            border-bottom: 0.5px solid #000;
+            vertical-align: top;
+        }
+        .balance-sheet td:last-child,
+        .balance-sheet th:last-child {
+            text-align: right;
+            padding-right: 0;
+        }
+        .balance-sheet .section-label {
+            font-size: 9px;
+            font-weight: bold;
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
+            padding-top: 12px;
+        }
+        .balance-sheet .total-row td {
+            border-top: 1.5px solid #000;
+            border-bottom: 1.5px solid #000;
+            font-weight: bold;
+        }
+
+        /* —— Components Table —— */
+        .components-table {
+            margin: 16px 0;
+            border-collapse: collapse;
+            width: 100%;
+            font-size: 12px;
+        }
+        .components-table th {
+            font-size: 9px;
+            font-weight: bold;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            text-align: left;
+            padding: 8px 12px 6px 0;
+            border-bottom: 1.5px solid #000;
+        }
+        .components-table td {
+            padding: 6px 12px 6px 0;
+            border-bottom: 0.5px solid #000;
+            vertical-align: top;
+        }
+
+        /* —— SVG Diagram —— */
+        .diagram {
+            margin: 24px 0;
+            max-width: 100%;
+        }
+        .diagram svg {
+            width: 100%;
+            height: auto;
+        }
+
+        /* —— Enumerated Items —— */
+        .enum-list {
+            list-style: none;
+            margin: 8px 0 12px 0;
+            counter-reset: enum;
+        }
+        .enum-list li {
+            counter-increment: enum;
+            padding-left: 24px;
+            position: relative;
+            margin-bottom: 6px;
+        }
+        .enum-list li::before {
+            content: counter(enum) ".";
+            position: absolute;
+            left: 0;
+            font-weight: bold;
+        }
+
+        /* —— Page Number (screen only) —— */
+        .page-label {
+            font-size: 9px;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            color: #666;
+            margin-bottom: 16px;
+        }
+    </style>
+</head>
+<body>
+
+<!-- ====================================================================
+     COVER LETTER
+     ==================================================================== -->
+<div class="document" style="page-break-before: avoid;">
+
+    <div class="letterhead">
+        <div class="company-name">Capital Structures, Inc.</div>
+        <div class="company-detail">Wilmington, Delaware</div>
+    </div>
+
+    <div class="letter-date">[Date]</div>
+
+    <div class="letter-body">
+        <p class="letter-salutation">Dear Mr. Grasser,</p>
+
+        <p>Enclosed please find the complete documentation package for your position in Protected Series 001 of Capital Structures, Inc. This package contains all instruments, agreements, resolutions, and disclosures associated with the IP Contribution &amp; Pre-Pay Architecture (Structure 001).</p>
+
+        <p>The following documents are enclosed:</p>
+
+        <ol class="enclosure-list">
+            <li>Certificate of Class B Units &mdash; Protected Series 001</li>
+            <li>IP Contribution Agreement (ICA-001-2026)</li>
+            <li>Promissory Note (PN-001-2026)</li>
+            <li>Board Resolution (RES-2026-005)</li>
+            <li>Protected Series 001 Designation</li>
+            <li>Schedule A &mdash; Description of Contributed IP</li>
+            <li>Structure Brief &mdash; 001</li>
+            <li>Structural Fiduciary</li>
+            <li>Risk Factors</li>
+        </ol>
+
+        <p>All documents require officer signature and, where applicable, counsel review before becoming effective. Signature lines are provided for pen completion.</p>
+
+        <p>This package and its contents are disclosed artifacts of the Company&rsquo;s operations.</p>
+
+        <div class="signature-block">
+            <div class="sig-col">
+                <div class="sig-line">Martin Grasser</div>
+                <div class="sig-role">Chief Executive Officer</div>
+                <div class="sig-role">Capital Structures, Inc.</div>
+            </div>
+            <div class="sig-col">
+                <div class="sig-line">Date</div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- ====================================================================
+     DOCUMENT 1: CERTIFICATE OF CLASS B UNITS
+     ==================================================================== -->
+<div class="document">
+
+    <div class="doc-header">Document 1 of 9</div>
+
+    <div class="certificate">
+        <div class="cert-header">Capital Structures Inc. &middot; Delaware C-Corporation</div>
+        <div class="cert-title">Certificate of Class B Units</div>
+        <div class="cert-subtitle">Protected Series 001</div>
+
+        <div class="cert-field"><strong>Holder</strong> Martin Grasser</div>
+        <div class="cert-field"><strong>Units</strong> Class B Units &mdash; Protected Series 001</div>
+        <div class="cert-field"><strong>Par Value</strong> $1,000.00</div>
+        <div class="cert-field"><strong>Series Designation</strong> Protected Series 001, a protected series of Capital Structures Inc. established under the Delaware Limited Liability Company Act</div>
+        <div class="cert-field"><strong>Rights</strong> No voting rights. No dividends. No liquidation preference. Position in a fully disclosed corporate system.</div>
+        <div class="cert-field"><strong>Transferability</strong> Subject to Company transfer restrictions. No public market exists or is expected to exist.</div>
+        <div class="cert-field"><strong>Consolidation</strong> Fully consolidated into Capital Structures Inc. financial statements.</div>
+
+        <div class="signature-block">
+            <div class="sig-col">
+                <div class="sig-line">Martin Grasser, CEO</div>
+            </div>
+            <div class="sig-col">
+                <div class="sig-line">Date</div>
+            </div>
+        </div>
+
+        <div class="cert-footer">This certificate is a disclosed artifact of the Company&rsquo;s operations. Certificate number and issuance date to be assigned upon execution. This instrument has not been registered under the Securities Act of 1933, as amended, and may not be sold or transferred absent registration or an applicable exemption.</div>
+    </div>
+</div>
+
+<!-- ====================================================================
+     DOCUMENT 2: IP CONTRIBUTION AGREEMENT (ICA-001-2026)
+     ==================================================================== -->
+<div class="document">
+
+    <div class="doc-header">Document 2 of 9</div>
+
+    <h1>IP Contribution Agreement</h1>
+    <p class="mono" style="margin-bottom:24px;">ICA-001-2026</p>
+
+    <div class="parties">
+        <p>This IP Contribution Agreement (this &ldquo;Agreement&rdquo;) is entered into as of [Date], by and between:</p>
+        <p><strong>Party A:</strong> Capital Structures, Inc., a Delaware C-Corporation, acting through Protected Series 001 (the &ldquo;Company&rdquo; or &ldquo;Series 001&rdquo;)</p>
+        <p><strong>Party B:</strong> Martin Grasser, an individual (the &ldquo;Contributor&rdquo;)</p>
+    </div>
+
+    <div class="recitals">
+        <p><strong>WHEREAS,</strong> the Company&rsquo;s sole product is the creation, execution, and disclosure of corporate and financial structures;</p>
+        <p><strong>WHEREAS,</strong> the Contributor has developed intellectual property comprising the conceptual framework, structural vocabulary, methodology, precedent corpus, agent architecture, and brand underlying the Company&rsquo;s operations;</p>
+        <p><strong>WHEREAS,</strong> the Contributor serves simultaneously as sole director, Chief Executive Officer, and the individual contributing IP to the Company, and this self-dealing arrangement is intentional, fully disclosed, and documented on the face of this instrument;</p>
+        <p><strong>NOW, THEREFORE,</strong> in consideration of the mutual covenants set forth herein, the parties agree as follows:</p>
+    </div>
+
+    <h2>Section 1. Contribution</h2>
+    <p>Contributor hereby contributes, assigns, transfers, and delivers to Protected Series 001 all right, title, and interest in and to the intellectual property described in Schedule A attached hereto (the &ldquo;Contributed IP&rdquo;). Upon execution of this Agreement, the Contributed IP shall become the sole asset of Protected Series 001.</p>
+
+    <h2>Section 2. Consideration</h2>
+    <p>In consideration of the Contribution, Protected Series 001 shall issue to the Contributor:</p>
+    <ul>
+        <li>A Promissory Note (PN-001-2026) in the principal amount of $10,000,000 (the &ldquo;Note&rdquo;); and</li>
+        <li>Class B Units in Protected Series 001 with a par value of $1,000 (the &ldquo;Units&rdquo;).</li>
+    </ul>
+    <p>The aggregate consideration is $10,001,000.</p>
+
+    <h2>Section 3. Valuation</h2>
+    <p>The Contributed IP is valued at $10,001,000 under the Company&rsquo;s mark-to-model methodology. The model reflects the Contributor&rsquo;s projection of the cultural and economic value of the Company&rsquo;s structures upon successful execution, the value of the institutional infrastructure and precedent corpus, and the value of the Ongoing Development Obligation. No independent third-party appraisal has been obtained. This valuation is disclosed on the face of all Company documents.</p>
+
+    <h2>Section 4. Ongoing Development Obligation</h2>
+    <p>The Note constitutes advance consideration for the Contributor&rsquo;s commitment to design and document all future Company structures, prepare all governance instruments, manage counterparty relationships, and perform all creative and operational activities necessary to realize the Company&rsquo;s purpose (the &ldquo;Ongoing Development Obligation&rdquo;). The Company owes the Contributor $10,000,000 for work that has not yet been performed.</p>
+
+    <h2>Section 5. Representations and Disclosures</h2>
+    <p><span class="section-num">5.1</span> <strong>Self-Dealing.</strong> The Contributor acknowledges that he acts simultaneously as (i) sole director approving this transaction, (ii) CEO executing this Agreement on behalf of the Company, and (iii) Contributor delivering the IP and receiving the Note and Units in his individual capacity. This arrangement is intentional, fully disclosed, and documented on the face of this instrument.</p>
+    <p><span class="section-num">5.2</span> <strong>Structural Fiduciary.</strong> The Contributor acknowledges that the Company operates under the Structural Fiduciary, which establishes that management decisions may include forming entities with no revenue-generating purpose, entering economically neutral transactions, maintaining excess complexity, and dissolving the Company at a moment determined to be structurally complete.</p>
+    <p><span class="section-num">5.3</span> <strong>No Independent Appraisal.</strong> The Contributor acknowledges that the valuation of the Contributed IP is based solely on the Company&rsquo;s mark-to-model methodology and that no independent appraisal has been obtained.</p>
+
+    <h2>Section 6. Governing Law</h2>
+    <p>This Agreement shall be governed by and construed in accordance with the laws of the State of Delaware, without regard to its conflicts of law principles.</p>
+
+    <div class="signature-block">
+        <div class="sig-col">
+            <div class="sig-line">Martin Grasser, CEO</div>
+            <div class="sig-role">Capital Structures, Inc.</div>
+            <div class="sig-role">Acting through Protected Series 001</div>
+        </div>
+        <div class="sig-col">
+            <div class="sig-line">Martin Grasser</div>
+            <div class="sig-role">Individual Capacity</div>
+        </div>
+    </div>
+
+    <div class="signature-block" style="margin-top:32px;">
+        <div class="sig-col">
+            <div class="sig-line">Date</div>
+        </div>
+        <div class="sig-col">
+            <div class="sig-line">Date</div>
+        </div>
+    </div>
+</div>
+
+<!-- ====================================================================
+     DOCUMENT 3: PROMISSORY NOTE (PN-001-2026)
+     ==================================================================== -->
+<div class="document">
+
+    <div class="doc-header">Document 3 of 9</div>
+
+    <h1>Promissory Note</h1>
+    <p class="mono" style="margin-bottom:24px;">PN-001-2026</p>
+
+    <p style="margin-bottom:24px;">FOR VALUE RECEIVED, the undersigned promises to pay to the order of the Payee, the principal sum set forth below, subject to the terms and conditions of this Promissory Note (this &ldquo;Note&rdquo;).</p>
+
+    <h3>Maker</h3>
+    <p>Protected Series 001 of Capital Structures, Inc., a Delaware C-Corporation</p>
+
+    <h3>Payee</h3>
+    <p>Martin Grasser</p>
+
+    <h3>Principal</h3>
+    <p>$10,000,000 (Ten Million Dollars)</p>
+
+    <h3>Interest</h3>
+    <p>0% per annum. The zero-interest rate is disclosed and justified under the Structural Fiduciary.</p>
+
+    <h3>Maturity</h3>
+    <p>This Note matures upon the earliest to occur of:</p>
+    <ul>
+        <li>A liquidity event generating proceeds of $10,000,000 or more;</li>
+        <li>A public listing of any Company securities;</li>
+        <li>Dissolution of the Company or Protected Series 001; or</li>
+        <li>Mutual written agreement of the Maker and Payee.</li>
+    </ul>
+    <p>In all events, this Note shall mature no later than ten (10) years from the date of issuance (the &ldquo;Backstop Date&rdquo;).</p>
+
+    <h3>Priority</h3>
+    <p>This Note constitutes a senior creditor claim in the dissolution of Protected Series 001. In the event of dissolution, amounts owed under this Note shall be paid prior to any distribution to holders of Class B Units or any other equity interest in Series 001.</p>
+
+    <h3>Non-Recourse</h3>
+    <p>This Note is an obligation of Protected Series 001 only. The Payee shall have no recourse to the assets of Capital Structures, Inc. (the parent entity), any other Protected Series, or any other person or entity. The liability shields established under the Delaware Limited Liability Company Act shall apply.</p>
+
+    <h3>Ongoing Development Obligation</h3>
+    <p>This Note constitutes advance consideration for the Ongoing Development Obligation &mdash; the Contributor&rsquo;s commitment to design and document all future Company structures, prepare all governance instruments, manage counterparty relationships, and perform all creative and operational activities necessary to realize the Company&rsquo;s purpose.</p>
+
+    <div class="signature-block">
+        <div class="sig-col">
+            <div class="sig-line">Martin Grasser, CEO</div>
+            <div class="sig-role">On behalf of Protected Series 001</div>
+            <div class="sig-role">Capital Structures, Inc.</div>
+        </div>
+        <div class="sig-col">
+            <div class="sig-line">Date</div>
+        </div>
+    </div>
+</div>
+
+<!-- ====================================================================
+     DOCUMENT 4: BOARD RESOLUTION (RES-2026-005)
+     ==================================================================== -->
+<div class="document">
+
+    <div class="doc-header">Document 4 of 9</div>
+
+    <h1>Board Resolution</h1>
+    <p class="mono" style="margin-bottom:4px;">RES-2026-005</p>
+    <p style="font-size:11px; letter-spacing:0.06em; text-transform:uppercase; margin-bottom:24px; color:#666;">Action by Unanimous Written Consent of the Sole Director</p>
+
+    <p>Martin Grasser, as the sole director of Capital Structures, Inc. (the &ldquo;Company&rdquo;), acting by unanimous written consent in lieu of a meeting pursuant to Section 141(f) of the Delaware General Corporation Law, hereby adopts the following resolution.</p>
+
+    <h2>Authorization of Structure 001 &mdash; Self-Dealing Architecture</h2>
+
+    <p><strong>RESOLVED,</strong> that the creation of Protected Series 001 is hereby authorized.</p>
+
+    <p><strong>RESOLVED FURTHER,</strong> that Martin Grasser, in his personal capacity, is authorized to acquire Class B Units in Protected Series 001, notwithstanding his position as CEO and sole director.</p>
+
+    <p><strong>RESOLVED FURTHER,</strong> that the Company shall guarantee the performance obligations of Protected Series 001.</p>
+
+    <p><strong>RESOLVED FURTHER,</strong> that the self-dealing nature of this transaction is acknowledged, disclosed, and recorded in the corporate minutes and all related documentation. Martin Grasser acts simultaneously as (i) sole director approving this transaction, (ii) CEO executing the agreement on behalf of the Company, and (iii) Contributor delivering the IP and receiving the Promissory Note and Class B Units in his individual capacity.</p>
+
+    <p><strong>RESOLVED FURTHER,</strong> that the officers of the Company are authorized to execute all agreements, instruments, and documents necessary to effectuate the foregoing resolutions.</p>
+
+    <div class="signature-block">
+        <div class="sig-col">
+            <div class="sig-line">Martin Grasser</div>
+            <div class="sig-role">Sole Director</div>
+            <div class="sig-role">Capital Structures, Inc.</div>
+        </div>
+        <div class="sig-col">
+            <div class="sig-line">Date</div>
+        </div>
+    </div>
+</div>
+
+<!-- ====================================================================
+     DOCUMENT 5: PROTECTED SERIES 001 DESIGNATION
+     ==================================================================== -->
+<div class="document">
+
+    <div class="doc-header">Document 5 of 9</div>
+
+    <h1>Protected Series Designation</h1>
+    <p class="mono" style="margin-bottom:24px;">Protected Series 001</p>
+
+    <p>This Designation is made pursuant to the Delaware Limited Liability Company Act (6 Del. C. &sect; 18-215) and the governing documents of Capital Structures, Inc., a Delaware C-Corporation (the &ldquo;Company&rdquo;).</p>
+
+    <h3>Series Name</h3>
+    <p>Protected Series 001</p>
+
+    <h3>Parent Entity</h3>
+    <p>Capital Structures, Inc., a Delaware C-Corporation</p>
+
+    <h3>Effective Date</h3>
+    <p>[Date]</p>
+
+    <h3>Asset Segregation</h3>
+    <p>The assets of Protected Series 001 are held separately from the assets of the Company, any other Protected Series, and any member of the Company. The assets of Series 001 consist solely of the Contributed IP as described in the IP Contribution Agreement (ICA-001-2026) and Schedule A thereto.</p>
+
+    <h3>Liability Shields</h3>
+    <p>The debts, liabilities, obligations, and expenses of Protected Series 001 are enforceable only against the assets of Series 001, and not against the assets of the Company, any other Protected Series, or any member, in accordance with 6 Del. C. &sect; 18-215. The Company has guaranteed the performance obligations of Series 001.</p>
+
+    <h3>Membership</h3>
+    <p>Martin Grasser, as holder of Class B Units in Protected Series 001.</p>
+
+    <h3>Consolidation Treatment</h3>
+    <p>Fully consolidated into Capital Structures, Inc. financial statements.</p>
+
+    <h3>Authorized Instruments</h3>
+    <ul>
+        <li>Class B Units (par value $1,000)</li>
+        <li>Promissory Notes</li>
+    </ul>
+
+    <div class="signature-block">
+        <div class="sig-col">
+            <div class="sig-line">Martin Grasser, CEO</div>
+            <div class="sig-role">Capital Structures, Inc.</div>
+        </div>
+        <div class="sig-col">
+            <div class="sig-line">Date</div>
+        </div>
+    </div>
+</div>
+
+<!-- ====================================================================
+     DOCUMENT 6: SCHEDULE A — DESCRIPTION OF CONTRIBUTED IP
+     ==================================================================== -->
+<div class="document">
+
+    <div class="doc-header">Document 6 of 9</div>
+
+    <h1>Schedule A &mdash; Description of Contributed IP</h1>
+    <p style="font-size:11px; letter-spacing:0.04em; color:#666; margin-bottom:24px;">Exhibit to IP Contribution Agreement (ICA-001-2026)</p>
+
+    <p>The following intellectual property is contributed by Martin Grasser to Protected Series 001 of Capital Structures, Inc. pursuant to the IP Contribution Agreement (ICA-001-2026):</p>
+
+    <h3>A.1 Conceptual Framework</h3>
+    <p>The foundational concept that the corporation is an authored form &mdash; that corporate and financial structures can be created, executed, and disclosed as the sole product of a company. The framework encompasses the Company&rsquo;s entire operating thesis: that corporate governance, securities issuance, entity formation, and financial engineering constitute a published form.</p>
+
+    <h3>A.2 Structural Vocabulary &amp; Methodology</h3>
+    <p>The system of Protected Series, Class B Units, promissory notes, guarantee structures, advisory agreements, and other instruments developed for the Company&rsquo;s operations. This includes the methodology for designing, documenting, and disclosing each structure, the balance sheet architecture, consolidation treatment, and the mark-to-model valuation framework.</p>
+
+    <h3>A.3 Precedent Corpus</h3>
+    <p>The body of research, analysis, and interpretive work derived from: the Powers Report on Enron Corporation (2002); Congressional testimony of Herbert S. Winokur Jr.; the Batson Report (2002); and Enron Board of Directors records held at the Hagley Museum and Library. These are cited as prior art in the field &mdash; as precedent corpus, not inspiration.</p>
+
+    <h3>A.4 Agent Architecture &amp; System Prompts</h3>
+    <p>The system prompts, operating configurations, and architectural design of the Company&rsquo;s AI agents, including the Global Finance Department and Corporate Secretary. These agents generate corporate documentation under human supervision and their configurations are designated as Company records.</p>
+
+    <h3>A.5 Capital Structures Brand</h3>
+    <p>The name &ldquo;Capital Structures, Inc.,&rdquo; all associated visual identity, typography (188 Sans, 188 Sans Mono), design system, and the Company&rsquo;s public-facing presentation including the corporate website and all published materials.</p>
+
+    <h2>Valuation Summary</h2>
+    <table class="balance-sheet">
+        <tr>
+            <td>Contributed IP (A.1&ndash;A.5)</td>
+            <td class="mono">$10,001,000</td>
+        </tr>
+        <tr>
+            <td>Methodology</td>
+            <td class="mono">Mark-to-model</td>
+        </tr>
+        <tr>
+            <td>Independent Appraisal</td>
+            <td class="mono">None obtained</td>
+        </tr>
+    </table>
+
+    <div class="signature-block">
+        <div class="sig-col">
+            <div class="sig-line">Martin Grasser, CEO</div>
+            <div class="sig-role">Capital Structures, Inc.</div>
+        </div>
+        <div class="sig-col">
+            <div class="sig-line">Martin Grasser</div>
+            <div class="sig-role">Contributor</div>
+        </div>
+    </div>
+
+    <div class="signature-block" style="margin-top:32px;">
+        <div class="sig-col">
+            <div class="sig-line">Date</div>
+        </div>
+        <div class="sig-col">
+            <div class="sig-line">Date</div>
+        </div>
+    </div>
+</div>
+
+<!-- ====================================================================
+     DOCUMENT 7: STRUCTURE BRIEF — 001
+     ==================================================================== -->
+<div class="document">
+
+    <div class="doc-header">Document 7 of 9</div>
+
+    <h1>Structure Brief &mdash; 001</h1>
+    <p style="font-size:11px; letter-spacing:0.04em; color:#666; margin-bottom:24px;">IP Contribution &amp; Pre-Pay Architecture</p>
+
+    <h3>Components</h3>
+    <table class="components-table">
+        <thead>
+            <tr>
+                <th>Component</th>
+                <th>Detail</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr><td>Entity</td><td>Protected Series 001</td></tr>
+            <tr><td>Type</td><td>Protected Series (Delaware LLC)</td></tr>
+            <tr><td>Instrument &mdash; Debt</td><td>Promissory Note PN-001 ($10,000,000 / 0%)</td></tr>
+            <tr><td>Instrument &mdash; Equity</td><td>Class B Units ($1,000 par)</td></tr>
+            <tr><td>Counterparty</td><td>Martin Grasser (individual)</td></tr>
+            <tr><td>Consolidation</td><td>Fully consolidated</td></tr>
+            <tr><td>Parent Guarantee</td><td>Yes &mdash; Capital Structures, Inc.</td></tr>
+            <tr><td>Status</td><td>Execution</td></tr>
+        </tbody>
+    </table>
+
+    <h3>Balance Sheet &mdash; Protected Series 001</h3>
+    <table class="balance-sheet">
+        <tr class="section-label"><td colspan="2">Assets</td></tr>
+        <tr><td>Contributed IP (mark-to-model)</td><td class="mono">$10,001,000</td></tr>
+        <tr class="section-label"><td colspan="2">Liabilities</td></tr>
+        <tr><td>Promissory Note to Martin Grasser (0%, contingent maturity)</td><td class="mono">$10,000,000</td></tr>
+        <tr class="section-label"><td colspan="2">Equity</td></tr>
+        <tr><td>Class B Units</td><td class="mono">$1,000</td></tr>
+    </table>
+
+    <h3>Key Metrics</h3>
+    <ul>
+        <li>99.99% debt-financed acquisition of contributed intellectual property</li>
+        <li>Mark-to-model valuation &mdash; no independent appraisal</li>
+        <li>Self-dealing disclosed on face of all instruments</li>
+        <li>Ongoing Development Obligation &mdash; advance payment for future work</li>
+    </ul>
+
+    <h3>Structure Diagram</h3>
+    <div class="diagram">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 800">
+  <defs><style>
+    .t{font-family:'188 Sans Mono','Courier New',monospace}
+    .t1{font-size:11px;font-weight:700;letter-spacing:.08em}
+    .t2{font-size:9px;letter-spacing:.08em}
+    .t3{font-size:9px;letter-spacing:.06em}
+  </style></defs>
+
+  <!-- ROW 1: Martin Grasser -->
+  <rect x="40" y="30" width="300" height="60" fill="none" stroke="#000" stroke-width="3"/>
+  <text class="t t1" text-anchor="middle" x="190" y="65">MARTIN GRASSER</text>
+
+  <!-- ARROW DOWN: Contributes IP -->
+  <line x1="145" y1="90" x2="145" y2="175" stroke="#000" stroke-width="1.5" fill="none"/>
+  <path d="M139,175l6,14,6-14h-12Z" fill="#000"/>
+  <text class="t t2" x="50" y="127" fill="#666">CONTRIBUTES IP</text>
+  <text class="t t3" x="50" y="141" fill="#666">($10,001,000)</text>
+  <text class="t t2" x="50" y="160" fill="#666">CAPITALIZES</text>
+  <text class="t t3" x="50" y="174" fill="#666">($10,000)</text>
+
+  <!-- ARROW UP: Receives Note -->
+  <line x1="235" y1="195" x2="235" y2="110" stroke="#000" stroke-width="1.5" fill="none"/>
+  <path d="M229,110l6-14,6,14h-12Z" fill="#000"/>
+  <text class="t t2" x="255" y="120" fill="#666">RECEIVES NOTE</text>
+  <text class="t t3" x="255" y="137" fill="#666">($10,000,000)</text>
+  <text class="t t2" x="255" y="160" fill="#666">+ CLASS B UNITS</text>
+  <text class="t t3" x="255" y="177" fill="#666">($1,000)</text>
+
+  <!-- ROW 2: Capital Structures Inc. -->
+  <rect x="40" y="195" width="300" height="65" fill="none" stroke="#000" stroke-width="1.5"/>
+  <text class="t t1" text-anchor="middle" x="190" y="224">CAPITAL STRUCTURES INC.</text>
+  <text class="t t2" text-anchor="middle" x="190" y="244">PARENT</text>
+
+  <!-- ARROW DOWN: Creates / Controls -->
+  <line x1="190" y1="260" x2="190" y2="385" stroke="#000" stroke-width="1.5" fill="none"/>
+  <path d="M184,385l6,14,6-14h-12Z" fill="#000"/>
+  <text class="t t2" x="205" y="340" fill="#666">CREATES / CONTROLS</text>
+
+  <!-- ROW 3: Protected Series 001 -->
+  <rect x="40" y="405" width="300" height="65" fill="none" stroke="#000" stroke-width="1.5"/>
+  <text class="t t1" text-anchor="middle" x="190" y="442">PROTECTED SERIES 001</text>
+
+  <!-- ICA-001 pill -->
+  <rect x="420" y="410" width="240" height="55" rx="27" ry="27" fill="none" stroke="#000" stroke-width="1.5"/>
+  <text class="t t1" text-anchor="middle" x="540" y="435">ICA-001</text>
+  <text class="t t2" text-anchor="middle" x="540" y="452">IP CONTRIBUTION</text>
+  <line x1="340" y1="437" x2="420" y2="437" stroke="#000" stroke-width="1.5" fill="none"/>
+
+  <!-- CONNECTOR: Series 001 → Balance sheet -->
+  <line x1="190" y1="472" x2="190" y2="510" stroke="#000" stroke-width="1.5" fill="none"/>
+
+  <!-- ROW 4: Balance sheet -->
+  <rect x="40" y="510" width="300" height="180" fill="none" stroke="#000" stroke-width="0.5"/>
+  <text class="t t2" x="60" y="537">ASSETS</text>
+  <text class="t t3" x="60" y="554">CONTRIBUTED IP      $10,001,000</text>
+  <line x1="60" y1="572" x2="320" y2="572" stroke="#000" stroke-width="0.5"/>
+  <text class="t t2" x="60" y="590">LIABILITIES</text>
+  <text class="t t3" x="60" y="607">NOTE (PN-001)       $10,000,000</text>
+  <line x1="60" y1="625" x2="320" y2="625" stroke="#000" stroke-width="0.5"/>
+  <text class="t t2" x="60" y="643">EQUITY</text>
+  <text class="t t3" x="60" y="660" style="font-weight:700">CLASS B UNITS            $1,000</text>
+
+  <!-- PN-001 pill -->
+  <rect x="420" y="525" width="240" height="55" rx="27" ry="27" fill="none" stroke="#000" stroke-width="1.5"/>
+  <text class="t t1" text-anchor="middle" x="540" y="550">PN-001</text>
+  <text class="t t2" text-anchor="middle" x="540" y="567">$10,000,000 / 0%</text>
+  <line x1="340" y1="552" x2="420" y2="552" stroke="#000" stroke-width="1.5" fill="none"/>
+
+  <!-- Class B Units pill -->
+  <rect x="420" y="610" width="240" height="55" rx="27" ry="27" fill="none" stroke="#000" stroke-width="1.5"/>
+  <text class="t t1" text-anchor="middle" x="540" y="635">CLASS B UNITS</text>
+  <text class="t t2" text-anchor="middle" x="540" y="652">$1,000</text>
+  <line x1="340" y1="637" x2="420" y2="637" stroke="#000" stroke-width="1.5" fill="none"/>
+
+  <!-- FOOTER -->
+  <line x1="40" y1="710" x2="680" y2="710" stroke="#000" stroke-width="0.5"/>
+  <text class="t t3" x="40" y="735" fill="#666">99.99% DEBT-FINANCED / MARK-TO-MODEL / SELF-DEALING DISCLOSED</text>
+  <text class="t t3" x="40" y="775">STRUCTURE 001 — IP CONTRIBUTION &amp; PRE-PAY ARCHITECTURE</text>
+</svg>
+    </div>
+</div>
+
+<!-- ====================================================================
+     DOCUMENT 8: STRUCTURAL FIDUCIARY
+     ==================================================================== -->
+<div class="document">
+
+    <div class="doc-header">Document 8 of 9</div>
+
+    <h1>Structural Fiduciary</h1>
+    <p style="font-size:11px; letter-spacing:0.04em; color:#666; margin-bottom:24px;">Foundational Governance Document &middot; Capital Structures, Inc.</p>
+
+    <h2>Preamble</h2>
+    <p>Capital Structures, Inc. (the &ldquo;Company&rdquo;) is a Delaware C-Corporation whose sole product is the creation, execution, and disclosure of corporate and financial structures. The Company does not sell goods or services. It publishes structures.</p>
+    <p>The Board of Directors has adopted this Structural Fiduciary (the &ldquo;Doctrine&rdquo;) as a foundational governance document establishing the principles under which the Company&rsquo;s fiduciary obligations are to be interpreted and discharged.</p>
+
+    <h2>Operative Provisions</h2>
+    <p>The Board&rsquo;s fiduciary obligations include:</p>
+    <ol class="enum-list">
+        <li><strong>Truthful Disclosure.</strong> All material facts, transactions, self-dealing arrangements, and risks shall be disclosed fully and promptly. The Company does not conceal information from participants, holders, counterparties, or the public.</li>
+        <li><strong>Procedural Integrity.</strong> All corporate actions shall be properly authorized, documented, and recorded. The Company maintains a complete corporate record and follows its own governance procedures.</li>
+        <li><strong>Structural Good Faith.</strong> Management decisions shall be made in good faith toward the realization of the Company&rsquo;s purpose as defined in its charter &mdash; the creation, execution, and disclosure of corporate and financial structures as a published form.</li>
+    </ol>
+
+    <h2>Permitted Actions</h2>
+    <p>Under this Doctrine, management decisions may include:</p>
+    <ul>
+        <li>Forming entities with no revenue-generating purpose</li>
+        <li>Entering economically neutral transactions</li>
+        <li>Maintaining excess complexity</li>
+        <li>Dissolving the Company at a moment determined to be structurally complete</li>
+    </ul>
+    <p>Such actions, when taken in good faith and with full disclosure, are consistent with the Board&rsquo;s fiduciary duties under this Doctrine.</p>
+
+    <h2>Disclosure</h2>
+    <p>This Doctrine shall be disclosed to all participants, holders, and counterparties as a material term of participation in any Company offering. Acknowledgment of the Doctrine is required in all subscription agreements, contribution agreements, and advisory agreements.</p>
+
+    <div class="signature-block">
+        <div class="sig-col">
+            <div class="sig-line">Martin Grasser</div>
+            <div class="sig-role">Sole Director</div>
+            <div class="sig-role">Capital Structures, Inc.</div>
+        </div>
+        <div class="sig-col">
+            <div class="sig-line">Date</div>
+        </div>
+    </div>
+</div>
+
+<!-- ====================================================================
+     DOCUMENT 9: RISK FACTORS
+     ==================================================================== -->
+<div class="document">
+
+    <div class="doc-header">Document 9 of 9</div>
+
+    <h1>Risk Factors</h1>
+    <p style="font-size:11px; letter-spacing:0.04em; color:#666; margin-bottom:24px;">Capital Structures, Inc. &middot; Protected Series 001</p>
+
+    <p>The following risk factors should be considered carefully before participating in any offering or transaction involving Capital Structures, Inc. or Protected Series 001. This list is not exhaustive.</p>
+
+    <h2>Principal Risk Factors</h2>
+
+    <ol class="enum-list">
+        <li><strong>No Revenue.</strong> The Company may never generate revenue. The Company&rsquo;s sole product is the creation, execution, and disclosure of corporate and financial structures. There is no other revenue source, no goods, and no services.</li>
+
+        <li><strong>Intentional Dissolution.</strong> The Company may intentionally dissolve at any time. Dissolution is a valid completion of the work under the Structural Fiduciary. The Board is not obligated to maintain the Company&rsquo;s existence.</li>
+
+        <li><strong>Management Not Incentivized.</strong> Management is not incentivized to increase the value of any securities. CEO compensation is not tied to stock price or company performance. Management prioritizes structural integrity and conceptual coherence over profit maximization.</li>
+
+        <li><strong>No Resale Market.</strong> Class B Units may have no resale market. No public market exists or is expected to exist for Class B Units. Units are subject to Company transfer restrictions.</li>
+
+        <li><strong>Expect Total Loss.</strong> Participants should expect total loss of their contribution. The Company makes no representation that any participant will recover any portion of their investment.</li>
+    </ol>
+
+    <h2>Additional Risk Factors</h2>
+
+    <h3>Self-Dealing</h3>
+    <p>Martin Grasser acts simultaneously as sole director, CEO, and holder of Class B Units in Protected Series 001. He approves his own transactions, sets his own compensation, and controls all governance decisions. This arrangement is intentional and disclosed.</p>
+
+    <h3>Mark-to-Model Valuation</h3>
+    <p>All asset valuations are based on the Company&rsquo;s internal mark-to-model methodology. No independent third-party appraisal has been obtained. The Contributed IP is valued at $10,001,000, which may bear no relationship to any realizable value.</p>
+
+    <h3>AI Agent Dependency</h3>
+    <p>The Company uses AI agents to generate corporate documentation. All agent outputs require human review, but the Company&rsquo;s operational capacity depends in part on the continued availability and performance of these systems.</p>
+
+    <h3>No Independent Appraisal</h3>
+    <p>No independent third-party appraisal of the Contributed IP, the Distribution Agreement, or any other Company asset has been obtained. All valuations are internally generated.</p>
+
+    <p style="margin-top:24px; font-size:11px; color:#666; letter-spacing:0.04em;">This document is a disclosed artifact of the Company&rsquo;s operations.</p>
+</div>
+
+</body>
+</html>
