@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Capital Structures, Inc.</title>
-    <meta name="description" content="Capital Structures, Inc. publishes diagrams, documents, and structural studies of how risk is transferred, isolated, priced, guaranteed, and disclosed.">
     <style>
         @font-face {
             font-family: '188 Sans';
@@ -62,10 +61,10 @@
         }
         .nav-links {
             display: flex;
-            gap: 24px;
+            gap: 28px;
         }
         .nav-links a {
-            font-size: 11px;
+            font-size: 12px;
             font-weight: bold;
             letter-spacing: 0.06em;
             text-transform: uppercase;
@@ -82,32 +81,14 @@
         .hero {
             max-width: 960px;
             margin: 0 auto;
-            padding: 48px 32px 24px 32px;
+            padding: 48px 32px 48px 32px;
         }
-        .hero h1 {
-            font-size: 42px;
-            font-weight: bold;
-            line-height: 1.0;
-            letter-spacing: -0.02em;
-            margin-bottom: 12px;
-        }
-        .hero .hero-tagline {
-            font-size: 15px;
+        .hero p {
+            font-size: 36px;
             font-weight: normal;
-            line-height: 1.4;
-            max-width: 640px;
-            margin-bottom: 0;
-            letter-spacing: 0;
-        }
-        .hero-intro {
-            max-width: 960px;
-            margin: 0 auto;
-            padding: 0 32px 48px 32px;
-        }
-        .hero-intro p {
-            font-size: 15px;
-            line-height: 1.4;
-            max-width: 640px;
+            line-height: 1.1;
+            letter-spacing: -0.01em;
+            max-width: 780px;
         }
 
         /* —— Sections —— */
@@ -115,6 +96,18 @@
             max-width: 960px;
             margin: 0 auto;
             padding: 0 32px 48px 32px;
+        }
+        .section-rule {
+            border: none;
+            border-top: 2px solid #000;
+            max-width: 960px;
+            margin: 0 auto 0 auto;
+            padding: 0 32px;
+        }
+        .section-rule hr {
+            border: none;
+            border-top: 2px solid #000;
+            margin-bottom: 16px;
         }
         section h2 {
             font-size: 11px;
@@ -176,6 +169,14 @@
             padding-top: 0;
         }
         .status-pending { font-style: italic; }
+
+        /* —— Doc link —— */
+        .doc-link {
+            text-decoration: underline;
+            text-decoration-thickness: 0.5px;
+            text-underline-offset: 2px;
+            cursor: pointer;
+        }
 
         /* —— Expandable —— */
         details {
@@ -311,47 +312,21 @@
             border-top: 3px solid #000;
         }
 
-        /* —— Glossary —— */
-        .glossary-entry {
-            max-width: 720px;
-            padding: 12px 0;
-            border-bottom: 0.5px solid #000;
-        }
-        .glossary-entry:first-of-type {
-            border-top: 0.5px solid #000;
-        }
-        .glossary-term {
-            font-size: 15px;
-            font-weight: bold;
-            margin-bottom: 4px;
-        }
-        .glossary-def {
-            font-size: 14px;
-            line-height: 1.4;
-            margin-bottom: 4px;
-            max-width: 620px;
-        }
-        .glossary-usage {
-            font-size: 12px;
-            letter-spacing: 0.02em;
-            font-style: italic;
-        }
-
-        /* —— Doctrine items —— */
-        .doctrine-number {
-            font-family: '188 Sans Mono', 'Courier New', monospace;
-            font-size: 10px;
-            letter-spacing: 0.06em;
-            color: #666;
-            margin-bottom: 4px;
-        }
-
         /* —— Footer —— */
         footer {
             max-width: 960px;
             margin: 0 auto;
             padding: 48px 32px 48px 32px;
             border-top: 3px solid #000;
+        }
+        .footer-image {
+            margin: 0 -32px;
+            margin-bottom: 32px;
+        }
+        .footer-image img {
+            width: 100%;
+            height: auto;
+            display: block;
         }
         .footer-content {
             display: flex;
@@ -362,13 +337,6 @@
             font-size: 12px;
             line-height: 1.6;
             letter-spacing: 0.02em;
-        }
-        .footer-notice {
-            font-size: 11px;
-            font-weight: bold;
-            letter-spacing: 0.06em;
-            text-transform: uppercase;
-            margin-top: 12px;
         }
         .footer-links {
             display: flex;
@@ -391,10 +359,9 @@
                 gap: 12px;
                 padding: 16px 20px 12px 20px;
             }
-            .nav-links { gap: 14px; flex-wrap: wrap; }
-            .hero { padding: 32px 20px 16px 20px; }
-            .hero h1 { font-size: 30px; }
-            .hero-intro { padding: 0 20px 32px 20px; }
+            .nav-links { gap: 18px; flex-wrap: wrap; }
+            .hero { padding: 32px 20px 32px 20px; }
+            .hero p { font-size: 26px; }
             section { padding: 0 20px 36px 20px; }
             .hero-image { padding: 0 20px; }
             footer { padding: 0 20px 32px 20px; }
@@ -404,7 +371,7 @@
             .structure-meta span:last-child { width: 100%; flex: none; }
         }
         @media (max-width: 480px) {
-            .hero h1 { font-size: 24px; }
+            .hero p { font-size: 22px; }
             .nav-links a { font-size: 10px; }
         }
     </style>
@@ -414,13 +381,11 @@
 <nav>
     <a href="#" class="nav-name">Capital Structures, Inc.</a>
     <div class="nav-links">
-        <a href="#about">About</a>
-        <a href="#doctrine">Doctrine</a>
+        <a href="#news">News</a>
         <a href="#structures">Structures</a>
-        <a href="#glossary">Glossary</a>
+        <a href="#process">Process</a>
         <a href="#governance">Governance</a>
         <a href="#filings">Filings</a>
-        <a href="#news">News</a>
         <a href="#ir">IR</a>
     </div>
 </nav>
@@ -429,90 +394,53 @@
     <img src="hero.jpg" alt="Office towers at dusk">
 </div>
 
-<!-- Hero -->
 <div class="hero">
-    <h1>The diagram is the product.</h1>
-    <p class="hero-tagline">Diagrams, filings, guarantees, and structural studies of how risk is arranged in space.</p>
+    <p>Capital Structures, Inc. creates, executes, and publicly discloses corporate and financial arrangements as intellectual property &mdash; moving standard financing vehicles and terms through existing market and legal infrastructure with counterparties at the lowest possible cost.</p>
 </div>
 
-<div class="hero-intro">
-    <p>Capital Structures, Inc. publishes structures as documents, diagrams, and administrative facts. It studies the legal forms through which exposure is transferred, isolated, guaranteed, disclosed, and, where possible, held at a distance. The project is not concerned with finance in the abstract, but with how risk is organized across entities, instruments, affiliates, and contingent obligations.</p>
-</div>
-
-<!-- About -->
+<!-- News -->
 <section>
-    <h2 id="about"><span>About</span></h2>
-    <p>Capital Structures, Inc. is not about finance in the abstract. It is about how exposure is arranged in space: across entities, guarantees, affiliates, triggers, notes, series, vehicles, covenants, and disclosures.</p>
-    <p>Risk is not erased. It is transferred, isolated, repriced, deferred, ring-fenced, guaranteed, made non-recourse, or disclosed. Every structure studied here is a record of where risk was sent and under what terms it was permitted to arrive.</p>
-    <p>The project treats diagrams, documentation, and entity maps not as support materials but as the work itself. The structure is the subject.</p>
-    <p>Legitimacy, beauty, containment, opacity, and danger are often produced by the same mechanisms. The site does not argue that structures are unreal. It shows that structures can be legally real, aesthetically precise, operationally useful, and still capable of producing opacity, asymmetry, and latent instability.</p>
-</section>
-
-<!-- Doctrine -->
-<section>
-    <h2 id="doctrine"><span>Doctrine</span></h2>
-    <p style="margin-bottom: 24px;">These propositions govern how Capital Structures, Inc. studies and publishes structures. They are not exhaustive. They may be amended, expanded, superseded, restated, or triggered by future formations, guarantees, affiliate arrangements, disclosures, impairments, or consolidations.</p>
+    <h2 id="news"><span>News</span></h2>
 
     <details>
         <summary>
-            <span>Risk does not disappear</span>
-            <span class="meta">Doctrine 01</span>
+            <span>Capital Structures, Inc. Announces Intent to Form and Proposed Regulation Crowdfunding Offering</span>
+            <span class="meta">January 15, 2025</span>
         </summary>
         <div class="detail-body">
-            <p>A structure does not abolish exposure. It determines where exposure appears, under what name, at what cost, with what recourse, and at what distance from the originating entity.</p>
-            <p>Securitization is presented not as concealment, but as a legitimate transfer, isolation, and pricing of risk.</p>
-        </div>
-    </details>
+            <p style="font-size:11px; letter-spacing:0.06em; text-transform:uppercase; margin-bottom:16px; padding-bottom:12px; border-bottom:0.5px solid #000;">For Immediate Release &middot; January 15, 2025 &middot; Wilmington, Delaware</p>
 
-    <details>
-        <summary>
-            <span>Exposure is conserved</span>
-            <span class="meta">Doctrine 02</span>
-        </summary>
-        <div class="detail-body">
-            <p>Risk displaced from one layer of a structure does not vanish. It reappears elsewhere: in pricing, subordination, contingent obligations, liquidity dependencies, recourse limits, affiliate guarantees, or residual claims.</p>
-            <p>Capital Structures refers to this principle as <strong>Exposure Conservation</strong> &mdash; a doctrine of structural thermodynamics.</p>
-        </div>
-    </details>
+            <p>Capital Structures, Inc., a Delaware C-Corporation, announces its formation as an intellectual property company whose sole product is the creation, execution, and disclosure of corporate and financial structures.</p>
+            <p>The Company intends to conduct a Regulation Crowdfunding (Reg CF) offering through a registered online portal. Through the offering, the Company expects to make 20 Class B Units available at $1,000 per unit, for a total raise of $20,000.</p>
 
-    <details>
-        <summary>
-            <span>Bankruptcy is architectural</span>
-            <span class="meta">Doctrine 03</span>
-        </summary>
-        <div class="detail-body">
-            <p>Bankruptcy remoteness, non-recourse design, ring-fencing, and true sale are spatial acts as much as legal ones. They establish borders, distance, containment, and controlled adjacency.</p>
-        </div>
-    </details>
+            <h4>Offering Terms</h4>
+            <ul>
+                <li>Units Available &mdash; 20 Class B Units</li>
+                <li>Price per Unit &mdash; $1,000</li>
+                <li>Total Raise &mdash; $20,000</li>
+                <li>Structure &mdash; Each unit constitutes a new Delaware Protected Series</li>
+                <li>Portal &mdash; Wefunder or Republic (to be confirmed)</li>
+            </ul>
 
-    <details>
-        <summary>
-            <span>Disclosure is not transparency</span>
-            <span class="meta">Doctrine 04</span>
-        </summary>
-        <div class="detail-body">
-            <p>Disclosure may be complete, formal, and properly filed without resolving the deeper opacity of the structure. Document sufficiency and intuitive legibility are not the same condition.</p>
-        </div>
-    </details>
+            <h4>What Participants Receive</h4>
+            <p>Each contribution creates a new Protected Series under Delaware law. Participants receive Class B Units &mdash; real securities, documented in the Company&rsquo;s public archive. Class B Units carry no voting rights, no dividends, no liquidation preference, and position inside a fully disclosed corporate system.</p>
 
-    <details>
-        <summary>
-            <span>Consolidation changes the picture</span>
-            <span class="meta">Doctrine 05</span>
-        </summary>
-        <div class="detail-body">
-            <p>Viewed on an unconsolidated basis, a structure may appear clean, discrete, and properly bounded. Viewed on a consolidated basis, the same arrangement may reveal guarantee paths, shared dependencies, contingent support, and live trigger conditions that exceed entity boundaries.</p>
-            <p><strong>Unconsolidated:</strong> entity truth.<br><strong>Consolidated:</strong> system truth.</p>
-        </div>
-    </details>
+            <h4>How to Participate</h4>
+            <p>The offering will be conducted through a Reg CF portal. The Company will announce the portal listing and open date when Form C has been filed with the SEC.</p>
 
-    <details>
-        <summary>
-            <span>The diagram is an argument</span>
-            <span class="meta">Doctrine 06</span>
-        </summary>
-        <div class="detail-body">
-            <p>A diagram is not secondary to the structure. It is the structure&rsquo;s public test. Every arrow, guarantee, exclusion, and trigger path is part of the disclosed arrangement.</p>
+            <h4>Risk Factors</h4>
+            <ul>
+                <li>The Company may never generate revenue.</li>
+                <li>The Company may intentionally dissolve at any time.</li>
+                <li>Management is not incentivized to increase the value of any securities.</li>
+                <li>Class B Units may have no resale market.</li>
+                <li>Participants should expect total loss of their contribution.</li>
+            </ul>
+
+            <h4>Important Notice</h4>
+            <p>No securities are currently being offered. This announcement does not constitute an offer to sell or a solicitation of an offer to buy any security. Any offering will be made only through a Reg CF portal in compliance with applicable securities laws, and only after a Form C has been filed with the Securities and Exchange Commission.</p>
+
+            <p><em>Prepared by the Global Finance Department of Capital Structures, Inc.</em></p>
         </div>
     </details>
 </section>
@@ -520,24 +448,22 @@
 <!-- Structures -->
 <section>
     <h2 id="structures"><span>Structure Index</span></h2>
-    <p>The Structure Index records the Company&rsquo;s published formations, diagrams, arrangements, and affiliated studies. Each structure may be viewed on an unconsolidated or consolidated basis, and under base case or trigger state conditions, where available.</p>
-    <p style="margin-bottom: 24px; font-size: 12px; letter-spacing: 0.02em;">The index is not comprehensive. Certain structures remain pending formation, partial disclosure, or administrative completion. Others may be dissolved, superseded, or reissued in revised form.</p>
 
     <details>
         <summary>
             <span>001 &mdash; IP Contribution &amp; Pre-Pay Architecture</span>
-            <span class="meta">Authorized &middot; Protected Series</span>
+            <span class="meta">Protected Series &middot; ICA-001</span>
         </summary>
         <div class="detail-body">
             <div class="structure-meta">
-                <span><strong>Status</strong> Authorized</span>
+                <span><strong>Status</strong> Execution</span>
                 <span><strong>Type</strong> Protected Series</span>
                 <span><strong>Ref</strong> ICA-001 / PN-001</span>
                 <span><strong>Counterparties</strong> Capital Structures, Inc. &middot; Martin Grasser</span>
             </div>
-            <p>Structure 001 arranges asset ownership, servicing, contingent support, and affiliated guarantees across a legally discrete set of entities. On an unconsolidated basis, each entity appears bounded, separately authorized, and limited to stated obligations. On a consolidated basis, the arrangement reveals shared dependencies, residual exposures, and support expectations that persist across those boundaries.</p>
+            <p>The Company&rsquo;s foundational structure. Martin Grasser contributes all intellectual property &mdash; the conceptual framework, structural vocabulary, methodology, precedent corpus, agent architecture, and brand &mdash; to Protected Series 001 via the IP Contribution Agreement (ICA-001). In return, Series 001 issues a $10,000,000 Promissory Note (PN-001) and $1,000 in Class B Units. The Note constitutes advance consideration for all future creative output: every structure, every board resolution, every disclosure the Company will ever produce.</p>
 
-            <p>The Company&rsquo;s foundational structure. Martin Grasser contributes all intellectual property &mdash; the conceptual framework, structural vocabulary, methodology, precedent corpus, agent architecture, and brand &mdash; to Protected Series 001 via the IP Contribution Agreement (ICA-001). In return, Series 001 issues a $10,000,000 Promissory Note (PN-001) and $1,000 in Class B Units. The Note constitutes advance consideration for all future creative output.</p>
+            <p>Martin Grasser initially capitalizes Capital Structures, Inc. with $10,000 in exchange for Class A common stock. Of that initial capital, $1,000 funds the Class B Units in Protected Series 001. The remaining $9,000 constitutes the parent company&rsquo;s operating cash.</p>
 
             <p>The resulting capital structure is 99.99% debt-financed acquisition of contributed intellectual property. That ratio is intentional, disclosed, and documented on the face of all instruments.</p>
 
@@ -548,20 +474,23 @@
                 <li>Equity: Class B Units &mdash; $1,000</li>
             </ul>
 
-            <h4>Trigger Conditions</h4>
+            <h4>Pre-Pay Structure</h4>
+            <p>The Promissory Note is not a formality. It is advance payment for the Ongoing Development Obligation &mdash; Contributor&rsquo;s commitment to design and document all future Company structures, prepare all governance instruments, manage counterparty relationships, and perform all creative and operational activities necessary to realize the Company&rsquo;s purpose. The Company owes Contributor $10M for work that hasn&rsquo;t happened yet.</p>
+
+            <h4>Valuation Methodology</h4>
+            <p>Mark-to-model. The model reflects Contributor&rsquo;s projection of the cultural and economic value of the Company&rsquo;s structures upon successful execution, the value of the institutional infrastructure and precedent corpus, and the value of the Ongoing Development Obligation. No independent third-party appraisal has been obtained. This valuation is disclosed on the face of all Company documents.</p>
+
+            <h4>Promissory Note Terms (PN-001)</h4>
             <ul>
-                <li>Liquidity event ($10M+)</li>
-                <li>Public listing</li>
-                <li>Dissolution</li>
-                <li>Mutual agreement</li>
-                <li>10-year backstop maturity</li>
+                <li>Principal: $10,000,000</li>
+                <li>Interest: 0% per annum (disclosed, justified under Artistic Fiduciary Doctrine)</li>
+                <li>Maturity: contingent &mdash; earliest of liquidity event ($10M+), public listing, dissolution, or mutual agreement; 10-year backstop</li>
+                <li>Priority: senior creditor claim in dissolution of Series 001</li>
+                <li>Non-recourse: obligation of Series 001 only, no recourse to parent or other series</li>
             </ul>
 
-            <h4>Guarantees and Support</h4>
-            <p>The Company guarantees the performance obligations of Protected Series 001. This guarantee is subject to the Company&rsquo;s ongoing solvency and operational continuity.</p>
-
-            <h4>Residual Exposure</h4>
-            <p>Although the structure limits recourse to Series 001 assets, residual exposure persists through: the CEO&rsquo;s simultaneous role as contributor, officer, and sole director; the mark-to-model valuation methodology; and the absence of independent appraisal.</p>
+            <h4>Prior Art (Schedule A.3)</h4>
+            <p>The Contributed IP was formed in dialogue with: the Powers Report on Enron Corporation (2002); Congressional testimony of Herbert S. Winokur Jr.; the Batson Report (2002); and Enron Board of Directors records held at the Hagley Museum and Library. These are cited as prior art in the field, not as inspiration &mdash; as precedent corpus.</p>
 
             <h4>Self-Dealing Disclosure</h4>
             <p>Martin Grasser acts simultaneously as (i) sole director approving this transaction, (ii) CEO executing the agreement on behalf of the Company, and (iii) Contributor delivering the IP and receiving the Note in his individual capacity. This arrangement is intentional, fully disclosed, and documented on the face of the instrument.</p>
@@ -583,12 +512,22 @@
     .t2{font-size:9px;letter-spacing:.08em}
     .t3{font-size:9px;letter-spacing:.06em}
   </style></defs>
+  <!--
+    CONSTRUCTION NOTES — STRUCTURE 001
+    Left column:  x=40  w=300  center=190  right=340
+    Right column: x=420 w=240  center=540  right=660
+    All entities share left column x. Arrows stay within column bounds.
+    Down arrow at x=145, up arrow at x=235 — symmetric around center=190.
+    Stroke key: 3px=individual, 1.5px solid=consolidated, 1.5px dashed=external,
+    0.5px=detail. Arrows: 12w×14h filled triangle, 6px min gap from target box.
+  -->
 
-  <!-- ROW 1: Martin Grasser -->
+  <!-- ROW 1: Martin Grasser — x=40 w=300 h=60, center=190, 3px (individual) -->
   <rect x="40" y="30" width="300" height="60" fill="none" stroke="#000" stroke-width="3"/>
   <text class="t t1" text-anchor="middle" x="190" y="65">MARTIN GRASSER</text>
 
-  <!-- ARROW DOWN: Contributes IP -->
+  <!-- ARROW DOWN: Contributes IP — x=145 (center-45) -->
+  <!-- from Martin bottom y=90, to CS Inc top y=195. Tip=195-6=189. Base=189-14=175. -->
   <line x1="145" y1="90" x2="145" y2="175" stroke="#000" stroke-width="1.5" fill="none"/>
   <path d="M139,175l6,14,6-14h-12Z" fill="#000"/>
   <text class="t t2" x="50" y="127" fill="#666">CONTRIBUTES IP</text>
@@ -596,7 +535,8 @@
   <text class="t t2" x="50" y="160" fill="#666">CAPITALIZES</text>
   <text class="t t3" x="50" y="174" fill="#666">($10,000)</text>
 
-  <!-- ARROW UP: Receives Note -->
+  <!-- ARROW UP: Receives Note — x=235 (center+45) -->
+  <!-- from CS Inc top y=195, to Martin bottom y=90. Tip=90+6=96. Base=96+14=110. -->
   <line x1="235" y1="195" x2="235" y2="110" stroke="#000" stroke-width="1.5" fill="none"/>
   <path d="M229,110l6-14,6,14h-12Z" fill="#000"/>
   <text class="t t2" x="255" y="120" fill="#666">RECEIVES NOTE</text>
@@ -604,30 +544,31 @@
   <text class="t t2" x="255" y="160" fill="#666">+ CLASS B UNITS</text>
   <text class="t t3" x="255" y="177" fill="#666">($1,000)</text>
 
-  <!-- ROW 2: Capital Structures Inc. -->
+  <!-- ROW 2: Capital Structures Inc. — x=40 w=300 h=65, center=190, 1.5px (consolidated) -->
   <rect x="40" y="195" width="300" height="65" fill="none" stroke="#000" stroke-width="1.5"/>
   <text class="t t1" text-anchor="middle" x="190" y="224">CAPITAL STRUCTURES INC.</text>
   <text class="t t2" text-anchor="middle" x="190" y="244">PARENT</text>
 
-  <!-- ARROW DOWN: Creates / Controls -->
+  <!-- ARROW DOWN: Creates / Controls — x=190 (center) -->
+  <!-- from CS Inc bottom y=260, to Series 001 top y=405. Tip=405-6=399. Base=399-14=385. -->
   <line x1="190" y1="260" x2="190" y2="385" stroke="#000" stroke-width="1.5" fill="none"/>
   <path d="M184,385l6,14,6-14h-12Z" fill="#000"/>
   <text class="t t2" x="205" y="340" fill="#666">CREATES / CONTROLS</text>
 
-  <!-- ROW 3: Protected Series 001 -->
+  <!-- ROW 3: Protected Series 001 — x=40 w=300 h=65, center=190, 1.5px (consolidated) -->
   <rect x="40" y="405" width="300" height="65" fill="none" stroke="#000" stroke-width="1.5"/>
   <text class="t t1" text-anchor="middle" x="190" y="442">PROTECTED SERIES 001</text>
 
-  <!-- ICA-001 pill -->
+  <!-- ICA-001 pill — x=420 w=240 h=55 rx=27, center=540, 1.5px (instrument) -->
   <rect x="420" y="410" width="240" height="55" rx="27" ry="27" fill="none" stroke="#000" stroke-width="1.5"/>
   <text class="t t1" text-anchor="middle" x="540" y="435">ICA-001</text>
   <text class="t t2" text-anchor="middle" x="540" y="452">IP CONTRIBUTION</text>
   <line x1="340" y1="437" x2="420" y2="437" stroke="#000" stroke-width="1.5" fill="none"/>
 
-  <!-- CONNECTOR: Series 001 → Balance sheet -->
+  <!-- CONNECTOR: Series 001 → Balance sheet — x=190 -->
   <line x1="190" y1="472" x2="190" y2="510" stroke="#000" stroke-width="1.5" fill="none"/>
 
-  <!-- ROW 4: Balance sheet -->
+  <!-- ROW 4: Balance sheet — x=40 w=300 h=160, 0.5px (detail) -->
   <rect x="40" y="510" width="300" height="180" fill="none" stroke="#000" stroke-width="0.5"/>
   <text class="t t2" x="60" y="537">ASSETS</text>
   <text class="t t3" x="60" y="554">CONTRIBUTED IP      $10,001,000</text>
@@ -638,13 +579,13 @@
   <text class="t t2" x="60" y="643">EQUITY</text>
   <text class="t t3" x="60" y="660" style="font-weight:700">CLASS B UNITS            $1,000</text>
 
-  <!-- PN-001 pill -->
+  <!-- PN-001 pill — x=420 w=240 h=55 rx=27, center=540, 1.5px -->
   <rect x="420" y="525" width="240" height="55" rx="27" ry="27" fill="none" stroke="#000" stroke-width="1.5"/>
   <text class="t t1" text-anchor="middle" x="540" y="550">PN-001</text>
   <text class="t t2" text-anchor="middle" x="540" y="567">$10,000,000 / 0%</text>
   <line x1="340" y1="552" x2="420" y2="552" stroke="#000" stroke-width="1.5" fill="none"/>
 
-  <!-- Class B Units pill -->
+  <!-- Class B Units pill — x=420 w=240 h=55 rx=27, center=540, 1.5px -->
   <rect x="420" y="610" width="240" height="55" rx="27" ry="27" fill="none" stroke="#000" stroke-width="1.5"/>
   <text class="t t1" text-anchor="middle" x="540" y="635">CLASS B UNITS</text>
   <text class="t t2" text-anchor="middle" x="540" y="652">$1,000</text>
@@ -662,7 +603,7 @@
     <details>
         <summary>
             <span>002 &mdash; verse.works Distribution Agreement</span>
-            <span class="meta">Proposed &middot; Protected Series</span>
+            <span class="meta">Protected Series &middot; DSA-002</span>
         </summary>
         <div class="detail-body">
             <div class="structure-meta">
@@ -671,9 +612,9 @@
                 <span><strong>Ref</strong> DSA-002</span>
                 <span><strong>Counterparties</strong> Capital Structures, Inc. &middot; verse.works</span>
             </div>
-            <p>The Company&rsquo;s first external structure. verse.works is engaged as exclusive distribution partner for the Company&rsquo;s structures, operating under the gallery model: the Company creates the structures, verse.works provides promotional reach, collector access, and strategic positioning, and verse.works receives a revenue share on proceeds from the sale of structures.</p>
+            <p>The Company&rsquo;s first external structure. verse.works is engaged as exclusive distribution partner for the Company&rsquo;s structures, operating under the gallery model: the Company creates the structures, verse.works provides promotional reach, collector access, and strategic positioning, and verse.works receives a revenue share on proceeds from the sale of structures. No upfront fees. No fixed payments. verse.works earns when the Company earns.</p>
 
-            <p>The Distribution Agreement (DSA-002) is itself securitized as the primary asset of Protected Series 002 &mdash; an uncapitalized series whose sole asset is the contractual right to future distribution revenue.</p>
+            <p>The Distribution Agreement (DSA-002) is itself securitized as the primary asset of Protected Series 002 &mdash; an uncapitalized series whose sole asset is the contractual right to future distribution revenue. The agreement is valued under the same mark-to-model methodology used in Structure 001. No cash capitalizes this Series. The agreement is the structure.</p>
 
             <h4>Balance Sheet &mdash; Protected Series 002</h4>
             <ul>
@@ -682,18 +623,37 @@
                 <li>Equity: $0 &mdash; uncapitalized</li>
             </ul>
 
-            <h4>Trigger Conditions</h4>
+            <h4>Gallery Model</h4>
+            <p>The structure mirrors the economics of gallery representation in contemporary art. The Company produces the work &mdash; corporate and financial structures documented as intellectual property. verse.works provides the distribution infrastructure: audience, positioning, collector relationships, and strategic counsel. Revenue flows only when structures sell. The commission is verse.works&rsquo; share of those proceeds.</p>
+
+            <p>This is not an advisory fee arrangement. It is a distribution partnership in which verse.works bears the same timing risk as the Company &mdash; if nothing sells, nobody earns. The alignment is structural, not contractual.</p>
+
+            <h4>Revenue Share Terms</h4>
             <ul>
-                <li>Proceeds from sale of Class B Units</li>
-                <li>Licensing of structures</li>
-                <li>Any monetization event attributable to Company structures</li>
+                <li>Trigger: proceeds from the sale of Class B Units, licensing of structures, or any monetization event attributable to Company structures</li>
+                <li>Commission: [__]% of net proceeds (to be negotiated)</li>
+                <li>Payment: within 30 days of receipt of proceeds by the Company</li>
+                <li>Exclusivity: verse.works is the exclusive distribution partner for the term of the agreement</li>
+                <li>Term: co-terminus with the Company or as mutually agreed</li>
             </ul>
 
-            <h4>Guarantees and Support</h4>
-            <p>No fixed fees or guaranteed payments. verse.works bears the same timing risk as the Company &mdash; if nothing sells, nobody earns. The alignment is structural, not contractual.</p>
+            <h4>Valuation Methodology</h4>
+            <p>The Distribution Agreement is valued at $500,000 under the Company&rsquo;s mark-to-model methodology. The model reflects: (i) the anticipated value of verse.works&rsquo; promotional reach and collector network applied to the Company&rsquo;s Reg CF offering and future structure sales; (ii) the strategic value of verse.works&rsquo; positioning within the contemporary art and institutional design community; and (iii) the projected revenue share over the anticipated life of the agreement. No independent appraisal has been obtained. This valuation is disclosed on the face of all Company documents.</p>
 
-            <h4>Residual Exposure</h4>
-            <p>Series 002 is uncapitalized and may carry negative equity when commissions exceed the nominal asset value. This is anticipated and disclosed.</p>
+            <h4>Accounting Treatment</h4>
+            <p>Series 002 is uncapitalized. No cash contribution has been made. The Distribution Agreement is carried as an intangible asset at its mark-to-model value of $500,000. The revenue share obligation is contingent &mdash; recorded at $0 until proceeds are received. When proceeds flow, the Company records the revenue share payable to verse.works as an operating liability of Series 002. The Series may carry negative equity when commissions exceed the nominal asset value. This is anticipated and disclosed.</p>
+
+            <h4>Consolidation</h4>
+            <p>Fully consolidated into Capital Structures, Inc. financial statements. verse.works is an independent third party and is not consolidated. The Distribution Agreement is an asset of Series 002; verse.works&rsquo; revenue share is a contingent liability of Series 002.</p>
+
+            <h4>What verse.works Does Not Receive</h4>
+            <ul>
+                <li>No equity in any series or the parent</li>
+                <li>No governance authority or voting rights</li>
+                <li>No fixed fees or guaranteed payments</li>
+                <li>No claim senior to PN-001 in dissolution</li>
+                <li>No broker-dealer activity &mdash; verse.works promotes and positions; all securities transactions occur through registered Reg CF portals</li>
+            </ul>
 
             <h4>Self-Dealing Disclosure</h4>
             <p>Martin Grasser, as CEO and sole director, approves the engagement of verse.works and the terms of the Distribution Agreement. verse.works is an independent third party with no affiliated relationship to the Company&rsquo;s officers. This arrangement is disclosed.</p>
@@ -714,23 +674,35 @@
     .t2{font-size:9px;letter-spacing:.08em}
     .t3{font-size:9px;letter-spacing:.06em}
   </style></defs>
+  <!--
+    CONSTRUCTION NOTES — STRUCTURE 002
+    Left column:  x=40  w=300  center=190  right=340
+    Right column: x=440 w=220  center=550  right=660
+    Gap between columns: x=340 to x=440 (100px). All vertical arrows in gap
+    or within their own column. No arrow passes through any box it doesn't
+    connect to. Revenue share: L-shaped in the gap, pointing right into
+    verse.works left edge. Services: annotations only, no crossing arrow.
+    Stroke: 1.5px solid=consolidated, 1.5px dashed(6 4)=external/not consolidated,
+    1.5px dotted(3 3)=contingent/future, 0.5px=detail/reference.
+  -->
 
-  <!-- ROW 1: CS Inc -->
+  <!-- ROW 1: CS Inc — x=40 w=300 h=65, center=190, 1.5px solid (consolidated) -->
   <rect x="40" y="30" width="300" height="65" fill="none" stroke="#000" stroke-width="1.5"/>
   <text class="t t1" text-anchor="middle" x="190" y="59">CAPITAL STRUCTURES INC.</text>
   <text class="t t2" text-anchor="middle" x="190" y="79">PARENT</text>
 
-  <!-- verse.works -->
+  <!-- verse.works — x=440 w=220 h=65, center=550, 1.5px dashed (not consolidated) -->
   <rect x="440" y="30" width="220" height="65" fill="none" stroke="#000" stroke-width="1.5" stroke-dasharray="6 4"/>
   <text class="t t1" text-anchor="middle" x="550" y="59">VERSE.WORKS</text>
   <text class="t t2" text-anchor="middle" x="550" y="79">INDEPENDENT PARTY</text>
 
-  <!-- ARROW DOWN: CS Inc → Series 002 -->
+  <!-- ARROW DOWN: CS Inc → Series 002 — x=190 (center) -->
+  <!-- CS Inc bottom=95, Series 002 top=280. Tip=280-6=274. Base=274-14=260. -->
   <line x1="190" y1="95" x2="190" y2="260" stroke="#000" stroke-width="1.5" fill="none"/>
   <path d="M184,260l6,14,6-14h-12Z" fill="#000"/>
   <text class="t t2" x="114" y="194" text-anchor="middle" fill="#666">CREATES / CONTROLS</text>
 
-  <!-- REVENUE SHARE: L-shaped arrow -->
+  <!-- REVENUE SHARE: L-shaped arrow from Series 002 to verse.works (dotted = contingent) -->
   <line x1="340" y1="300" x2="390" y2="300" stroke="#000" stroke-width="1.5" stroke-dasharray="3 3" fill="none"/>
   <line x1="390" y1="300" x2="390" y2="62" stroke="#000" stroke-width="1.5" stroke-dasharray="3 3" fill="none"/>
   <line x1="390" y1="62" x2="428" y2="62" stroke="#000" stroke-width="1.5" stroke-dasharray="3 3" fill="none"/>
@@ -739,25 +711,26 @@
   <text class="t t2" x="350" y="190" text-anchor="middle" fill="#666">SHARE</text>
   <text class="t t3" x="350" y="207" text-anchor="middle" fill="#666">(CONTINGENT)</text>
 
-  <!-- SERVICES annotation -->
+  <!-- SERVICES: annotation below verse.works -->
   <text class="t t2" x="445" y="126" fill="#666">PROMOTIONAL REACH</text>
   <text class="t t2" x="445" y="143" fill="#666">COLLECTOR ACCESS</text>
   <text class="t t2" x="445" y="160" fill="#666">STRATEGIC COUNSEL</text>
 
   <!-- ROW 2: Series 002 + DSA pill -->
+  <!-- Series 002: x=40 w=300 h=65, center=190, 1.5px solid -->
   <rect x="40" y="280" width="300" height="65" fill="none" stroke="#000" stroke-width="1.5"/>
   <text class="t t1" text-anchor="middle" x="190" y="317">PROTECTED SERIES 002</text>
 
-  <!-- DSA-002 pill -->
+  <!-- DSA-002 pill: x=440 w=220 h=55 rx=27, center=550, 1.5px solid (instrument) -->
   <rect x="440" y="285" width="220" height="55" rx="27" ry="27" fill="none" stroke="#000" stroke-width="1.5"/>
   <text class="t t1" text-anchor="middle" x="550" y="310">DSA-002</text>
   <text class="t t2" text-anchor="middle" x="550" y="327">DISTRIBUTION AGREEMENT</text>
   <line x1="340" y1="312" x2="440" y2="312" stroke="#000" stroke-width="1.5" fill="none"/>
 
-  <!-- CONNECTOR: Series 002 → Balance sheet -->
+  <!-- CONNECTOR: Series 002 → Balance sheet — x=190 -->
   <line x1="190" y1="345" x2="190" y2="390" stroke="#000" stroke-width="1.5" fill="none"/>
 
-  <!-- ROW 3: Balance sheet -->
+  <!-- ROW 3: Balance sheet — x=40 w=300 h=180, 0.5px (detail) -->
   <rect x="40" y="390" width="300" height="180" fill="none" stroke="#000" stroke-width="0.5"/>
   <text class="t t2" x="60" y="417">ASSETS</text>
   <text class="t t3" x="60" y="434">DSA-002 AGREEMENT       $500,000</text>
@@ -768,18 +741,20 @@
   <text class="t t2" x="60" y="523">EQUITY</text>
   <text class="t t3" x="60" y="540" style="font-weight:700">UNCAPITALIZED                  $0</text>
 
-  <!-- DASHED CONNECTOR: Balance sheet → Series 001 -->
+  <!-- DASHED CONNECTOR: Balance sheet → Series 001 — dashed (reference) -->
   <line x1="190" y1="570" x2="190" y2="618" stroke="#000" stroke-width="1.5" stroke-dasharray="6 4" fill="none"/>
   <text class="t t3" x="205" y="597" fill="#666">STRUCTURES ORIGINATE HERE</text>
 
   <!-- ROW 4: Series 001 ref + Collectors -->
+  <!-- Series 001: x=40 w=300 h=55, center=190, 0.5px (reference) -->
   <rect x="40" y="620" width="300" height="55" fill="none" stroke="#000" stroke-width="0.5"/>
   <text class="t t2" text-anchor="middle" x="190" y="652">SERIES 001 (IP / PN-001 / $10M NOTE)</text>
 
+  <!-- Collectors: x=440 w=220 h=55, center=550, 1.5px dashed (external) -->
   <rect x="440" y="620" width="220" height="55" fill="none" stroke="#000" stroke-width="1.5" stroke-dasharray="6 4"/>
   <text class="t t1" text-anchor="middle" x="550" y="652">COLLECTORS</text>
 
-  <!-- Dotted connector: proceeds flow -->
+  <!-- Dotted connector: proceeds flow from Collectors to Series 001 (dotted = contingent) -->
   <line x1="358" y1="647" x2="440" y2="647" stroke="#000" stroke-width="1.5" stroke-dasharray="3 3" fill="none"/>
   <path d="M358,641l-12,6,12,6Z" fill="#000"/>
   <text class="t t3" x="40" y="700" fill="#666">SALE PROCEEDS (REG CF / LICENSING)</text>
@@ -794,69 +769,46 @@
     </details>
 </section>
 
-<!-- Glossary -->
+<!-- Process -->
 <section>
-    <h2 id="glossary"><span>Glossary</span></h2>
+    <h2 id="process"><span>Process</span></h2>
+    <p>All structures, filings, and disclosures are produced through a defined workflow involving human officers and AI agents operating under published configurations.</p>
 
-    <div class="glossary-entry">
-        <div class="glossary-term">Exposure Conservation</div>
-        <div class="glossary-def">The proposition that risk displaced from one layer of a structure must reappear elsewhere rather than disappear.</div>
-        <div class="glossary-usage">Capital Structures usage: A doctrine of structural thermodynamics.</div>
-    </div>
+    <details>
+        <summary>
+            <span>Global Finance Department</span>
+            <span class="meta">Agent &middot; Structures &amp; Disclosures</span>
+        </summary>
+        <div class="detail-body">
+            <p>The Company&rsquo;s primary structuring function. Responsible for the design, execution, and documentation of all corporate and financial structures, including board resolutions, press releases, structure briefs, NAV updates, and earnings call scripts.</p>
+        </div>
+    </details>
 
-    <div class="glossary-entry">
-        <div class="glossary-term">Non-Recourse</div>
-        <div class="glossary-def">A financing arrangement in which recovery is limited to specified assets and does not extend to the originator&rsquo;s remaining estate.</div>
-        <div class="glossary-usage">Capital Structures usage: A boundary drawn in advance for where loss is permitted to stop.</div>
-    </div>
+    <details>
+        <summary>
+            <span>Corporate Secretary</span>
+            <span class="meta">Agent &middot; Governance &amp; Record</span>
+        </summary>
+        <div class="detail-body">
+            <p>Maintains the corporate record, tracks filings, manages the structure index, and prepares board materials. Ensures procedural integrity across all corporate actions. Does not create structures or advise on strategy.</p>
+        </div>
+    </details>
 
-    <div class="glossary-entry">
-        <div class="glossary-term">Bankruptcy Remoteness</div>
-        <div class="glossary-def">A legal and structural condition designed to reduce the risk that an entity&rsquo;s assets will be pulled into an affiliate&rsquo;s insolvency.</div>
-        <div class="glossary-usage">Capital Structures usage: Distance engineered against contagion.</div>
-    </div>
-
-    <div class="glossary-entry">
-        <div class="glossary-term">True Sale</div>
-        <div class="glossary-def">A transfer characterized as an actual sale rather than secured borrowing, typically to preserve asset separation in insolvency.</div>
-        <div class="glossary-usage">Capital Structures usage: A legal transformation on which the rest of the structure depends.</div>
-    </div>
-
-    <div class="glossary-entry">
-        <div class="glossary-term">Consolidated View</div>
-        <div class="glossary-def">A perspective that evaluates the structure on an aggregate basis, overlaying exposure, guarantees, dependencies, and consequence paths across entity boundaries.</div>
-        <div class="glossary-usage">Capital Structures usage: The view in which containment is tested.</div>
-    </div>
-
-    <div class="glossary-entry">
-        <div class="glossary-term">Unconsolidated View</div>
-        <div class="glossary-def">A perspective that respects formal entity boundaries and presents the structure according to its discrete legal components.</div>
-        <div class="glossary-usage">Capital Structures usage: The version the structure is authorized to present of itself.</div>
-    </div>
-
-    <div class="glossary-entry">
-        <div class="glossary-term">Trigger State</div>
-        <div class="glossary-def">The condition of a structure after a contractual, rating, collateral, liquidity, or governance event has activated contingent consequences.</div>
-        <div class="glossary-usage">Capital Structures usage: The moment the diagram begins to move.</div>
-    </div>
-
-    <div class="glossary-entry">
-        <div class="glossary-term">Residual Exposure</div>
-        <div class="glossary-def">Risk that remains after transfer, isolation, ring-fencing, or non-recourse drafting, whether by contingency, support expectation, operational dependency, or system linkage.</div>
-        <div class="glossary-usage">Capital Structures usage: What the structure cannot fully exile.</div>
-    </div>
-
-    <div class="glossary-entry">
-        <div class="glossary-term">Liquidity Event</div>
-        <div class="glossary-def">A transaction or financing event that converts constrained claims into available cash for continuation, repayment, or survival.</div>
-        <div class="glossary-usage">Capital Structures usage: Cash introduced where time has started to harden.</div>
-    </div>
-
-    <div class="glossary-entry">
-        <div class="glossary-term">Aggregate Dependency</div>
-        <div class="glossary-def">A functional reliance that persists across formal legal boundaries, including shared funding, servicing, management, guarantees, or operational support.</div>
-        <div class="glossary-usage">Capital Structures usage: Separation that continues to depend.</div>
-    </div>
+    <details>
+        <summary>
+            <span>Human Review Chain</span>
+            <span class="meta">Officers &amp; Counsel</span>
+        </summary>
+        <div class="detail-body">
+            <ul>
+                <li>Audrey Chen, Head of Operations &mdash; completeness review</li>
+                <li>Martin Grasser, CEO &mdash; approval (sole Class A vote)</li>
+                <li>Securities Counsel &mdash; legal review before filing</li>
+                <li>K.L., Accountant &mdash; financial accuracy</li>
+            </ul>
+            <p>No document is filed or published without human review. No agent has autonomous authority.</p>
+        </div>
+    </details>
 </section>
 
 <!-- Governance -->
@@ -930,48 +882,6 @@
     </ul>
 </section>
 
-<!-- Process -->
-<section>
-    <h2><span>Process</span></h2>
-    <p>All structures, filings, and disclosures are produced through a defined workflow involving human officers and AI agents operating under published configurations.</p>
-
-    <details>
-        <summary>
-            <span>Global Finance Department</span>
-            <span class="meta">Agent &middot; Structures &amp; Disclosures</span>
-        </summary>
-        <div class="detail-body">
-            <p>The Company&rsquo;s primary structuring function. Responsible for the design, execution, and documentation of all corporate and financial structures, including board resolutions, press releases, structure briefs, NAV updates, and earnings call scripts.</p>
-        </div>
-    </details>
-
-    <details>
-        <summary>
-            <span>Corporate Secretary</span>
-            <span class="meta">Agent &middot; Governance &amp; Record</span>
-        </summary>
-        <div class="detail-body">
-            <p>Maintains the corporate record, tracks filings, manages the structure index, and prepares board materials. Ensures procedural integrity across all corporate actions. Does not create structures or advise on strategy.</p>
-        </div>
-    </details>
-
-    <details>
-        <summary>
-            <span>Human Review Chain</span>
-            <span class="meta">Officers &amp; Counsel</span>
-        </summary>
-        <div class="detail-body">
-            <ul>
-                <li>Audrey Chen, Head of Operations &mdash; completeness review</li>
-                <li>Martin Grasser, CEO &mdash; approval (sole Class A vote)</li>
-                <li>Securities Counsel &mdash; legal review before filing</li>
-                <li>K.L., Accountant &mdash; financial accuracy</li>
-            </ul>
-            <p>No document is filed or published without human review. No agent has autonomous authority.</p>
-        </div>
-    </details>
-</section>
-
 <!-- Filings -->
 <section>
     <h2 id="filings"><span>Filings</span></h2>
@@ -982,53 +892,6 @@
         <li>Franchise Tax<span class="meta status-pending">Pending</span></li>
         <li>Registered Agent Designation<span class="meta status-pending">Pending</span></li>
     </ul>
-</section>
-
-<!-- News -->
-<section>
-    <h2 id="news"><span>News</span></h2>
-
-    <details>
-        <summary>
-            <span>Capital Structures, Inc. Announces Intent to Form and Proposed Regulation Crowdfunding Offering</span>
-            <span class="meta">January 15, 2025</span>
-        </summary>
-        <div class="detail-body">
-            <p style="font-size:11px; letter-spacing:0.06em; text-transform:uppercase; margin-bottom:16px; padding-bottom:12px; border-bottom:0.5px solid #000;">For Immediate Release &middot; January 15, 2025 &middot; Wilmington, Delaware</p>
-
-            <p>Capital Structures, Inc., a Delaware C-Corporation, announces its formation as an intellectual property company whose sole product is the creation, execution, and disclosure of corporate and financial structures.</p>
-            <p>The Company intends to conduct a Regulation Crowdfunding (Reg CF) offering through a registered online portal. Through the offering, the Company expects to make 20 Class B Units available at $1,000 per unit, for a total raise of $20,000.</p>
-
-            <h4>Offering Terms</h4>
-            <ul>
-                <li>Units Available &mdash; 20 Class B Units</li>
-                <li>Price per Unit &mdash; $1,000</li>
-                <li>Total Raise &mdash; $20,000</li>
-                <li>Structure &mdash; Each unit constitutes a new Delaware Protected Series</li>
-                <li>Portal &mdash; Wefunder or Republic (to be confirmed)</li>
-            </ul>
-
-            <h4>What Participants Receive</h4>
-            <p>Each contribution creates a new Protected Series under Delaware law. Participants receive Class B Units &mdash; real securities, documented in the Company&rsquo;s public archive. Class B Units carry no voting rights, no dividends, no liquidation preference, and position inside a fully disclosed corporate system.</p>
-
-            <h4>How to Participate</h4>
-            <p>The offering will be conducted through a Reg CF portal. The Company will announce the portal listing and open date when Form C has been filed with the SEC.</p>
-
-            <h4>Risk Factors</h4>
-            <ul>
-                <li>The Company may never generate revenue.</li>
-                <li>The Company may intentionally dissolve at any time.</li>
-                <li>Management is not incentivized to increase the value of any securities.</li>
-                <li>Class B Units may have no resale market.</li>
-                <li>Participants should expect total loss of their contribution.</li>
-            </ul>
-
-            <h4>Important Notice</h4>
-            <p>No securities are currently being offered. This announcement does not constitute an offer to sell or a solicitation of an offer to buy any security. Any offering will be made only through a Reg CF portal in compliance with applicable securities laws, and only after a Form C has been filed with the Securities and Exchange Commission.</p>
-
-            <p><em>Prepared by the Global Finance Department of Capital Structures, Inc.</em></p>
-        </div>
-    </details>
 </section>
 
 <!-- IR -->
@@ -1079,13 +942,11 @@
         <div class="footer-left">
             <p>Capital Structures, Inc.</p>
             <p>Wilmington, Delaware</p>
-            <p class="footer-notice">Not an offer.</p>
         </div>
         <div class="footer-links">
-            <a href="#about">About</a>
-            <a href="#doctrine">Doctrine</a>
+            <a href="#news">News</a>
             <a href="#structures">Structures</a>
-            <a href="#glossary">Glossary</a>
+            <a href="#process">Process</a>
             <a href="#governance">Governance</a>
         </div>
     </div>
@@ -1105,6 +966,7 @@
         lastY = y;
     });
 })();
+
 </script>
 
 </body>
