@@ -82,32 +82,26 @@
         .hero {
             max-width: 960px;
             margin: 0 auto;
-            padding: 48px 32px 24px 32px;
+            padding: 48px 32px 12px 32px;
         }
         .hero h1 {
             font-size: 42px;
             font-weight: bold;
             line-height: 1.0;
             letter-spacing: -0.02em;
-            margin-bottom: 12px;
+            margin-bottom: 16px;
         }
-        .hero .hero-tagline {
-            font-size: 15px;
-            font-weight: normal;
-            line-height: 1.4;
-            max-width: 640px;
-            margin-bottom: 0;
-            letter-spacing: 0;
-        }
-        .hero-intro {
-            max-width: 960px;
-            margin: 0 auto;
-            padding: 0 32px 48px 32px;
-        }
-        .hero-intro p {
+        .hero p {
             font-size: 15px;
             line-height: 1.4;
             max-width: 640px;
+            margin-bottom: 8px;
+        }
+        .hero .hero-aside {
+            font-size: 13px;
+            letter-spacing: 0.02em;
+            color: #666;
+            margin-top: 4px;
         }
 
         /* —— Sections —— */
@@ -137,6 +131,53 @@
         /* —— Links —— */
         a { color: #000; }
         a:hover { opacity: 0.5; }
+
+        /* —— Method toggle labels —— */
+        .method-toggles {
+            max-width: 640px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1px;
+            background: #000;
+            margin: 24px 0;
+        }
+        .method-toggle {
+            background: #fff;
+            padding: 14px 18px;
+        }
+        .method-toggle-label {
+            font-size: 11px;
+            font-weight: bold;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            margin-bottom: 4px;
+        }
+        .method-toggle-desc {
+            font-size: 13px;
+            color: #666;
+        }
+
+        /* —— Doctrine compact —— */
+        .doctrine-item {
+            max-width: 640px;
+            margin-bottom: 18px;
+        }
+        .doctrine-item p {
+            margin-bottom: 6px;
+        }
+        .doctrine-item strong {
+            display: block;
+            margin-bottom: 2px;
+        }
+        .doctrine-link {
+            font-size: 12px;
+            font-weight: bold;
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
+            text-decoration: none;
+            border-bottom: 1.5px solid #000;
+            padding-bottom: 1px;
+        }
 
         /* —— Grid list —— */
         .grid-list {
@@ -337,15 +378,6 @@
             font-style: italic;
         }
 
-        /* —— Doctrine items —— */
-        .doctrine-number {
-            font-family: '188 Sans Mono', 'Courier New', monospace;
-            font-size: 10px;
-            letter-spacing: 0.06em;
-            color: #666;
-            margin-bottom: 4px;
-        }
-
         /* —— Footer —— */
         footer {
             max-width: 960px;
@@ -392,9 +424,8 @@
                 padding: 16px 20px 12px 20px;
             }
             .nav-links { gap: 14px; flex-wrap: wrap; }
-            .hero { padding: 32px 20px 16px 20px; }
+            .hero { padding: 32px 20px 8px 20px; }
             .hero h1 { font-size: 30px; }
-            .hero-intro { padding: 0 20px 32px 20px; }
             section { padding: 0 20px 36px 20px; }
             .hero-image { padding: 0 20px; }
             footer { padding: 0 20px 32px 20px; }
@@ -402,6 +433,7 @@
             .structure-meta { flex-wrap: wrap; }
             .structure-meta span { width: 50%; flex: none; }
             .structure-meta span:last-child { width: 100%; flex: none; }
+            .method-toggles { grid-template-columns: 1fr; }
         }
         @media (max-width: 480px) {
             .hero h1 { font-size: 24px; }
@@ -414,7 +446,7 @@
 <nav>
     <a href="#" class="nav-name">Capital Structures, Inc.</a>
     <div class="nav-links">
-        <a href="#about">About</a>
+        <a href="#method">Method</a>
         <a href="#doctrine">Doctrine</a>
         <a href="#structures">Structures</a>
         <a href="#glossary">Glossary</a>
@@ -432,92 +464,70 @@
 <!-- Hero -->
 <div class="hero">
     <h1>The diagram is the product.</h1>
-    <p class="hero-tagline">Diagrams, filings, guarantees, and structural studies of how risk is arranged in space.</p>
+    <p>Capital Structures, Inc. studies and publishes the legal and administrative architectures through which risk is transferred, isolated, priced, guaranteed, and disclosed.</p>
+    <p class="hero-aside">Not finance in the abstract. Exposure arranged in space.</p>
 </div>
 
-<!-- About -->
+<!-- Method -->
 <section>
-    <h2 id="about"><span>About</span></h2>
-    <p>Capital Structures, Inc. is not about finance in the abstract. It is about how exposure is arranged in space: across entities, guarantees, affiliates, triggers, notes, series, vehicles, covenants, and disclosures.</p>
-    <p>Risk is not erased. It is transferred, isolated, repriced, deferred, ring-fenced, guaranteed, made non-recourse, or disclosed. Every structure studied here is a record of where risk was sent and under what terms it was permitted to arrive.</p>
-    <p>The project treats diagrams, documentation, and entity maps not as support materials but as the work itself. The structure is the subject.</p>
-    <p>Legitimacy, beauty, containment, opacity, and danger are often produced by the same mechanisms. The site does not argue that structures are unreal. It shows that structures can be legally real, aesthetically precise, operationally useful, and still capable of producing opacity, asymmetry, and latent instability.</p>
+    <h2 id="method"><span>Method</span></h2>
+    <p>Capital Structures, Inc. publishes structures in multiple conditions.</p>
+    <p>On an <strong>unconsolidated</strong> basis, a structure appears according to its formal legal boundaries, stated obligations, and authorized separations.</p>
+    <p>On a <strong>consolidated</strong> basis, the same arrangement is read across guarantees, dependencies, contingent support, and consequence paths that persist beyond those boundaries.</p>
+    <p>Where available, each structure is also shown in two states.</p>
+    <p><strong>Base Case</strong> records the arrangement as authorized, funded, and disclosed. <strong>Trigger State</strong> records what activates when a downgrade, shortfall, covenant breach, liquidity freeze, guarantee event, maturity event, dissolution event, or other contractual condition causes the diagram to move.</p>
+    <p>These are not alternate interpretations. They are alternate tests of the same structure.</p>
+
+    <p style="margin-top: 20px; padding-top: 14px; border-top: 1px solid #000;"><strong>Publication rule.</strong> A published structure must satisfy both tests: it must look cleaner on an unconsolidated basis than on a consolidated basis, and it must look calmer in base case than in trigger state. If neither picture changes, it is not yet a structure. It is only a document.</p>
+
+    <div class="method-toggles">
+        <div class="method-toggle">
+            <div class="method-toggle-label">Unconsolidated</div>
+            <div class="method-toggle-desc">Entity truth.</div>
+        </div>
+        <div class="method-toggle">
+            <div class="method-toggle-label">Consolidated</div>
+            <div class="method-toggle-desc">System truth.</div>
+        </div>
+        <div class="method-toggle">
+            <div class="method-toggle-label">Base Case</div>
+            <div class="method-toggle-desc">Authorized calm.</div>
+        </div>
+        <div class="method-toggle">
+            <div class="method-toggle-label">Trigger State</div>
+            <div class="method-toggle-desc">Consequence path.</div>
+        </div>
+    </div>
 </section>
 
-<!-- Doctrine -->
+<!-- Doctrine (shortened for homepage) -->
 <section>
     <h2 id="doctrine"><span>Doctrine</span></h2>
-    <p style="margin-bottom: 24px;">These propositions govern how Capital Structures, Inc. studies and publishes structures. They are not exhaustive. They may be amended, expanded, superseded, restated, or triggered by future formations, guarantees, affiliate arrangements, disclosures, impairments, or consolidations.</p>
 
-    <details>
-        <summary>
-            <span>Risk does not disappear</span>
-            <span class="meta">Doctrine 01</span>
-        </summary>
-        <div class="detail-body">
-            <p>A structure does not abolish exposure. It determines where exposure appears, under what name, at what cost, with what recourse, and at what distance from the originating entity.</p>
-            <p>Securitization is presented not as concealment, but as a legitimate transfer, isolation, and pricing of risk.</p>
-        </div>
-    </details>
+    <div class="doctrine-item">
+        <p>A structure does not abolish exposure. It determines where exposure appears, under what name, at what cost, with what recourse, and at what distance from the originating entity.</p>
+    </div>
 
-    <details>
-        <summary>
-            <span>Exposure is conserved</span>
-            <span class="meta">Doctrine 02</span>
-        </summary>
-        <div class="detail-body">
-            <p>Risk displaced from one layer of a structure does not vanish. It reappears elsewhere: in pricing, subordination, contingent obligations, liquidity dependencies, recourse limits, affiliate guarantees, or residual claims.</p>
-            <p>Capital Structures refers to this principle as <strong>Exposure Conservation</strong> &mdash; a doctrine of structural thermodynamics.</p>
-        </div>
-    </details>
+    <div class="doctrine-item">
+        <p><strong>Exposure is conserved.</strong></p>
+        <p>Risk displaced from one layer of a structure reappears elsewhere.</p>
+    </div>
 
-    <details>
-        <summary>
-            <span>Bankruptcy is architectural</span>
-            <span class="meta">Doctrine 03</span>
-        </summary>
-        <div class="detail-body">
-            <p>Bankruptcy remoteness, non-recourse design, ring-fencing, and true sale are spatial acts as much as legal ones. They establish borders, distance, containment, and controlled adjacency.</p>
-        </div>
-    </details>
+    <div class="doctrine-item">
+        <p><strong>Disclosure is not transparency.</strong></p>
+        <p>A structure may be fully documented and still remain difficult to see.</p>
+    </div>
 
-    <details>
-        <summary>
-            <span>Disclosure is not transparency</span>
-            <span class="meta">Doctrine 04</span>
-        </summary>
-        <div class="detail-body">
-            <p>Disclosure may be complete, formal, and properly filed without resolving the deeper opacity of the structure. Document sufficiency and intuitive legibility are not the same condition.</p>
-        </div>
-    </details>
-
-    <details>
-        <summary>
-            <span>Consolidation changes the picture</span>
-            <span class="meta">Doctrine 05</span>
-        </summary>
-        <div class="detail-body">
-            <p>Viewed on an unconsolidated basis, a structure may appear clean, discrete, and properly bounded. Viewed on a consolidated basis, the same arrangement may reveal guarantee paths, shared dependencies, contingent support, and live trigger conditions that exceed entity boundaries.</p>
-            <p><strong>Unconsolidated:</strong> entity truth.<br><strong>Consolidated:</strong> system truth.</p>
-        </div>
-    </details>
-
-    <details>
-        <summary>
-            <span>The diagram is an argument</span>
-            <span class="meta">Doctrine 06</span>
-        </summary>
-        <div class="detail-body">
-            <p>A diagram is not secondary to the structure. It is the structure&rsquo;s public test. Every arrow, guarantee, exclusion, and trigger path is part of the disclosed arrangement.</p>
-        </div>
-    </details>
+    <div class="doctrine-item">
+        <p><strong>The diagram is an argument.</strong></p>
+        <p>Every arrow, guarantee, exclusion, and trigger path is part of the disclosed arrangement.</p>
+    </div>
 </section>
 
 <!-- Structures -->
 <section>
     <h2 id="structures"><span>Structure Index</span></h2>
-    <p>The Structure Index records the Company&rsquo;s published formations, diagrams, arrangements, and affiliated studies. Each structure may be viewed on an unconsolidated or consolidated basis, and under base case or trigger state conditions, where available.</p>
-    <p style="margin-bottom: 24px; font-size: 12px; letter-spacing: 0.02em;">The index is not comprehensive. Certain structures remain pending formation, partial disclosure, or administrative completion. Others may be dissolved, superseded, or reissued in revised form.</p>
+    <p style="margin-bottom: 20px; font-size: 12px; letter-spacing: 0.02em; max-width: 640px;">Each published structure must look cleaner unconsolidated than consolidated, and calmer in base case than in trigger state. If neither picture changes, it is not yet a structure.</p>
 
     <details>
         <summary>
@@ -531,36 +541,27 @@
                 <span><strong>Ref</strong> ICA-001 / PN-001</span>
                 <span><strong>Counterparties</strong> Capital Structures, Inc. &middot; Martin Grasser</span>
             </div>
-            <p>Structure 001 arranges asset ownership, servicing, contingent support, and affiliated guarantees across a legally discrete set of entities. On an unconsolidated basis, each entity appears bounded, separately authorized, and limited to stated obligations. On a consolidated basis, the arrangement reveals shared dependencies, residual exposures, and support expectations that persist across those boundaries.</p>
+            <h4>Unconsolidated</h4>
+            <p>Protected Series 001 acquires contributed intellectual property under ICA-001. Consideration consists of PN-001 ($10,000,000 promissory note, 0% interest, contingent maturity) and $1,000 in Class B Units. Recourse is limited to Series assets except as expressly supported by the parent guarantee.</p>
 
-            <p>The Company&rsquo;s foundational structure. Martin Grasser contributes all intellectual property &mdash; the conceptual framework, structural vocabulary, methodology, precedent corpus, agent architecture, and brand &mdash; to Protected Series 001 via the IP Contribution Agreement (ICA-001). In return, Series 001 issues a $10,000,000 Promissory Note (PN-001) and $1,000 in Class B Units. The Note constitutes advance consideration for all future creative output.</p>
+            <h4>Consolidated</h4>
+            <p>The same arrangement reunites valuation risk, founder compensation, governance discretion, and support expectation across the parent and Series 001. The legal boundary remains intact. The exposure boundary does not.</p>
 
-            <p>The resulting capital structure is 99.99% debt-financed acquisition of contributed intellectual property. That ratio is intentional, disclosed, and documented on the face of all instruments.</p>
+            <h4>Base Case</h4>
+            <p>The IP is booked at mark-to-model ($10,001,000, no independent appraisal). The note remains contingent. The series appears discrete, authorized, and sufficiently documented.</p>
+
+            <h4>Trigger State</h4>
+            <p>A liquidity event ($10M+), public listing, dissolution, mutual agreement, or 10-year backstop maturity converts contingent structure into payable consequence. Support expectations migrate toward the parent. The diagram begins to move.</p>
 
             <h4>Balance Sheet &mdash; Protected Series 001</h4>
             <ul>
-                <li>Assets: Contributed IP &mdash; $10,001,000 (mark-to-model, no independent appraisal)</li>
-                <li>Liabilities: Promissory Note to Martin Grasser &mdash; $10,000,000 (0% interest, contingent maturity)</li>
+                <li>Assets: Contributed IP &mdash; $10,001,000 (mark-to-model)</li>
+                <li>Liabilities: Promissory Note to Martin Grasser &mdash; $10,000,000</li>
                 <li>Equity: Class B Units &mdash; $1,000</li>
             </ul>
 
-            <h4>Trigger Conditions</h4>
-            <ul>
-                <li>Liquidity event ($10M+)</li>
-                <li>Public listing</li>
-                <li>Dissolution</li>
-                <li>Mutual agreement</li>
-                <li>10-year backstop maturity</li>
-            </ul>
-
-            <h4>Guarantees and Support</h4>
-            <p>The Company guarantees the performance obligations of Protected Series 001. This guarantee is subject to the Company&rsquo;s ongoing solvency and operational continuity.</p>
-
             <h4>Residual Exposure</h4>
-            <p>Although the structure limits recourse to Series 001 assets, residual exposure persists through: the CEO&rsquo;s simultaneous role as contributor, officer, and sole director; the mark-to-model valuation methodology; and the absence of independent appraisal.</p>
-
-            <h4>Self-Dealing Disclosure</h4>
-            <p>Martin Grasser acts simultaneously as (i) sole director approving this transaction, (ii) CEO executing the agreement on behalf of the Company, and (iii) Contributor delivering the IP and receiving the Note in his individual capacity. This arrangement is intentional, fully disclosed, and documented on the face of the instrument.</p>
+            <p>Role overlap (CEO, sole director, and contributor are the same person), mark-to-model valuation, no independent appraisal. The structure is 99.99% debt-financed. That ratio is intentional, disclosed, and documented on the face of all instruments.</p>
 
             <h4>Documents</h4>
             <ul>
@@ -667,32 +668,29 @@
                 <span><strong>Ref</strong> DSA-002</span>
                 <span><strong>Counterparties</strong> Capital Structures, Inc. &middot; verse.works</span>
             </div>
-            <p>The Company&rsquo;s first external structure. verse.works is engaged as exclusive distribution partner for the Company&rsquo;s structures, operating under the gallery model: the Company creates the structures, verse.works provides promotional reach, collector access, and strategic positioning, and verse.works receives a revenue share on proceeds from the sale of structures.</p>
+            <p>Series 002 isolates contingent distribution rights as a monetization layer external to the Company&rsquo;s core operating entity, allowing the Company&rsquo;s go-to-market dependency to be diagrammed, valued, and stress-tested as a discrete structure.</p>
 
-            <p>The Distribution Agreement (DSA-002) is itself securitized as the primary asset of Protected Series 002 &mdash; an uncapitalized series whose sole asset is the contractual right to future distribution revenue.</p>
+            <h4>Unconsolidated</h4>
+            <p>Protected Series 002 holds DSA-002 as its sole asset. verse.works is compensated only through contingent revenue share tied to monetization events. No fixed fee is owed. No equity is granted. The series is uncapitalized.</p>
+
+            <h4>Consolidated</h4>
+            <p>The Company&rsquo;s distribution infrastructure sits outside the operating company but remains necessary to promotion, collector access, and revenue realization. Separation persists. Dependency persists with it.</p>
+
+            <h4>Base Case</h4>
+            <p>No sale, license, or offering proceeds. No commission accrues. The series remains structurally live but economically dormant.</p>
+
+            <h4>Trigger State</h4>
+            <p>Any monetization event &mdash; sale of Class B Units, licensing of structures, or other proceeds &mdash; activates the revenue-share waterfall. Because the series is uncapitalized, timing mismatch, negative equity, and dependency on external distribution become visible immediately.</p>
 
             <h4>Balance Sheet &mdash; Protected Series 002</h4>
             <ul>
-                <li>Assets: Distribution Agreement (DSA-002) &mdash; $500,000 (mark-to-model, no independent appraisal)</li>
-                <li>Liabilities: Contingent Revenue Share Obligation to verse.works &mdash; $0 (contingent on proceeds)</li>
+                <li>Assets: Distribution Agreement (DSA-002) &mdash; $500,000 (mark-to-model)</li>
+                <li>Liabilities: Revenue Share Payable &mdash; $0 (contingent on proceeds)</li>
                 <li>Equity: $0 &mdash; uncapitalized</li>
             </ul>
 
-            <h4>Trigger Conditions</h4>
-            <ul>
-                <li>Proceeds from sale of Class B Units</li>
-                <li>Licensing of structures</li>
-                <li>Any monetization event attributable to Company structures</li>
-            </ul>
-
-            <h4>Guarantees and Support</h4>
-            <p>No fixed fees or guaranteed payments. verse.works bears the same timing risk as the Company &mdash; if nothing sells, nobody earns. The alignment is structural, not contractual.</p>
-
             <h4>Residual Exposure</h4>
-            <p>Series 002 is uncapitalized and may carry negative equity when commissions exceed the nominal asset value. This is anticipated and disclosed.</p>
-
-            <h4>Self-Dealing Disclosure</h4>
-            <p>Martin Grasser, as CEO and sole director, approves the engagement of verse.works and the terms of the Distribution Agreement. verse.works is an independent third party with no affiliated relationship to the Company&rsquo;s officers. This arrangement is disclosed.</p>
+            <p>Uncapitalized series. May carry negative equity when commissions exceed nominal asset value. Go-to-market capability depends entirely on an independent third party with no binding performance obligation. This is anticipated and disclosed.</p>
 
             <h4>Documents</h4>
             <ul>
@@ -1078,7 +1076,7 @@
             <p class="footer-notice">Not an offer.</p>
         </div>
         <div class="footer-links">
-            <a href="#about">About</a>
+            <a href="#method">Method</a>
             <a href="#doctrine">Doctrine</a>
             <a href="#structures">Structures</a>
             <a href="#glossary">Glossary</a>
