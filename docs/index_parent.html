@@ -1,0 +1,614 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Capital Structures, Inc.</title>
+    <meta name="description" content="Capital Structures, Inc. is an art operating company whose medium is its own public administration.">
+    <style>
+        @font-face {
+            font-family: '188 Sans';
+            src: url('fonts/188-Sans-Regular.otf') format('opentype');
+            font-weight: normal;
+            font-style: normal;
+        }
+        @font-face {
+            font-family: '188 Sans';
+            src: url('fonts/188-Sans-Bold.ttf') format('truetype');
+            font-weight: bold;
+            font-style: normal;
+        }
+        @font-face {
+            font-family: '188 Sans Mono';
+            src: url('fonts/188-Sans-Mono.otf') format('opentype');
+            font-weight: normal;
+            font-style: normal;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        body {
+            font-family: '188 Sans', Arial, Helvetica, sans-serif;
+            font-size: 15px;
+            line-height: 1.4;
+            color: #000;
+            background: #fff;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* —— Nav —— */
+        nav {
+            position: sticky;
+            top: 0;
+            background: #fff;
+            z-index: 10;
+            max-width: 960px;
+            margin: 0 auto;
+            padding: 24px 32px 16px 32px;
+            display: flex;
+            align-items: baseline;
+            justify-content: space-between;
+            transition: transform 0.25s ease;
+        }
+        nav.nav-hidden { transform: translateY(-100%); }
+        .nav-name {
+            font-size: 14px;
+            font-weight: bold;
+            letter-spacing: 0.02em;
+            color: #000;
+            text-decoration: none;
+        }
+        .nav-links { display: flex; gap: 24px; }
+        .nav-links a {
+            font-size: 11px;
+            font-weight: bold;
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
+            color: #000;
+            text-decoration: none;
+            padding-bottom: 2px;
+            border-bottom: 1.5px solid transparent;
+        }
+        .nav-links a:hover { border-bottom-color: #000; }
+        .nav-toggle {
+            display: none;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 4px 0;
+            width: 24px;
+            height: 20px;
+            position: relative;
+            flex-shrink: 0;
+        }
+        .nav-toggle span,
+        .nav-toggle span::before,
+        .nav-toggle span::after {
+            display: block; width: 24px; height: 2px; background: #000;
+            position: absolute; left: 0; transition: transform 0.2s ease;
+        }
+        .nav-toggle span { top: 9px; }
+        .nav-toggle span::before { content: ''; top: -7px; }
+        .nav-toggle span::after { content: ''; top: 7px; }
+        .nav-toggle.open span { background: transparent; }
+        .nav-toggle.open span::before { top: 0; transform: rotate(45deg); background: #000; }
+        .nav-toggle.open span::after { top: 0; transform: rotate(-45deg); background: #000; }
+
+        /* —— Hero —— */
+        .hero {
+            max-width: 960px;
+            margin: 0 auto;
+            padding: 48px 32px 16px 32px;
+        }
+        .hero h1 {
+            font-size: 42px;
+            font-weight: bold;
+            line-height: 1.0;
+            letter-spacing: -0.02em;
+            margin-bottom: 14px;
+        }
+        .hero p {
+            font-size: 15px;
+            line-height: 1.4;
+            max-width: 640px;
+        }
+
+        /* —— Sections —— */
+        section {
+            max-width: 960px;
+            margin: 0 auto;
+            padding: 0 32px 40px 32px;
+        }
+        section h2 {
+            font-size: 11px;
+            font-weight: bold;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            margin-bottom: 20px;
+            padding-top: 14px;
+            border-top: 2px solid #000;
+            scroll-margin-top: 56px;
+        }
+        section p {
+            font-size: 15px;
+            line-height: 1.4;
+            max-width: 640px;
+            margin-bottom: 12px;
+        }
+        section p:last-child { margin-bottom: 0; }
+
+        /* —— Links —— */
+        a { color: #000; }
+        a:hover { opacity: 0.5; }
+
+        /* —— Grid list —— */
+        .grid-list {
+            list-style: none;
+            max-width: 720px;
+        }
+        .grid-list li {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            align-items: baseline;
+            padding: 7px 0;
+            border-bottom: 0.5px solid #000;
+            font-size: 15px;
+        }
+        .grid-list li:first-child { border-top: 0.5px solid #000; }
+        .grid-list .meta {
+            font-size: 12px;
+            letter-spacing: 0.04em;
+            text-align: left;
+            padding-left: 24px;
+            border-left: 0.5px solid #000;
+        }
+        .grid-list .category {
+            font-size: 10px;
+            font-weight: bold;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            border-top: 1.5px solid #000;
+            border-bottom: none;
+            padding: 14px 0 4px 0;
+            display: block;
+        }
+        .grid-list .category:first-child { border-top: none; padding-top: 0; }
+
+        /* —— Expandable —— */
+        details { max-width: 720px; margin-top: 4px; }
+        details summary {
+            font-size: 15px;
+            line-height: 1.25;
+            cursor: pointer;
+            padding: 7px 0;
+            list-style: none;
+            display: flex;
+            align-items: baseline;
+            gap: 12px;
+            border-bottom: 0.5px solid #000;
+            transition: opacity 0.12s;
+        }
+        details summary:hover { opacity: 0.5; }
+        details summary > span:first-of-type { flex: 1; }
+        details summary > .meta {
+            font-size: 12px;
+            letter-spacing: 0.04em;
+            text-align: left;
+            flex: 1;
+            padding-left: 24px;
+            border-left: 0.5px solid #000;
+        }
+        details summary::-webkit-details-marker { display: none; }
+        details summary::before {
+            content: "\25B8"; font-size: 11px; width: 16px;
+            text-align: center; flex-shrink: 0; line-height: 1;
+        }
+        details[open] summary::before { content: "\25BE"; }
+        details[open] summary { border-bottom: 1.5px solid #000; }
+        .detail-body {
+            padding: 12px 0 20px 24px;
+            max-width: 620px;
+        }
+        .detail-body p {
+            font-size: 14px;
+            line-height: 1.4;
+            margin-bottom: 10px;
+        }
+        .detail-body h4 {
+            font-size: 10px;
+            font-weight: bold;
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
+            margin-top: 14px;
+            margin-bottom: 6px;
+            padding-top: 6px;
+            border-top: 1px solid #000;
+        }
+        .detail-body ul {
+            margin: 4px 0 10px 0;
+            font-size: 14px;
+            line-height: 1.4;
+            list-style: none;
+        }
+        .detail-body li {
+            margin-bottom: 4px;
+            display: flex;
+            align-items: baseline;
+        }
+        .detail-body li::before { content: "\2013\00a0"; flex-shrink: 0; }
+
+        /* —— Deployment toolkit —— */
+        .toolkit {
+            max-width: 720px;
+            margin-top: 4px;
+        }
+        .toolkit-item {
+            padding: 10px 0;
+            border-bottom: 0.5px solid #000;
+        }
+        .toolkit-item:first-child { border-top: 0.5px solid #000; }
+        .toolkit-label {
+            font-family: '188 Sans Mono', 'Courier New', monospace;
+            font-size: 10px;
+            letter-spacing: 0.06em;
+            color: #666;
+            margin-bottom: 2px;
+        }
+        .toolkit-name {
+            font-size: 15px;
+            font-weight: bold;
+            margin-bottom: 3px;
+        }
+        .toolkit-desc {
+            font-size: 13px;
+            line-height: 1.4;
+            max-width: 580px;
+        }
+
+        /* —— Hero Image —— */
+        .hero-image {
+            max-width: 960px;
+            margin: 0 auto;
+            padding: 0 32px;
+        }
+        .hero-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+            border-top: 3px solid #000;
+        }
+
+        /* —— Footer —— */
+        footer {
+            max-width: 960px;
+            margin: 0 auto;
+            padding: 40px 32px;
+            border-top: 3px solid #000;
+        }
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+        }
+        .footer-left p { font-size: 12px; line-height: 1.6; letter-spacing: 0.02em; }
+        .footer-notice {
+            font-size: 11px;
+            font-weight: bold;
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
+            margin-top: 10px;
+        }
+        .footer-links { display: flex; gap: 24px; }
+        .footer-links a {
+            font-size: 11px; font-weight: bold; letter-spacing: 0.06em;
+            text-transform: uppercase; text-decoration: none; color: #000;
+        }
+
+        /* —— Responsive —— */
+        @media (max-width: 768px) {
+            nav { flex-direction: row; align-items: center; padding: 16px 20px; }
+            .nav-toggle { display: block; }
+            .nav-links {
+                display: none; flex-direction: column;
+                position: absolute; top: 100%; left: 0; right: 0;
+                background: #fff; padding: 0 20px 20px 20px;
+                gap: 0; border-bottom: 2px solid #000;
+            }
+            .nav-links.open { display: flex; }
+            .nav-links a { padding: 10px 0; border-bottom: 0.5px solid #eee; font-size: 12px; }
+            .nav-links a:last-child { border-bottom: none; }
+            .hero { padding: 32px 20px 8px 20px; }
+            .hero h1 { font-size: 30px; }
+            section { padding: 0 20px 32px 20px; }
+            .hero-image { padding: 0 20px; }
+            footer { padding: 0 20px 32px 20px; }
+            .footer-content { flex-direction: column; gap: 16px; }
+        }
+        @media (max-width: 480px) {
+            .hero h1 { font-size: 24px; }
+            .nav-links a { font-size: 10px; }
+        }
+    </style>
+</head>
+<body>
+
+<nav>
+    <a href="#" class="nav-name">Capital Structures, Inc.</a>
+    <button class="nav-toggle" aria-label="Menu"><span></span></button>
+    <div class="nav-links">
+        <a href="#architecture">Architecture</a>
+        <a href="#archive">Archive</a>
+        <a href="#ledger">Ledger</a>
+        <a href="#governance">Governance</a>
+        <a href="#glossary">Glossary</a>
+    </div>
+</nav>
+
+<div class="hero-image">
+    <img src="hero.jpg" alt="Office towers at dusk">
+</div>
+
+<!-- Hero -->
+<div class="hero">
+    <h1>The company is the artwork.</h1>
+    <p>Capital Structures, Inc. is an art operating company whose medium is its own public administration. Participants capitalize the parent company. The board uses that capital to operate the institution, build its archive, stage its public life, and form internal structures only when they change something real about ownership, liability, cash flow, servicing, or reporting.</p>
+</div>
+
+<!-- Architecture -->
+<section>
+    <h2 id="architecture"><span>Architecture</span></h2>
+    <p>One parent issuer. One participant base. One treasury. One archive. One public institution. Purpose structures formed only when they perform a real operating function.</p>
+
+    <div class="toolkit">
+        <div class="toolkit-item">
+            <div class="toolkit-label">Parent Issuer</div>
+            <div class="toolkit-name">Capital Structures, Inc.</div>
+            <div class="toolkit-desc">The only public issuer. Raises capital, holds treasury, signs contracts, controls the archive, and publishes required reporting. This is the public institution and the public artwork.</div>
+        </div>
+        <div class="toolkit-item">
+            <div class="toolkit-label">Participation Security</div>
+            <div class="toolkit-name">Parent-Level Securities</div>
+            <div class="toolkit-desc">Participants buy into the parent company. One public participation class. The security is not less real because the project is art. The security is one of the project's actual materials.</div>
+        </div>
+        <div class="toolkit-item">
+            <div class="toolkit-label">Treasury</div>
+            <div class="toolkit-name">Formation Reserve</div>
+            <div class="toolkit-desc">Central pool of participant capital. Used to fund operations, build the archive, produce documents and interfaces, support exhibitions, create reserves, and capitalize purpose structures when justified.</div>
+        </div>
+        <div class="toolkit-item">
+            <div class="toolkit-label">Public Administration</div>
+            <div class="toolkit-name">Visible Spine</div>
+            <div class="toolkit-desc">Architecture page, participant ledger, treasury deployment summaries, selected board actions, archive, annual reports, diagrams, and institutional correspondence.</div>
+        </div>
+        <div class="toolkit-item">
+            <div class="toolkit-label">Operations</div>
+            <div class="toolkit-name">verse.works + Servicing</div>
+            <div class="toolkit-desc">Platform, gallery, and presentation partner. Servicing and communications support. Staging of the company as public institution. Begins as a contractual role, not a co-equal issuer.</div>
+        </div>
+    </div>
+</section>
+
+<!-- Board Deployment Toolkit -->
+<section>
+    <h2><span>Board Deployment Toolkit</span></h2>
+    <p style="margin-bottom: 16px;">The board does not only create vehicles. It has a full ladder of deployment tools. If the board can solve the problem with a policy, contract, reserve, or schedule, it should not form a vehicle just for atmosphere.</p>
+
+    <div class="toolkit">
+        <div class="toolkit-item">
+            <div class="toolkit-label">Tool 01</div>
+            <div class="toolkit-name">Operating Spend</div>
+            <div class="toolkit-desc">Treasury deployed directly for design, engineering, legal, accounting, archive work, editorial, public presentation, and documentation production.</div>
+        </div>
+        <div class="toolkit-item">
+            <div class="toolkit-label">Tool 02</div>
+            <div class="toolkit-name">Contracts</div>
+            <div class="toolkit-desc">Agreements when the company needs a counterparty rather than a new entity. Servicing agreements, design engagements, exhibition agreements, licensing, archive custody.</div>
+        </div>
+        <div class="toolkit-item">
+            <div class="toolkit-label">Tool 03</div>
+            <div class="toolkit-name">Board-Designated Reserves</div>
+            <div class="toolkit-desc">Internal accounting designations when risk needs to be acknowledged without creating a new vehicle. Contingency, reporting, exhibition, litigation, archive preservation.</div>
+        </div>
+        <div class="toolkit-item">
+            <div class="toolkit-label">Tool 04</div>
+            <div class="toolkit-name">Schedules and Policies</div>
+            <div class="toolkit-desc">Documents instead of entities when the issue is administrative, not structural. Treasury deployment policy, participant rights schedule, disclosure schedule, archive policy.</div>
+        </div>
+        <div class="toolkit-item">
+            <div class="toolkit-label">Tool 05</div>
+            <div class="toolkit-name">Purpose Structures</div>
+            <div class="toolkit-desc">Separate vehicles formed only when the company needs a new boundary around ownership, liability, servicing, cash flow, reserve support, or reporting. If deleting the structure changes only the poetry, it should not be a legal entity.</div>
+        </div>
+    </div>
+</section>
+
+<!-- Archive -->
+<section>
+    <h2 id="archive"><span>Archive</span></h2>
+    <p style="margin-bottom: 16px;">The institutional memory of the work. Formation acts, board actions, operating history, and selected governance materials.</p>
+
+    <details>
+        <summary>
+            <span>Structure 001 &mdash; IP Contribution &amp; Pre-Pay Architecture</span>
+            <span class="meta">Authorized &middot; Formation</span>
+        </summary>
+        <div class="detail-body">
+            <p>The Company&rsquo;s foundational structure. Martin Grasser contributes all intellectual property to Protected Series 001 via ICA-001. In return, Series 001 issues a $10,000,000 Promissory Note and $1,000 in Class B Units. 99.99% debt-financed. Self-dealing disclosed.</p>
+
+            <h4>Documents</h4>
+            <ul>
+                <li><a href="ica-001.html">IP Contribution Agreement (ICA-001-2026)</a></li>
+                <li><a href="pn-001.html">Promissory Note (PN-001-2026)</a></li>
+                <li><a href="bod-2026-001.html">Board Resolution (BOD-2026-001)</a></li>
+            </ul>
+        </div>
+    </details>
+
+    <details>
+        <summary>
+            <span>Structure 002 &mdash; verse.works Distribution Agreement</span>
+            <span class="meta">Proposed &middot; Servicing</span>
+        </summary>
+        <div class="detail-body">
+            <p>verse.works engaged as exclusive distribution partner under the gallery model. Contingent revenue share. No fixed fees. Uncapitalized series whose sole asset is the contractual right to future distribution revenue.</p>
+        </div>
+    </details>
+
+    <details>
+        <summary>
+            <span>Board Minutes (BOD-2026-001)</span>
+            <span class="meta">Filed &middot; June 1, 2026</span>
+        </summary>
+        <div class="detail-body">
+            <p>Organizational meeting. Adoption of the Structural Fiduciary. Authorization of AI agent infrastructure. Authorization of Structures 001 and 002. <a href="bod-2026-001.html">Full document.</a></p>
+        </div>
+    </details>
+</section>
+
+<!-- Ledger -->
+<section>
+    <h2 id="ledger"><span>Participant Ledger</span></h2>
+    <p>No securities are currently offered. When the Company conducts its first regulated offering, the participant ledger will record the public capital base.</p>
+    <ul class="grid-list">
+        <li>Martin Grasser<span class="meta">Class A &middot; Founder</span></li>
+    </ul>
+</section>
+
+<!-- Governance -->
+<section>
+    <h2 id="governance"><span>Governance</span></h2>
+    <ul class="grid-list">
+        <li class="category">Officers</li>
+        <li>Martin Grasser<span class="meta">Chief Executive Officer</span></li>
+        <li>Audrey Chen<span class="meta">Head of Operations</span></li>
+        <li class="category">External</li>
+        <li>verse.works<span class="meta">Presentation &amp; Servicing Partner</span></li>
+        <li class="category">Policies</li>
+        <li>Structural Fiduciary<span class="meta">Adopted &middot; BOD-2026-001</span></li>
+    </ul>
+</section>
+
+<!-- Glossary -->
+<section>
+    <h2 id="glossary"><span>Glossary</span></h2>
+
+    <details>
+        <summary>
+            <span>Art Operating Company</span>
+            <span class="meta">Definition</span>
+        </summary>
+        <div class="detail-body">
+            <p>An operating business whose core activity is originating, administering, documenting, publishing, exhibiting, contracting, governing, and reporting artworks through structures, documents, agreements, policies, and controlled vehicle formation.</p>
+        </div>
+    </details>
+
+    <details>
+        <summary>
+            <span>Purpose Structure</span>
+            <span class="meta">Definition</span>
+        </summary>
+        <div class="detail-body">
+            <p>A backstage operating instrument formed only when the company needs a new boundary around ownership, liability, servicing, cash flow, reserve support, or reporting. If deleting the structure changes only the poetry, it should not be a legal entity.</p>
+        </div>
+    </details>
+
+    <details>
+        <summary>
+            <span>Participant</span>
+            <span class="meta">Definition</span>
+        </summary>
+        <div class="detail-body">
+            <p>A holder of parent-level securities. Participants capitalize the parent company. They are not buying a separate art project. They are participating in one company whose public life is the work.</p>
+        </div>
+    </details>
+
+    <details>
+        <summary>
+            <span>Treasury / Formation Reserve</span>
+            <span class="meta">Definition</span>
+        </summary>
+        <div class="detail-body">
+            <p>The central pool of participant capital at the parent. Used to fund operations, build the archive, produce documents and interfaces, support exhibitions, create reserves, and capitalize purpose structures when justified. Participants are not merely listed. They are booked.</p>
+        </div>
+    </details>
+
+    <details>
+        <summary>
+            <span>Board Deployment</span>
+            <span class="meta">Definition</span>
+        </summary>
+        <div class="detail-body">
+            <p>Any authorized use of treasury or policy authority by the board. Most deployments are not entity formation. They are operating spend, contracts, reserves, schedules, and policies. Vehicle formation is the last tool, not the first.</p>
+        </div>
+    </details>
+
+    <details>
+        <summary>
+            <span>Structural Fiduciary</span>
+            <span class="meta">Definition</span>
+        </summary>
+        <div class="detail-body">
+            <p>The Company&rsquo;s modified fiduciary standard comprising Truthful Disclosure, Procedural Integrity, and Structural Good Faith. Management decisions may include forming entities with no revenue-generating purpose, entering economically neutral transactions, maintaining excess complexity, and dissolving the Company at a moment determined to be structurally complete.</p>
+        </div>
+    </details>
+
+    <details>
+        <summary>
+            <span>Exposure Conservation</span>
+            <span class="meta">Definition</span>
+        </summary>
+        <div class="detail-body">
+            <p>The proposition that risk displaced from one layer of a structure must reappear elsewhere rather than disappear. A doctrine of structural thermodynamics.</p>
+        </div>
+    </details>
+</section>
+
+<!-- Forward-Looking Statements -->
+<section>
+    <h2 style="margin-bottom: 8px;"><span>Forward-Looking Statements</span></h2>
+    <p style="font-size: 12px; line-height: 1.5; max-width: 640px;">The Company may never generate profit and may intentionally dissolve. Past structures are not indicative of future structures. No securities are currently being offered. Nothing on this site constitutes an offer to sell or a solicitation of an offer to buy any security. All materials are provided for informational purposes only.</p>
+</section>
+
+<footer>
+    <div class="footer-content">
+        <div class="footer-left">
+            <p>Capital Structures, Inc.</p>
+            <p>Wilmington, Delaware</p>
+            <p class="footer-notice">Not an offer.</p>
+        </div>
+        <div class="footer-links">
+            <a href="#architecture">Architecture</a>
+            <a href="#archive">Archive</a>
+            <a href="#ledger">Ledger</a>
+            <a href="#governance">Governance</a>
+        </div>
+    </div>
+</footer>
+
+<script>
+(function() {
+    var nav = document.querySelector('nav');
+    var toggle = document.querySelector('.nav-toggle');
+    var links = document.querySelector('.nav-links');
+    var lastY = 0;
+    toggle.addEventListener('click', function() {
+        toggle.classList.toggle('open');
+        links.classList.toggle('open');
+    });
+    links.addEventListener('click', function(e) {
+        if (e.target.tagName === 'A') {
+            toggle.classList.remove('open');
+            links.classList.remove('open');
+        }
+    });
+    window.addEventListener('scroll', function() {
+        var y = window.scrollY;
+        if (y > lastY && y > 80) nav.classList.add('nav-hidden');
+        else nav.classList.remove('nav-hidden');
+        lastY = y;
+    });
+})();
+</script>
+
+</body>
+</html>

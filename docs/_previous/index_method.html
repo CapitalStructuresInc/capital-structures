@@ -1,0 +1,1321 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Capital Structures, Inc.</title>
+    <meta name="description" content="Capital Structures, Inc. publishes diagrams, documents, and structural studies of how risk is transferred, isolated, priced, guaranteed, and disclosed.">
+    <style>
+        @font-face {
+            font-family: '188 Sans';
+            src: url('fonts/188-Sans-Regular.otf') format('opentype');
+            font-weight: normal;
+            font-style: normal;
+        }
+        @font-face {
+            font-family: '188 Sans';
+            src: url('fonts/188-Sans-Bold.ttf') format('truetype');
+            font-weight: bold;
+            font-style: normal;
+        }
+        @font-face {
+            font-family: '188 Sans Mono';
+            src: url('fonts/188-Sans-Mono.otf') format('opentype');
+            font-weight: normal;
+            font-style: normal;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        body {
+            font-family: '188 Sans', Arial, Helvetica, sans-serif;
+            font-size: 15px;
+            line-height: 1.4;
+            color: #000;
+            background: #fff;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* —— Nav —— */
+        nav {
+            position: sticky;
+            top: 0;
+            background: #fff;
+            z-index: 10;
+            max-width: 960px;
+            margin: 0 auto;
+            padding: 24px 32px 16px 32px;
+            display: flex;
+            align-items: baseline;
+            justify-content: space-between;
+            transition: transform 0.25s ease;
+        }
+        nav.nav-hidden {
+            transform: translateY(-100%);
+        }
+        .nav-name {
+            font-size: 14px;
+            font-weight: bold;
+            letter-spacing: 0.02em;
+            color: #000;
+            text-decoration: none;
+        }
+        .nav-links {
+            display: flex;
+            gap: 24px;
+        }
+        .nav-links a {
+            font-size: 11px;
+            font-weight: bold;
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
+            color: #000;
+            text-decoration: none;
+            padding-bottom: 2px;
+            border-bottom: 1.5px solid transparent;
+        }
+        .nav-links a:hover {
+            border-bottom-color: #000;
+        }
+        .nav-toggle {
+            display: none;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 4px 0;
+            width: 24px;
+            height: 20px;
+            position: relative;
+            flex-shrink: 0;
+        }
+        .nav-toggle span,
+        .nav-toggle span::before,
+        .nav-toggle span::after {
+            display: block;
+            width: 24px;
+            height: 2px;
+            background: #000;
+            position: absolute;
+            left: 0;
+            transition: transform 0.2s ease;
+        }
+        .nav-toggle span { top: 9px; }
+        .nav-toggle span::before {
+            content: '';
+            top: -7px;
+        }
+        .nav-toggle span::after {
+            content: '';
+            top: 7px;
+        }
+        .nav-toggle.open span { background: transparent; }
+        .nav-toggle.open span::before {
+            top: 0;
+            transform: rotate(45deg);
+            background: #000;
+        }
+        .nav-toggle.open span::after {
+            top: 0;
+            transform: rotate(-45deg);
+            background: #000;
+        }
+
+        /* —— Hero —— */
+        .hero {
+            max-width: 960px;
+            margin: 0 auto;
+            padding: 48px 32px 12px 32px;
+        }
+        .hero h1 {
+            font-size: 42px;
+            font-weight: bold;
+            line-height: 1.0;
+            letter-spacing: -0.02em;
+            margin-bottom: 16px;
+        }
+        .hero p {
+            font-size: 15px;
+            line-height: 1.4;
+            max-width: 640px;
+            margin-bottom: 8px;
+        }
+
+        /* —— Sections —— */
+        section {
+            max-width: 960px;
+            margin: 0 auto;
+            padding: 0 32px 48px 32px;
+        }
+        section h2 {
+            font-size: 11px;
+            font-weight: bold;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            margin-bottom: 24px;
+            padding-top: 16px;
+            border-top: 2px solid #000;
+            scroll-margin-top: 56px;
+        }
+        section p {
+            font-size: 15px;
+            line-height: 1.4;
+            max-width: 640px;
+            margin-bottom: 14px;
+        }
+        section p:last-child { margin-bottom: 0; }
+
+        /* —— Links —— */
+        a { color: #000; }
+        a:hover { opacity: 0.5; }
+
+        /* —— Method toggle labels —— */
+        .method-toggles {
+            max-width: 640px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1px;
+            background: #000;
+            margin: 24px 0;
+        }
+        .method-toggle {
+            background: #fff;
+            padding: 14px 18px;
+        }
+        .method-toggle-label {
+            font-size: 11px;
+            font-weight: bold;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            margin-bottom: 4px;
+        }
+        .method-toggle-desc {
+            font-size: 13px;
+            color: #666;
+        }
+
+        /* —— Doctrine compact —— */
+        .doctrine-item {
+            max-width: 640px;
+            margin-bottom: 18px;
+        }
+        .doctrine-item p {
+            margin-bottom: 6px;
+        }
+        .doctrine-item strong {
+            display: block;
+            margin-bottom: 2px;
+        }
+        .doctrine-link {
+            font-size: 12px;
+            font-weight: bold;
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
+            text-decoration: none;
+            border-bottom: 1.5px solid #000;
+            padding-bottom: 1px;
+        }
+
+        /* —— Grid list —— */
+        .grid-list {
+            list-style: none;
+            max-width: 720px;
+        }
+        .grid-list li {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            align-items: baseline;
+            padding: 8px 0;
+            border-bottom: 0.5px solid #000;
+            font-size: 15px;
+        }
+        .grid-list li:first-child {
+            border-top: 0.5px solid #000;
+        }
+        .grid-list .meta {
+            font-size: 12px;
+            letter-spacing: 0.04em;
+            text-align: left;
+            padding-left: 24px;
+            border-left: 0.5px solid #000;
+        }
+        .grid-list .category {
+            font-size: 10px;
+            font-weight: bold;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            border-top: 1.5px solid #000;
+            border-bottom: none;
+            padding: 18px 0 4px 0;
+            display: block;
+        }
+        .grid-list .category:first-child {
+            border-top: none;
+            padding-top: 0;
+        }
+        .status-pending { font-style: italic; }
+
+        /* —— Expandable —— */
+        details {
+            max-width: 720px;
+            margin-top: 4px;
+        }
+        details summary {
+            font-size: 15px;
+            line-height: 1.25;
+            cursor: pointer;
+            padding: 8px 0;
+            list-style: none;
+            display: flex;
+            align-items: baseline;
+            gap: 12px;
+            border-bottom: 0.5px solid #000;
+            transition: opacity 0.12s;
+        }
+        details summary:hover {
+            opacity: 0.5;
+        }
+        details summary > span:first-of-type {
+            flex: 1;
+        }
+        details summary > .meta {
+            font-size: 12px;
+            letter-spacing: 0.04em;
+            text-align: left;
+            flex: 1;
+            padding-left: 24px;
+            border-left: 0.5px solid #000;
+        }
+        details summary::-webkit-details-marker { display: none; }
+        details summary::before {
+            content: "\25B8";
+            font-size: 11px;
+            width: 16px;
+            text-align: center;
+            flex-shrink: 0;
+            line-height: 1;
+            transition: transform 0.15s ease;
+        }
+        details[open] summary::before {
+            content: "\25BE";
+        }
+        details[open] summary {
+            border-bottom: 1.5px solid #000;
+        }
+        .detail-body {
+            padding: 16px 0 24px 24px;
+            max-width: 620px;
+        }
+        .detail-body p {
+            font-size: 14px;
+            line-height: 1.4;
+            margin-bottom: 12px;
+        }
+        .detail-body h4 {
+            font-size: 10px;
+            font-weight: bold;
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
+            margin-top: 16px;
+            margin-bottom: 8px;
+            padding-top: 8px;
+            border-top: 1px solid #000;
+        }
+        .detail-body ul {
+            margin: 6px 0 12px 0;
+            font-size: 14px;
+            line-height: 1.4;
+            list-style: none;
+        }
+        .detail-body li {
+            margin-bottom: 6px;
+            display: flex;
+            align-items: baseline;
+        }
+        .detail-body li::before {
+            content: "\2013\00a0";
+            flex-shrink: 0;
+        }
+
+        /* —— Structure meta —— */
+        .structure-meta {
+            display: flex;
+            font-size: 12px;
+            margin-bottom: 16px;
+            border-top: 1px solid #000;
+            border-bottom: 1px solid #000;
+        }
+        .structure-meta span {
+            padding: 10px 18px;
+            border-right: 0.5px solid #000;
+            flex: 1;
+        }
+        .structure-meta span:first-child { padding-left: 0; }
+        .structure-meta span:last-child {
+            border-right: none;
+            flex: 2;
+        }
+        .structure-meta strong {
+            display: block;
+            font-size: 9px;
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
+            margin-bottom: 3px;
+        }
+
+        /* —— Diagram —— */
+        .diagram-container {
+            width: 100%;
+            max-width: 720px;
+            margin-top: 16px;
+            border-top: 1px solid #000;
+            padding-top: 16px;
+        }
+        .diagram-container svg {
+            width: 100%;
+            height: auto;
+        }
+
+        /* —— Hero Image —— */
+        .hero-image {
+            max-width: 960px;
+            margin: 0 auto;
+            padding: 0 32px;
+        }
+        .hero-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+            border-top: 3px solid #000;
+        }
+
+        /* —— Glossary —— */
+        .glossary-entry {
+            max-width: 720px;
+            padding: 12px 0;
+            border-bottom: 0.5px solid #000;
+        }
+        .glossary-entry:first-of-type {
+            border-top: 0.5px solid #000;
+        }
+        .glossary-term {
+            font-size: 15px;
+            font-weight: bold;
+            margin-bottom: 4px;
+        }
+        .glossary-def {
+            font-size: 14px;
+            line-height: 1.4;
+            margin-bottom: 4px;
+            max-width: 620px;
+        }
+        .glossary-usage {
+            font-size: 12px;
+            letter-spacing: 0.02em;
+            font-style: italic;
+        }
+
+        /* —— Diagram Controls —— */
+        .diagram-controls {
+            display: flex;
+            gap: 2px;
+            margin-bottom: 16px;
+            max-width: 720px;
+        }
+        .diagram-control-group {
+            display: flex;
+            gap: 1px;
+            background: #000;
+            flex: 1;
+        }
+        .diagram-control-group:first-child {
+            margin-right: 16px;
+        }
+        .diagram-btn {
+            flex: 1;
+            padding: 10px 12px;
+            background: #f5f5f5;
+            border: none;
+            cursor: pointer;
+            text-align: left;
+            font-family: '188 Sans', Arial, Helvetica, sans-serif;
+            transition: background 0.15s ease, color 0.15s ease;
+        }
+        .diagram-btn.active {
+            background: #000;
+            color: #fff;
+        }
+        .diagram-btn-label {
+            font-size: 10px;
+            font-weight: bold;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            display: block;
+            margin-bottom: 2px;
+        }
+        .diagram-btn-desc {
+            font-size: 10px;
+            letter-spacing: 0.02em;
+            opacity: 0.6;
+            display: block;
+        }
+        .diagram-btn.active .diagram-btn-desc {
+            opacity: 0.5;
+        }
+        .diagram-controls-disabled {
+            opacity: 0.35;
+            pointer-events: none;
+        }
+
+        /* —— Diagram Layers —— */
+        .layer-co,
+        .layer-ts {
+            opacity: 0;
+            transition: opacity 0.4s ease;
+        }
+        .diagram-view-co .layer-co {
+            opacity: 1;
+        }
+        .diagram-view-ts .layer-ts {
+            opacity: 1;
+        }
+        .layer-co-hide {
+            transition: opacity 0.4s ease;
+        }
+        .diagram-view-co .layer-co-hide {
+            opacity: 0.15;
+        }
+        .layer-ts-label {
+            opacity: 0;
+            transition: opacity 0.4s ease;
+        }
+        .diagram-view-ts .layer-ts-label {
+            opacity: 1;
+        }
+        .layer-uc-label {
+            transition: opacity 0.4s ease;
+        }
+        .diagram-view-co .layer-uc-label {
+            opacity: 0;
+        }
+        .layer-ts-hide {
+            transition: opacity 0.4s ease;
+        }
+        .diagram-view-ts .layer-ts-hide {
+            opacity: 0;
+        }
+        .diagram-state-label {
+            font-family: '188 Sans Mono', 'Courier New', monospace;
+            font-size: 9px;
+            letter-spacing: 0.06em;
+        }
+
+        /* —— Footer —— */
+        footer {
+            max-width: 960px;
+            margin: 0 auto;
+            padding: 48px 32px 48px 32px;
+            border-top: 3px solid #000;
+        }
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+        }
+        .footer-left p {
+            font-size: 12px;
+            line-height: 1.6;
+            letter-spacing: 0.02em;
+        }
+        .footer-notice {
+            font-size: 11px;
+            font-weight: bold;
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
+            margin-top: 12px;
+        }
+        .footer-links {
+            display: flex;
+            gap: 24px;
+        }
+        .footer-links a {
+            font-size: 11px;
+            font-weight: bold;
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
+            text-decoration: none;
+            color: #000;
+        }
+
+        /* —— Responsive —— */
+        @media (max-width: 768px) {
+            nav {
+                flex-direction: row;
+                align-items: center;
+                padding: 16px 20px;
+            }
+            .nav-toggle { display: block; }
+            .nav-links {
+                display: none;
+                flex-direction: column;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background: #fff;
+                padding: 0 20px 20px 20px;
+                gap: 0;
+                border-bottom: 2px solid #000;
+            }
+            .nav-links.open { display: flex; }
+            .nav-links a {
+                padding: 10px 0;
+                border-bottom: 0.5px solid #eee;
+                font-size: 12px;
+            }
+            .nav-links a:last-child { border-bottom: none; }
+            .hero { padding: 32px 20px 8px 20px; }
+            .hero h1 { font-size: 30px; }
+            section { padding: 0 20px 36px 20px; }
+            .hero-image { padding: 0 20px; }
+            footer { padding: 0 20px 32px 20px; }
+            .footer-content { flex-direction: column; gap: 16px; }
+            .structure-meta { flex-wrap: wrap; }
+            .structure-meta span { width: 50%; flex: none; }
+            .structure-meta span:last-child { width: 100%; flex: none; }
+            .method-toggles { grid-template-columns: 1fr; }
+        }
+        @media (max-width: 480px) {
+            .hero h1 { font-size: 24px; }
+            .nav-links a { font-size: 10px; }
+        }
+    </style>
+</head>
+<body>
+
+<nav>
+    <a href="#" class="nav-name">Capital Structures, Inc.</a>
+    <button class="nav-toggle" aria-label="Menu"><span></span></button>
+    <div class="nav-links">
+        <a href="#method">Method</a>
+        <a href="#standards">Standards</a>
+        <a href="#structures">Structures</a>
+        <a href="#glossary">Glossary</a>
+        <a href="#governance">Governance</a>
+        <a href="#filings">Filings</a>
+        <a href="#news">News</a>
+        <a href="#ir">IR</a>
+    </div>
+</nav>
+
+<div class="hero-image">
+    <img src="hero.jpg" alt="Office towers at dusk">
+</div>
+
+<!-- Hero -->
+<div class="hero">
+    <h1>The diagram is the product.</h1>
+    <p>Capital Structures, Inc. studies and publishes the legal and administrative architectures through which risk is transferred, isolated, priced, guaranteed, and disclosed.</p>
+</div>
+
+<!-- Method -->
+<section>
+    <h2 id="method"><span>Method</span></h2>
+    <p>Capital Structures, Inc. publishes structures in multiple conditions.</p>
+    <p>On an <strong>unconsolidated</strong> basis, a structure appears according to its formal legal boundaries, stated obligations, and authorized separations.</p>
+    <p>On a <strong>consolidated</strong> basis, the same arrangement is read across guarantees, dependencies, contingent support, and consequence paths that persist beyond those boundaries.</p>
+    <p>Where available, each structure is also shown in two states.</p>
+    <p><strong>Base Case</strong> records the arrangement as authorized, funded, and disclosed. <strong>Trigger State</strong> records what activates when a downgrade, shortfall, covenant breach, liquidity freeze, guarantee event, maturity event, dissolution event, or other contractual condition causes the diagram to move.</p>
+    <p>These are not alternate interpretations. They are alternate tests of the same structure.</p>
+
+    <p style="margin-top: 20px; padding-top: 14px; border-top: 1px solid #000;"><strong>Publication rule.</strong> A published structure must satisfy both tests: it must look cleaner on an unconsolidated basis than on a consolidated basis, and it must look calmer in base case than in trigger state. If neither picture changes, it is not yet a structure. It is only a document.</p>
+
+    <div class="method-toggles">
+        <div class="method-toggle">
+            <div class="method-toggle-label">Unconsolidated</div>
+            <div class="method-toggle-desc">What the structure is permitted to say about itself.</div>
+        </div>
+        <div class="method-toggle">
+            <div class="method-toggle-label">Consolidated</div>
+            <div class="method-toggle-desc">What the structure looks like when consequence paths are allowed to speak.</div>
+        </div>
+        <div class="method-toggle">
+            <div class="method-toggle-label">Base Case</div>
+            <div class="method-toggle-desc">Authorized, funded, disclosed. Triggers dormant.</div>
+        </div>
+        <div class="method-toggle">
+            <div class="method-toggle-label">Trigger State</div>
+            <div class="method-toggle-desc">Contingent conditions active. The diagram is in motion.</div>
+        </div>
+    </div>
+</section>
+
+<!-- Standards -->
+<section>
+    <h2 id="standards"><span>Standards</span></h2>
+
+    <div class="doctrine-item">
+        <p>A structure does not abolish exposure. It determines where exposure appears, under what name, at what cost, with what recourse, and at what distance from the originating entity.</p>
+    </div>
+
+    <div class="doctrine-item">
+        <p><strong>Exposure is conserved.</strong></p>
+        <p>Risk displaced from one layer of a structure reappears elsewhere.</p>
+    </div>
+
+    <div class="doctrine-item">
+        <p><strong>Disclosure is not transparency.</strong></p>
+        <p>A structure may be fully documented and still remain difficult to see.</p>
+    </div>
+
+    <div class="doctrine-item">
+        <p><strong>The diagram is an argument.</strong></p>
+        <p>Every arrow, guarantee, exclusion, and trigger path is part of the disclosed arrangement.</p>
+    </div>
+</section>
+
+<!-- Structures -->
+<section>
+    <h2 id="structures"><span>Structure Index</span></h2>
+    <p style="margin-bottom: 20px; font-size: 12px; letter-spacing: 0.02em; max-width: 640px;">Each published structure must look cleaner unconsolidated than consolidated, and calmer in base case than in trigger state. If neither picture changes, it is not yet a structure.</p>
+
+    <details>
+        <summary>
+            <span>001 &mdash; IP Contribution &amp; Pre-Pay Architecture</span>
+            <span class="meta">Authorized &middot; Protected Series</span>
+        </summary>
+        <div class="detail-body">
+            <div class="structure-meta">
+                <span><strong>Status</strong> Authorized</span>
+                <span><strong>Type</strong> Protected Series</span>
+                <span><strong>Ref</strong> ICA-001 / PN-001</span>
+                <span><strong>Counterparties</strong> Capital Structures, Inc. &middot; Martin Grasser</span>
+            </div>
+            <h4>Unconsolidated</h4>
+            <p>Protected Series 001 acquires contributed intellectual property under ICA-001. Consideration consists of PN-001 ($10,000,000 promissory note, 0% interest, contingent maturity) and $1,000 in Class B Units. Recourse is limited to Series assets except as expressly supported by the parent guarantee.</p>
+
+            <h4>Consolidated</h4>
+            <p>The same arrangement reunites valuation risk, founder compensation, governance discretion, and support expectation across the parent and Series 001. The legal boundary remains intact. The exposure boundary does not.</p>
+
+            <h4>Base Case</h4>
+            <p>The IP is booked at mark-to-model ($10,001,000, no independent appraisal). The note remains contingent. The series appears discrete, authorized, and sufficiently documented.</p>
+
+            <h4>Trigger State</h4>
+            <p>A liquidity event ($10M+), public listing, dissolution, mutual agreement, or 10-year backstop maturity converts contingent structure into payable consequence. Support expectations migrate toward the parent. The diagram begins to move.</p>
+
+            <h4>Balance Sheet &mdash; Protected Series 001</h4>
+            <ul>
+                <li>Assets: Contributed IP &mdash; $10,001,000 (mark-to-model)</li>
+                <li>Liabilities: Promissory Note to Martin Grasser &mdash; $10,000,000</li>
+                <li>Equity: Class B Units &mdash; $1,000</li>
+            </ul>
+
+            <h4>Residual Exposure</h4>
+            <p>Role overlap (CEO, sole director, and contributor are the same person), mark-to-model valuation, no independent appraisal. The structure is 99.99% debt-financed. That ratio is intentional, disclosed, and documented on the face of all instruments.</p>
+
+            <h4>Documents</h4>
+            <ul>
+                <li><a href="ica-001.html">IP Contribution Agreement (ICA-001-2026)</a></li>
+                <li><a href="pn-001.html">Promissory Note (PN-001-2026)</a></li>
+                <li><a href="bod-2026-001.html">Board Resolution (RES-2026-001)</a></li>
+                <li>Schedule A &mdash; Description of Contributed IP</li>
+                <li>Press Release</li>
+                <li>Structure Brief</li>
+            </ul>
+            <div class="diagram-container" id="diagram-001">
+                <div class="diagram-controls diagram-controls-disabled">
+                    <div class="diagram-control-group">
+                        <button class="diagram-btn active" disabled>
+                            <span class="diagram-btn-label">Unconsolidated</span>
+                            <span class="diagram-btn-desc">Legal boundaries</span>
+                        </button>
+                        <button class="diagram-btn" disabled>
+                            <span class="diagram-btn-label">Consolidated</span>
+                            <span class="diagram-btn-desc">Aggregate exposure</span>
+                        </button>
+                    </div>
+                    <div class="diagram-control-group">
+                        <button class="diagram-btn active" disabled>
+                            <span class="diagram-btn-label">Base Case</span>
+                            <span class="diagram-btn-desc">Triggers dormant</span>
+                        </button>
+                        <button class="diagram-btn" disabled>
+                            <span class="diagram-btn-label">Trigger State</span>
+                            <span class="diagram-btn-desc">Diagram in motion</span>
+                        </button>
+                    </div>
+                </div>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 780 600" id="svg-001">
+  <defs><style>
+    .t{font-family:'188 Sans Mono','Courier New',monospace}
+    .t1{font-size:11px;font-weight:700;letter-spacing:.08em}
+    .t2{font-size:9px;letter-spacing:.08em}
+    .t3{font-size:9px;letter-spacing:.06em}
+    .t4{font-size:8px;letter-spacing:.06em}
+  </style></defs>
+
+  <!-- ============================================ -->
+  <!-- BASE LAYER                                   -->
+  <!-- ============================================ -->
+
+  <!-- ROW 1: Martin Grasser — y=20 h=48 -->
+  <rect x="50" y="20" width="340" height="48" fill="none" stroke="#000" stroke-width="3"/>
+  <text class="t t1" text-anchor="middle" x="220" y="49">MARTIN GRASSER</text>
+
+  <!-- ARROW DOWN: Contributes IP — left channel x=160 -->
+  <line x1="160" y1="68" x2="160" y2="130" stroke="#000" stroke-width="1.5" fill="none"/>
+  <path d="M154,130l6,12,6-12h-12Z" fill="#000"/>
+  <text class="t t2" x="58" y="92" fill="#666">CONTRIBUTES IP</text>
+  <text class="t t3" x="58" y="104" fill="#666">($10,001,000)</text>
+  <text class="t t2" x="58" y="120" fill="#666">CAPITALIZES ($10,000)</text>
+
+  <!-- ARROW UP: Receives Note — right channel x=280 -->
+  <line x1="280" y1="148" x2="280" y2="80" stroke="#000" stroke-width="1.5" fill="none"/>
+  <path d="M274,80l6-12,6,12h-12Z" fill="#000"/>
+  <text class="t t2" x="294" y="96" fill="#666">RECEIVES NOTE ($10M)</text>
+  <text class="t t2" x="294" y="110" fill="#666">+ CLASS B UNITS ($1K)</text>
+
+  <!-- ROW 2: Capital Structures Inc. — y=148 h=48 -->
+  <rect x="50" y="148" width="340" height="48" fill="none" stroke="#000" stroke-width="1.5"/>
+  <text class="t t1" text-anchor="middle" x="220" y="176">CAPITAL STRUCTURES INC.</text>
+  <text class="t t2" text-anchor="middle" x="220" y="190">PARENT</text>
+
+  <!-- ARROW DOWN: Creates / Controls — x=220 -->
+  <line x1="220" y1="196" x2="220" y2="278" stroke="#000" stroke-width="1.5" fill="none"/>
+  <path d="M214,278l6,12,6-12h-12Z" fill="#000"/>
+  <text class="t t2" x="234" y="248" fill="#666">CREATES / CONTROLS</text>
+
+  <!-- ROW 3: Protected Series 001 — y=296 h=48 -->
+  <rect x="50" y="296" width="340" height="48" fill="none" stroke="#000" stroke-width="1.5"/>
+  <text class="t t1" text-anchor="middle" x="220" y="325">PROTECTED SERIES 001</text>
+
+  <!-- ICA-001 pill — x=450 w=280 -->
+  <rect x="450" y="298" width="280" height="44" rx="22" ry="22" fill="none" stroke="#000" stroke-width="1.5"/>
+  <text class="t t1" text-anchor="middle" x="590" y="318">ICA-001</text>
+  <text class="t t2" text-anchor="middle" x="590" y="333">IP CONTRIBUTION</text>
+  <line x1="390" y1="320" x2="450" y2="320" stroke="#000" stroke-width="1.5" fill="none"/>
+
+  <!-- CONNECTOR: Series 001 → Balance sheet -->
+  <line x1="220" y1="344" x2="220" y2="370" stroke="#000" stroke-width="1.5" fill="none"/>
+
+  <!-- ROW 4: Balance sheet — y=370 h=140 -->
+  <rect x="50" y="370" width="340" height="140" fill="none" stroke="#000" stroke-width="0.5"/>
+  <text class="t t2" x="66" y="392">ASSETS</text>
+  <text class="t t3" x="66" y="406">CONTRIBUTED IP          $10,001,000</text>
+  <line x1="66" y1="418" x2="374" y2="418" stroke="#000" stroke-width="0.5"/>
+  <text class="t t2" x="66" y="434">LIABILITIES</text>
+  <text class="t t3" x="66" y="448">NOTE (PN-001)           $10,000,000</text>
+  <line x1="66" y1="460" x2="374" y2="460" stroke="#000" stroke-width="0.5"/>
+  <text class="t t2" x="66" y="476">EQUITY</text>
+  <text class="t t3" x="66" y="490" style="font-weight:700">CLASS B UNITS                $1,000</text>
+
+  <!-- PN-001 pill -->
+  <rect x="450" y="378" width="280" height="44" rx="22" ry="22" fill="none" stroke="#000" stroke-width="1.5"/>
+  <text class="t t1" text-anchor="middle" x="590" y="398">PN-001</text>
+  <text class="t t2" text-anchor="middle" x="590" y="413">$10,000,000 / 0%</text>
+  <line x1="390" y1="400" x2="450" y2="400" stroke="#000" stroke-width="1.5" fill="none"/>
+
+  <!-- Class B Units pill -->
+  <rect x="450" y="444" width="280" height="44" rx="22" ry="22" fill="none" stroke="#000" stroke-width="1.5"/>
+  <text class="t t1" text-anchor="middle" x="590" y="464">CLASS B UNITS</text>
+  <text class="t t2" text-anchor="middle" x="590" y="479">$1,000</text>
+  <line x1="390" y1="466" x2="450" y2="466" stroke="#000" stroke-width="1.5" fill="none"/>
+
+  <!-- FOOTER -->
+  <line x1="50" y1="540" x2="740" y2="540" stroke="#000" stroke-width="0.5"/>
+  <text class="t t3" x="50" y="558" fill="#666">99.99% DEBT-FINANCED / MARK-TO-MODEL / SELF-DEALING DISCLOSED</text>
+  <text class="t t3" x="50" y="576">STRUCTURE 001 — IP CONTRIBUTION &amp; PRE-PAY ARCHITECTURE</text>
+
+</svg>
+            </div>
+        </div>
+    </details>
+
+    <details>
+        <summary>
+            <span>002 &mdash; verse.works Distribution Agreement</span>
+            <span class="meta">Proposed &middot; Protected Series</span>
+        </summary>
+        <div class="detail-body">
+            <div class="structure-meta">
+                <span><strong>Status</strong> Proposed</span>
+                <span><strong>Type</strong> Protected Series</span>
+                <span><strong>Ref</strong> DSA-002</span>
+                <span><strong>Counterparties</strong> Capital Structures, Inc. &middot; verse.works</span>
+            </div>
+            <p>Series 002 isolates contingent distribution rights as a monetization layer external to the Company&rsquo;s core operating entity, allowing the Company&rsquo;s go-to-market dependency to be diagrammed, valued, and stress-tested as a discrete structure.</p>
+
+            <h4>Unconsolidated</h4>
+            <p>Protected Series 002 holds DSA-002 as its sole asset. verse.works is compensated only through contingent revenue share tied to monetization events. No fixed fee is owed. No equity is granted. The series is uncapitalized.</p>
+
+            <h4>Consolidated</h4>
+            <p>The Company&rsquo;s distribution infrastructure sits outside the operating company but remains necessary to promotion, collector access, and revenue realization. Separation persists. Dependency persists with it.</p>
+
+            <h4>Base Case</h4>
+            <p>No sale, license, or offering proceeds. No commission accrues. The series remains structurally live but economically dormant.</p>
+
+            <h4>Trigger State</h4>
+            <p>Any monetization event &mdash; sale of Class B Units, licensing of structures, or other proceeds &mdash; activates the revenue-share waterfall. Because the series is uncapitalized, timing mismatch, negative equity, and dependency on external distribution become visible immediately.</p>
+
+            <h4>Balance Sheet &mdash; Protected Series 002</h4>
+            <ul>
+                <li>Assets: Distribution Agreement (DSA-002) &mdash; $500,000 (mark-to-model)</li>
+                <li>Liabilities: Revenue Share Payable &mdash; $0 (contingent on proceeds)</li>
+                <li>Equity: $0 &mdash; uncapitalized</li>
+            </ul>
+
+            <h4>Residual Exposure</h4>
+            <p>Uncapitalized series. May carry negative equity when commissions exceed nominal asset value. Go-to-market capability depends entirely on an independent third party with no binding performance obligation. This is anticipated and disclosed.</p>
+
+            <h4>Documents</h4>
+            <ul>
+                <li>Distribution &amp; Strategic Advisory Agreement (DSA-002-2026)</li>
+                <li>Board Resolution (RES-2026-002)</li>
+                <li>Revenue Share Schedule (Exhibit A to DSA-002)</li>
+                <li>Press Release</li>
+                <li>Structure Brief</li>
+            </ul>
+            <div class="diagram-container">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 850">
+  <defs><style>
+    .t{font-family:'188 Sans Mono','Courier New',monospace}
+    .t1{font-size:11px;font-weight:700;letter-spacing:.08em}
+    .t2{font-size:9px;letter-spacing:.08em}
+    .t3{font-size:9px;letter-spacing:.06em}
+  </style></defs>
+
+  <!-- ROW 1: CS Inc -->
+  <rect x="40" y="30" width="300" height="65" fill="none" stroke="#000" stroke-width="1.5"/>
+  <text class="t t1" text-anchor="middle" x="190" y="59">CAPITAL STRUCTURES INC.</text>
+  <text class="t t2" text-anchor="middle" x="190" y="79">PARENT</text>
+
+  <!-- verse.works -->
+  <rect x="440" y="30" width="220" height="65" fill="none" stroke="#000" stroke-width="1.5" stroke-dasharray="6 4"/>
+  <text class="t t1" text-anchor="middle" x="550" y="59">VERSE.WORKS</text>
+  <text class="t t2" text-anchor="middle" x="550" y="79">INDEPENDENT PARTY</text>
+
+  <!-- ARROW DOWN: CS Inc → Series 002 -->
+  <line x1="190" y1="95" x2="190" y2="260" stroke="#000" stroke-width="1.5" fill="none"/>
+  <path d="M184,260l6,14,6-14h-12Z" fill="#000"/>
+  <text class="t t2" x="114" y="194" text-anchor="middle" fill="#666">CREATES / CONTROLS</text>
+
+  <!-- REVENUE SHARE: L-shaped arrow -->
+  <line x1="340" y1="300" x2="390" y2="300" stroke="#000" stroke-width="1.5" stroke-dasharray="3 3" fill="none"/>
+  <line x1="390" y1="300" x2="390" y2="62" stroke="#000" stroke-width="1.5" stroke-dasharray="3 3" fill="none"/>
+  <line x1="390" y1="62" x2="428" y2="62" stroke="#000" stroke-width="1.5" stroke-dasharray="3 3" fill="none"/>
+  <path d="M428,56l12,6-12,6Z" fill="#000"/>
+  <text class="t t2" x="350" y="175" text-anchor="middle" fill="#666">REVENUE</text>
+  <text class="t t2" x="350" y="190" text-anchor="middle" fill="#666">SHARE</text>
+  <text class="t t3" x="350" y="207" text-anchor="middle" fill="#666">(CONTINGENT)</text>
+
+  <!-- SERVICES annotation -->
+  <text class="t t2" x="445" y="126" fill="#666">PROMOTIONAL REACH</text>
+  <text class="t t2" x="445" y="143" fill="#666">COLLECTOR ACCESS</text>
+  <text class="t t2" x="445" y="160" fill="#666">STRATEGIC COUNSEL</text>
+
+  <!-- ROW 2: Series 002 + DSA pill -->
+  <rect x="40" y="280" width="300" height="65" fill="none" stroke="#000" stroke-width="1.5"/>
+  <text class="t t1" text-anchor="middle" x="190" y="317">PROTECTED SERIES 002</text>
+
+  <!-- DSA-002 pill -->
+  <rect x="440" y="285" width="220" height="55" rx="27" ry="27" fill="none" stroke="#000" stroke-width="1.5"/>
+  <text class="t t1" text-anchor="middle" x="550" y="310">DSA-002</text>
+  <text class="t t2" text-anchor="middle" x="550" y="327">DISTRIBUTION AGREEMENT</text>
+  <line x1="340" y1="312" x2="440" y2="312" stroke="#000" stroke-width="1.5" fill="none"/>
+
+  <!-- CONNECTOR: Series 002 → Balance sheet -->
+  <line x1="190" y1="345" x2="190" y2="390" stroke="#000" stroke-width="1.5" fill="none"/>
+
+  <!-- ROW 3: Balance sheet -->
+  <rect x="40" y="390" width="300" height="180" fill="none" stroke="#000" stroke-width="0.5"/>
+  <text class="t t2" x="60" y="417">ASSETS</text>
+  <text class="t t3" x="60" y="434">DSA-002 AGREEMENT       $500,000</text>
+  <line x1="60" y1="452" x2="320" y2="452" stroke="#000" stroke-width="0.5"/>
+  <text class="t t2" x="60" y="470">LIABILITIES</text>
+  <text class="t t3" x="60" y="487">REVENUE SHARE PAYABLE          $0</text>
+  <line x1="60" y1="505" x2="320" y2="505" stroke="#000" stroke-width="0.5"/>
+  <text class="t t2" x="60" y="523">EQUITY</text>
+  <text class="t t3" x="60" y="540" style="font-weight:700">UNCAPITALIZED                  $0</text>
+
+  <!-- DASHED CONNECTOR: Balance sheet → Series 001 -->
+  <line x1="190" y1="570" x2="190" y2="618" stroke="#000" stroke-width="1.5" stroke-dasharray="6 4" fill="none"/>
+  <text class="t t3" x="205" y="597" fill="#666">STRUCTURES ORIGINATE HERE</text>
+
+  <!-- ROW 4: Series 001 ref + Collectors -->
+  <rect x="40" y="620" width="300" height="55" fill="none" stroke="#000" stroke-width="0.5"/>
+  <text class="t t2" text-anchor="middle" x="190" y="652">SERIES 001 (IP / PN-001 / $10M NOTE)</text>
+
+  <rect x="440" y="620" width="220" height="55" fill="none" stroke="#000" stroke-width="1.5" stroke-dasharray="6 4"/>
+  <text class="t t1" text-anchor="middle" x="550" y="652">COLLECTORS</text>
+
+  <!-- Dotted connector: proceeds flow -->
+  <line x1="358" y1="647" x2="440" y2="647" stroke="#000" stroke-width="1.5" stroke-dasharray="3 3" fill="none"/>
+  <path d="M358,641l-12,6,12,6Z" fill="#000"/>
+  <text class="t t3" x="40" y="700" fill="#666">SALE PROCEEDS (REG CF / LICENSING)</text>
+
+  <!-- FOOTER -->
+  <line x1="40" y1="740" x2="680" y2="740" stroke="#000" stroke-width="0.5"/>
+  <text class="t t3" x="40" y="765" fill="#666">UNCAPITALIZED / MARK-TO-MODEL / CONTINGENT REVENUE SHARE</text>
+  <text class="t t3" x="40" y="805">STRUCTURE 002 — VERSE.WORKS DISTRIBUTION AGREEMENT</text>
+</svg>
+            </div>
+        </div>
+    </details>
+</section>
+
+<!-- Glossary -->
+<section>
+    <h2 id="glossary"><span>Glossary</span></h2>
+
+    <div class="glossary-entry">
+        <div class="glossary-term">Exposure Conservation</div>
+        <div class="glossary-def">The proposition that risk displaced from one layer of a structure must reappear elsewhere rather than disappear.</div>
+        <div class="glossary-usage">Capital Structures usage: A doctrine of structural thermodynamics.</div>
+    </div>
+
+    <div class="glossary-entry">
+        <div class="glossary-term">Non-Recourse</div>
+        <div class="glossary-def">A financing arrangement in which recovery is limited to specified assets and does not extend to the originator&rsquo;s remaining estate.</div>
+        <div class="glossary-usage">Capital Structures usage: A boundary drawn in advance for where loss is permitted to stop.</div>
+    </div>
+
+    <div class="glossary-entry">
+        <div class="glossary-term">Bankruptcy Remoteness</div>
+        <div class="glossary-def">A legal and structural condition designed to reduce the risk that an entity&rsquo;s assets will be pulled into an affiliate&rsquo;s insolvency.</div>
+        <div class="glossary-usage">Capital Structures usage: Distance engineered against contagion.</div>
+    </div>
+
+    <div class="glossary-entry">
+        <div class="glossary-term">True Sale</div>
+        <div class="glossary-def">A transfer characterized as an actual sale rather than secured borrowing, typically to preserve asset separation in insolvency.</div>
+        <div class="glossary-usage">Capital Structures usage: A legal transformation on which the rest of the structure depends.</div>
+    </div>
+
+    <div class="glossary-entry">
+        <div class="glossary-term">Consolidated View</div>
+        <div class="glossary-def">A perspective that evaluates the structure on an aggregate basis, overlaying exposure, guarantees, dependencies, and consequence paths across entity boundaries.</div>
+        <div class="glossary-usage">Capital Structures usage: The view in which containment is tested.</div>
+    </div>
+
+    <div class="glossary-entry">
+        <div class="glossary-term">Unconsolidated View</div>
+        <div class="glossary-def">A perspective that respects formal entity boundaries and presents the structure according to its discrete legal components.</div>
+        <div class="glossary-usage">Capital Structures usage: The version the structure is authorized to present of itself.</div>
+    </div>
+
+    <div class="glossary-entry">
+        <div class="glossary-term">Trigger State</div>
+        <div class="glossary-def">The condition of a structure after a contractual, rating, collateral, liquidity, or governance event has activated contingent consequences.</div>
+        <div class="glossary-usage">Capital Structures usage: The moment the diagram begins to move.</div>
+    </div>
+
+    <div class="glossary-entry">
+        <div class="glossary-term">Residual Exposure</div>
+        <div class="glossary-def">Risk that remains after transfer, isolation, ring-fencing, or non-recourse drafting, whether by contingency, support expectation, operational dependency, or system linkage.</div>
+        <div class="glossary-usage">Capital Structures usage: What the structure cannot fully exile.</div>
+    </div>
+
+    <div class="glossary-entry">
+        <div class="glossary-term">Liquidity Event</div>
+        <div class="glossary-def">A transaction or financing event that converts constrained claims into available cash for continuation, repayment, or survival.</div>
+        <div class="glossary-usage">Capital Structures usage: Cash introduced where time has started to harden.</div>
+    </div>
+
+    <div class="glossary-entry">
+        <div class="glossary-term">Aggregate Dependency</div>
+        <div class="glossary-def">A functional reliance that persists across formal legal boundaries, including shared funding, servicing, management, guarantees, or operational support.</div>
+        <div class="glossary-usage">Capital Structures usage: Separation that continues to depend.</div>
+    </div>
+</section>
+
+<!-- Governance -->
+<section>
+    <h2 id="governance"><span>Governance</span></h2>
+    <ul class="grid-list">
+        <li>Organizational Chart<span class="meta">Active</span></li>
+    </ul>
+
+    <details>
+        <summary>
+            <span>Board Minutes (BOD-2026-001)</span>
+            <span class="meta">Filed &middot; February 28, 2026</span>
+        </summary>
+        <div class="detail-body">
+            <p style="font-size:11px; letter-spacing:0.06em; text-transform:uppercase; margin-bottom:16px; padding-bottom:12px; border-bottom:0.5px solid #000;">Minutes of the Organizational Meeting &middot; Action by Unanimous Written Consent &middot; February 28, 2026</p>
+
+            <p>Martin Grasser, as the sole director of Capital Structures Inc., acting by unanimous written consent in lieu of a meeting pursuant to Section 141(f) of the Delaware General Corporation Law, adopted the following resolutions.</p>
+
+            <h4>RES-2026-001: Organization of the Corporation</h4>
+            <p>RESOLVED, that the bylaws presented to the sole director are hereby adopted; that the fiscal year shall be the calendar year; that the officers are authorized to open bank accounts, execute agreements, and take all actions necessary to commence operations; and that all actions heretofore taken by the incorporator in connection with the formation of the Company are hereby ratified and approved.</p>
+
+            <h4>RES-2026-002: Appointment of Officers</h4>
+            <ul>
+                <li>Martin Grasser &mdash; Chief Executive Officer</li>
+                <li>Audrey Chen &mdash; Head of Operations, effective February 28, 2026</li>
+            </ul>
+            <p>Each officer is authorized to execute documents and take actions within the scope of their respective roles.</p>
+
+            <h4>RES-2026-003: Adoption of the Structural Fiduciary</h4>
+            <p>RESOLVED, that the Structural Fiduciary is hereby adopted as a foundational governance document. The Doctrine establishes that the Board&rsquo;s fiduciary obligations include truthful disclosure, procedural integrity, and structural good faith &mdash; and that management decisions may include forming entities with no revenue-generating purpose, entering economically neutral transactions, maintaining excess complexity, and dissolving the Company at a moment determined to be structurally complete.</p>
+            <p>The Doctrine shall be disclosed to all participants, holders, and counterparties as a material term of participation in any Company offering.</p>
+
+            <h4>RES-2026-004: Authorization of AI Agent Infrastructure</h4>
+            <p>RESOLVED, that the deployment of the Global Finance Department agent and the Corporate Secretary agent is hereby authorized. All documents generated by the Agents shall be clearly identified as agent-generated and shall require officer signature and, where applicable, counsel review prior to filing. The system prompts and operating configurations of the Agents are designated as Company records. The CEO is authorized to modify Agent configurations as operational needs require, with material changes reported to the Board.</p>
+
+            <h4>RES-2026-005: Authorization of Structure 001 &mdash; Self-Dealing Architecture</h4>
+            <p>RESOLVED, that the creation of Protected Series 001 is hereby authorized. Martin Grasser, in his personal capacity, is authorized to acquire Class B Units in Protected Series 001, notwithstanding his position as CEO and sole director. The Company shall guarantee the performance obligations of Protected Series 001. The self-dealing nature of this transaction is acknowledged, disclosed, and recorded in the corporate minutes and all related documentation.</p>
+
+            <h4>Action Items</h4>
+            <ul>
+                <li>File adopted bylaws in corporate records &mdash; Corporate Secretary</li>
+                <li>Open corporate bank account &mdash; CEO</li>
+                <li>Engage securities counsel for charter and Form C review &mdash; CEO</li>
+                <li>Execute Structure 001 documentation package &mdash; Global Finance Dept.</li>
+                <li>Review Structure 001 documentation &mdash; Securities Counsel</li>
+                <li>File Structure 001 in structure index &mdash; Corporate Secretary</li>
+                <li>Update cap table to reflect CEO&rsquo;s Class B position &mdash; Corporate Secretary</li>
+                <li>Archive Agent system prompts as Company records &mdash; Corporate Secretary</li>
+            </ul>
+
+            <p><em>Approved by unanimous written consent of the sole director. Agent-generated; requires officer signature to become effective.</em></p>
+        </div>
+    </details>
+</section>
+
+<!-- Personnel -->
+<section>
+    <h2><span>Personnel</span></h2>
+    <ul class="grid-list">
+        <li class="category">Officers</li>
+        <li>Martin Grasser<span class="meta">Chief Executive Officer</span></li>
+        <li>Audrey Chen<span class="meta">Head of Operations</span></li>
+        <li class="category">External</li>
+        <li>verse.works<span class="meta">Independent Strategic Advisor</span></li>
+        <li>K.L.<span class="meta">Accountant</span></li>
+        <li class="category">Back Office (Agents)</li>
+        <li>Global Finance Department<span class="meta">Press releases, board resolutions, structure briefs</span></li>
+        <li>Corporate Secretary<span class="meta">Governance, filings, cap table, structure index</span></li>
+        <li>Investor Relations<span class="meta">Shareholder communications, NAV reports</span></li>
+    </ul>
+</section>
+
+<!-- Process -->
+<section>
+    <h2><span>Process</span></h2>
+    <p>All structures, filings, and disclosures are produced through a defined workflow involving human officers and AI agents operating under published configurations.</p>
+
+    <details>
+        <summary>
+            <span>Global Finance Department</span>
+            <span class="meta">Agent &middot; Structures &amp; Disclosures</span>
+        </summary>
+        <div class="detail-body">
+            <p>The Company&rsquo;s primary structuring function. Responsible for the design, execution, and documentation of all corporate and financial structures, including board resolutions, press releases, structure briefs, NAV updates, and earnings call scripts.</p>
+        </div>
+    </details>
+
+    <details>
+        <summary>
+            <span>Corporate Secretary</span>
+            <span class="meta">Agent &middot; Governance &amp; Record</span>
+        </summary>
+        <div class="detail-body">
+            <p>Maintains the corporate record, tracks filings, manages the structure index, and prepares board materials. Ensures procedural integrity across all corporate actions. Does not create structures or advise on strategy.</p>
+        </div>
+    </details>
+
+    <details>
+        <summary>
+            <span>Human Review Chain</span>
+            <span class="meta">Officers &amp; Counsel</span>
+        </summary>
+        <div class="detail-body">
+            <ul>
+                <li>Audrey Chen, Head of Operations &mdash; completeness review</li>
+                <li>Martin Grasser, CEO &mdash; approval (sole Class A vote)</li>
+                <li>Securities Counsel &mdash; legal review before filing</li>
+                <li>K.L., Accountant &mdash; financial accuracy</li>
+            </ul>
+            <p>No document is filed or published without human review. No agent has autonomous authority.</p>
+        </div>
+    </details>
+</section>
+
+<!-- Filings -->
+<section>
+    <h2 id="filings"><span>Filings</span></h2>
+    <ul class="grid-list">
+        <li class="category">Delaware</li>
+        <li>Certificate of Incorporation<span class="meta status-pending">Pending</span></li>
+        <li>Annual Report<span class="meta status-pending">Pending</span></li>
+        <li>Franchise Tax<span class="meta status-pending">Pending</span></li>
+        <li>Registered Agent Designation<span class="meta status-pending">Pending</span></li>
+    </ul>
+</section>
+
+<!-- News -->
+<section>
+    <h2 id="news"><span>News</span></h2>
+
+    <details>
+        <summary>
+            <span>Capital Structures, Inc. Announces Intent to Form and Proposed Regulation Crowdfunding Offering</span>
+            <span class="meta">January 15, 2025</span>
+        </summary>
+        <div class="detail-body">
+            <p style="font-size:11px; letter-spacing:0.06em; text-transform:uppercase; margin-bottom:16px; padding-bottom:12px; border-bottom:0.5px solid #000;">For Immediate Release &middot; January 15, 2025 &middot; Wilmington, Delaware</p>
+
+            <p>Capital Structures, Inc., a Delaware C-Corporation, announces its formation as an intellectual property company whose sole product is the creation, execution, and disclosure of corporate and financial structures.</p>
+            <p>The Company intends to conduct a Regulation Crowdfunding (Reg CF) offering through a registered online portal. Through the offering, the Company expects to make 20 Class B Units available at $1,000 per unit, for a total raise of $20,000.</p>
+
+            <h4>Offering Terms</h4>
+            <ul>
+                <li>Units Available &mdash; 20 Class B Units</li>
+                <li>Price per Unit &mdash; $1,000</li>
+                <li>Total Raise &mdash; $20,000</li>
+                <li>Structure &mdash; Each unit constitutes a new Delaware Protected Series</li>
+                <li>Portal &mdash; Wefunder or Republic (to be confirmed)</li>
+            </ul>
+
+            <h4>What Participants Receive</h4>
+            <p>Each contribution creates a new Protected Series under Delaware law. Participants receive Class B Units &mdash; real securities, documented in the Company&rsquo;s public archive. Class B Units carry no voting rights, no dividends, no liquidation preference, and position inside a fully disclosed corporate system.</p>
+
+            <h4>How to Participate</h4>
+            <p>The offering will be conducted through a Reg CF portal. The Company will announce the portal listing and open date when Form C has been filed with the SEC.</p>
+
+            <h4>Risk Factors</h4>
+            <ul>
+                <li>The Company may never generate revenue.</li>
+                <li>The Company may intentionally dissolve at any time.</li>
+                <li>Management is not incentivized to increase the value of any securities.</li>
+                <li>Class B Units may have no resale market.</li>
+                <li>Participants should expect total loss of their contribution.</li>
+            </ul>
+
+            <h4>Important Notice</h4>
+            <p>No securities are currently being offered. This announcement does not constitute an offer to sell or a solicitation of an offer to buy any security. Any offering will be made only through a Reg CF portal in compliance with applicable securities laws, and only after a Form C has been filed with the Securities and Exchange Commission.</p>
+
+            <p><em>Prepared by the Global Finance Department of Capital Structures, Inc.</em></p>
+        </div>
+    </details>
+</section>
+
+<!-- IR -->
+<section>
+    <h2 id="ir"><span>Investor Relations</span></h2>
+
+    <details>
+        <summary>
+            <span>Formation Press Release</span>
+            <span class="meta">Published &middot; January 15, 2025</span>
+        </summary>
+        <div class="detail-body">
+            <p style="font-size:11px; letter-spacing:0.06em; text-transform:uppercase; margin-bottom:16px; padding-bottom:12px; border-bottom:0.5px solid #000;">For Immediate Release &middot; January 15, 2025 &middot; Wilmington, Delaware</p>
+
+            <p>Capital Structures, Inc., a Delaware C-Corporation, announces its formation as an intellectual property company whose sole product is the creation, execution, and disclosure of corporate and financial structures.</p>
+            <p>The Company intends to conduct a Regulation Crowdfunding (Reg CF) offering through a registered online portal. Through the offering, the Company expects to make 20 Class B Units available at $1,000 per unit, for a total raise of $20,000.</p>
+
+            <h4>Risk Factors</h4>
+            <ul>
+                <li>The Company may never generate revenue.</li>
+                <li>The Company may intentionally dissolve at any time.</li>
+                <li>Management is not incentivized to increase the value of any securities.</li>
+                <li>Class B Units may have no resale market.</li>
+                <li>Participants should expect total loss of their contribution.</li>
+            </ul>
+
+            <h4>Important Notice</h4>
+            <p>No securities are currently being offered. This announcement does not constitute an offer to sell or a solicitation of an offer to buy any security. Any offering will be made only through a Reg CF portal in compliance with applicable securities laws, and only after a Form C has been filed with the Securities and Exchange Commission.</p>
+
+            <p><em>Prepared by the Global Finance Department of Capital Structures, Inc.</em></p>
+        </div>
+    </details>
+
+    <ul class="grid-list">
+        <li>Structure 001 Press Release<span class="meta status-pending">Pending</span></li>
+        <li>NAV Update &mdash; Q2 2026<span class="meta status-pending">Pending</span></li>
+    </ul>
+</section>
+
+<!-- Forward-Looking Statements -->
+<section>
+    <h2 style="margin-bottom:10px;"><span>Forward-Looking Statements</span></h2>
+    <p style="font-size:12px; line-height:1.5; max-width:640px;">The Company may never generate profit and may intentionally dissolve. Past structures are not indicative of future structures. No securities are currently being offered. Nothing on this site constitutes an offer to sell or a solicitation of an offer to buy any security. All materials are provided for informational purposes only.</p>
+</section>
+
+<footer>
+    <div class="footer-content">
+        <div class="footer-left">
+            <p>Capital Structures, Inc.</p>
+            <p>Wilmington, Delaware</p>
+            <p class="footer-notice">Not an offer.</p>
+        </div>
+        <div class="footer-links">
+            <a href="#method">Method</a>
+            <a href="#standards">Standards</a>
+            <a href="#structures">Structures</a>
+            <a href="#glossary">Glossary</a>
+            <a href="#governance">Governance</a>
+        </div>
+    </div>
+</footer>
+
+<script>
+(function() {
+    var nav = document.querySelector('nav');
+    var toggle = document.querySelector('.nav-toggle');
+    var links = document.querySelector('.nav-links');
+    var lastY = 0;
+    toggle.addEventListener('click', function() {
+        toggle.classList.toggle('open');
+        links.classList.toggle('open');
+    });
+    links.addEventListener('click', function(e) {
+        if (e.target.tagName === 'A') {
+            toggle.classList.remove('open');
+            links.classList.remove('open');
+        }
+    });
+    // Diagram view/state toggles
+    window.setView = function(diagramId, view) {
+        var container = document.getElementById('diagram-' + diagramId);
+        var svg = document.getElementById('svg-' + diagramId);
+        if (!container || !svg) return;
+        var btns = container.querySelectorAll('[data-view]');
+        btns.forEach(function(b) {
+            b.classList.toggle('active', b.getAttribute('data-view') === view);
+        });
+        if (view === 'co') {
+            svg.classList.add('diagram-view-co');
+        } else {
+            svg.classList.remove('diagram-view-co');
+        }
+    };
+    window.setState = function(diagramId, state) {
+        var container = document.getElementById('diagram-' + diagramId);
+        var svg = document.getElementById('svg-' + diagramId);
+        if (!container || !svg) return;
+        var btns = container.querySelectorAll('[data-state]');
+        btns.forEach(function(b) {
+            b.classList.toggle('active', b.getAttribute('data-state') === state);
+        });
+        if (state === 'ts') {
+            svg.classList.add('diagram-view-ts');
+        } else {
+            svg.classList.remove('diagram-view-ts');
+        }
+    };
+
+    window.addEventListener('scroll', function() {
+        var y = window.scrollY;
+        if (y > lastY && y > 80) {
+            nav.classList.add('nav-hidden');
+        } else {
+            nav.classList.remove('nav-hidden');
+        }
+        lastY = y;
+    });
+})();
+</script>
+
+</body>
+</html>
