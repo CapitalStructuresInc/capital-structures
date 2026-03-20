@@ -18,10 +18,9 @@ This is also conceptually essential: the work uses real securities law as medium
 1. Capital Structures Inc. lists on a Reg CF portal (Wefunder or Republic)
 2. The listing describes the company, the risks, and what participants receive
 3. Anyone can contribute — minimum likely $100–$500, adjustable
-4. Your capital enters the parent company's treasury (the Formation Reserve)
-5. You receive parent-level securities (Class B Units) — real securities, documented and archived
-6. You appear on the Participant Ledger — a public record of the company's capital base
-7. There's a 1-year holding period before units can be traded on secondary markets
+4. Each contribution triggers a new structure: a Protected Series under Delaware law
+5. The participant receives Class B Units — real securities, documented and archived
+6. There's a 1-year holding period before units can be traded on secondary markets
 
 ### What do participants receive?
 
@@ -29,7 +28,7 @@ Class B Units. These are real securities. They carry:
 - **No voting rights** (Martin holds the sole voting share)
 - **No dividends**
 - **No liquidation preference**
-- **Position inside a disclosed institution** — their name on the participant ledger, their capital in the treasury, their participation documented and archived
+- **Position inside a disclosed system** — their name on the cap table, their structure in the archive, their certificate printed and documented
 
 In CEO voice: "They get position. Not return."
 
@@ -45,8 +44,8 @@ This is all stated plainly in the Form C. Total disclosure.
 ### How much can we raise?
 
 Reg CF allows up to $5 million per year. We're targeting much less:
-- Phase I goal: ~$100,000
-- Break-even: ~$75,000
+- Phase I goal: $100,000 (20 structures)
+- Break-even: ~15 structures (~$75,000)
 
 ### What does the portal take?
 
@@ -63,7 +62,7 @@ verse.works is not selling the securities. The portal handles that. verse.works 
 2. **Promotion** — reaching collectors who understand conceptual work
 3. **Strategic counsel** — framing, audience, messaging
 
-verse.works is documented on the site as the company's presentation and servicing partner — the relationship itself is part of the disclosed architecture.
+verse.works is documented as Structure 002: the company's first external relationship, disclosed as a corporate structure itself.
 
 ### What about secondary markets?
 
@@ -79,7 +78,7 @@ An NFT is a token. This is a registered security filed with the SEC. The legal f
 2. Draft and file Form C (4-6 weeks with counsel)
 3. Portal compliance review (2-4 weeks)
 4. Go live on portal
-5. Participants capitalized as contributions come in
+5. Structures created as contributions come in
 
 ### The bottom line for verse
 
