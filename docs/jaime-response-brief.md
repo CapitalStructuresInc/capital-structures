@@ -100,7 +100,7 @@ Currently, the only thing offered is parent-level participation (securities of t
 1. You go to the Reg CF portal (Wefunder or Republic) and contribute.
 2. Your capital enters the parent company's treasury (the Formation Reserve).
 3. You appear on the Participant Ledger — a public record of the company's capital base.
-4. You receive parent-level securities (Class B Units). These are real securities: no voting rights, no dividends, no liquidation preference, but a real position inside a real company.
+4. You receive parent-level securities — the specific instrument to be determined with counsel. Real securities: no voting rights, no dividends, no liquidation preference, but a real position inside a real company.
 5. Your participation is documented and archived.
 
 **What the board does with treasury:**
@@ -114,7 +114,7 @@ The board has a full toolkit — not just entity formation:
 
 **Example structure already on the site — Structure 001 (IP Contribution & Pre-Pay Architecture):**
 
-Martin Grasser contributes all intellectual property to Protected Series 001. In return, Series 001 issues a $10,000,000 Promissory Note and $1,000 in Class B Units. The structure is 99.99% debt-financed. Self-dealing is disclosed, documented, and intentional. This mirrors arrangements common in Enron-era SPE formations — the critical difference being full disclosure.
+Martin Grasser contributes all intellectual property to Protected Series 001. In return, Series 001 issues a $10,000,000 Promissory Note and $5,000 in Class B Units. The structure is 99.95% debt-financed. Self-dealing is disclosed, documented, and intentional. This mirrors arrangements common in Enron-era SPE formations — the critical difference being full disclosure.
 
 This isn't a hypothetical. It's already authorized, documented, and published on the site with a full balance sheet, four analytical views, and linked legal documents.
 
