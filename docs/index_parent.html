@@ -112,14 +112,15 @@
             font-weight: normal;
             line-height: 1.0;
             letter-spacing: -0.02em;
-            margin-bottom: 32px;
-            display: block;
+            display: inline;
             color: #000;
-            text-decoration: none;
-            border-bottom: 1.5px solid transparent;
-            transition: border-color 0.15s;
+            text-decoration: underline;
+            text-decoration-thickness: 1.5px;
+            text-underline-offset: 4px;
+            text-decoration-color: rgba(0,0,0,0.25);
+            transition: text-decoration-color 0.15s;
         }
-        .hero .hero-sub:hover { border-bottom-color: #000; }
+        .hero .hero-sub:hover { text-decoration-color: #000; opacity: 1; }
         .hero p {
             font-size: 15px;
             line-height: 1.5;
@@ -360,7 +361,7 @@
             .nav-links a:last-child { border-bottom: none; }
             .hero { padding: 40px 20px 32px 20px; }
             .hero h1 { font-size: 30px; }
-            .hero .hero-sub { font-size: 30px; margin-bottom: 24px; }
+            .hero .hero-sub { font-size: 30px; }
             section { padding: 0 20px 48px 20px; }
             .hero-image { padding: 0 20px; }
             footer { padding: 48px 20px; }
@@ -369,7 +370,7 @@
         }
         @media (max-width: 480px) {
             .hero h1 { font-size: 24px; }
-            .hero .hero-sub { font-size: 24px; }
+            .hero .hero-sub { font-size: 24px; text-underline-offset: 3px; }
             .nav-links a { font-size: 10px; }
         }
     </style>
@@ -382,7 +383,7 @@
     <div class="nav-links">
         <a href="#architecture">Architecture</a>
         <a href="#archive">Archive</a>
-        <a href="#doctrine">Doctrine</a>
+        <a href="#operations">Operations</a>
         <a href="#queue">Queue</a>
         <a href="#ledger">Ledger</a>
         <a href="#governance">Governance</a>
@@ -397,7 +398,7 @@
 <!-- Hero -->
 <div class="hero">
     <h1>The company is the work.</h1>
-    <a href="#archive" class="hero-sub">The balance sheet is the artwork.</a>
+    <div style="margin-bottom: 32px;"><a href="#archive" class="hero-sub">The balance sheet is the artwork.</a></div>
     <p>Capital Structures, Inc. turns participation into treasury, treasury into deployments, deployments into structures, and structures into public record.</p>
     <p>Risk is not erased. It is transferred, isolated, repriced, deferred, ring-fenced, guaranteed, made non-recourse, or disclosed. Every structure here is a record of where risk was sent and under what terms it was permitted to arrive.</p>
     <p>Participants capitalize the parent company. The board uses that capital to operate the institution, build its archive, stage its public life, and form internal structures only when they change something real about ownership, liability, cash flow, servicing, or reporting.</p>
@@ -631,9 +632,9 @@
     </details>
 </section>
 
-<!-- Doctrine -->
+<!-- Operations -->
 <section>
-    <h2 id="doctrine"><span>Doctrine</span></h2>
+    <h2 id="operations"><span>Operations</span></h2>
 
     <h2 id="method" style="margin-top: 24px;"><span>Method</span></h2>
     <p>Capital Structures, Inc. is a single public institution, but its structures are still read in multiple conditions.</p>
@@ -980,7 +981,7 @@
         <div class="footer-links">
             <a href="#architecture">Architecture</a>
             <a href="#archive">Archive</a>
-            <a href="#doctrine">Doctrine</a>
+            <a href="#operations">Operations</a>
             <a href="#queue">Queue</a>
             <a href="#governance">Governance</a>
         </div>
