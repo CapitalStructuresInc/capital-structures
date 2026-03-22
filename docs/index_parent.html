@@ -114,13 +114,10 @@
             letter-spacing: -0.02em;
             display: inline;
             color: #000;
-            text-decoration: underline;
-            text-decoration-thickness: 1.5px;
-            text-underline-offset: 4px;
-            text-decoration-color: rgba(0,0,0,0.25);
-            transition: text-decoration-color 0.15s;
+            text-decoration: none;
+            cursor: pointer;
         }
-        .hero .hero-sub:hover { text-decoration-color: #000; opacity: 1; }
+        .hero .hero-sub:hover { opacity: 0.5; }
         .hero p {
             font-size: 15px;
             line-height: 1.5;
@@ -133,7 +130,7 @@
         section {
             max-width: 960px;
             margin: 0 auto;
-            padding: 0 32px 64px 32px;
+            padding: 0 32px 72px 32px;
         }
         /* Primary section dividers — heavy */
         section > h2:first-child {
@@ -141,8 +138,8 @@
             font-weight: bold;
             letter-spacing: 0.08em;
             text-transform: uppercase;
-            margin-bottom: 28px;
-            padding-top: 20px;
+            margin-bottom: 32px;
+            padding-top: 10px;
             border-top: 6px solid #000;
             scroll-margin-top: 56px;
         }
@@ -152,8 +149,9 @@
             font-weight: bold;
             letter-spacing: 0.08em;
             text-transform: uppercase;
-            margin-bottom: 20px;
-            padding-top: 14px;
+            margin-bottom: 24px;
+            margin-top: 56px;
+            padding-top: 8px;
             border-top: 2px solid #000;
             scroll-margin-top: 56px;
         }
@@ -261,10 +259,10 @@
             font-weight: bold;
             letter-spacing: 0.06em;
             text-transform: uppercase;
-            margin-top: 14px;
-            margin-bottom: 6px;
-            padding-top: 6px;
-            border-top: 1px solid #000;
+            margin-top: 20px;
+            margin-bottom: 8px;
+            padding-top: 5px;
+            border-top: 0.5px solid #000;
         }
         .detail-body ul {
             margin: 4px 0 10px 0;
@@ -362,7 +360,7 @@
             .hero { padding: 40px 20px 32px 20px; }
             .hero h1 { font-size: 30px; }
             .hero .hero-sub { font-size: 30px; }
-            section { padding: 0 20px 48px 20px; }
+            section { padding: 0 20px 56px 20px; }
             .hero-image { padding: 0 20px; }
             footer { padding: 48px 20px; }
             .footer-content { flex-direction: column; gap: 16px; }
@@ -370,7 +368,7 @@
         }
         @media (max-width: 480px) {
             .hero h1 { font-size: 24px; }
-            .hero .hero-sub { font-size: 24px; text-underline-offset: 3px; }
+            .hero .hero-sub { font-size: 24px; }
             .nav-links a { font-size: 10px; }
         }
     </style>
@@ -438,7 +436,7 @@
         </div>
     </div>
 
-    <h2 id="toolkit" style="margin-top: 32px;"><span>Board Deployment Toolkit</span></h2>
+    <h2 id="toolkit"><span>Board Deployment Toolkit</span></h2>
     <p style="margin-bottom: 16px;">The board does not only create vehicles. It has a full ladder of deployment tools. If the board can solve the problem with a policy, contract, reserve, or schedule, it should not form a vehicle just for atmosphere.</p>
 
     <div class="toolkit">
@@ -508,46 +506,104 @@
 
             <h4>Diagram</h4>
             <div class="diagram-inline">
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 560">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 1100">
   <defs>
     <style>
       .d1-box { fill: none; stroke: #000; stroke-width: 1.5px; }
-      .d1-box-heavy { fill: none; stroke: #000; stroke-width: 3px; }
+      .d1-box-double { fill: none; stroke: #000; stroke-width: 2px; }
       .d1-pill { fill: none; stroke: #000; stroke-width: 1.5px; }
       .d1-line { fill: none; stroke: #000; stroke-width: 1.5px; }
-      .d1-dash { fill: none; stroke: #000; stroke-dasharray: 6 4; }
       .d1-rule { fill: none; stroke: #000; stroke-width: 0.5px; }
-      .d1-label { font-family: '188 Sans Mono', 'Courier New', monospace; font-size: 11px; font-weight: 700; letter-spacing: .08em; }
-      .d1-note { font-family: '188 Sans Mono', 'Courier New', monospace; font-size: 9px; letter-spacing: .08em; }
+      .d1-label { font-family: '188 Sans Mono', 'Courier New', monospace; font-size: 12px; font-weight: 700; letter-spacing: .1em; }
+      .d1-sub { font-family: '188 Sans Mono', 'Courier New', monospace; font-size: 10px; font-weight: 700; letter-spacing: .08em; }
+      .d1-note { font-family: '188 Sans Mono', 'Courier New', monospace; font-size: 9px; letter-spacing: .06em; }
       .d1-foot { font-family: '188 Sans Mono', 'Courier New', monospace; font-size: 9px; letter-spacing: .06em; }
+      .d1-bs-label { font-family: '188 Sans Mono', 'Courier New', monospace; font-size: 10px; font-weight: 700; letter-spacing: .08em; }
+      .d1-bs-val { font-family: '188 Sans Mono', 'Courier New', monospace; font-size: 9px; letter-spacing: .06em; }
     </style>
   </defs>
-  <rect class="d1-box-heavy" x="250" y="30" width="220" height="40"/>
-  <text class="d1-label" transform="translate(303.73 55)"><tspan x="0" y="0">MARTIN GRASSER</tspan></text>
-  <rect class="d1-box" x="60" y="170" width="280" height="50"/>
-  <text class="d1-label" transform="translate(114.92 192)"><tspan x="0" y="0">CAPITAL STRUCTURES INC.</tspan></text>
-  <text class="d1-note" transform="translate(143.26 207)"><tspan x="0" y="0">PARENT / GUARANTOR</tspan></text>
-  <text class="d1-note" transform="translate(168.27 86.64)"><tspan x="0" y="0">AUTHORIZES</tspan></text>
-  <text class="d1-note" transform="translate(505.36 86.64)"><tspan x="0" y="0">PERSONALLY ACQUIRES</tspan></text>
-  <path class="d1-pill" d="M455,170h170c13.81,0,25,11.19,25,25h0c0,13.81-11.19,25-25,25h-170c-13.81,0-25-11.19-25-25h0c0-13.81,11.19-25,25-25Z"/>
-  <text class="d1-label" transform="translate(492.11 200)"><tspan x="0" y="0">CLASS B UNITS</tspan></text>
-  <path d="M195.76,305.14l-6,12-6-12h12Z"/>
-  <text class="d1-note" transform="translate(215 275)"><tspan x="0" y="0">CREATES / CONTROLS</tspan></text>
-  <rect class="d1-box" x="60" y="330" width="280" height="50"/>
-  <text class="d1-label" transform="translate(124.88 360)"><tspan x="0" y="0">PROTECTED SERIES 001</tspan></text>
-  <line class="d1-line" x1="189.76" y1="307.29" x2="189.76" y2="225.61"/>
-  <line class="d1-dash" x1="340" y1="210" x2="340" y2="330"/>
-  <text class="d1-note" transform="translate(411.51 275)"><tspan x="0" y="0">GUARANTEES PERFORMANCE</tspan></text>
-  <text class="d1-note" transform="translate(360 311.14)"><tspan x="0" y="0">ISSUES</tspan></text>
-  <line class="d1-rule" x1="60" y1="460" x2="660" y2="460"/>
-  <text class="d1-foot" transform="translate(234.86 490)"><tspan x="0" y="0">FULLY CONSOLIDATED / SELF-DEALING DISCLOSED</tspan></text>
-  <text class="d1-foot" transform="translate(60 530)"><tspan x="0" y="0">STRUCTURE 001 — IP CONTRIBUTION &amp; PRE-PAY ARCHITECTURE</tspan></text>
-  <path d="M483.51,94.15l-4.24-12.73,12.73,4.24-8.49,8.49Z"/>
-  <line class="d1-line" x1="486.23" y1="88.38" x2="543.99" y2="146.14"/>
-  <path d="M195.37,142.58l-12.73,4.24,4.24-12.73,8.49,8.49Z"/>
-  <line class="d1-line" x1="189.6" y1="139.86" x2="247.36" y2="82.1"/>
-  <path d="M415.31,231.8l12.73-4.24-4.24,12.73-8.49-8.49Z"/>
-  <line class="d1-line" x1="421.08" y1="234.52" x2="363.32" y2="292.28"/>
+
+  <!-- MARTIN GRASSER — double stroke -->
+  <rect class="d1-box-double" x="100" y="30" width="340" height="55"/>
+  <rect class="d1-box-double" x="104" y="34" width="332" height="47"/>
+  <text class="d1-label" text-anchor="middle" x="270" y="63">MARTIN GRASSER</text>
+
+  <!-- Flow labels left -->
+  <text class="d1-note" x="100" y="130">CONTRIBUTES IP</text>
+  <text class="d1-note" x="100" y="143">($10,005,000)</text>
+  <text class="d1-note" x="100" y="166">CAPITALIZES</text>
+  <text class="d1-note" x="100" y="179">($10,000)</text>
+
+  <!-- Flow labels right -->
+  <text class="d1-note" x="330" y="130">RECEIVES NOTE</text>
+  <text class="d1-note" x="330" y="143">($10,000,000)</text>
+  <text class="d1-note" x="330" y="166">+ CLASS B UNITS</text>
+  <text class="d1-note" x="330" y="179">($5,000)</text>
+
+  <!-- Arrows from Martin down -->
+  <line class="d1-line" x1="200" y1="85" x2="200" y2="210"/>
+  <polygon points="194,210 200,222 206,210" fill="#000"/>
+  <line class="d1-line" x1="340" y1="210" x2="340" y2="85"/>
+  <polygon points="334,85 340,73 346,85" fill="#000"/>
+
+  <!-- CAPITAL STRUCTURES INC. — parent -->
+  <rect class="d1-box" x="100" y="222" width="340" height="65"/>
+  <text class="d1-label" text-anchor="middle" x="270" y="255">CAPITAL STRUCTURES INC.</text>
+  <text class="d1-sub" text-anchor="middle" x="270" y="273">PARENT</text>
+
+  <!-- Arrow down to Series 001 -->
+  <line class="d1-line" x1="270" y1="287" x2="270" y2="440"/>
+  <polygon points="264,440 270,452 276,440" fill="#000"/>
+
+  <!-- CREATES / CONTROLS label -->
+  <text class="d1-note" text-anchor="middle" x="270" y="380">CREATES / CONTROLS</text>
+
+  <!-- PROTECTED SERIES 001 -->
+  <rect class="d1-box" x="100" y="452" width="340" height="65"/>
+  <text class="d1-label" text-anchor="middle" x="270" y="485">PROTECTED SERIES 001</text>
+
+  <!-- ICA-001 pill -->
+  <path class="d1-pill" d="M520,452h120c18,0,32,14,32,32s-14,32-32,32h-120c-18,0-32-14-32-32s14-32,32-32Z"/>
+  <text class="d1-label" text-anchor="middle" x="580" y="481">ICA-001</text>
+  <text class="d1-note" text-anchor="middle" x="580" y="496">IP CONTRIBUTION</text>
+  <line class="d1-line" x1="440" y1="484" x2="488" y2="484"/>
+
+  <!-- Arrow down to balance sheet -->
+  <line class="d1-line" x1="270" y1="517" x2="270" y2="570"/>
+  <polygon points="264,570 270,582 276,570" fill="#000"/>
+
+  <!-- BALANCE SHEET box -->
+  <rect class="d1-box" x="100" y="582" width="340" height="200"/>
+
+  <text class="d1-bs-label" x="120" y="610">ASSETS</text>
+  <text class="d1-bs-val" x="120" y="628">CONTRIBUTED IP $10,005,000</text>
+  <line class="d1-rule" x1="120" y1="645" x2="420" y2="645"/>
+
+  <text class="d1-bs-label" x="120" y="670">LIABILITIES</text>
+  <text class="d1-bs-val" x="120" y="688">NOTE (PN-001) $10,000,000</text>
+  <line class="d1-rule" x1="120" y1="705" x2="420" y2="705"/>
+
+  <text class="d1-bs-label" x="120" y="730">EQUITY</text>
+  <text class="d1-bs-val" x="120" y="748">CLASS B UNITS $5,000</text>
+
+  <!-- PN-001 pill -->
+  <path class="d1-pill" d="M520,630h120c18,0,32,14,32,32s-14,32-32,32h-120c-18,0-32-14-32-32s14-32,32-32Z"/>
+  <text class="d1-label" text-anchor="middle" x="580" y="659">PN-001</text>
+  <text class="d1-note" text-anchor="middle" x="580" y="674">$10,000,000 / 0%</text>
+  <line class="d1-line" x1="440" y1="662" x2="488" y2="662"/>
+
+  <!-- CLASS B UNITS pill -->
+  <path class="d1-pill" d="M520,730h120c18,0,32,14,32,32s-14,32-32,32h-120c-18,0-32-14-32-32s14-32,32-32Z"/>
+  <text class="d1-label" text-anchor="middle" x="580" y="759">CLASS B UNITS</text>
+  <text class="d1-note" text-anchor="middle" x="580" y="774">$5,000</text>
+  <line class="d1-line" x1="440" y1="762" x2="488" y2="762"/>
+
+  <!-- Bottom rule -->
+  <line class="d1-rule" x1="60" y1="880" x2="680" y2="880"/>
+
+  <!-- Footer text -->
+  <text class="d1-foot" x="60" y="920">99.95% DEBT-FINANCED / MARK-TO-MODEL / SELF-DEALING DISCLOSED</text>
+  <text class="d1-foot" x="60" y="960"><tspan font-weight="700">STRUCTURE 001</tspan> — IP CONTRIBUTION &amp; PRE-PAY ARCHITECTURE</text>
 </svg>
             </div>
 
@@ -636,7 +692,7 @@
 <section>
     <h2 id="operations"><span>Operations</span></h2>
 
-    <h2 id="method" style="margin-top: 24px;"><span>Method</span></h2>
+    <h2 id="method"><span>Method</span></h2>
     <p>Capital Structures, Inc. is a single public institution, but its structures are still read in multiple conditions.</p>
     <p>On an <strong>unconsolidated</strong> basis, a structure appears according to its formal legal boundaries, stated obligations, and authorized separations.</p>
     <p>On a <strong>consolidated</strong> basis, the same arrangement is read across guarantees, dependencies, contingent support, servicing needs, and consequence paths that persist beyond those boundaries.</p>
@@ -645,13 +701,13 @@
     <p>These are not alternate interpretations. They are alternate tests of the same structure.</p>
     <p>A published structure should look cleaner on an unconsolidated basis than on a consolidated basis, and calmer in base case than in trigger state. If neither picture changes, it is not yet a structure. It is only a document.</p>
 
-    <h2 id="standards" style="margin-top: 24px;"><span>Standards</span></h2>
+    <h2 id="standards"><span>Standards</span></h2>
     <p>A structure does not abolish exposure. It determines where exposure appears, under what name, at what cost, with what recourse, and at what distance from the originating entity.</p>
     <p><strong>Exposure is conserved.</strong> Risk displaced from one layer of a structure reappears elsewhere.</p>
     <p><strong>Disclosure is not transparency.</strong> A structure may be fully documented and still remain difficult to see.</p>
     <p><strong>The diagram is an argument.</strong> Every arrow, guarantee, exclusion, reserve, and trigger path is part of the disclosed arrangement.</p>
 
-    <h2 id="failure" style="margin-top: 24px;"><span>Failure</span></h2>
+    <h2 id="failure"><span>Failure</span></h2>
     <p>The company may allow individual structures to fail economically, but not invisibly. Failure is not the opposite of the work. Hidden failure is.</p>
     <p><strong>A structure is allowed to fail. The failure must become document, ledger, and diagram.</strong></p>
 
