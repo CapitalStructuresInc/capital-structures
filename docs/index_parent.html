@@ -540,11 +540,12 @@
   <text class="d1-note" x="330" y="166">+ CLASS B UNITS</text>
   <text class="d1-note" x="330" y="179">($5,000)</text>
 
-  <!-- Arrows from Martin down -->
+  <!-- Arrow down (contributes / capitalizes) -->
   <line class="d1-line" x1="200" y1="85" x2="200" y2="210"/>
   <polygon points="194,210 200,222 206,210" fill="#000"/>
-  <line class="d1-line" x1="340" y1="210" x2="340" y2="85"/>
-  <polygon points="334,85 340,73 346,85" fill="#000"/>
+  <!-- Arrow up (receives note / units) -->
+  <line class="d1-line" x1="340" y1="222" x2="340" y2="97"/>
+  <polygon points="334,97 340,85 346,97" fill="#000"/>
 
   <!-- CAPITAL STRUCTURES INC. — parent -->
   <rect class="d1-box" x="100" y="222" width="340" height="65"/>
@@ -632,43 +633,67 @@
 
             <h4>Diagram</h4>
             <div class="diagram-inline">
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 400">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 700">
   <defs>
     <style>
       .d2-box { fill: none; stroke: #000; stroke-width: 1.5px; }
       .d2-pill { fill: none; stroke: #000; stroke-width: 1.5px; }
       .d2-line { fill: none; stroke: #000; stroke-width: 1.5px; }
       .d2-rule { fill: none; stroke: #000; stroke-width: 0.5px; }
-      .d2-label { font-family: '188 Sans Mono', 'Courier New', monospace; font-size: 11px; font-weight: 700; letter-spacing: .08em; }
-      .d2-note { font-family: '188 Sans Mono', 'Courier New', monospace; font-size: 9px; letter-spacing: .08em; }
-      .d2-small { font-family: '188 Sans Mono', 'Courier New', monospace; font-size: 8.5px; letter-spacing: .08em; }
+      .d2-label { font-family: '188 Sans Mono', 'Courier New', monospace; font-size: 12px; font-weight: 700; letter-spacing: .1em; }
+      .d2-sub { font-family: '188 Sans Mono', 'Courier New', monospace; font-size: 10px; font-weight: 700; letter-spacing: .08em; }
+      .d2-note { font-family: '188 Sans Mono', 'Courier New', monospace; font-size: 9px; letter-spacing: .06em; }
       .d2-foot { font-family: '188 Sans Mono', 'Courier New', monospace; font-size: 9px; letter-spacing: .06em; }
     </style>
   </defs>
-  <rect class="d2-box" x="40" y="100" width="220" height="50"/>
-  <text class="d2-label" transform="translate(79.98 130)"><tspan x="0" y="0">Capital Structures, Inc.</tspan></text>
-  <rect class="d2-box" x="460" y="100" width="220" height="50"/>
-  <text class="d2-label" transform="translate(523.9 130)"><tspan x="0" y="0">VERSE.WORKS</tspan></text>
-  <path class="d2-pill" d="M310.06,105h100c11.05,0,20,8.95,20,20h0c0,11.05-8.95,20-20,20h-100c-11.05,0-20-8.95-20-20h0c0-11.05,8.95-20,20-20Z"/>
-  <text class="d2-note" transform="translate(324.43 122)"><tspan x="0" y="0">DISTRIBUTION</tspan></text>
-  <text class="d2-note" transform="translate(328.8 135)"><tspan x="0" y="0">AGREEMENT</tspan></text>
-  <line class="d2-line" x1="260" y1="125" x2="290" y2="125"/>
-  <line class="d2-line" x1="430" y1="125" x2="460" y2="125"/>
-  <line class="d2-rule" x1="40" y1="340" x2="680" y2="340"/>
-  <text class="d2-foot" transform="translate(197.86 365)"><tspan x="0" y="0">NO GOVERNANCE / NO VOTING / NO EQUITY / NOT CONSOLIDATED</tspan></text>
-  <text class="d2-foot" transform="translate(40 392)"><tspan x="0" y="0">CONTRACT 002 — VERSE.WORKS DISTRIBUTION &amp; SERVICING</tspan></text>
-  <path d="M268.06,191l-8,4,8,4v-8Z"/>
-  <path d="M268.06,221l-8,4,8,4v-8Z"/>
-  <path d="M268.06,251l-8,4,8,4v-8Z"/>
-  <path d="M452.06,286l8,4-8,4v-8Z"/>
-  <line class="d2-line" x1="268.06" y1="195" x2="456.06" y2="195"/>
-  <line class="d2-line" x1="268.06" y1="225" x2="456.06" y2="225"/>
-  <line class="d2-line" x1="268.06" y1="255" x2="456.06" y2="255"/>
-  <line class="d2-line" x1="268.06" y1="290" x2="456.06" y2="290"/>
-  <text class="d2-small" transform="translate(307.31 188)"><tspan x="0" y="0">PROMOTIONAL REACH</tspan></text>
-  <text class="d2-small" transform="translate(285.81 218)"><tspan x="0" y="0">PARTICIPANT COMMUNICATIONS</tspan></text>
-  <text class="d2-small" transform="translate(309.04 248)"><tspan x="0" y="0">STRATEGIC COUNSEL</tspan></text>
-  <text class="d2-small" transform="translate(322.94 283)"><tspan x="0" y="0">REVENUE SHARE</tspan></text>
+
+  <!-- CAPITAL STRUCTURES INC. -->
+  <rect class="d2-box" x="60" y="40" width="260" height="65"/>
+  <text class="d2-label" text-anchor="middle" x="190" y="73">CAPITAL STRUCTURES INC.</text>
+  <text class="d2-sub" text-anchor="middle" x="190" y="91">PARENT</text>
+
+  <!-- DISTRIBUTION AGREEMENT pill -->
+  <path class="d2-pill" d="M345,47h0c18,0,32,14,32,32s-14,32-32,32h0c-18,0-32-14-32-32s14-32,32-32Z"/>
+  <text class="d2-note" text-anchor="middle" x="345" y="68">DISTRIBUTION</text>
+  <text class="d2-note" text-anchor="middle" x="345" y="81">AGREEMENT</text>
+
+  <!-- Lines connecting -->
+  <line class="d2-line" x1="320" y1="72" x2="313" y2="72"/>
+  <line class="d2-line" x1="377" y1="72" x2="400" y2="72"/>
+
+  <!-- VERSE.WORKS -->
+  <rect class="d2-box" x="400" y="40" width="260" height="65"/>
+  <text class="d2-label" text-anchor="middle" x="530" y="73">VERSE.WORKS</text>
+  <text class="d2-sub" text-anchor="middle" x="530" y="91">DISTRIBUTION PARTNER</text>
+
+  <!-- Flow arrows — services flowing left (to CS) -->
+  <text class="d2-note" text-anchor="middle" x="360" y="170">PROMOTIONAL REACH</text>
+  <line class="d2-line" x1="220" y1="180" x2="500" y2="180"/>
+  <polygon points="220,180 232,175 232,185" fill="#000"/>
+
+  <text class="d2-note" text-anchor="middle" x="360" y="225">PARTICIPANT COMMUNICATIONS</text>
+  <line class="d2-line" x1="220" y1="235" x2="500" y2="235"/>
+  <polygon points="220,235 232,230 232,240" fill="#000"/>
+
+  <text class="d2-note" text-anchor="middle" x="360" y="280">STRATEGIC COUNSEL</text>
+  <line class="d2-line" x1="220" y1="290" x2="500" y2="290"/>
+  <polygon points="220,290 232,285 232,295" fill="#000"/>
+
+  <text class="d2-note" text-anchor="middle" x="360" y="335">ARCHIVE PRODUCT DISTRIBUTION</text>
+  <line class="d2-line" x1="220" y1="345" x2="500" y2="345"/>
+  <polygon points="220,345 232,340 232,350" fill="#000"/>
+
+  <!-- Flow arrow — fees flowing right (to verse) -->
+  <text class="d2-note" text-anchor="middle" x="360" y="400">REVENUE SHARE</text>
+  <line class="d2-line" x1="220" y1="410" x2="500" y2="410"/>
+  <polygon points="500,410 488,405 488,415" fill="#000"/>
+
+  <!-- Bottom rule -->
+  <line class="d2-rule" x1="60" y1="510" x2="660" y2="510"/>
+
+  <!-- Footer text -->
+  <text class="d2-foot" x="60" y="550">NO GOVERNANCE / NO VOTING / NO EQUITY / NOT CONSOLIDATED</text>
+  <text class="d2-foot" x="60" y="590"><tspan font-weight="700">CONTRACT 002</tspan> — VERSE.WORKS DISTRIBUTION &amp; SERVICING</text>
 </svg>
             </div>
 
