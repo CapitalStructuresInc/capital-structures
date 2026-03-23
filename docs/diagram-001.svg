@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 1100">
+  <defs>
+    <style>
+      text { font-family: '188 Sans', 'Courier New', monospace; }
+      .label { font-size: 14px; font-weight: 700; letter-spacing: 0.1em; }
+      .sub { font-size: 11px; font-weight: 700; letter-spacing: 0.08em; }
+      .note { font-size: 10px; letter-spacing: 0.06em; }
+      .foot { font-size: 10px; letter-spacing: 0.06em; }
+      .foot-bold { font-size: 10px; font-weight: 700; letter-spacing: 0.06em; }
+      .box { fill: none; stroke: #000; stroke-width: 1.5px; }
+      .box-outer { fill: none; stroke: #000; stroke-width: 2px; }
+      .box-inner { fill: none; stroke: #000; stroke-width: 1.5px; }
+      .pill { fill: none; stroke: #000; stroke-width: 1.5px; }
+      .line { fill: none; stroke: #000; stroke-width: 1.5px; }
+      .rule { fill: none; stroke: #000; stroke-width: 0.75px; }
+      .rule-thin { fill: none; stroke: #000; stroke-width: 0.5px; }
+    </style>
+  </defs>
+
+  <!-- ====== MARTIN GRASSER — double stroke box ====== -->
+  <rect class="box-outer" x="60" y="40" width="380" height="56"/>
+  <rect class="box-inner" x="64" y="44" width="372" height="48"/>
+  <text class="label" text-anchor="middle" x="250" y="74">MARTIN GRASSER</text>
+
+  <!-- ====== ARROWS between Martin and CS Inc ====== -->
+  <!-- Down arrow (left side — contributes/capitalizes) -->
+  <line class="line" x1="190" y1="96" x2="190" y2="250"/>
+  <polygon points="183,250 190,264 197,250" fill="#000"/>
+
+  <!-- Up arrow (right side — receives) -->
+  <line class="line" x1="310" y1="250" x2="310" y2="110"/>
+  <polygon points="303,110 310,96 317,110" fill="#000"/>
+
+  <!-- ====== FLOW LABELS ====== -->
+  <text class="note" x="60" y="145">CONTRIBUTES IP</text>
+  <text class="note" x="60" y="160">($10,005,000)</text>
+  <text class="note" x="60" y="190">CAPITALIZES</text>
+  <text class="note" x="60" y="205">($10,000)</text>
+
+  <text class="note" x="340" y="145">RECEIVES NOTE</text>
+  <text class="note" x="340" y="160">($10,000,000)</text>
+  <text class="note" x="340" y="190">+ CLASS B UNITS</text>
+  <text class="note" x="340" y="205">($5,000)</text>
+
+  <!-- ====== CAPITAL STRUCTURES INC. ====== -->
+  <rect class="box" x="60" y="264" width="380" height="70"/>
+  <text class="label" text-anchor="middle" x="250" y="298">CAPITAL STRUCTURES INC.</text>
+  <text class="sub" text-anchor="middle" x="250" y="318">PARENT</text>
+
+  <!-- ====== ARROW down to Series 001 ====== -->
+  <line class="line" x1="250" y1="334" x2="250" y2="440"/>
+
+  <!-- ====== CREATES / CONTROLS label ====== -->
+  <text class="note" x="270" y="400">CREATES / CONTROLS</text>
+
+  <!-- Arrow head -->
+  <polygon points="243,440 250,454 257,440" fill="#000"/>
+
+  <!-- ====== PROTECTED SERIES 001 ====== -->
+  <rect class="box" x="60" y="500" width="380" height="70"/>
+  <text class="label" text-anchor="middle" x="250" y="542">PROTECTED SERIES 001</text>
+
+  <!-- ====== ICA-001 pill ====== -->
+  <rect class="pill" x="500" y="505" width="230" height="60" rx="30" ry="30"/>
+  <text class="label" text-anchor="middle" x="615" y="535">ICA-001</text>
+  <text class="note" text-anchor="middle" x="615" y="552">IP CONTRIBUTION</text>
+  <!-- Connector line -->
+  <line class="line" x1="440" y1="535" x2="500" y2="535"/>
+
+  <!-- ====== ARROW down to Balance Sheet ====== -->
+  <line class="line" x1="250" y1="570" x2="250" y2="640"/>
+  <polygon points="243,640 250,654 257,640" fill="#000"/>
+
+  <!-- ====== BALANCE SHEET BOX ====== -->
+  <rect class="box" x="60" y="654" width="380" height="230"/>
+
+  <!-- Assets -->
+  <text class="sub" x="85" y="690">ASSETS</text>
+  <text class="note" x="85" y="710">CONTRIBUTED IP $10,005,000</text>
+  <line class="rule-thin" x1="85" y1="730" x2="415" y2="730"/>
+
+  <!-- Liabilities -->
+  <text class="sub" x="85" y="758">LIABILITIES</text>
+  <text class="note" x="85" y="778">NOTE (PN-001) $10,000,000</text>
+  <line class="rule-thin" x1="85" y1="798" x2="415" y2="798"/>
+
+  <!-- Equity -->
+  <text class="sub" x="85" y="826">EQUITY</text>
+  <text class="note" x="85" y="846">CLASS B UNITS $5,000</text>
+
+  <!-- ====== PN-001 pill ====== -->
+  <rect class="pill" x="500" y="738" width="230" height="60" rx="30" ry="30"/>
+  <text class="label" text-anchor="middle" x="615" y="768">PN-001</text>
+  <text class="note" text-anchor="middle" x="615" y="785">$10,000,000 / 0%</text>
+  <!-- Connector line -->
+  <line class="line" x1="440" y1="768" x2="500" y2="768"/>
+
+  <!-- ====== CLASS B UNITS pill ====== -->
+  <rect class="pill" x="500" y="828" width="230" height="60" rx="30" ry="30"/>
+  <text class="label" text-anchor="middle" x="615" y="858">CLASS B UNITS</text>
+  <text class="note" text-anchor="middle" x="615" y="875">$5,000</text>
+  <!-- Connector line -->
+  <line class="line" x1="440" y1="858" x2="500" y2="858"/>
+
+  <!-- ====== FOOTER ====== -->
+  <line class="rule" x1="60" y1="940" x2="740" y2="940"/>
+  <text class="foot" x="60" y="975">99.95% DEBT-FINANCED / MARK-TO-MODEL / SELF-DEALING DISCLOSED</text>
+  <text class="foot-bold" x="60" y="1005">STRUCTURE 001 — IP CONTRIBUTION &amp; PRE-PAY ARCHITECTURE</text>
+
+</svg>

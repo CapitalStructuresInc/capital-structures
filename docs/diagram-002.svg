@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 680">
+  <defs>
+    <style>
+      text { font-family: '188 Sans', 'Courier New', monospace; }
+      .label { font-size: 14px; font-weight: 700; letter-spacing: 0.1em; }
+      .sub { font-size: 11px; font-weight: 700; letter-spacing: 0.08em; }
+      .note { font-size: 10px; letter-spacing: 0.06em; }
+      .foot { font-size: 10px; letter-spacing: 0.06em; }
+      .foot-bold { font-size: 10px; font-weight: 700; letter-spacing: 0.06em; }
+      .box { fill: none; stroke: #000; stroke-width: 1.5px; }
+      .pill { fill: none; stroke: #000; stroke-width: 1.5px; }
+      .line { fill: none; stroke: #000; stroke-width: 1.5px; }
+      .rule { fill: none; stroke: #000; stroke-width: 0.75px; }
+    </style>
+  </defs>
+
+  <!-- ====== CAPITAL STRUCTURES INC. ====== -->
+  <rect class="box" x="60" y="40" width="260" height="70"/>
+  <text class="label" text-anchor="middle" x="190" y="74">CAPITAL STRUCTURES INC.</text>
+  <text class="sub" text-anchor="middle" x="190" y="94">PARENT</text>
+
+  <!-- ====== DISTRIBUTION AGREEMENT pill ====== -->
+  <rect class="pill" x="340" y="47" width="140" height="56" rx="28" ry="28"/>
+  <text class="note" text-anchor="middle" x="410" y="72">DISTRIBUTION</text>
+  <text class="note" text-anchor="middle" x="410" y="86">AGREEMENT</text>
+
+  <!-- Connector lines -->
+  <line class="line" x1="320" y1="75" x2="340" y2="75"/>
+  <line class="line" x1="480" y1="75" x2="500" y2="75"/>
+
+  <!-- ====== VERSE.WORKS ====== -->
+  <rect class="box" x="500" y="40" width="240" height="70"/>
+  <text class="label" text-anchor="middle" x="620" y="74">VERSE.WORKS</text>
+  <text class="sub" text-anchor="middle" x="620" y="94">DISTRIBUTION PARTNER</text>
+
+  <!-- ====== FLOW ARROWS ====== -->
+
+  <!-- Promotional Reach — left arrow -->
+  <text class="note" text-anchor="middle" x="400" y="175">PROMOTIONAL REACH</text>
+  <line class="line" x1="200" y1="188" x2="600" y2="188"/>
+  <polygon points="200,188 214,182 214,194" fill="#000"/>
+
+  <!-- Participant Communications — left arrow -->
+  <text class="note" text-anchor="middle" x="400" y="240">PARTICIPANT COMMUNICATIONS</text>
+  <line class="line" x1="200" y1="253" x2="600" y2="253"/>
+  <polygon points="200,253 214,247 214,259" fill="#000"/>
+
+  <!-- Strategic Counsel — left arrow -->
+  <text class="note" text-anchor="middle" x="400" y="305">STRATEGIC COUNSEL</text>
+  <line class="line" x1="200" y1="318" x2="600" y2="318"/>
+  <polygon points="200,318 214,312 214,324" fill="#000"/>
+
+  <!-- Archive Product Distribution — left arrow -->
+  <text class="note" text-anchor="middle" x="400" y="370">ARCHIVE PRODUCT DISTRIBUTION</text>
+  <line class="line" x1="200" y1="383" x2="600" y2="383"/>
+  <polygon points="200,383 214,377 214,389" fill="#000"/>
+
+  <!-- Revenue Share — right arrow -->
+  <text class="note" text-anchor="middle" x="400" y="435">REVENUE SHARE</text>
+  <line class="line" x1="200" y1="448" x2="600" y2="448"/>
+  <polygon points="600,448 586,442 586,454" fill="#000"/>
+
+  <!-- ====== FOOTER ====== -->
+  <line class="rule" x1="60" y1="520" x2="740" y2="520"/>
+  <text class="foot" x="60" y="555">NO GOVERNANCE / NO VOTING / NO EQUITY / NOT CONSOLIDATED</text>
+  <text class="foot-bold" x="60" y="585">CONTRACT 002 — VERSE.WORKS DISTRIBUTION &amp; SERVICING</text>
+
+</svg>
