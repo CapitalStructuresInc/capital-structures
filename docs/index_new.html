@@ -45,9 +45,8 @@
             border-bottom: 1px solid #000;
         }
         .nav-inner {
-            max-width: 1100px;
-            margin: 0 auto;
-            padding: 16px 40px;
+            width: 100%;
+            padding: 16px 3vw;
             display: flex;
             align-items: baseline;
             justify-content: space-between;
@@ -74,175 +73,106 @@
 
         /* —— Hero —— */
         .hero {
-            max-width: 1100px;
-            margin: 0 auto;
-            padding: 120px 40px 80px 40px;
-        }
-        .hero h1 {
-            font-size: 64px;
-            font-weight: bold;
-            line-height: 1.0;
-            letter-spacing: -0.03em;
-            margin-bottom: 16px;
-        }
-        .hero h2 {
-            font-size: 32px;
-            font-weight: normal;
-            line-height: 1.2;
-            letter-spacing: -0.01em;
-            margin-bottom: 48px;
-            max-width: 700px;
-        }
-        .hero-meta {
-            display: flex;
-            gap: 48px;
-            font-size: 13px;
-            letter-spacing: 0.02em;
-        }
-        .hero-meta dt {
-            font-weight: bold;
-            text-transform: uppercase;
-            font-size: 10px;
-            letter-spacing: 0.08em;
-            margin-bottom: 2px;
-        }
-        .hero-meta dd { margin: 0; }
-
-        /* —— Sections —— */
-        section {
-            max-width: 1100px;
-            margin: 0 auto;
-            padding: 0 40px 80px 40px;
-        }
-        section h3 {
-            font-size: 28px;
-            font-weight: bold;
-            letter-spacing: -0.01em;
-            margin-bottom: 20px;
-        }
-        section p {
-            font-size: 16px;
-            line-height: 1.6;
-            max-width: 680px;
-            margin-bottom: 16px;
-        }
-        section p:last-child { margin-bottom: 0; }
-
-        /* —— Status Board —— */
-        .status-board {
-            display: grid;
-            grid-template-columns: 1fr 1fr 1fr;
-            gap: 1px;
-            background: #000;
-            margin-bottom: 48px;
-            max-width: 100%;
-        }
-        .status-cell {
-            background: #fff;
-            padding: 20px 24px;
-        }
-        .status-label {
-            font-size: 10px;
-            font-weight: bold;
-            letter-spacing: 0.08em;
-            text-transform: uppercase;
-            color: #666;
-            margin-bottom: 4px;
-        }
-        .status-value {
-            font-size: 18px;
-            font-weight: bold;
-            letter-spacing: -0.01em;
-        }
-        .status-note {
-            font-size: 12px;
-            color: #666;
-            margin-top: 2px;
-        }
-
-        /* —— Structure Cards —— */
-        .structures {
+            width: 100%;
+            padding: 0 3vw;
+            padding-bottom: 12vh;
+            min-height: calc(100vh - 52px);
             display: flex;
             flex-direction: column;
-            gap: 2px;
-            margin-top: 24px;
+            justify-content: center;
         }
-        .structure-card {
-            border: 1.5px solid #000;
-            padding: 28px 32px;
-            display: flex;
-            justify-content: space-between;
-            align-items: flex-start;
-            cursor: pointer;
-            transition: background 0.1s;
+        .hero h1 {
+            font-size: 16vw;
+            font-weight: normal;
+            line-height: 0.83;
+            letter-spacing: -0.04em;
+            margin-bottom: 0;
         }
-        .structure-card:hover { background: #f8f8f8; }
-        .structure-id {
-            font-size: 11px;
-            font-weight: bold;
-            letter-spacing: 0.06em;
-            color: #666;
-            margin-bottom: 4px;
-        }
-        .structure-name {
-            font-size: 20px;
-            font-weight: bold;
-            letter-spacing: -0.01em;
-            margin-bottom: 6px;
-        }
-        .structure-desc {
-            font-size: 14px;
-            line-height: 1.5;
-            max-width: 520px;
-            color: #333;
-        }
-        .structure-status {
-            font-size: 11px;
-            font-weight: bold;
-            letter-spacing: 0.06em;
-            text-transform: uppercase;
-            white-space: nowrap;
-            padding: 4px 12px;
-            border: 1px solid #000;
-        }
-
-        /* —— Diagram Section —— */
-        .diagram-section {
-            margin-top: 32px;
-            margin-bottom: 32px;
-        }
-        .diagram-section img {
-            width: 100%;
-            max-width: 800px;
-            height: auto;
+        .hero h1 span {
             display: block;
         }
 
-        /* —— How It Works —— */
-        .steps {
+        /* —— Lede —— */
+        .lede {
+            min-height: 100vh;
+            padding: 0 3vw;
+            border-top: 1px solid #000;
             display: flex;
             flex-direction: column;
-            gap: 0;
-            margin-top: 24px;
-            max-width: 680px;
+            justify-content: center;
         }
-        .step {
+        .lede p {
+            font-size: 4.5vw;
+            font-weight: normal;
+            line-height: 1.15;
+            letter-spacing: -0.02em;
+            max-width: 70vw;
+            margin: 0 0 80px 0;
+        }
+        .cities {
+            font-size: 1.2vw;
+            letter-spacing: 0.06em;
+            color: #666;
+        }
+
+        /* —— Module (full-height sections) —— */
+        .module {
+            min-height: 100vh;
+            width: 100%;
+            padding: 0 3vw;
+            border-top: 1px solid #000;
             display: flex;
-            gap: 20px;
-            padding: 20px 0;
-            border-bottom: 0.5px solid #ccc;
+            flex-direction: column;
+            justify-content: center;
         }
-        .step:first-child { border-top: 0.5px solid #ccc; }
-        .step-num {
-            font-size: 28px;
+        .module-header {
+            font-size: 4.5vw;
+            font-weight: normal;
+            line-height: 1.1;
+            letter-spacing: -0.02em;
+            max-width: 70vw;
+            margin-bottom: 64px;
+        }
+        .module-body {
+            font-size: 1.4vw;
+            line-height: 1.6;
+            max-width: 50vw;
+            color: #333;
+        }
+        .module-body p {
+            margin-bottom: 1em;
+        }
+        .module-body p:last-child { margin-bottom: 0; }
+        .module-label {
+            font-size: 11px;
             font-weight: bold;
-            color: #ccc;
-            flex-shrink: 0;
-            width: 40px;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            color: #999;
+            margin-bottom: 32px;
         }
-        .step-text {
-            font-size: 16px;
-            line-height: 1.5;
+
+        /* —— Stats Grid —— */
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 0;
+            margin-top: 64px;
+        }
+        .stat {
+            padding: 32px 0;
+            border-top: 1px solid #ddd;
+        }
+        .stat-value {
+            font-size: 3vw;
+            font-weight: normal;
+            letter-spacing: -0.02em;
+            margin-bottom: 8px;
+        }
+        .stat-label {
+            font-size: 1vw;
+            letter-spacing: 0.04em;
+            color: #666;
         }
 
         /* —— Links / CTA —— */
@@ -255,17 +185,16 @@
             color: #000;
             text-decoration: none;
             border: 1.5px solid #000;
-            padding: 12px 28px;
-            margin-top: 24px;
+            padding: 14px 32px;
+            margin-top: 48px;
             transition: background 0.1s, color 0.1s;
         }
         .cta:hover { background: #000; color: #fff; }
 
         /* —— Footer —— */
         footer {
-            max-width: 1100px;
-            margin: 0 auto;
-            padding: 48px 40px;
+            width: 100%;
+            padding: 48px 3vw;
             border-top: 1px solid #000;
         }
         .footer-content {
@@ -291,18 +220,16 @@
 
         /* —— Responsive —— */
         @media (max-width: 768px) {
-            .hero { padding: 64px 20px 48px 20px; }
-            .hero h1 { font-size: 36px; }
-            .hero h2 { font-size: 22px; }
-            .hero-meta { flex-direction: column; gap: 16px; }
-            section { padding: 0 20px 56px 20px; }
-            section h3 { font-size: 22px; }
-            .nav-inner { padding: 12px 20px; }
+            .hero h1 { font-size: 16vw; }
             .nav-links { gap: 16px; }
             .nav-status { display: none; }
-            .status-board { grid-template-columns: 1fr; }
-            .structure-card { flex-direction: column; gap: 16px; }
-            footer { padding: 32px 20px; }
+            .module-header { font-size: 7vw; max-width: 90vw; }
+            .module-body { font-size: 16px; max-width: 90vw; }
+            .lede p { font-size: 7vw; max-width: 90vw; }
+            .cities { font-size: 12px; }
+            .stats { grid-template-columns: 1fr; }
+            .stat-value { font-size: 8vw; }
+            .stat-label { font-size: 13px; }
             .footer-content { flex-direction: column; gap: 16px; }
         }
     </style>
@@ -313,9 +240,9 @@
     <div class="nav-inner">
         <a href="#" class="nav-name">Capital Structures, Inc.</a>
         <div class="nav-links">
-            <a href="#structures">Structures</a>
+            <a href="#platform">Platform</a>
             <a href="#participate">Participate</a>
-            <a href="#status">Status</a>
+            <a href="#growth">Growth</a>
             <a href="index_parent.html">Operations</a>
         </div>
         <span class="nav-status">Delaware C-Corp &middot; Est. 2025</span>
@@ -324,174 +251,81 @@
 
 <!-- Hero -->
 <div class="hero">
-    <h1>The world&rsquo;s leading company.</h1>
-    <h2>Capital Structures, Inc. is a public company whose cap table, treasury, structures, and disclosed failure paths are the medium of the work.</h2>
-
-    <dl class="hero-meta">
-        <div>
-            <dt>Entity</dt>
-            <dd>Delaware C-Corporation</dd>
-        </div>
-        <div>
-            <dt>Offering</dt>
-            <dd>Regulation Crowdfunding (Reg CF)</dd>
-        </div>
-        <div>
-            <dt>Gallery</dt>
-            <dd>verse.works</dd>
-        </div>
-        <div>
-            <dt>Objective</dt>
-            <dd>NASDAQ listing via reverse acquisition</dd>
-        </div>
-    </dl>
+    <h1><span>The world&rsquo;s</span><span>leading</span><span>company.</span></h1>
 </div>
 
-<!-- Status Board -->
-<section id="status">
-    <h3>Current Status</h3>
+<!-- Lede -->
+<section class="lede">
+    <p>We are reimagining how capital is structured, how risk is disclosed, and how markets function.</p>
+    <div class="cities">San Francisco, Los Angeles, New York, Dallas, Amsterdam, Hong Kong, Tokyo</div>
+</section>
 
-    <div class="status-board">
-        <div class="status-cell">
-            <div class="status-label">State</div>
-            <div class="status-value">Pre-Offering</div>
-            <div class="status-note">Founder-only</div>
+<!-- Platform -->
+<div class="module" id="platform">
+    <div class="module-label">Platform</div>
+    <div class="module-header">We design, execute, and deploy capital structures at scale.</div>
+    <div class="module-body">
+        <p>Every structure is built from the same proven components &mdash; series vehicles, promissory notes, contribution agreements, servicing contracts, treasury policy. We assemble them faster, disclose them more completely, and operate them more transparently than any firm in the world.</p>
+    </div>
+    <div class="stats">
+        <div class="stat">
+            <div class="stat-value">1</div>
+            <div class="stat-label">Structures deployed</div>
         </div>
-        <div class="status-cell">
-            <div class="status-label">Participants</div>
-            <div class="status-value">1</div>
-            <div class="status-note">Martin Grasser &middot; Class A</div>
+        <div class="stat">
+            <div class="stat-value">$10M</div>
+            <div class="stat-label">Notes issued</div>
         </div>
-        <div class="status-cell">
-            <div class="status-label">Treasury</div>
-            <div class="status-value">$10,000</div>
-            <div class="status-note">Formation capital</div>
-        </div>
-        <div class="status-cell">
-            <div class="status-label">Structures</div>
-            <div class="status-value">1</div>
-            <div class="status-note">Structure 001 authorized</div>
-        </div>
-        <div class="status-cell">
-            <div class="status-label">Contracts</div>
-            <div class="status-value">1</div>
-            <div class="status-note">verse.works &middot; Proposed</div>
-        </div>
-        <div class="status-cell">
-            <div class="status-label">Formation Queue</div>
-            <div class="status-value">8</div>
-            <div class="status-note">Ideas proposed</div>
+        <div class="stat">
+            <div class="stat-value">100%</div>
+            <div class="stat-label">Disclosed</div>
         </div>
     </div>
-</section>
+</div>
 
-<!-- Structures -->
-<section id="structures">
-    <h3>Structures</h3>
-    <p>Every structure the company builds is documented and published in full. The back office is open. The governance is public. The diagrams are the product.</p>
-
-    <div class="structures">
-        <div class="structure-card" onclick="document.getElementById('diagram-001').style.display = document.getElementById('diagram-001').style.display === 'none' ? 'block' : 'none'">
-            <div>
-                <div class="structure-id">STRUCTURE 001</div>
-                <div class="structure-name">IP Contribution &amp; Pre-Pay Architecture</div>
-                <div class="structure-desc">Martin Grasser contributes all intellectual property to Protected Series 001. In return, Series 001 issues a $10,000,000 Promissory Note and $5,000 in Class B Units. 99.95% debt-financed. Self-dealing disclosed.</div>
-            </div>
-            <div class="structure-status">Authorized</div>
-        </div>
-        <div class="diagram-section" id="diagram-001" style="display: none; padding: 32px;">
-            <img src="diagram-001.svg" alt="Structure 001 Diagram">
-        </div>
-
-        <div class="structure-card" onclick="document.getElementById('diagram-002').style.display = document.getElementById('diagram-002').style.display === 'none' ? 'block' : 'none'">
-            <div>
-                <div class="structure-id">CONTRACT 002</div>
-                <div class="structure-name">verse.works Distribution &amp; Servicing</div>
-                <div class="structure-desc">verse.works as presentation, distribution, and servicing partner. Contingent revenue share on archive product sales. No fixed fees. No equity. No governance authority.</div>
-            </div>
-            <div class="structure-status">Proposed</div>
-        </div>
-        <div class="diagram-section" id="diagram-002" style="display: none; padding: 32px;">
-            <img src="diagram-002.svg" alt="Contract 002 Diagram">
-        </div>
+<!-- Participate -->
+<div class="module" id="participate">
+    <div class="module-label">Participate</div>
+    <div class="module-header">Own a position in the company that is building the future of capital markets.</div>
+    <div class="module-body">
+        <p>Capital Structures will offer securities to the public through Regulation Crowdfunding. Anyone can participate. Your capital enters the parent company&rsquo;s treasury. You appear on the Participant Ledger. You receive real securities in a real Delaware C-Corporation.</p>
+        <p>The board deploys that capital into operations, contracts, reserves, and purpose structures. You watch it happen in real time. Every transaction documented. Every structure published.</p>
+        <a href="index_parent.html" class="cta">View Full Operations</a>
     </div>
-</section>
+</div>
 
-<!-- How to Participate -->
-<section id="participate">
-    <h3>How to Participate</h3>
-    <p>Participants capitalize the parent company. You are not buying a separate art project. You are buying a position inside a real corporation whose public administration is the artwork.</p>
-
-    <div class="steps">
-        <div class="step">
-            <div class="step-num">1</div>
-            <div class="step-text">The Company lists on a Reg CF portal. Anyone can participate.</div>
-        </div>
-        <div class="step">
-            <div class="step-num">2</div>
-            <div class="step-text">Your capital enters the parent company&rsquo;s treasury.</div>
-        </div>
-        <div class="step">
-            <div class="step-num">3</div>
-            <div class="step-text">You appear on the Participant Ledger &mdash; a public record.</div>
-        </div>
-        <div class="step">
-            <div class="step-num">4</div>
-            <div class="step-text">You receive parent-level securities. Real securities. No voting rights, no dividends, no liquidation preference.</div>
-        </div>
-        <div class="step">
-            <div class="step-num">5</div>
-            <div class="step-text">The board deploys treasury into operations, contracts, reserves, and purpose structures. You watch it happen.</div>
-        </div>
+<!-- Growth -->
+<div class="module" id="growth">
+    <div class="module-label">Growth</div>
+    <div class="module-header">NASDAQ.</div>
+    <div class="module-body">
+        <p>The Board has adopted a long-term objective of listing the Company&rsquo;s securities on a national securities exchange. The preferred path is reverse acquisition of an existing publicly listed company. We intend to be the first company of our kind to achieve this.</p>
+        <a href="res-2026-006.html" class="cta">Read Resolution RES-2026-006</a>
     </div>
+</div>
 
-    <p style="margin-top: 32px; font-size: 14px; color: #666;">No securities are currently being offered. The offering will be conducted through a Reg CF portal in compliance with applicable securities laws.</p>
-</section>
-
-<!-- What the Board Does -->
-<section>
-    <h3>What the Board Does With Capital</h3>
-    <p>The board does not only create entities. It has a full ladder of deployment tools. Most board actions are not entity formation. They are operating spend, contracts, reserves, and policy.</p>
-    <p>Purpose structures are formed only when the company needs a new boundary around ownership, liability, cash flow, or reporting. If deleting the structure changes only the poetry, it should not be a legal entity.</p>
-
-    <a href="index_parent.html#toolkit" class="cta">View Full Deployment Toolkit</a>
-</section>
-
-<!-- Failure -->
-<section>
-    <h3>Failure Is Part of the Work</h3>
-    <p>The company may allow individual structures to fail economically, but not invisibly. A structure is allowed to fail. The failure must become document, ledger, and diagram.</p>
-    <p>The Company may never generate profit and may intentionally dissolve at a moment determined to be structurally complete.</p>
-</section>
-
-<!-- Forward-Looking -->
-<section>
-    <h3>NASDAQ</h3>
-    <p>The Board has adopted a long-term objective of listing the Company&rsquo;s securities on a national securities exchange. The preferred path is reverse acquisition of an existing publicly listed company.</p>
-    <p>No timeline has been adopted. The Company may pursue it actively, passively, opportunistically, or not at all.</p>
-
-    <a href="res-2026-006.html" class="cta">Read Resolution RES-2026-006</a>
-</section>
-
-<!-- Operations Link -->
-<section>
-    <h3>Operations</h3>
-    <p>The Company&rsquo;s full operational record &mdash; doctrine, method, standards, failure levels, formation queue, governance, glossary &mdash; is published and maintained.</p>
-
-    <a href="index_parent.html" class="cta">View Full Operations</a>
-    <a href="https://github.com/CapitalStructuresInc/capital-structures" class="cta" style="margin-left: 12px;">GitHub Repository</a>
-</section>
+<!-- Transparency -->
+<div class="module" id="transparency">
+    <div class="module-label">Transparency</div>
+    <div class="module-header">Every document. Every diagram. Every transaction. Published.</div>
+    <div class="module-body">
+        <p>Our governance, our structures, our agent infrastructure, our board resolutions, our failure paths &mdash; all of it is public. The back office is open source. The balance sheet is the product.</p>
+        <a href="https://github.com/CapitalStructuresInc/capital-structures" class="cta">GitHub Repository</a>
+        <a href="index_parent.html" class="cta" style="margin-left: 12px;">Operations</a>
+    </div>
+</div>
 
 <footer>
     <div class="footer-content">
         <div class="footer-left">
             <div>Capital Structures, Inc.</div>
-            <div>Wilmington, Delaware</div>
-            <div class="footer-legal">No securities are currently being offered. Nothing on this site constitutes an offer to sell or a solicitation of an offer to buy any security. The Company may never generate profit and may intentionally dissolve.</div>
+            <div>Delaware C-Corporation &middot; Est. 2025</div>
+            <div class="footer-legal">No securities are currently being offered. Nothing on this site constitutes an offer to sell or a solicitation of an offer to buy any security.</div>
         </div>
         <div class="footer-links">
-            <a href="#structures">Structures</a>
+            <a href="#platform">Platform</a>
             <a href="#participate">Participate</a>
+            <a href="#growth">Growth</a>
             <a href="index_parent.html">Operations</a>
             <a href="https://github.com/CapitalStructuresInc/capital-structures">GitHub</a>
         </div>
