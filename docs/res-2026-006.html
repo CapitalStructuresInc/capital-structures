@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>RES-2026-006 — Capital Structures Inc.</title>
 <style>
   * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -42,6 +43,22 @@
   .sig-line .title { font-size: 10pt; }
   .sig-line .company-name { font-size: 10pt; }
   .doc-footer { margin-top: 32pt; text-align: center; font-size: 9pt; color: #666; border-top: 0.75pt solid #ccc; padding-top: 8pt; }
+  @media (max-width: 768px) {
+    body {
+      max-width: 100%;
+      padding: 24px 20px;
+      font-size: 10pt;
+    }
+    .doc-header .company { font-size: 11pt; letter-spacing: 0.08em; }
+    .doc-header .doc-title { font-size: 10pt; }
+    .doc-header .doc-meta { font-size: 9pt; }
+    .whereas, .resolved, .resolved-further {
+      margin-left: 0;
+      text-indent: 0;
+      padding-left: 0;
+    }
+    .sig-line .line { width: 100%; }
+  }
   @media print {
     body { padding: 0.75in 1in; }
   }
