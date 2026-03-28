@@ -220,16 +220,53 @@
 
         /* —— Responsive —— */
         @media (max-width: 768px) {
-            .hero h1 { font-size: 16vw; }
-            .nav-links { gap: 16px; }
+            /* Nav: stack name above links, hamburger-free */
+            .nav-inner {
+                flex-wrap: wrap;
+                padding: 12px 5vw;
+                gap: 8px;
+            }
+            .nav-name {
+                width: 100%;
+                font-size: 11px;
+            }
+            .nav-links {
+                gap: 14px;
+                width: 100%;
+            }
+            .nav-links a { font-size: 11px; }
             .nav-status { display: none; }
-            .module-header { font-size: 7vw; max-width: 90vw; }
-            .module-body { font-size: 16px; max-width: 90vw; }
-            .lede p { font-size: 7vw; max-width: 90vw; }
+
+            /* Hero: push type bigger, pin to bottom of viewport */
+            .hero {
+                padding: 0 5vw;
+                padding-bottom: 8vh;
+                justify-content: flex-end;
+            }
+            .hero h1 {
+                font-size: 21vw;
+                line-height: 0.85;
+            }
+
+            /* Lede */
+            .lede {
+                padding: 0 5vw;
+            }
+            .lede p { font-size: 8vw; max-width: 90vw; }
             .cities { font-size: 12px; }
+
+            /* Modules */
+            .module { padding: 0 5vw; }
+            .module-header { font-size: 8vw; max-width: 90vw; }
+            .module-body { font-size: 16px; max-width: 90vw; }
+
+            /* Stats */
             .stats { grid-template-columns: 1fr; }
             .stat-value { font-size: 8vw; }
             .stat-label { font-size: 13px; }
+
+            /* Footer */
+            footer { padding: 48px 5vw; }
             .footer-content { flex-direction: column; gap: 16px; }
         }
     </style>
